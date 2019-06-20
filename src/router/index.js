@@ -1,15 +1,58 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from "vue"
+import Router from "vue-router"
+import HelloWorld from "@/components/HelloWorld"
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: "hash",
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
+      path: "/",
+      name: "HelloWorld",
       component: HelloWorld
     }
   ]
 })
+
+// 路由守卫
+
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.auth) {
+//     // 判断该路由是否需要登录权限
+//     if (localStorage.getItem("token")) {
+//       //判断本地是否存在token
+//       next()
+//     } else {
+//       if (to.path === "/login") {
+//         next()
+//       } else {
+//         next({
+//           path: "/login"
+//         })
+//       }
+//     }
+//   } else {
+//     next()
+//   }
+//   /*如果本地 存在 token 则 不允许直接跳转到 登录页面*/
+//   if (to.fullPath == "/login") {
+//     if (localStorage.getItem("token")) {
+//       next({
+//         path: from.fullPath
+//       })
+//     } else {
+//       next()
+//     }
+//   }
+// })
+
+// //改变title值
+// router.beforeEach((to, form, next) => {
+//   if (to.meta.title) {
+//     document.title = to.meta.title
+//   }
+//   next()
+// })
+
+export default router
