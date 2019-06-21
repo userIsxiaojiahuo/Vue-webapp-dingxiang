@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Router from "vue-router"
-import HelloWorld from "@/components/HelloWorld"
+import Index from "../page/index.vue"
 
 Vue.use(Router)
 
@@ -8,9 +8,14 @@ const router = new Router({
   mode: "hash",
   routes: [
     {
-      path: "/",
-      name: "HelloWorld",
-      component: HelloWorld
+      path:"/",
+      name:"Index",
+      component:Index
+    },
+    {
+      path: "/index",
+      name: "Index",
+      component: Index
     }
   ]
 })
