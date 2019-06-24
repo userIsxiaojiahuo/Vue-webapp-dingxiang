@@ -1,24 +1,19 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "../page/index.vue"
+import mine from "../page/mine"
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
-  mode: "hash",
+  mode: "history",
   routes: [
     {
-      path:"/",
-      name:"Index",
-      component:Index
-    },
-    {
-      path: "/index",
-      name: "Index",
-      component: Index
+      path: "/mine",
+      name: "mine",
+      component: mine
     }
   ]
-})
+});
 
 // 路由守卫
 
