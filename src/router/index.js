@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "../page/index.vue"
+import OnLineBuy from "../page/onLineBuy"
+import OnLineBuyDrugList from "../page/onLineBuyDrugList"
 
 Vue.use(Router)
 
@@ -8,15 +9,15 @@ const router = new Router({
   mode: "hash",
   routes: [
     {
-      path:"/",
-      name:"Index",
-      component:Index
+      path:"/onLineBuy",
+      name:"onLineBuy",
+      component:OnLineBuy
     },
-    {
-      path: "/index",
-      name: "Index",
-      component: Index
-    }
+		{
+		  path:"/buyDrugList",
+		  name:"onLineBuyDrugList",
+		  component:OnLineBuyDrugList
+		}
   ]
 })
 
