@@ -6,7 +6,12 @@
 			<OnLineBuyListHeaber :onLineSearch="search"/>
 		</HeaderReturn>
 		<!-- 药品列表 -->
-		<OnLIneBuyDrugListUl/>
+		<OnLineBuyDrugListUl :drugList="drug"/>
+		<!-- 药品列表底部购物车和购买按钮 -->
+		<OnLineBuyFoot>
+			<!-- 在线购药底部购物车按钮的图片和内容 -->
+			<OnLineFootCratBtu/>
+		</OnLineBuyFoot>
 	</div>
 </template>
 
@@ -16,14 +21,20 @@
 	/* 搜索 */ 
 	import OnLineBuyListHeaber from '../components/onLIneBuyDrugList/onLineBuyListHeaber.vue'
 	/* 药品列表 */
-	import OnLIneBuyDrugListUl from '../components/onLIneBuyDrugList/onLIneBuyDrugListUl.vue'
+	import OnLineBuyDrugListUl from '../components/onLIneBuyDrugList/onLineBuyDrugListUl.vue'
+	/* 药品列表底部购物车和购买按钮 */
+	import OnLineBuyFoot from '../common/onLineBuyFoot.vue'
+	/* 在线购药底部购物车按钮的图片和内容 */
+	import OnLineFootCratBtu from '../components/onLIneBuyDrugList/onLineFootCratBtu.vue'
 	/* 本组件在线购药药品列表 */
 	export default{
 		name:"onLIneBuyDrugList",
 		components:{
 			HeaderReturn,
 			OnLineBuyListHeaber,
-			OnLIneBuyDrugListUl
+			OnLineBuyDrugListUl,
+			OnLineBuyFoot,
+			OnLineFootCratBtu
 		},
 		data(){
 			return{
@@ -32,10 +43,29 @@
 					ico:require("../assets/onlineImg/ic_titlebar_back.png")
 				},
 				search:{
-					// pic:require("../../assets/onLineImg/ic_search_after.png"),
 					pic:require("../assets/onLineImg/ic_search_after.png"),
 					title:"痘痘"
-				}
+				},
+				drug:[
+					{
+						pic:require("../assets/onLineImg/drug-1.png"),
+						isPrescription:true,
+						drugName:"泰尔丝(异维A酸胶丸)",
+						drugpackage:"10mgx20粒/盒",
+						indications:"适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
+						drugPirce:35.60,
+						drugNum:0
+					},
+					{
+						pic:require("../assets/onLineImg/drug-1.png"),
+						isPrescription:false,
+						drugName:"泰尔丝(异维A酸胶丸)",
+						drugpackage:"10mgx20粒/盒",
+						indications:"适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
+						drugPirce:35.60,
+						drugNum:0
+					}
+				]
 			}
 		}
 	}

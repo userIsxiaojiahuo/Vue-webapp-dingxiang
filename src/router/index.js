@@ -2,6 +2,8 @@ import Vue from "vue"
 import Router from "vue-router"
 import OnLineBuy from "../page/onLineBuy"
 import OnLineBuyDrugList from "../page/onLineBuyDrugList"
+import DrugDetails from "../page/drugDetails"
+import Cart from "../page/cart"
 
 Vue.use(Router)
 
@@ -17,6 +19,16 @@ const router = new Router({
 		  path:"/buyDrugList",
 		  name:"onLineBuyDrugList",
 		  component:OnLineBuyDrugList
+		},
+		{
+		  path:"/drugDetails",
+		  name:"drugDetails",
+		  component:DrugDetails
+		},
+		{
+		  path:"/cart",
+		  name:"cart",
+		  component:Cart
 		}
   ]
 })
