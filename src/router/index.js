@@ -1,6 +1,9 @@
 import Vue from "vue"
 import Router from "vue-router"
 import mine from "../page/mine"
+import home from "../page/home"
+import indexSearch from "../page/indexSearch"
+import login from "../page/login"
 
 Vue.use(Router);
 
@@ -8,13 +11,46 @@ const router = new Router({
   mode: "history",
   routes: [
     {
+      path: "/",
+      redirect: '/home',
+      meta: {
+        footerIsShow: true
+      }
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: home,
+      meta: {
+        footerIsShow: true
+      }
+    },
+    {
       path: "/mine",
       name: "mine",
-      component: mine
+      component: mine,
+      meta: {
+        footerIsShow: true
+      }
+    },
+    {
+      path: "/indexSearch",
+      name: "indexSearch",
+      component: indexSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: login,
+      meta: {
+        footerIsShow: false
+      }
     }
   ]
 });
-
 // 路由守卫
 
 // router.beforeEach((to, from, next) => {

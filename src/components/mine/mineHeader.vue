@@ -2,11 +2,13 @@
   <div class="mineHeader">
     <!--用户登录注册-->
     <div class="loginOrRegister">
-      <div class="userPortrait">
-        <img class="imgAuto" src="../../../static/mine/img/ic_male.png" alt="">
-      </div>
-      <div class="loginWrapper">
-        <h1>登录/注册</h1>
+      <div class="intoRegister" @click="isLogin()">
+        <div class="userPortrait">
+          <img class="imgAuto" src="../../assets/img/mine/ic_male.png" alt="">
+        </div>
+        <div class="loginWrapper">
+          <h1>登录/注册</h1>
+        </div>
       </div>
     </div>
     <!--用户信息-->
@@ -18,7 +20,8 @@
     </div>
     <!--通知组件-->
     <dxMessage class="mineDxMsg"/>
-
+    <!--登录弹出层-->
+    <loginPopup :popupIsShow="show" v-on:changeShow="showState"/>
   </div>
 </template>
 
@@ -26,7 +29,8 @@
   /**
    * 我的页面-头部
    */
-  import dxMessage from '../dxMessage'
+  import dxMessage from '../public/dxMessage'
+  import loginPopup from '../public/loginPopup'
 
   export default {
     name: "mineHeader",
@@ -49,78 +53,22 @@
             cont: 0,
             title: "收藏内容"
           }
-        ]
+        ],
+        show: false
       }
     },
     components: {
-      dxMessage
+      dxMessage, loginPopup
+
+    },
+    methods: {
+      isLogin() {
+        this.show = true;
+        console.log(this.show)
+      },
+      showState(val) {
+        this.show = val
+      }
     }
   }
 </script>
-
-<style scoped>
-
-  .mineHeader {
-    width: 100%;
-    height: 376px;
-    background: url('../../assets/mine/bg_me_background.png');
-    padding: 90px 20px 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .loginOrRegister {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .userPortrait {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    display: inline-block;
-    overflow: hidden;
-    margin-right: 25px;
-  }
-
-  .loginWrapper {
-    color: #333333;
-    font-size: 20px;
-  }
-
-  .userInfo {
-    height: 140px;
-    display: flex;
-  }
-
-  .userInfoItem {
-    flex: 1;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .userItem {
-    width: 100%;
-    text-align: center;
-  }
-
-  .infoNumber {
-    font-size: 28px;
-    font-weight: 600;
-    color: #666666;
-  }
-
-  .infoTitle {
-    font-size: 22px;
-    color: #999999;
-  }
-
-  .mineDxMsg {
-    position: absolute;
-    right: 37px;
-
-  }
-</style>

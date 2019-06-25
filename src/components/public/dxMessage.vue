@@ -1,6 +1,6 @@
 <template>
   <div class="dxMessage">
-    <img class="imgAuto" src="../assets/mine/ic_message_titlebar.png" alt="">
+    <img class="imgAuto" src="../../assets/img/mine/ic_message_titlebar.png" alt="">
   </div>
 </template>
 

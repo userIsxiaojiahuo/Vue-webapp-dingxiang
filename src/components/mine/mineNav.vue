@@ -15,28 +15,31 @@
 </template>
 
 <script>
+  /**
+   * 我的页面-中间导航部分
+   */
   export default {
     name: "mineNav",
     data() {
       return {
         nav: [
           {
-            itemImg: "./static/mine/img/ic_inquiry_me.png",
+            itemImg: require("../../assets/img/mine/ic_inquiry_me.png"),
             itemTitle: "我的问诊",
             cont: "0次"
           },
           {
-            itemImg: "./static/mine/img/ic_prescription_me.png",
+            itemImg: require("../../assets/img/mine/ic_prescription_me.png"),
             itemTitle: "我的处方",
             cont: "0张"
           },
           {
-            itemImg: "./static/mine/img/ic_drug_me.png",
+            itemImg: require("../../assets/img/mine/ic_drug_me.png"),
             itemTitle: "药品订单",
             cont: "0单"
           },
           {
-            itemImg: "./static/mine/img/ic_lecture_me.png",
+            itemImg: require("../../assets/img/mine/ic_lecture_me.png"),
             itemTitle: "医师讲堂",
             cont: "0节"
           }
@@ -45,44 +48,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .mineNav {
-    width: 100%;
-    background: #ffffff;
-    display: flex;
-  }
-
-  .mineItem {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 32px 0 34px;
-  }
-
-  .itemLogoWrapper {
-    width: 55px;
-    height: 55px;
-    margin: 0 auto;
-
-  }
-
-  .itemLogo {
-    flex: 1;
-    text-align: center;
-  }
-
-  .itemTitle {
-    text-align: center;
-    margin-top: 18px;
-    line-height: 1;
-    font-size: 26px;
-  }
-
-  .itemNumber {
-    text-align: center;
-    color: #9b9b9b;
-    margin-top: 18px;
-    line-height: 1;
-  }
-</style>
