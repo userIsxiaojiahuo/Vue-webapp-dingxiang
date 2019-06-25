@@ -1,23 +1,35 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "../page/index.vue"
+import AskDoctor from "../page/askDoctor"
+import departDetails from "../page/departDetails"
+import doctorInfo from "../page/doctorInfo"
+import doctorResume from "../page/doctorResume"
 
 Vue.use(Router)
 
 const router = new Router({
-  mode: "hash",
-  routes: [
-    {
-      path:"/",
-      name:"Index",
-      component:Index
-    },
-    {
-      path: "/index",
-      name: "Index",
-      component: Index
-    }
-  ]
+    mode: "hash",
+    routes: [
+        {
+            path: "/",
+            name: "AskDoctor",
+            component: AskDoctor,
+            children: []
+        },
+        {
+            path: "/departDetails",
+            name: "departDetails",
+            component: departDetails
+        },
+        {
+            path: "/doctorInfo",
+            component: doctorInfo
+        },
+        {
+            path: "/doctorResume",
+            component: doctorResume
+        }
+    ]
 })
 
 // 路由守卫
