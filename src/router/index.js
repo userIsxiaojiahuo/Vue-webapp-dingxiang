@@ -7,49 +7,109 @@ import examine from "../page/examine"
 import rule from "../page/rule"
 import impotencePremature from "../page/impotencePremature"
 import callEmergency from "../page/callEmergency"
+import mine from "../page/mine"
+import home from "../page/home"
+import indexSearch from "../page/indexSearch"
+import login from "../page/login"
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: "history",
   routes: [
     {
       path: "/",
+      redirect:home
+    },
+    {
+      path: "/Diagonse",
       name: "Diagonse",
       component: Diagonse,
+      meta: {
+        footerIsShow: false
+      }
     },
     {
       path: "/departmentSort",
       name: "departmentSort",
-      component: Sort
+      component: Sort,
+      meta: {
+        footerIsShow: false
+      }
     },
     {
       path: "/safeBeauty",
       name: "safeBeauty",
-      component: SafeBeauty
+      component: SafeBeauty,
+      meta: {
+        footerIsShow: false
+      }
     }, {
       path: "/examine",
       name: "examine",
-      component: examine
+      component: examine,
+      meta: {
+        footerIsShow: false
+      }
     },
     {
       path: "/rule",
       name: "rule",
-      component: rule
+      component: rule,
+      meta: {
+        footerIsShow: false
+      }
     },
     {
       path: "/impotencePremature",
       name: "impotencePremature",
-      component: impotencePremature
+      component: impotencePremature,
+      meta: {
+        footerIsShow: false
+      }
     },
     {
       path: "/callEmergency",
       name: "callEmergency",
-      component: callEmergency
+      component: callEmergency,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: home,
+      meta: {
+        footerIsShow: true
+      }
+    },
+    {
+      path: "/mine",
+      name: "mine",
+      component: mine,
+      meta: {
+        footerIsShow: true
+      }
+    },
+    {
+      path: "/indexSearch",
+      name: "indexSearch",
+      component: indexSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: login,
+      meta: {
+        footerIsShow: false
+      }
     }
   ]
 });
-
 // 路由守卫
 
 // router.beforeEach((to, from, next) => {

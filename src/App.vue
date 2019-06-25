@@ -1,20 +1,21 @@
 <template>
-  <div id="app">
+  <div class="app">
     <router-view></router-view>
+    <dxFooter v-if="this.$route.meta.footerIsShow"/>
   </div>
 </template>
 
 <script>
+  import dxFooter from './components/public/dxFooter'
+
   export default {
     name: 'App',
-    components: {}
+    components: {dxFooter}
   }
 </script>
 
 <style scoped>
-  #app {
-    width: 100%;
+  .app {
     height: 100%;
-    font-size: 22px;
   }
 </style>
