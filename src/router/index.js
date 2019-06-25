@@ -1,24 +1,54 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "../page/index.vue"
+import Diagonse from "../page/doctorDiagonse"
+import Sort from "../page/departmentSort"
+import SafeBeauty from "../page/safeBeauty"
+import examine from "../page/examine"
+import rule from "../page/rule"
+import impotencePremature from "../page/impotencePremature"
+import callEmergency from "../page/callEmergency"
 
 Vue.use(Router)
 
 const router = new Router({
-  mode: "hash",
+  mode: "history",
   routes: [
     {
-      path:"/",
-      name:"Index",
-      component:Index
+      path: "/",
+      name: "Diagonse",
+      component: Diagonse,
     },
     {
-      path: "/index",
-      name: "Index",
-      component: Index
+      path: "/departmentSort",
+      name: "departmentSort",
+      component: Sort
+    },
+    {
+      path: "/safeBeauty",
+      name: "safeBeauty",
+      component: SafeBeauty
+    }, {
+      path: "/examine",
+      name: "examine",
+      component: examine
+    },
+    {
+      path: "/rule",
+      name: "rule",
+      component: rule
+    },
+    {
+      path: "/impotencePremature",
+      name: "impotencePremature",
+      component: impotencePremature
+    },
+    {
+      path: "/callEmergency",
+      name: "callEmergency",
+      component: callEmergency
     }
   ]
-})
+});
 
 // 路由守卫
 
