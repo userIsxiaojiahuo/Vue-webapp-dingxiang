@@ -1,0 +1,166 @@
+/**
+mine start
+ */
+.mine {
+  background: #f4f4f4;
+  height: 100%;
+}
+
+.mineList:last-child {
+  margin-top: 1px;
+}
+
+/**
+mine end
+ */
+
+/**
+mineNav start
+ */
+.mineNav {
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+}
+
+.mineItem {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 32px 0 34px;
+}
+
+.itemLogoWrapper {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto;
+
+}
+
+.itemLogo {
+  flex: 1;
+  text-align: center;
+}
+
+.itemTitle {
+  text-align: center;
+  margin-top: 18px;
+  line-height: 1;
+  font-size: 26px;
+}
+
+.itemNumber {
+  text-align: center;
+  color: #9b9b9b;
+  margin-top: 18px;
+  line-height: 1;
+}
+
+.intoRegister {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+mineNav end
+ */
+
+/**
+mineHeader start
+ */
+.mineHeader {
+  width: 100%;
+  height: 324px;
+  background: url('../img/mine/bg_me_background.png');
+  padding: 36px 20px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.loginOrRegister {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.userPortrait {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 25px;
+}
+
+.loginWrapper {
+  color: #333333;
+  font-size: 20px;
+}
+
+.userInfo {
+  height: 140px;
+  display: flex;
+}
+
+.userInfoItem {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.userItem {
+  width: 100%;
+  text-align: center;
+}
+
+.infoNumber {
+  font-size: 28px;
+  font-weight: 600;
+  color: #666666;
+}
+
+.infoTitle {
+  font-size: 22px;
+  color: #999999;
+}
+
+.mineDxMsg {
+  position: absolute;
+  right: 37px;
+
+}
+
+/**
+mineHeader end
+ */
+
+/**
+mineListWrapper start
+ */
+.listInfo {
+  font-size: 29px;
+  line-height: 1;
+}
+
+
+.mineListWrapper {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  background: #ffffff;
+  min-height: 115px;
+  padding: 0 32px;
+  justify-content: space-between;
+}
+
+.mineListWrapper:nth-of-type(6) {
+  margin-top: 2px;
+}
+
+/**
+mineListWrapper end
+ */
+
