@@ -11,6 +11,7 @@ import mine from "../page/mine"
 import home from "../page/home"
 import indexSearch from "../page/indexSearch"
 import login from "../page/login"
+import selectDeskList from "../page/selectDeskList"
 
 Vue.use(Router);
 
@@ -90,6 +91,14 @@ const router = new Router({
       component: mine,
       meta: {
         footerIsShow: true
+      }
+    },
+    {
+      path: "/selectDeskList",
+      name: "selectDeskList",
+      component: selectDeskList,
+      meta: {
+        footerIsShow: false
       }
     },
     {

@@ -1,10 +1,10 @@
 <template>
   <div class="homeNav">
-    <div v-for="(item) in indexNav">
+    <router-link tag="div" :to="item.path" v-for="(item) in indexNav">
       <img :src="item.imgs" alt="">
       <span>{{item.spanContent}}</span>
       <em>{{item.emContent}}</em>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>

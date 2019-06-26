@@ -48,17 +48,20 @@
           {
             imgs: require('../assets/img/home/maxNav-1.png'),
             spanContent: '问医生',
-            emContent: '按科室找医生'
+            emContent: '按科室找医生',
+            path:"/askDoctor"
           },
           {
             imgs: require('../assets/img/home/maxNav-2.png'),
             spanContent: '名医义诊',
-            emContent: '新人1元起'
+            emContent: '新人1元起',
+            path:"/Diagonse"
           },
           {
             imgs: require('../assets/img/home/maxNav-3.png'),
             spanContent: '在线购药',
-            emContent: '限时包邮'
+            emContent: '限时包邮',
+            path:"/"
           }
         ],
         indexListNav: [

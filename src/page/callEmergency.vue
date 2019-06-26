@@ -13,7 +13,7 @@
       <IllinessInfo :placeholderText="placeholderText"></IllinessInfo>
     </selectDeskTitle>
     <!--    上传图片-->
-    <uploadPicture></uploadPicture>
+    <conPicFooter></conPicFooter>
     <!--    下一步-->
     <callBottomBtn></callBottomBtn>
   </div>
@@ -24,7 +24,7 @@
   import callEmergencyTopPic from '../components/callEmergency/callEmergencyTopPic'
   import selectDeskTitle from '../components/callEmergency/selectDeskTitle'
   import IllinessInfo from "../components/callEmergency/illinessInfo"
-  import uploadPicture from "../components/callEmergency/uploadPicture"
+  import conPicFooter from "../components/callEmergency/conPicFooter"
   import callBottomBtn from "../components/callEmergency/callBottomBtn"
 
   export default {
@@ -34,7 +34,7 @@
       selectDeskTitle,
       selectDesk,
       IllinessInfo,
-      uploadPicture,
+      conPicFooter,
       callBottomBtn
     },
     data() {
