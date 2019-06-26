@@ -12,6 +12,7 @@ import home from "../page/home"
 import indexSearch from "../page/indexSearch"
 import login from "../page/login"
 import selectDeskList from "../page/selectDeskList"
+import conPic from "../page/conPic"
 
 Vue.use(Router);
 
@@ -20,7 +21,7 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      redirect:home
+      redirect: home
     },
     {
       path: "/Diagonse",
@@ -45,7 +46,8 @@ const router = new Router({
       meta: {
         footerIsShow: false
       }
-    }, {
+    },
+    {
       path: "/examine",
       name: "examine",
       component: examine,
@@ -113,6 +115,14 @@ const router = new Router({
       path: "/login",
       name: "login",
       component: login,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/conPic",
+      name: "conPic",
+      component: conPic,
       meta: {
         footerIsShow: false
       }
