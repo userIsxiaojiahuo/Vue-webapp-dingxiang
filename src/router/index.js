@@ -20,7 +20,7 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      redirect:home
+      redirect: home
     },
     {
       path: "/Diagonse",
@@ -31,8 +31,7 @@ const router = new Router({
       }
     },
     {
-      path: "/departmentSort",
-      name: "departmentSort",
+      path: "/doctorDiagonse",
       component: Sort,
       meta: {
         footerIsShow: false
@@ -119,6 +118,7 @@ const router = new Router({
     }
   ]
 });
+
 // 路由守卫
 
 // router.beforeEach((to, from, next) => {

@@ -35,7 +35,7 @@
     methods: {
       handleClickBack() {
         this.$router.push({
-          path: "/"
+          path: "/Diagonse"
         })
       },
       handleClickLi(index){
@@ -45,63 +45,4 @@
   }
 </script>
 
-<style scoped>
-  .departmentSortSelectWrap {
 
-  }
-
-  /*选择科室*/
-  .departmentSortSelect {
-    width: 100%;
-    height: 97px;
-    background: #fff;
-    color: #999;
-    font-size: 26px;
-    padding: 0 0 0 31px;
-    display: flex;
-  }
-
-  .sortSelectLt {
-    width: 87.66%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .deparmentClassify {
-    width: 12.26%;
-    height: 100%;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #28b7a3;
-  }
-
-  .deparmentClassify > img {
-    width: 32px;
-    height: 32px;
-  }
-
-  /*科室列表*/
-  .departmentSorItem {
-    margin: 30px 24px 0;
-    background: #fff;
-  }
-  .departmentSorItem .deparmentListsLis{
-    border: 1px solid #28b7a3;
-    color: #28b7a3;
-  }
-  .departmentSorItem > ul > li {
-    margin: 10px 16px;
-    float: left;
-    font-size: 28px;
-    width: 315px;
-    height: 85px;
-    border: 2px solid #d9d9d9;
-    border-radius: 7px;
-    line-height: 85px;
-    text-align: center;
-  }
-
-</style>

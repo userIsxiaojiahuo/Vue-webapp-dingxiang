@@ -61,10 +61,18 @@
     border: none;
     vertical-align: top;
   }
-  /*.swiper-container .swiper-pagination {*/
-  /*  color: red;*/
-  /*  background: red;*/
-  /*}*/
+  /deep/ .swiper-pagination-bullet-active {
+    background-color: #ebebeb;
+  }
+  /deep/ .swiper-pagination-bullet {
+    width: 20px;
+    height: 4px;
+    border-radius: 0;
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+  }
   .diagonseRule{
     width: 110px;
     height: 56px;
