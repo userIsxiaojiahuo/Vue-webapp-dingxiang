@@ -1,14 +1,17 @@
 <template>
 	<div class="onLineBuyFoot">
-		<slot></slot>
-		<div class="onLineBuyFoot-btu">结算</div>
+		<div class="onLineBuyFoot-left">
+			<slot></slot>
+		</div>
+		<div class="onLineBuyFoot-btu">{{onLineBuyFoot}}</div>
 	</div>
 </template>
 
 <script>
 	/* 药品列表底部购物车和购买按钮 */
 	export default{
-		name:"onLineBuyFoot"
+		name:"onLineBuyFoot",
+		props:["onLineBuyFoot"]
 	}
 </script>
 
@@ -23,6 +26,12 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
+	}
+	.onLineBuyFoot-left{
+		flex: 71.2%;
+		min-width: 71.2%;
+		height: 100%;
+		padding-left: 30px;
 	}
 	.onLineBuyFoot-btu{
 		flex: 28.8%;

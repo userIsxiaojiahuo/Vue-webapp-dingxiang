@@ -1,13 +1,16 @@
 <template>
 	<div class="cart">
 		<!-- 头部返回 -->
-		<HeaderReturn :headerReturnTitle="headerReturn">
-			<span class="headerReturn-text">{{headerReturn.title}}</span>
-		</HeaderReturn>
+		<HeaderReturn :headerReturnTitle="headerReturn"/>
 		<!-- 购药流程 -->
 		<CartProcess :cartProcess="cartProcess"/>
 		<!-- 购物车列表 -->
 		<OnLineBuyDrugListUl :drugList="drug" class="OnLineBuyDrugListUl"/>
+		<!-- 药品列表底部购物车和购买按钮 -->
+		<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
+			<!-- 购物车商品总计 -->
+			<CartTotalPrice/>
+		</OnLineBuyFoot>
 	</div>
 </template>
 
@@ -18,13 +21,19 @@
 	import CartProcess from "../components/cart/cartProcess.vue"
 	/* 药品列表 */
 	import OnLineBuyDrugListUl from '../components/onLIneBuyDrugList/onLineBuyDrugListUl.vue'
+	/* 药品列表底部购物车和购买按钮 */
+	import OnLineBuyFoot from '../common/onLineBuyFoot.vue'
+	/* 购物车商品总计 */
+	import CartTotalPrice from '../components/cart/cartTotalPrice.vue'
 	/* 购物车 */
 	export default{
 		name:"cart",
 		components:{
 			HeaderReturn,
 			CartProcess,
-			OnLineBuyDrugListUl
+			OnLineBuyDrugListUl,
+			OnLineBuyFoot,
+			CartTotalPrice
 		},
 		data(){
 			return{
@@ -33,28 +42,31 @@
 					ico:require("../assets/onlineImg/ic_titlebar_back.png")
 				},
 				// 购物流程
-				cartProcess:[
-					{
-						stepNumber:1,
-						text:"选择药物",
-						ico:require("../assets/onLineImg/ic_arrow.png")
-					},
-					{
-						stepNumber:2,
-						text:"去结算",
-						ico:require("../assets/onLineImg/ic_arrow.png")
-					},
-					{
-						stepNumber:3,
-						text:"选择地址",
-						ico:require("../assets/onLineImg/ic_arrow.png")
-					},
-					{
-						stepNumber:4,
-						text:"支付",
-						ico:require("../assets/onLineImg/ic_arrow.png")
-					}
-				],
+				cartProcess:{
+					liIndex:0,
+					cartProcess:[
+						{
+							stepNumber:1,
+							text:"选择药物",
+							ico:require("../assets/onLineImg/ic_arrow.png")
+						},
+						{
+							stepNumber:2,
+							text:"提交订单",
+							ico:require("../assets/onLineImg/ic_arrow.png")
+						},
+						{
+							stepNumber:3,
+							text:"选择地址",
+							ico:require("../assets/onLineImg/ic_arrow.png")
+						},
+						{
+							stepNumber:4,
+							text:"支付",
+							ico:require("../assets/onLineImg/ic_arrow.png")
+						}
+					]
+				},
 				// 药品信息
 				drug:[
 					{
@@ -66,12 +78,13 @@
 						drugPirce:35.60,
 						drugNum:0
 					},
-				]
+				],
+				onLineBuyFoot:"提交订单"
 			}
 		}
 	}
 </script>
-
+<style  src="../assets/css/cart.css"></style>
 <style scoped>
 	.cart{
 		width: 100%;

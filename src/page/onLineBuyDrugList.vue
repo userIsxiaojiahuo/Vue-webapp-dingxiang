@@ -8,7 +8,7 @@
 		<!-- 药品列表 -->
 		<OnLineBuyDrugListUl :drugList="drug"/>
 		<!-- 药品列表底部购物车和购买按钮 -->
-		<OnLineBuyFoot>
+		<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
 			<!-- 在线购药底部购物车按钮的图片和内容 -->
 			<OnLineFootCratBtu/>
 		</OnLineBuyFoot>
@@ -65,7 +65,8 @@
 						drugPirce:35.60,
 						drugNum:0
 					}
-				]
+				],
+				onLineBuyFoot:"选择药品"
 			}
 		}
 	}

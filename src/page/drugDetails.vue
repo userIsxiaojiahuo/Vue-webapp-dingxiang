@@ -15,7 +15,7 @@
 			<!-- 药品详情底部的包邮，和承若书 -->
 			<DrugDetailsFootTips/>
 			<!-- 药品底部购物车和购买按钮 -->
-			<OnLineBuyFoot>
+			<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
 				<!-- 在线购药底部购物车按钮的图片和内容 -->
 				<OnLineFootCratBtu/>
 			</OnLineBuyFoot>
@@ -108,7 +108,8 @@
 						name:"药品名称",
 						text:"泰尔丝(异维A酸胶丸)"
 					}
-				]
+				],
+				onLineBuyFoot:"选择药品"
 			}
 		}
 	}

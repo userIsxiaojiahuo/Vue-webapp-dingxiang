@@ -4,6 +4,7 @@ import OnLineBuy from "../page/onLineBuy"
 import OnLineBuyDrugList from "../page/onLineBuyDrugList"
 import DrugDetails from "../page/drugDetails"
 import Cart from "../page/cart"
+import OrderFilling from "../page/orderFilling"
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ const router = new Router({
 		  path:"/cart",
 		  name:"cart",
 		  component:Cart
+		},
+		{
+		  path:"/orderFilling",
+		  name:"orderFilling",
+		  component:OrderFilling
 		}
   ]
 })

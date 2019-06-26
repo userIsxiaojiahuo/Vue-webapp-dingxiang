@@ -1,6 +1,12 @@
 <template>
 	<div class="drugDetailsHeader">
-		<img src="../../assets/onLineImg/ic_close_details.png">
+		<router-link 
+			class="drugDetailsHeader_pic"
+			to="/buyDrugList"
+			tag="div"
+		>
+			<img src="../../assets/onLineImg/ic_close_details.png">
+		</router-link>
 	</div>
 </template>
 
@@ -23,7 +29,7 @@
 		padding-right: 30px;
 		margin-bottom: 40px;
 	}
-	.drugDetailsHeader>img{
+	.drugDetailsHeader_pic>img{
 		width: 26px;
 		height: 26px;
 	}

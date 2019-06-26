@@ -2,7 +2,9 @@
 	<div class="headerReturn">
 		<div class="headerReturn-box">
 			<Router-link to="/onLineBuy" tag="img" :src=headerReturnTitle.ico class="headerReturn-ico"></Router-link>
-			<slot></slot>
+			<slot>
+				<span class="headerReturn-text">{{headerReturnTitle.title}}</span>
+			</slot>
 		</div>
 	</div>
 </template>

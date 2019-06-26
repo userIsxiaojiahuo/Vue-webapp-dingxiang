@@ -1,9 +1,12 @@
 <template>
-	<div class="onLineBuyFoot-left">
-		<div class="onLineBuyFoot-left-cratImg">
+	<div class="onLineBuyFoot-left_box">
+		<router-link class="onLineBuyFoot-left-cratImg"
+			to="cart"
+			tag="div"
+		>
 			<img src="../../assets/onLineImg/onLineBuyCrat.png">
 			<span v-if="false">0</span>
-		</div>
+		</router-link>
 		<div class="onLineBuyFootNum">
 			<span class="onLineBuyFootNum-noe">已选0中药品</span>
 			<span class="onLineBuyFootNum-two" v-if="false">共0件</span>
@@ -19,11 +22,7 @@
 </script>
 
 <style scoped>
-	.onLineBuyFoot-left{
-		flex: 71.2%;
-		min-width: 71.2%;
-		height: 100%;
-		padding-left: 30px;
+	.onLineBuyFoot-left_box{
 		display: flex;
 	}
 	.onLineBuyFoot-left-cratImg{

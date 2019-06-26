@@ -1,9 +1,7 @@
 <template>
   <div class="onLineBuy-box">
 		<!-- 顶部返回上一层 -->
-		<HeaderReturn :headerReturnTitle="headerReturn">
-			<span class="headerReturn-text">{{headerReturn.title}}</span>
-		</HeaderReturn>
+		<HeaderReturn :headerReturnTitle="headerReturn"/>
 		<!-- 搜索 -->
 		<OnLineSearch :onLineSearch="onLineSearch"/>
 		<!-- 安心购 -->

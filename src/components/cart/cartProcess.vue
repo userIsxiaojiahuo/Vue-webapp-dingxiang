@@ -1,7 +1,7 @@
 <template>
 	<div class="cartProcess">
 		<ul>
-			<li v-for="itme in cartProcess">
+			<li v-for="(itme,index) in cartProcess.cartProcess" :key="index" :class="{click_cartProcess_li:index==cartProcess.liIndex}">
 				<span class="cartProcess_stepNumber">{{itme.stepNumber}}</span>
 				<span class="cartProcess_text">{{itme.text}}</span>
 				<img class="cartProcess_ico" :src="itme.ico">
@@ -36,10 +36,10 @@
 		align-items: baseline;
 		margin-right: 14px;
 	}
-	.cartProcess>ul>li:nth-of-type(1){
+	.click_cartProcess_li{
 		color: #28b7a3;
 	}
-	.cartProcess>ul>li:nth-of-type(1)>.cartProcess_stepNumber{
+	.click_cartProcess_li>.cartProcess_stepNumber{
 		background: #28b7a3;
 	}
 	.cartProcess_stepNumber{
