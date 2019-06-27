@@ -23,6 +23,7 @@ import login from "../page/login"
 import HospitalMessage from "../page/hospitalMessage"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import Setting from "../page/setting"
 
 Vue.use(Router)
 
@@ -175,7 +176,12 @@ const router = new Router({
             path: "/classification",
             name: "Classification",
             component: Classification
-        }
+        },
+        {
+            path: "/setting",
+            name: "Setting",
+            component: Setting
+        },
     ]
 })
 
