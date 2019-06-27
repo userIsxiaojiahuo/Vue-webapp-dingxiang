@@ -5,20 +5,27 @@
 </template>
 
 <script>
+    /**
+     * 搜索头部
+     */
     export default {
         name: 'searchHeader',
         data() {
             return {}
         },
-        methods:{
-
+        methods: {
+            back() {
+                this.$router.go(-1);
+            }
         },
-        props:{
-            placeholderText:{
-                type:String
+        props: {
+            placeholderText: {
+                type: String
             }
         }
     }
+
+
 </script>
 
 <style scoped>

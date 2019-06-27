@@ -1,93 +1,31 @@
+
 .loginHeader {
-  height: 160px;
+  background: #fcfcfc;
+  height: 120px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .goBack {
-  width: 32px;
-  height: 32px;
-  margin-left: 40px;
+  width: 42px;
+  height: 42px;
+  margin-left: 20px;
 }
 
-.loginContent {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  font-size: 46px;
-  flex-direction: column;
-  padding: 0 40px;
+.register {
+  margin-right: 20px;
+  color: #28b7a3;
+  font-size: 28px;
 }
 
-.inputWrapper {
-  margin-top: 22px;
+.LoginContent {
+  padding: 86px 40px 0;
 }
 
-.title {
-  text-align: center;
-}
-
-.input {
-  height: 108px;
-  display: flex;
-}
-
-.phoneArea {
-  width: 220px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-
-}
-
-.phonePicWra {
-  width: 28px;
-  height: 32px;
-  display: flex;
-  margin-bottom: -14px;
+.checkLogin {
+  color: #3cbeab;
+  font-size: 28px;
   margin-left: 52px;
-}
-
-.underLine {
-  border-bottom: 1px solid #cccccc;
-}
-
-.AreaInputWrapper {
-  flex: 1;
-  height: 100%;
-  display: flex;
-}
-
-.AreaInput {
-  width: 100%;
-  height: 40%;
-  align-self: flex-end;
-  margin-bottom: 24px;
-  margin-left: 33px;
-  border: none;
-  float: right;
-  font-size: 24px;
-  line-height: 24px;
-  color: black;
-  font-weight: 600;
-  border-right: 1px solid #cccccc;
-}
-
-.phoneNumber {
-  display: flex;
-  flex: 1;
-  border-right: none;
-  margin-left: 4px;
-}
-
-.phoneInput {
-  border-right: none;
-}
-
-.codeWrapper {
-  align-items: center;
-}
-
-.loginInput {
-  margin-bottom: -6px;
+  margin-top: 35px;
 }

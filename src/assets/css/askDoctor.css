@@ -1,0 +1,107 @@
+/*
+    askDoctor index start
+*/
+.askDoctor {
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.posFixed {
+    flex: 1;
+    overflow-y: scroll;
+}
+
+/*
+    search bottom img  start
+*/
+
+.doctorDisabuse {
+    width: 100%;
+    height: 90px;
+}
+
+.doctorDisabuse > a {
+    display: block;
+}
+
+.doctorDisabuse > a > img {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    search bottom img  end
+*/
+
+
+/*
+    strative start
+*/
+.askDoctorContent {
+    padding-top: 20px;
+    background: #f4f4f4;
+}
+
+.administrativeOffice {
+    padding-top: 33px;
+    background: #fff;
+}
+
+.administrativeOffice > h3 {
+    padding-left: 30px;
+    padding-bottom: 13px;
+    font-size: 26px;
+    color: #999999;
+    letter-spacing: 2px;
+}
+
+.classifyUlsDiv {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 14px 0 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.classifyUlsDiv > li {
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    margin-top: 16px;
+    border-radius: 7px;
+    background: #f7f7f7;
+    justify-content: center;
+    align-items: center;
+}
+
+.classifyUlsDiv > li > img {
+    display: inline-block;
+    margin-top: 30px;
+    width: 66px;
+    height: 66px;
+}
+
+.classifyUlsDiv > li > p {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.blankDiv {
+    width: 100%;
+    height: 140px;
+    background: white;
+}
+
+/*
+    strative end
+*/
+
+
