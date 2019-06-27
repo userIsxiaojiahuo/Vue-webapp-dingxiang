@@ -13,6 +13,13 @@ import indexSearch from "../page/indexSearch"
 import login from "../page/login"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import OnLineBuy from "../page/onLineBuy"
+import OnLineBuyDrugList from "../page/onLineBuyDrugList"
+import DrugDetails from "../page/drugDetails"
+import Cart from "../page/cart"
+import OrderFilling from "../page/orderFilling"
+import AddressManagement from "../page/addressManagement"
+import EditAddress from "../page/editAddress"
 
 Vue.use(Router);
 
@@ -126,7 +133,63 @@ const router = new Router({
       meta: {
         footerIsShow: false
       }
-    }
+    },
+		{
+		  path:"/onLineBuy",
+		  name:"onLineBuy",
+		  component:OnLineBuy,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/buyDrugList",
+		  name:"onLineBuyDrugList",
+		  component:OnLineBuyDrugList,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/drugDetails",
+		  name:"drugDetails",
+		  component:DrugDetails,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/cart",
+		  name:"cart",
+		  component:Cart,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/orderFilling",
+		  name:"orderFilling",
+		  component:OrderFilling,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/addressManagement",
+		  name:"addressManagement",
+		  component:AddressManagement,
+			meta: {
+			  footerIsShow: false
+			}
+		},
+		{
+		  path:"/editAddress",
+		  name:"editAddress",
+		  component:EditAddress,
+			meta: {
+			  footerIsShow: false
+			}
+		}
   ]
 });
 // 路由守卫

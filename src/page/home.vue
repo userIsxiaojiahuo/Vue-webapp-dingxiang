@@ -61,7 +61,7 @@
             imgs: require('../assets/img/home/maxNav-3.png'),
             spanContent: '在线购药',
             emContent: '限时包邮',
-            path:"/"
+            path:"/onLineBuy"
           }
         ],
         indexListNav: [
