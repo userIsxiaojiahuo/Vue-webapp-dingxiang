@@ -6,6 +6,9 @@
 </template>
 
 <script>
+  /**
+   * 搜索头部
+   */
   export default {
     name: 'searchHeader',
     methods: {

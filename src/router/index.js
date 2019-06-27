@@ -4,7 +4,7 @@ import Illness from "../page/illness"
 import IllnessTwo from "../page/illnessTwo"
 import Particulars from "../page/particulars"
 import Popularization from "../page/popularization"
-import Classification from "../page/classification"
+import classification from "../page/classification"
 import AskDoctor from "../page/askDoctor"
 import departDetails from "../page/departDetails"
 import doctorInfo from "../page/doctorInfo"
@@ -24,6 +24,16 @@ import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
 import register from "../page/register"
 import login from "../page/login"
+import OnLineBuy from "../page/onLineBuy"
+import OnLineBuyDrugList from "../page/onLineBuyDrugList"
+import DrugDetails from "../page/drugDetails"
+import Cart from "../page/cart"
+import OrderFilling from "../page/orderFilling"
+import AddressManagement from "../page/addressManagement"
+import EditAddress from "../page/editAddress"
+import doctorSearch from "../page/doctorSearch"
+import hospitalSearch from "../page/hospitalSearch"
+import drugSearch from "../page/drugSearch"
 
 Vue.use(Router);
 
@@ -59,6 +69,86 @@ const router = new Router({
       }
     },
     {
+      path: "/register",
+      name: "register",
+      component: register,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/Illness",
+      name: "Illness",
+      component: Illness,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/IllnessTwo",
+      name: "IllnessTwo",
+      component: IllnessTwo,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/Particulars",
+      name: "Particulars",
+      component: Particulars,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/Popularization",
+      name: "Popularization",
+      component: Popularization,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/classification",
+      name: "classification",
+      component: classification,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/departDetails",
+      name: "departDetails",
+      component: departDetails,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/doctorInfo",
+      name: "doctorInfo",
+      component: doctorInfo,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/doctorResume",
+      name: "doctorResume",
+      component: doctorResume,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/AskDoctor",
+      name: "AskDoctor",
+      component: AskDoctor,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
       path: "/Diagonse",
       name: "Diagonse",
       component: Diagonse,
@@ -67,17 +157,17 @@ const router = new Router({
       }
     },
     {
-      path: "/departmentSort",
-      name: "departmentSort",
-      component: departmentSort,
+      path: "/SafeBeauty",
+      name: "SafeBeauty",
+      component: SafeBeauty,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/safeBeauty",
-      name: "safeBeauty",
-      component: SafeBeauty,
+      path: "/departmentSort",
+      name: "departmentSort",
+      component: departmentSort,
       meta: {
         footerIsShow: false
       }
@@ -110,6 +200,30 @@ const router = new Router({
       path: "/callEmergency",
       name: "callEmergency",
       component: callEmergency,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/indexSearch",
+      name: "indexSearch",
+      component: indexSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/HospitalMessage",
+      name: "HospitalMessage",
+      component: HospitalMessage,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/conPic",
+      name: "conPic",
+      component: conPic,
       meta: {
         footerIsShow: false
       }
@@ -123,173 +237,85 @@ const router = new Router({
       }
     },
     {
-      path: "/indexSearch",
-      name: "indexSearch",
-      component: indexSearch,
-      meta: {
-        footerIsShow: false
-      }
-    },
-
-    {
-      path: "/conPic",
-      name: "conPic",
-      component: conPic,
+      path: "/OnLineBuy",
+      name: "OnLineBuy",
+      component: OnLineBuy,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/register",
-      name: "register",
-      component: register,
+      path: "/OnLineBuyDrugList",
+      name: "OnLineBuyDrugList",
+      component: OnLineBuyDrugList,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/Diagonse",
-      name: "Diagonse",
-      component: Diagonse,
+      path: "/DrugDetails",
+      name: "DrugDetails",
+      component: DrugDetails,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/departmentSort",
-      name: "departmentSort",
-      component: departmentSort,
+      path: "/Cart",
+      name: "Cart",
+      component: Cart,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/safeBeauty",
-      name: "safeBeauty",
-      component: SafeBeauty,
-      meta: {
-        footerIsShow: false
-      }
-    }, {
-      path: "/examine",
-      name: "examine",
-      component: examine,
+      path: "/OrderFilling",
+      name: "OrderFilling",
+      component: OrderFilling,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/rule",
-      name: "rule",
-      component: rule,
+      path: "/AddressManagement",
+      name: "AddressManagement",
+      component: AddressManagement,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/impotencePremature",
-      name: "impotencePremature",
-      component: impotencePremature,
+      path: "/EditAddress",
+      name: "EditAddress",
+      component: EditAddress,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/callEmergency",
-      name: "callEmergency",
-      component: callEmergency,
+      path: "/doctorSearch",
+      name: "doctorSearch",
+      component: doctorSearch,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/home",
-      name: "home",
-      component: home,
-      meta: {
-        footerIsShow: true
-      }
-    },
-    {
-      path: "/mine",
-      name: "mine",
-      component: mine,
-      meta: {
-        footerIsShow: true
-      }
-    },
-    {
-      path: "/indexSearch",
-      name: "indexSearch",
-      component: indexSearch,
+      path: "/hospitalSearch",
+      name: "hospitalSearch",
+      component: hospitalSearch,
       meta: {
         footerIsShow: false
       }
     },
     {
-      path: "/login",
-      name: "login",
-      component: login,
+      path: "/drugSearch",
+      name: "drugSearch",
+      component: drugSearch,
       meta: {
         footerIsShow: false
       }
     },
-    {
-      path: "/askDoctor",
-      name: "AskDoctor",
-      component: AskDoctor,
-      children: []
-    },
-    {
-      path: "/departDetails",
-      name: "departDetails",
-      component: departDetails
-    },
-    {
-      path: "/doctorInfo",
-      component: doctorInfo
-    },
-    {
-      path: "/doctorResume",
-      component: doctorResume
-    },
-    {
-      path: "/hospitalMessage",
-      component: HospitalMessage
-    },
-    {
-      path: "/selectDeskList",
-      component: selectDeskList
-    },
-    {
-      path: "/conPic",
-      component: conPic
-    },
-    {
-      path: "/",
-      name: "Illness",
-      component: Illness
-    },
-    {
-      path: "/illnessTwo",
-      name: "IllnessTwo",
-      component: IllnessTwo
-    },
-    {
-      path: "/particulars",
-      name: "Particulars",
-      component: Particulars
-    },
-    {
-      path: "/popularization",
-      name: "Popularization",
-      component: Popularization
-    },
-    {
-      path: "/classification",
-      name: "Classification",
-      component: Classification
-    }
   ]
 });
 // 路由守卫
