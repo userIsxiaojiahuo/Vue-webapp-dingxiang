@@ -1,5 +1,5 @@
 <template>
-  <div class="popupsContentWrapper">
+  <router-link :to="popupsInfo.path" tag="div" class="popupsContentWrapper">
     <div class="popupsItem">
       <div class="popupsContent">
         <div class="popupsLogoWrapper">
@@ -12,7 +12,7 @@
         <dxRightArrows/>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

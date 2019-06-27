@@ -27,10 +27,7 @@
     methods: {
       handleClickDiv() {
         this.$router.push({
-          path: "/doctorDiagonse",
-          query: {
-            id: 0
-          }
+          path: "/doctorDiagonse"
         })
       },
       handleClickLi(index) {
@@ -83,6 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .deparmentClassify::before {
@@ -91,7 +89,7 @@
     height: 32px;
     background: #fff;
     position: absolute;
-    right: 12%;
+    left: 0;
   }
 
   .deparmentClassify > img {
