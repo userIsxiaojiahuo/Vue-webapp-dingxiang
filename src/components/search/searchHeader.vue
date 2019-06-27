@@ -8,9 +8,6 @@
 <script>
   export default {
     name: 'searchHeader',
-    data() {
-      return {}
-    },
     methods: {
       back() {
         this.$router.go(-1);

@@ -1,6 +1,6 @@
 <template>
   <div class="homeNav">
-    <router-link tag="div" :to="item.path" v-for="(item) in indexNav">
+    <router-link tag="div" :to="item.path" v-for="(item,index) in indexNav" :key="index">
       <img :src="item.imgs" alt="">
       <span>{{item.spanContent}}</span>
       <em>{{item.emContent}}</em>

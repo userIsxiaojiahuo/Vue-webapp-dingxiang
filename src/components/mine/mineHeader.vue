@@ -64,7 +64,6 @@
     methods: {
       isLogin() {
         this.show = true;
-        console.log(this.show)
       },
       showState(val) {
         this.show = val

@@ -10,9 +10,10 @@ import callEmergency from "../page/callEmergency"
 import mine from "../page/mine"
 import home from "../page/home"
 import indexSearch from "../page/indexSearch"
-import login from "../page/login"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import register from "../page/register"
+import login from "../page/login"
 
 Vue.use(Router);
 
@@ -126,6 +127,14 @@ const router = new Router({
       meta: {
         footerIsShow: false
       }
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: register,
+      meta: {
+        footerIsShow: false
+      }
     }
   ]
 });
@@ -138,11 +147,11 @@ const router = new Router({
 //       //判断本地是否存在token
 //       next()
 //     } else {
-//       if (to.path === "/login") {
+//       if (to.path === "/loginOrRegister") {
 //         next()
 //       } else {
 //         next({
-//           path: "/login"
+//           path: "/loginOrRegister"
 //         })
 //       }
 //     }
@@ -150,7 +159,7 @@ const router = new Router({
 //     next()
 //   }
 //   /*如果本地 存在 token 则 不允许直接跳转到 登录页面*/
-//   if (to.fullPath == "/login") {
+//   if (to.fullPath == "/loginOrRegister") {
 //     if (localStorage.getItem("token")) {
 //       next({
 //         path: from.fullPath

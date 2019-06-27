@@ -83,7 +83,6 @@ html {
   overflow: hidden;
   font-family: "Microsoft YaHei UI";
   overflow: scroll;
-  font-family: 微软雅黑;
 }
 
 .imgAuto {
@@ -91,3 +90,17 @@ html {
   height: 100%;
   opacity: 1;
 }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+/* for IE/Mac */
