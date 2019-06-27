@@ -1,0 +1,82 @@
+.addInformation{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.addInformationHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #ebebeb;
+
+}
+.addInformationHeader>div{
+  display: flex;
+  align-items: center;
+}
+.addInformationHeader .titleH{
+  font-size: 34px;
+  color: #030303;
+}
+.addInformationHeader .btn{
+  width: 92px;
+  height: 60px;
+  background-color: #28b7a3;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 5px;
+}
+.dbBack>img{
+  width: 44px;
+  height: 44px;
+  vertical-align: middle;
+}
+.addInformation>.NAI{
+  display: flex;
+  height: 96px;
+  margin-left: 30px;
+  border-bottom: 1px solid #ebebeb;
+  align-items: center;
+}
+.addInformation>.NAI>.name{
+  display: inline-block;
+  width: 220px;
+  font-size: 30px;
+  color: #333333;
+  line-height: 96px;
+  font-weight: bold;
+}
+.addInformation>.NAI>.inp{
+  height: 96px;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+  flex: 1;
+}
+.inp::placeholder{
+  font-size: 28px;
+  color: #cfcfcf;
+}
+.addInformation>.NAI>.check{
+  background-image: url("../../assets/img/mine/ic_checkbox_s.png");
+  background-size: 26px;
+ }
+.addInformation>.NAI>i{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px;
+  border: 1px solid #d4d4d4;
+  margin-right: 12px;
+}
+.addInformation>.NAI>.checked{
+}
+.addInformation>.NAI>span{
+  font-size: 28px;
+  color: #666666;
+  margin-right: 64px;
+}
+

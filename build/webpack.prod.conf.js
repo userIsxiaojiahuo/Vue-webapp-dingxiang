@@ -59,6 +59,8 @@ const webpackConfig = merge(baseWebpackConfig, {
                 ? {safe: true, map: {inline: false}}
                 : {safe: true}
         }),
+        // generate dist illness.html with correct asset hash for caching.
+        // you can customize output by editing /illness.html
 
 
         // generate dist index.html with correct asset hash for caching.

@@ -1,7 +1,5 @@
 <template>
-    <div class="searchSeparate">
-
-    </div>
+    <div class="searchSeparate"></div>
 </template>
 
 <script>
@@ -11,6 +9,9 @@
 </script>
 
 <style scoped>
+    /*
+   首页搜索边框线
+   */
 .searchSeparate{
     width: 690px;
     height: 1px;/*no*/

@@ -15,6 +15,9 @@
   import doctorSearchFooter from './../components/doctorSearch/doctorSearchFooter'
   import doctorSearchHot from './../components/doctorSearch/doctorSearchHot'
 
+  /**
+   * 医生搜索
+   */
   export default {
     name: "doctorSearch",
     components: {
