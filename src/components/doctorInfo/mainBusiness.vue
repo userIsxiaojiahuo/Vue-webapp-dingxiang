@@ -21,41 +21,5 @@
 </script>
 
 <style scoped>
-    .business {
-        display: flex;
-        padding: 10px 20px 20px 30px;
-    }
 
-    .businessUls {
-        flex: 2;
-        float: left;
-        display: flex;
-    }
-
-    .businessBtn {
-        width: 38px;
-        float: right;
-        background: url("../../assets/images/askdoctor/doctorInfo/ic_clickarrow_n.png") no-repeat right center;
-        background-size: 18px 10px;
-    }
-
-    .businessUls > li {
-        padding-right: 30px;
-    }
-
-    .businessUls > li > i {
-        margin-left: 5px;
-        font-size: 20px;
-        color: #666666;
-    }
-
-    .businessUls > li::before {
-        display: inline-block;
-        content: "";
-        width: 30px;
-        height: 30px;
-        background: url("../../assets/images/askdoctor/doctorInfo/ic_tag.png") no-repeat left center;
-        background-size: cover;
-        vertical-align: middle;
-    }
 </style>

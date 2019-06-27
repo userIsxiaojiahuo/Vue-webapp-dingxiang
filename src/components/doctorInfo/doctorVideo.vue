@@ -16,12 +16,5 @@
 </script>
 
 <style scoped>
-    .doctorVideoImg {
-        width: 100%;
-    }
 
-    .doctorVideoImg > img {
-        width: 100%;
-        height: 100%;
-    }
 </style>

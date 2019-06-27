@@ -1,22 +1,24 @@
 <template>
-    <div>
+    <div class="departDetails">
         <!-- 顶部-->
         <AskDoctorTop :headerMessage="headerMessage"></AskDoctorTop>
-        <!-- 搜索框-->
-        <Search :place="place"></Search>
-        <!-- 疾病种类-->
-        <IlinessClassifyModule :classifyHtml="classifyHtml"></IlinessClassifyModule>
-        <!-- 医生列表-->
-        <div class="doctorList">
-            <PullDownSelect></PullDownSelect>
-            <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+        <div class="depart">
+            <!-- 搜索框-->
+            <Search :place="place"></Search>
+            <!-- 疾病种类-->
+            <IlinessClassifyModule :classifyHtml="classifyHtml"></IlinessClassifyModule>
+            <!-- 医生列表-->
+            <div class="doctorList">
+                <PullDownSelect></PullDownSelect>
+                <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import AskDoctorTop from "../components/askDoctorTop"
-    import Search from "../components/search"
+    import AskDoctorTop from "../components/askDoctor/askDoctorPage/askDoctorTop"
+    import Search from "../components/askDoctor/askDoctorPage/search"
     import IlinessClassifyModule from "../components/departDetails/departModule/illnessClassifyModule"
     import PullDownSelect from "../components/departDetails/departModule/pullDownSelect"
     import DoctorMessage from "../components/departDetails/page/doctorMessage"
@@ -117,9 +119,7 @@
         }
     }
 </script>
-
+<style src="../assets/css/departDetails.css"></style>
 <style scoped>
-    .doctorList {
-        position: relative;
-    }
+
 </style>

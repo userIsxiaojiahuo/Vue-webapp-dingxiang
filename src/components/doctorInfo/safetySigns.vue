@@ -11,8 +11,5 @@
 </script>
 
 <style scoped>
-    .safety > img {
-        width: 100%;
-        height: 248px;
-    }
+
 </style>

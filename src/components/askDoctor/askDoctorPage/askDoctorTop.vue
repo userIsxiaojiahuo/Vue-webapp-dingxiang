@@ -11,6 +11,7 @@
                 ></i>
             </a>
             <em v-if="headerMessage.show"></em>
+            <span v-if="headerMessage.isStartImg"></span>
         </div>
     </div>
 </template>
@@ -68,10 +69,20 @@
     .headerTitle > em {
         width: 38px;
         height: 38px;
-        background: url("../assets/images/askdoctor/ic_titlebar_share.png");
+        background: url("../../../assets/images/askdoctor/ic_titlebar_share.png");
         background-size: cover;
         position: absolute;
         right: 30px;
         top: 84px;
+    }
+
+    .headerTitle > span {
+        width: 38px;
+        height: 38px;
+        position: absolute;
+        right: 105px;
+        top: 84px;
+        background: url("../../../assets/images/askdoctor/ic_titlebar_start.png");
+        background-size: cover;
     }
 </style>

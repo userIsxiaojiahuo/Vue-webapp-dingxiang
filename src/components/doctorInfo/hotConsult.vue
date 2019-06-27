@@ -39,50 +39,5 @@
 </script>
 
 <style scoped>
-    .hotContainer {
-        padding: 34px 0 0 30px;
-    }
 
-    .hotTitle {
-        display: flex;
-    }
-
-    .hotTitle > h3 {
-        font-size: 30px;
-        color: #333333;
-        margin-bottom: 36px;
-    }
-
-    .illnessKindUls {
-        overflow: hidden;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-
-    .illnessKindUls > li {
-        width: 25%;
-        text-align: center;
-        float: left;
-        line-height: 62px;
-        margin-right: 25px;
-        font-size: 22px;
-        color: #999999;
-        padding: 0 20px 0 20px;
-        background: #f4f4f4;
-        border-radius: 50px;
-        margin-bottom: 13px;
-    }
-
-    .quesMarginTop {
-        margin-top: 39px;
-    }
-
-    .viewMore {
-        text-align: center;
-        line-height: 98px;
-        font-size: 22px;
-        color: #999999;
-        background: url("../../assets/images/askdoctor/doctorInfo/ic_inquisition_arrow.png") 450px 35px no-repeat;
-        background-size: 28px 28px;
-    }
 </style>

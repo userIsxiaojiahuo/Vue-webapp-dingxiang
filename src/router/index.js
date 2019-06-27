@@ -4,14 +4,117 @@ import AskDoctor from "../page/askDoctor"
 import departDetails from "../page/departDetails"
 import doctorInfo from "../page/doctorInfo"
 import doctorResume from "../page/doctorResume"
+import Diagonse from "../page/doctorDiagonse"
+import Sort from "../page/departmentSort"
+import SafeBeauty from "../page/safeBeauty"
+import examine from "../page/examine"
+import rule from "../page/rule"
+import impotencePremature from "../page/impotencePremature"
+import callEmergency from "../page/callEmergency"
+import mine from "../page/mine"
+import home from "../page/home"
+import indexSearch from "../page/indexSearch"
+import login from "../page/login"
+import HospitalMessage from "../page/hospitalMessage"
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
-    mode: "hash",
+    mode: "history",
     routes: [
         {
             path: "/",
+            redirect: home
+        },
+        {
+            path: "/Diagonse",
+            name: "Diagonse",
+            component: Diagonse,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/departmentSort",
+            name: "departmentSort",
+            component: Sort,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/safeBeauty",
+            name: "safeBeauty",
+            component: SafeBeauty,
+            meta: {
+                footerIsShow: false
+            }
+        }, {
+            path: "/examine",
+            name: "examine",
+            component: examine,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/rule",
+            name: "rule",
+            component: rule,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/impotencePremature",
+            name: "impotencePremature",
+            component: impotencePremature,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/callEmergency",
+            name: "callEmergency",
+            component: callEmergency,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/home",
+            name: "home",
+            component: home,
+            meta: {
+                footerIsShow: true
+            }
+        },
+        {
+            path: "/mine",
+            name: "mine",
+            component: mine,
+            meta: {
+                footerIsShow: true
+            }
+        },
+        {
+            path: "/indexSearch",
+            name: "indexSearch",
+            component: indexSearch,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: login,
+            meta: {
+                footerIsShow: false
+            }
+        },
+        {
+            path: "/askDoctor",
             name: "AskDoctor",
             component: AskDoctor,
             children: []
@@ -28,9 +131,13 @@ const router = new Router({
         {
             path: "/doctorResume",
             component: doctorResume
+        },
+        {
+            path:"/hospitalMessage",
+            component:HospitalMessage
         }
     ]
-})
+});
 
 // 路由守卫
 

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import FamousDoctors from "../famousDoctors"
+    import FamousDoctors from "./askDoctorPage/famousDoctors"
 
     export default {
         name: "askDoctorFamous",

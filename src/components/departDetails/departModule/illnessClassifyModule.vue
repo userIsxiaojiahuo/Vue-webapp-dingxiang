@@ -26,18 +26,5 @@
 </script>
 
 <style scoped>
-    .departmentClassify {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        padding-bottom: 40px;
-    }
 
-    .illnessClassify {
-        width: 45%;
-        height: 150px;
-        margin-top: 30px;
-    }
 </style>

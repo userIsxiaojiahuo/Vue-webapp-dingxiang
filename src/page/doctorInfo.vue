@@ -129,17 +129,7 @@
     }
 </script>
 
+<style src="../assets/css/doctorInfo.css"></style>
 <style scoped>
-    .doctorInfo {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
 
-    .infoContent {
-        flex: 1;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
 </style>

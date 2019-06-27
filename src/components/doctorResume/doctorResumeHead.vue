@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import AskDoctorTop from "../askDoctorTop"
+    import AskDoctorTop from "../askDoctor/askDoctorPage/askDoctorTop"
 
     export default {
         name: "doctorResumeHead",

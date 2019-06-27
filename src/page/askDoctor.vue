@@ -17,9 +17,9 @@
 </template>
 
 <script>
-    import AskDoctorHeader from "../components/askDoctorTop"
-    import Search from "../components/search"
-    import AskDoctorControl from "../components/askDoctorControl"
+    import AskDoctorHeader from "../components/askDoctor/askDoctorPage/askDoctorTop"
+    import Search from "../components/askDoctor/askDoctorPage/search"
+    import AskDoctorControl from "../components/askDoctor/askDoctorPage/askDoctorControl"
     import AskDoctorFamous from "../components/askDoctor/askDoctorFamous"
     import AskDoctorAdinOffice from "../components/askDoctor/askDocutorAdinOffic"
 
@@ -38,7 +38,8 @@
                 headerMessage: {
                     title: "问医生",
                     icon: require("../assets/images/askdoctor/ic_titlebar_back.png"),
-                    show: false
+                    show: false,
+                    isStartImg: false
                 },
                 // 搜索框信息
                 place: {
@@ -251,20 +252,7 @@
         },
     }
 </script>
-
+<style src="../../src/assets/css/askDoctor.css"></style>
 <style scoped>
-    .askDoctor {
-        background: white;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
 
-    .posFixed {
-        flex: 1;
-        overflow-y: scroll;
-    }
 </style>

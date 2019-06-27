@@ -28,17 +28,4 @@
 </script>
 
 <style scoped>
-    .doctorDisabuse {
-        width: 100%;
-        height: 90px;
-    }
-
-    .doctorDisabuse > a {
-        display: block;
-    }
-
-    .doctorDisabuse > a > img {
-        width: 100%;
-        height: 100%;
-    }
 </style>
