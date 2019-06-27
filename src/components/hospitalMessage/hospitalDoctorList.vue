@@ -1,0 +1,30 @@
+<template>
+    <div class="hospitalMessageListCon">
+        <HdTitle></HdTitle>
+        <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+        <HospitalDoctorListFoot :hospitalDoctors="hospitalDoctors"></HospitalDoctorListFoot>
+    </div>
+</template>
+
+<script>
+    import HdTitle from './hdTitle'
+    import DoctorMessage from "../departDetails/page/doctorMessage"
+    import HospitalDoctorListFoot from "../hospitalMessage/page/hospitalDoctorListFoot"
+
+    export default {
+        name: "hospitalDoctorList",
+        components: {
+            HdTitle,
+            DoctorMessage,
+            HospitalDoctorListFoot
+        },
+        props: {
+            doctorMessages: {
+                type: Array
+            },
+            hospitalDoctors: {
+                type: Number
+            }
+        }
+    }
+</script>

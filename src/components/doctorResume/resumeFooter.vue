@@ -9,7 +9,3 @@
         name: "resumeFooter"
     }
 </script>
-
-<style scoped>
-
-</style>
