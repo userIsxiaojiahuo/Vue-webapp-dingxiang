@@ -29,6 +29,7 @@ c {
 }
 
 img {
+  display: block;
   display: inline-block;
 }
 
@@ -55,12 +56,17 @@ body {
   background: #fff;
 }
 
+i {
+  font-size: 14px;
+  font-style: normal;
+}
+
 a {
-  color: #666;
+  color: #999999;
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-user-select: none;
-  -moz-user-focus: normal;
+  -moz-user-focus: none;
   -moz-user-select: none;
 }
 
@@ -83,6 +89,8 @@ html {
   overflow: hidden;
   font-family: "Microsoft YaHei UI";
   overflow: scroll;
+  height: 100%;
+  letter-spacing: 1px;
 }
 
 .imgAuto {
