@@ -1,21 +1,39 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "../page/index.vue"
-
+import Illness from "../page/illness"
+import IllnessTwo from "../page/illnessTwo"
+import Particulars from "../page/particulars"
+import Popularization from "../page/popularization"
+import Classification from "../page/classification"
 Vue.use(Router)
 
 const router = new Router({
   mode: "hash",
   routes: [
     {
-      path:"/",
-      name:"Index",
-      component:Index
+      path: "/",
+      name: "Illness",
+      component:Illness
     },
     {
-      path: "/index",
-      name: "Index",
-      component: Index
+      path: "/illnessTwo",
+      name: "IllnessTwo",
+      component: IllnessTwo
+    },
+    {
+      path: "/particulars",
+      name: "Particulars",
+      component:Particulars
+    },
+    {
+      path: "/popularization",
+      name: "Popularization",
+      component:Popularization
+    },
+    {
+      path:"/classification",
+      name: "Classification",
+      component:Classification
     }
   ]
 })

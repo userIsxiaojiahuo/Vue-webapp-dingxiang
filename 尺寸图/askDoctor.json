@@ -1,0 +1,37 @@
+{
+  "officeMessage": [
+    {
+      "classify": [
+        {
+          // 常见科室  返回9条数据
+          "name": "String 科室名字",
+          "img": "url"
+        }
+      ]
+    },
+    {
+      "classify": [
+        {
+          //内科  返回9条数据
+          "name": "String 科室名字"
+        }
+      ]
+    },
+    {
+      "classify": [
+        {
+          //外科  返回6条数据
+          "name": "String 科室名字"
+        }
+      ]
+    },
+    {
+      "classify": [
+        {
+          //其他  返回6条数据
+          "name": "全科"
+        }
+      ]
+    }
+  ]
+}
