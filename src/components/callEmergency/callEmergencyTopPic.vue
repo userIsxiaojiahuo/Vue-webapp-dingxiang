@@ -14,7 +14,6 @@
 <style scoped>
   .callEmergencyPic {
     width: 100%;
-    height: 272px;
   }
   .callEmergencyPic > img {
     width: 100%;

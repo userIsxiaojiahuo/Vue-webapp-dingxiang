@@ -16,6 +16,8 @@ import home from "../page/home"
 import indexSearch from "../page/indexSearch"
 import login from "../page/login"
 import HospitalMessage from "../page/hospitalMessage"
+import selectDeskList from "../page/selectDeskList"
+import conPic from "../page/conPic"
 
 Vue.use(Router);
 
@@ -135,8 +137,17 @@ const router = new Router({
         {
             path:"/hospitalMessage",
             component:HospitalMessage
+        },
+        {
+            path:"/selectDeskList",
+            component:selectDeskList
+        },
+        {
+            path:"/conPic",
+            component:conPic
         }
     ]
+
 });
 
 // 路由守卫
