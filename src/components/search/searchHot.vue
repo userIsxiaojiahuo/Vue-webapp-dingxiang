@@ -11,6 +11,9 @@
 </script>
 
 <style scoped>
+    /*
+   首页热门搜索
+   */
 .searchHot{
     width: 100%;
     padding: 58px 36px 36px;

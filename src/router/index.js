@@ -13,6 +13,11 @@ import indexSearch from "../page/indexSearch"
 import login from "../page/login"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import doctorSearch from "../page/doctorSearch"
+import hospitalSearch from "../page/hospitalSearch"
+import drugSearch from "../page/drugSearch"
+import patientInformation from "../page/patientInformation"
+import addInformation from "../page/addInformation"
 
 Vue.use(Router);
 
@@ -123,6 +128,46 @@ const router = new Router({
       path: "/conPic",
       name: "conPic",
       component: conPic,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/doctorSearch",
+      name: "doctorSearch",
+      component: doctorSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/hospitalSearch",
+      name: "hospitalSearch",
+      component: hospitalSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/drugSearch",
+      name: "drugSearch",
+      component: drugSearch,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/patientInformation",
+      name: "patientInformation",
+      component: patientInformation,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/addInformation",
+      name: "addInformation",
+      component: addInformation,
       meta: {
         footerIsShow: false
       }

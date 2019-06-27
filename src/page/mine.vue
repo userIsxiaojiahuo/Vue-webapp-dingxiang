@@ -5,7 +5,8 @@
     <!--我的问诊、处方、药品订单、讲师、测评-->
     <mineNav/>
     <!--下面列表-->
-    <mineListWrapper v-for="(item,index) in title" :titleText="item.text" :key="index"/>
+    <mineListWrapper v-for="(item,index) in title" :path="item.path" :titleText="item.text"
+                     :key="index"/>
     <!--页面底部说明-->
     <dxUnderState/>
   </div>
@@ -24,16 +25,20 @@
       return {
         title: [
           {
-            text: "购物车"
+            text: "购物车",
+            path: ''
           },
           {
-            text: "患者信息"
+            text: "患者信息",
+            path: '/patientInformation'
           },
           {
-            text: "设置"
+            text: "设置",
+            path: ''
           },
           {
             text: "用户反馈",
+            path: ''
           }
         ]
       }
@@ -44,6 +49,7 @@
       mineListWrapper,
       dxUnderState
     },
+
   }
 </script>
 

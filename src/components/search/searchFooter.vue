@@ -1,6 +1,6 @@
 <template>
     <div class="searchFooter">
-        <span v-for="(item,index) in searchFooter"><img src="../../assets/img/home/ic_fire.png" v-if="item.isShow">{{item.title}}</span>
+        <span v-for="(item,index) in searchFooter"><img src="../../assets/img/home/ic_fire.png" v-if="item.isShow" alt="">{{item.title}}</span>
     </div>
 </template>
 
@@ -19,6 +19,9 @@
 </script>
 
 <style scoped>
+    /*
+   首页搜索界面底部
+   */
     .searchFooter {
         width: 100%;
         padding: 0 36px;
@@ -29,7 +32,7 @@
 
     .searchFooter > span {
         font-size: 28px;
-        color: #9d9d9d;
+        color: #666666;
         display: flex;
         align-items: center;
         height: 56px;

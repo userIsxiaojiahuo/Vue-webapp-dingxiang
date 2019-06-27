@@ -1,7 +1,7 @@
 <template>
     <div class="searchNav">
         <div v-for="(item,index) in searchNav">
-            <img :src="item.imgs" alt="">
+            <router-link :to="item.path" ><img :src="item.imgs" alt=""></router-link>
             <span>{{item.title}}</span>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
 <style scoped>
     /*
-        搜索界面导航栏
+        首页搜索界面导航栏
     */
     .searchNav {
         width: 100%;
