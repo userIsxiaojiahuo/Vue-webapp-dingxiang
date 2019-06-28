@@ -1,7 +1,9 @@
 <template>
   <div>
     <!--复用-->
-    <ParticularsHeader :headerMag="headerMag"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+      <dxHeaderIconWrap/>
+    </dxHeaderReturn>
     <PopularizationCouncil :councilMsg="councilMsg"/>
     <PopularizationTopic :topicMsg="topicMsg"/>
     <PopularizationAuthor :authorMsg="authorMsg"/>
@@ -21,7 +23,8 @@
 <script>
   //复用
   //头部
-  import ParticularsHeader from "../components/particulars/particularsHeader"
+  import dxHeaderReturn from "../components/public/dxHeaderReturn"
+  import dxHeaderIconWrap from "../components/public/dxHeaderIconWrap"
   //委员会
   import PopularizationCouncil from "../components/popularization/popularizationCouncil"
   //文章标题
@@ -46,12 +49,12 @@
   import PopularizationMore from "../components/popularization/popularizationMore"
 
   /**
-   *
+   *疾病大全
    */
   export default {
     name: "classification",
     components: {
-      ParticularsHeader,
+      dxHeaderReturn,
       PopularizationCouncil,
       PopularizationTopic,
       PopularizationAuthor,
@@ -63,7 +66,8 @@
       //复用
       PopularizationCopyright,
       PopularizationShare,
-      PopularizationMore
+      PopularizationMore,
+      dxHeaderIconWrap
     },
     data() {
       return {
@@ -151,6 +155,9 @@
           navs: [
             "呼吸科"
           ]
+        },
+        headerReturnTitle: {
+          title: "科普文章"
         }
       }
     }

@@ -9,6 +9,9 @@
 </script>
 
 <style scoped>
+    /*
+   首页搜索边框线
+   */
 .searchSeparate{
     width: 690px;
     height: 1px;/*no*/

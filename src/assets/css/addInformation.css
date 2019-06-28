@@ -1,0 +1,122 @@
+.addInformation{
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.addInformationHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #fcfcfc;
+
+}
+.addInformationHeader div{
+  display: flex;
+  align-items: center;
+}
+.addInformationHeader .titleH{
+  font-size: 34px;
+  color: #030303;
+}
+.addInformationHeader .btn{
+  width: 92px;
+  height: 60px;
+  background-color: #28b7a3;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 5px;
+}
+.dbBack img{
+  width: 44px;
+  height: 44px;
+  vertical-align: middle;
+}
+.addInformation .allergy{
+  border-bottom: none;
+}
+.NAI{
+  display: flex;
+  height: 96px;
+  margin-left: 30px;
+  border-bottom: 1px solid #ebebeb;
+  align-items: center;
+}
+.addInformation .NAI .name{
+  display: inline-block;
+  width: 220px;
+  font-size: 30px;
+  color: #333333;
+  line-height: 96px;
+  font-weight: bold;
+}
+.addInformation .NAI .inp{
+  height: 94px;
+  border: none;
+  flex: 1;
+}
+.inp::placeholder{
+  font-size: 28px;
+  color: #cfcfcf;
+}
+.addInformation .NAI .isChecked{
+  background-image: url("../../assets/img/mine/ic_checkbox_s.png");
+ }
+.addInformation .NAI .isCheck{
+  background-image: url("../../assets/img/mine/ic_checkbox_s.png");
+}
+.addInformation .NAI i{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px;
+  border: 1px solid #d4d4d4;
+  margin-right: 12px;
+  background-size: 26px;
+}
+
+.addInformation .NAI span{
+  font-size: 28px;
+  color: #666666;
+  margin-right: 64px;
+}
+.medicalHistory{
+  width: 100%;
+  margin-left: 30px;
+}
+.medicalHistory textarea{
+  height: 196px;
+  width: 100%;
+  border: none;
+  text-indent: -60px;
+  outline: none;
+  font-size: 26px;
+  color: #CCCCCC;
+}
+.addInformation .liver{
+  border-bottom: none;
+}
+.addInformation .span{
+  margin-left: 30px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ebebeb;
+}
+.addInformation .span span{
+  display: inline-block;
+  margin-right: 30px;
+  width: 168px;
+  font-size: 26px;
+  height: 74px;
+  color: #666666;
+  background-color: #f4f4f4;
+  text-align: center;
+  line-height: 74px;
+  border-radius: 37px;
+  font-weight: bold;
+}
+.addInformation .lastSpan span:last-of-type{
+  margin-top: 30px;
+}

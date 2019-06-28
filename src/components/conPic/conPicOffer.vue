@@ -13,7 +13,6 @@
 
 <style scoped>
   .conPicOffer {
-    width: 100%;
     margin-left: 30px;
     border-bottom: 1px solid #ebebeb;
     padding-bottom: 70px;

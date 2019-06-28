@@ -1,6 +1,6 @@
 <template>
   <div class="illness">
-    <IllnessHeader :headerMsg="headerMsg"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"/>
     <IllnessSearch :searchMsg="searchMsg"/>
     <IllnessAlldisease :alldiseaseMsg="alldiseaseMsg"/>
     <IllnessClassify :classifyMsg="classifyMsg"/>
@@ -9,7 +9,7 @@
 
 <script>
   //顶部
-  import IllnessHeader from '../components/illness/illnessHeader'
+  import dxHeaderReturn from '../components/public/dxHeaderReturn'
   //查询
   import IllnessSearch from '../components/illness/illnessSearch'
   //全部疾病
@@ -17,10 +17,13 @@
   //分类
   import IllnessClassify from '../components/illness/illnessClassify'
 
+  /**
+   * 查疾病列表页面
+   */
   export default {
     name: "Illness",
     components: {
-      IllnessHeader,
+      dxHeaderReturn,
       IllnessSearch,
       IllnessAlldisease,
       IllnessClassify
@@ -93,16 +96,13 @@
               ]
             },
           ]
+        },
+        headerReturnTitle: {
+          title: "查疾病"
         }
       }
     }
   }
 </script>
 
-<style scoped>
-  .illness {
-    height: 100%;
-    width: 100%;
-    background-color: #ffffff;
-  }
-</style>
+<style src="../assets/css/illness.css"></style>

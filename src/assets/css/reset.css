@@ -94,9 +94,13 @@ html {
 input:focus {
   caret-color: #28b7a3;
   caret-shape: block;
-  font-size: 24px;
   font-weight: 100;
 }
-input{
+
+input {
   border: 0;
+}
+
+i {
+  font-style: normal;
 }

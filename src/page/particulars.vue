@@ -1,18 +1,21 @@
 <template>
   <div>
-    <ParticularsHeader :headerMag="headerMag"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+      <dxHeaderIconWrap>
+        <dxShareBtn/>
+      </dxHeaderIconWrap>
+    </dxHeaderReturn>
     <ParticularsIntroduce :introMsg="introMsg"/>
     <ParticularsAetiological :particMsg="particMsg"/>
     <ParticularsBtn :btnMsg="btnMsg"/>
     <ParticularsClassification/>
-    <!--:classMsg="classMsg"-->
   </div>
 
 </template>
 
 <script>
   // 顶部
-  import ParticularsHeader from "../components/particulars/particularsHeader"
+  import dxHeaderReturn from "../components/public/dxHeaderReturn"
   //介绍
   import ParticularsIntroduce from "../components/particulars/particularsIntroduce"
   //发病原因
@@ -22,15 +25,20 @@
   //分类
   import ParticularsClassification from "../components/particulars/particularsClassification"
 
+  import dxHeaderIconWrap from '../components/public/dxHeaderIconWrap'
+  import dxShareBtn from '../components/public/dxShareBtn'
+
 
   export default {
     name: "particulars",
     components: {
-      ParticularsHeader,
+      dxHeaderReturn,
       ParticularsIntroduce,
       ParticularsAetiological,
       ParticularsBtn,
-      ParticularsClassification
+      ParticularsClassification,
+      dxHeaderIconWrap,
+      dxShareBtn
     },
     data() {
       return {
@@ -74,7 +82,8 @@
         //按钮
         btnMsg: {
           txt: "查看详情"
-        }
+        },
+        headerReturnTitle: {}
       }
     }
   }

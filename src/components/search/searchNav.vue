@@ -1,4 +1,5 @@
 <template>
+
   <div class="searchNav">
     <router-link :to="item.path" tag="div" v-for="(item,index) in searchNav" :key="index">
       <img :src="item.imgs" alt="">
@@ -19,6 +20,7 @@
 </script>
 
 <style scoped>
+
   /*
       搜索界面导航栏
   */

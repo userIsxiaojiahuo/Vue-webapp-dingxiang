@@ -75,7 +75,7 @@
           title: "选择药品",
           path: "/cart"
         },
-        show: true
+        show: false
       }
     },
     methods: {}

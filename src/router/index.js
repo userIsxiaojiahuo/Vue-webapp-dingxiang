@@ -1,8 +1,8 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Illness from "../page/illness"
-import IllnessTwo from "../page/illnessTwo"
-import Particulars from "../page/particulars"
+import IllnessTwo from "../page/illnessSearch"
+import particulars from "../page/particulars"
 import Popularization from "../page/popularization"
 import classification from "../page/classification"
 import AskDoctor from "../page/askDoctor"
@@ -22,6 +22,11 @@ import indexSearch from "../page/indexSearch"
 import HospitalMessage from "../page/hospitalMessage"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import doctorSearch from "../page/doctorSearch"
+import hospitalSearch from "../page/hospitalSearch"
+import drugSearch from "../page/drugSearch"
+import patientInformation from "../page/patientInformation"
+import addInformation from "../page/addInformation"
 import register from "../page/register"
 import login from "../page/login"
 import OnLineBuy from "../page/onLineBuy"
@@ -31,9 +36,6 @@ import Cart from "../page/cart"
 import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
-import doctorSearch from "../page/doctorSearch"
-import hospitalSearch from "../page/hospitalSearch"
-import drugSearch from "../page/drugSearch"
 
 Vue.use(Router);
 
@@ -93,9 +95,9 @@ const router = new Router({
       }
     },
     {
-      path: "/Particulars",
-      name: "Particulars",
-      component: Particulars,
+      path: "/particulars",
+      name: "particulars",
+      component: particulars,
       meta: {
         footerIsShow: false
       }
@@ -269,30 +271,6 @@ const router = new Router({
       }
     },
     {
-      path: "/OrderFilling",
-      name: "OrderFilling",
-      component: OrderFilling,
-      meta: {
-        footerIsShow: false
-      }
-    },
-    {
-      path: "/AddressManagement",
-      name: "AddressManagement",
-      component: AddressManagement,
-      meta: {
-        footerIsShow: false
-      }
-    },
-    {
-      path: "/EditAddress",
-      name: "EditAddress",
-      component: EditAddress,
-      meta: {
-        footerIsShow: false
-      }
-    },
-    {
       path: "/doctorSearch",
       name: "doctorSearch",
       component: doctorSearch,
@@ -301,9 +279,21 @@ const router = new Router({
       }
     },
     {
+      path: "/OrderFilling",
+      name: "OrderFilling",
+      component: OrderFilling,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
       path: "/hospitalSearch",
       name: "hospitalSearch",
       component: hospitalSearch,
+    }, {
+      path: "/AddressManagement",
+      name: "AddressManagement",
+      component: AddressManagement,
       meta: {
         footerIsShow: false
       }
@@ -312,6 +302,27 @@ const router = new Router({
       path: "/drugSearch",
       name: "drugSearch",
       component: drugSearch,
+    }, {
+      path: "/EditAddress",
+      name: "EditAddress",
+      component: EditAddress,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+
+      path: "/patientInformation",
+      name: "patientInformation",
+      component: patientInformation,
+      meta: {
+        footerIsShow: false
+      },
+    },
+    {
+      path: "/addInformation",
+      name: "addInformation",
+      component: addInformation,
       meta: {
         footerIsShow: false
       }

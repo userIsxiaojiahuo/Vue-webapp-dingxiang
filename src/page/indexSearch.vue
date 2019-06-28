@@ -1,17 +1,25 @@
 <template>
   <div class="indexSearch">
-    <searchHeader></searchHeader>
+    <div class="header">
+      <searchHeader :placeholderText="placeholderText"></searchHeader>
+      <searchCancel></searchCancel>
+    </div>
+    <searchSeparate></searchSeparate>
     <searchNav :searchNav="searchNav"></searchNav>
     <searchHot></searchHot>
     <searchFooter :searchFooter="searchFooter"></searchFooter>
   </div>
 </template>
 
+
 <script>
   import searchHeader from '../components/search/searchHeader'
+  import searchCancel from '../components/search/searchCancel'
   import searchNav from '../components/search/searchNav'
+  import searchSeparate from '../components/search/searchSeparate'
   import searchHot from '../components/search/searchHot'
   import searchFooter from '../components/search/searchFooter'
+
 
   /**
    * 首页搜索
@@ -22,7 +30,9 @@
       searchHeader,
       searchNav,
       searchHot,
-      searchFooter
+      searchFooter,
+      searchSeparate,
+      searchCancel
     },
     data() {
       return {
@@ -69,12 +79,20 @@
           {
             title: '卵巢囊肿'
           },
-        ]
+        ],
+        placeholderText: "# 安全变美#"
       }
     }
   }
 </script>
 
 <style scoped>
-
+  .header {
+    width: 100%;
+    display: flex;
+    background-color: #fcfcfc;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 24px 20px;
+  }
 </style>
