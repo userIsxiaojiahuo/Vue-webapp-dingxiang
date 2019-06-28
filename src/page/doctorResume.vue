@@ -105,6 +105,3 @@
 </script>
 
 <style src="../assets/css/doctorResume.css"></style>
-<style scoped>
-
-</style>

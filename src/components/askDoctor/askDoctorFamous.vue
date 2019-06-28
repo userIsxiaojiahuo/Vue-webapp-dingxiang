@@ -21,16 +21,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .famous {
-        display: flex;
-        height: 148px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .flexDiv {
-        flex: 1;
-    }
-</style>

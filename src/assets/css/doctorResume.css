@@ -18,6 +18,38 @@
 */
 
 /*
+    resumeCon start
+*/
+
+.resumeCon {
+    background: #f4f4f4;
+    padding: 20px 0 20px 0;
+}
+
+.resumecontent {
+    background: white;
+    padding-left: 30px;
+}
+
+.resumeTitle {
+    padding-right: 30px;
+    border-bottom: 1px solid #ebebeb; /*no*/
+    padding-bottom: 26px;
+    padding-top: 18px;
+}
+
+.resumeTitle > h3 {
+    font-size: 32px;
+    color: #333333;
+    line-height: 64px;
+}
+
+/*
+    resumeCon start
+*/
+
+
+/*
     hospital start
 */
 

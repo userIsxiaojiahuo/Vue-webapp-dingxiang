@@ -16,7 +16,7 @@
           </div>
           微信 一键快速登录
         </div>
-        <router-link to="/login" tag="p" class="loginText">其他方式登录</router-link>
+        <router-link to="login" tag="p" class="loginText">其他方式登录</router-link>
         <p class="loginText callOff" @click="callOfLogin()">取消</p>
       </div>
     </div>
@@ -40,9 +40,10 @@
     methods: {
       callOfLogin() {
         this.IsShow = false;
-        console.log(this.IsShow);
         this.$emit('changeShow', this.IsShow)
       }
+    }, mounted() {
+      console.log(this.IsShow)
     }
   }
 </script>

@@ -56,7 +56,7 @@
     }
 
     .listCon {
-        padding-left: 0;
+        padding-left: 30px;
     }
 
     .messageText > i {

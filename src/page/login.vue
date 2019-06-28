@@ -1,42 +1,43 @@
 <template>
   <div class="login">
     <div class="loginHeader">
-      <div class="goBack">
-        <img class="imgAuto" src="../assets/img/login/goback.png" alt="">
+      <div class="goBack" @click="goBack()">
+        <img class="imgAuto" src="../assets/img/loginOrRegister/res_close.png" alt="">
       </div>
+      <router-link to="/register" tag="div" class="register">注册</router-link>
     </div>
-    <div class="loginContent">
-      <span class="title">快速注册</span>
-      <div class="inputWrapper">
-        <div class="input">
-          <div class="phoneArea underLine">
-            <div class="phonePicWra">
-              <img class="imgAuto" src="../assets/img/login/sso_phone.png" alt="">
-            </div>
-            <div class="AreaInputWrapper">
-              <input class="AreaInput" type="text" value="+86">
-            </div>
-          </div>
-          <div class="phoneNumber underLine">
-            <input class="phoneInput AreaInput" type="text" maxlength="13" placeholder="11位手机号码">
-          </div>
-        </div>
-        <div class="input underLine codeWrapper">
-          <div class="phonePicWra loginCode">
-            <img class="imgAuto" src="../assets/img/login/sso_phone.png" alt="">
-          </div>
-          <div class="phoneNumber">
-            <input class="phoneInput AreaInput loginInput" type="text" maxlength="13" placeholder="4位验证码">
-          </div>
-        </div>
-      </div>
+    <div class="LoginContent">
+      <dxLoginOrRegister>
+        <template v-slot:register>
+          <span class="title">手机号注册登录</span>
+        </template>
+        <template v-slot:login>
+          <div class="checkLogin">用账号密码登录？</div>
+        </template>
+      </dxLoginOrRegister>
+      <loginBtn v-slot:loginBtn>
+        <span>登录</span>
+      </loginBtn>
     </div>
   </div>
 </template>
 
 <script>
+  import dxLoginOrRegister from '../components/public/dxLoginOrRegister'
+  import dxLoginTitle from '../components/public/dxLoginTitle'
+  import loginBtn from '../components/public/loginBtn'
+
+  const login = require('../assets/js/login');
+
   export default {
-    name: "login"
+    name: "register",
+    components: {
+      dxLoginOrRegister, dxLoginTitle, loginBtn
+    }, methods: {
+      goBack() {
+        login.goBack(this);
+      }
+    }
   }
 </script>
 

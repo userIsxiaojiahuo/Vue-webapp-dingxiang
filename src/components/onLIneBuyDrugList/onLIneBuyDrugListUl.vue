@@ -1,13 +1,13 @@
 <template>
-	<ul class="onLIneBuyDrugListUl">
-		<li class="onLIneBuyDrugListUl_li" 
-			v-for="(itme,index) in drugList"
-			:key="index"
-		>
-			<!-- 药品列表的li -->
-			<OnLineBuyDrugListLi :drugList="itme" :drugListInndex="index"/>
-		</li>
-	</ul>
+  <ul class="onLIneBuyDrugListUl">
+    <li class="onLIneBuyDrugListUl_li"
+        v-for="(item,index) in drugList"
+        :key="index"
+    >
+      <!-- 药品列表的li -->
+      <OnLineBuyDrugListLi :drugList="item" :drugListInndex="index"/>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -24,17 +24,18 @@
 </script>
 
 <style>
-	.onLIneBuyDrugListUl{
-		width: 100%;
-		padding: 0 30px;
-		overflow: hidden;
-	}
-	.onLIneBuyDrugListUl_li{
-		width: 100%;
-		height: 252px;
-		border-bottom: 1px solid #ebebeb;
-		padding: 40px 0 42px;
-		display: flex;
-	}
-	
+  .onLIneBuyDrugListUl {
+    width: 100%;
+    padding: 0 30px;
+    overflow: hidden;
+  }
+
+  .onLIneBuyDrugListUl_li {
+    width: 100%;
+    height: 252px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 40px 0 42px;
+    display: flex;
+  }
+
 </style>
