@@ -66,9 +66,9 @@
                 // 头部
                 headerMag: {
                     tit: "科普文章",
-                    icon: require("../public/img/ic_titlebar_back.png"),
-                    iconn: require("../public/img/abc_ic_star_black_36dp.png"),
-                    iconnn: require("../public/img/ic_titlebar_share.png")
+                    icon: require("../assets/img/illness/ic_titlebar_back.png"),
+                    iconn: require("../assets/img/illness/abc_ic_star_black_36dp.png"),
+                    iconnn: require("../assets/img/illness/ic_titlebar_share.png")
                 },
                 //组委会
                 councilMsg: {
@@ -80,12 +80,12 @@
                 },
                 //作者信息
                 authorMsg: {
-                    img: require("../public/img/timg.jpg"),
+                    img: require("../assets/img/illness/timg.jpg"),
                     name: "蔡青青"
                 },
                 //疾病图片
                 picMsg: {
-                    img: require("../public/img/xc.png")
+                    img: require("../assets/img/illness/xc.png")
                 },
                 //文章标题
                 articMsg: {
@@ -157,17 +157,17 @@
                 copyMsg:{
                     po:"丁香园版权所有，未经许可不得转载",
                     pt:"图片设计：一颗星",
-                    icon:require("../public/img/dxys_launcher_round.png"),
+                    icon:require("../assets/img/illness/dxys_launcher_round.png"),
                     name:"丁香医生审稿专业委员会",
                     time:"2015年03月同行评议通过",
-                    iconn:require("../public/img/ic_inquisition_arrow.png")
+                    iconn:require("../assets/img/illness/ic_inquisition_arrow.png")
                 },
                 //分享
                 shareMsg:{
-                    ico:require("../public/img/ic_zan_n.png"),
-                    icon:require("../public/img/share_weixin.png"),
-                    iconn:require("../public/img/share_penyouquan.png"),
-                    iconnn:require("../public/img/share_weibo.png"),
+                    ico:require("../assets/img/illness/ic_zan_n.png"),
+                    icon:require("../assets/img/illness/share_weixin.png"),
+                    iconn:require("../assets/img/illness/share_penyouquan.png"),
+                    iconnn:require("../assets/img/illness/share_weibo.png"),
                     tit:"有帮助",
                     num:"(40)"
                 },
@@ -178,7 +178,7 @@
                         "儿童支气管哮喘","任时光匆匆流去，哮喘依然不容忽视","支气管哮喘","治疗哮喘常见的7个误区，看这篇就够了！"
                     ],
                     moree:"更多相关文章",
-                    iconnn:require("../public/img/ic_inquisition_arrow.png")
+                    iconnn:require("../assets/img/illness/ic_inquisition_arrow.png")
                 },
                 //复用推荐话题
                 moreMsgg:{

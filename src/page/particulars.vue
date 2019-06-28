@@ -36,9 +36,9 @@
       return {
         // 头部
         headerMag: {
-          icon: require("../public/img/ic_titlebar_back.png"),
-          iconn: require("../public/img/abc_ic_star_black_36dp.png"),
-          iconnn: require("../public/img/ic_titlebar_share.png")
+          icon: require("../assets/img/illness/ic_titlebar_back.png"),
+          iconn: require("../assets/img/illness/abc_ic_star_black_36dp.png"),
+          iconnn: require("../assets/img/illness/ic_titlebar_share.png")
         },
 
         //介绍
@@ -47,19 +47,19 @@
           informaTion: [
             {
               autho: "词条作者",
-              img: require("../public/img/timg.jpg"),
+              img: require("../assets/img/illness/timg.jpg"),
               name: "张三",
               administrative: "儿科",
               post: "主治医生",
-              icon: require("../public/img/ic_inquisition_arrow.png")
+              icon: require("../assets/img/illness/ic_inquisition_arrow.png")
             },
             {
               autho: "审核专家",
-              img: require("../public/img/timg (2).jpg"),
+              img: require("../assets/img/illness/timg (2).jpg"),
               name: "李四",
               administrative: "精神科",
               post: "主治医生",
-              icon: require("../public/img/ic_inquisition_arrow.png")
+              icon: require("../assets/img/illness/ic_inquisition_arrow.png")
             }
           ],
           release: "发布时间",

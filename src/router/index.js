@@ -316,6 +316,10 @@ const router = new Router({
         footerIsShow: false
       }
     },
+    {
+      path: "**",
+      redirect: home,
+    }
   ]
 });
 // 路由守卫

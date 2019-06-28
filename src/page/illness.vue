@@ -30,18 +30,18 @@
         //顶部
         headerMsg: {
           title: "查疾病",
-          icon: require("../public/img/ic_titlebar_back.png")
+          icon: require("../assets/img/illness/ic_titlebar_back.png")
         },
         //查询
         searchMsg: {
           placeholderMsg: "症状、疾病",
-          icon: require("../public/img/ic_search_after.png")
+          icon: require("../assets/img/illness/ic_search_after.png")
         },
         //全部疾病
         alldiseaseMsg: {
           title: '全部疾病',
-          icon: require("../public/img/ic_screen_green.png"),
-          iconn: require("../public/img/crop__ic_cancel.png"),
+          icon: require("../assets/img/illness/ic_screen_green.png"),
+          iconn: require("../assets/img/illness/crop__ic_cancel.png"),
           select: '筛选',
           tit: "疾病筛选",
           all: "全部疾病",

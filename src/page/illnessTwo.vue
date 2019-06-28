@@ -13,7 +13,7 @@
     data(){
         return{
            cancleMsg:{
-                icon:require("../public/img/ic_search_after.png"),
+                icon:require("../assets/img/illness/ic_search_after.png"),
                 placeholderMsg:"症状，疾病",
                 cancleBtn:"取消"
             }

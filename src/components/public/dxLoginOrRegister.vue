@@ -11,8 +11,9 @@
             <input class="AreaInput" type="text" value="+86">
           </div>
         </div>
-        <div class="phoneNumber underLine">
-          <input class="phoneInput AreaInput" type="text" maxlength="13" placeholder="11位手机号码">
+        <div class="phoneNumber underLine" :class='{focusActive:changeColor}'>
+          <input class="phoneInput AreaInput" autocomplete="off" type="text" maxlength="13" placeholder="11位手机号码"
+                 v-model="phoneNumber">
         </div>
       </div>
       <div class="input underLine codeWrapper">
@@ -21,13 +22,11 @@
         </div>
         <div class="phoneNumber">
           <input class="phoneInput AreaInput loginInput" type="text" maxlength="4" placeholder="4位验证码">
-          <div class="codeBtn">
-            <span class="codeBtnTxt">获取验证码</span>
-          </div>
+          <dxMsgCode :IsMsgCode="getMsgNum"/>
         </div>
       </div>
       <div class="noCode">
-        <div class="hintInfo" v-show="true">手机号码错误</div>
+        <div class="hintInfo" v-show="false">手机号码错误</div>
         <div class="noCodeText">收不到验证码？</div>
       </div>
       <slot name="login"></slot>
@@ -37,8 +36,32 @@
 </template>
 
 <script>
+  import user from '../../assets/js/user.js'
+  import dxMsgCode from '../../components/public/dxMsgCode'
+
   export default {
-    name: "dxLoginOrRegister"
+    name: "dxLoginOrRegister",
+    data() {
+      return {
+        phoneNumber: '',
+        getMsgNum: false,
+        changeColor: false
+      }
+    },
+    components: {
+      dxMsgCode
+    },
+    watch: {
+      phoneNumber(newValue, oldValue) {
+        newValue.length >= 13 ? this.getMsgNum = true : this.getMsgNum = false;
+        newValue.focus ? this.changeColor = true : this.changeColor = false;
+        if (newValue.length > oldValue.length) {
+          if (newValue.length === 3 || newValue.length === 8) {
+            this.phoneNumber += ' ';
+          }
+        }
+      }
+    }
   }
 </script>
 
@@ -137,21 +160,6 @@
     font-weight: 100;
   }
 
-  .codeBtn {
-    width: 198px;
-    height: 56px;
-    background: #ededed;
-    border-radius: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 18px;
-  }
-
-  .codeBtnTxt {
-    font-size: 24px;
-    color: #cfcfcf;
-  }
 
   .noCode {
     margin-top: 40px;
@@ -164,12 +172,16 @@
     padding-right: 20px;
     color: #cccccc;
     font-size: 26px;
-    float: right;
+    margin-left: auto;
   }
 
   .hintInfo {
     font-size: 26px;
     color: red;
     margin-left: 52px;
+  }
+
+  .focusActive {
+    border-color: #28b7a3;
   }
 </style>
