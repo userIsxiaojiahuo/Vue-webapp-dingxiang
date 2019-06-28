@@ -1,7 +1,6 @@
 <template>
   <div class="indexSearch">
     <searchHeader></searchHeader>
-    <searchSeparate></searchSeparate>
     <searchNav :searchNav="searchNav"></searchNav>
     <searchHot></searchHot>
     <searchFooter :searchFooter="searchFooter"></searchFooter>
@@ -11,17 +10,17 @@
 <script>
   import searchHeader from '../components/search/searchHeader'
   import searchNav from '../components/search/searchNav'
-  import searchSeparate from '../components/search/searchSeparate'
   import searchHot from '../components/search/searchHot'
   import searchFooter from '../components/search/searchFooter'
 
-
+  /**
+   * 首页搜索
+   */
   export default {
     name: "indexSearch",
     components: {
       searchHeader,
       searchNav,
-      searchSeparate,
       searchHot,
       searchFooter
     },
@@ -30,15 +29,18 @@
         searchNav: [
           {
             imgs: require('../assets/img/home/search1.jpg'),
-            title: '医生'
+            title: '医生',
+            path: "doctorSearch"
           },
           {
             imgs: require('../assets/img/home/search2.jpg'),
-            title: '医院'
+            title: '医院',
+            path: "hospitalSearch"
           },
           {
             imgs: require('../assets/img/home/search3.jpg'),
-            title: '药品'
+            title: '药品',
+            path: "drugSearch"
           }
         ],
         searchFooter: [

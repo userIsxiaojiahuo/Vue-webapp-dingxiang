@@ -5,7 +5,10 @@
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
             @click="handleClickLi(index)"
-            :class="{deparmentListsLi:index==clickLi}">{{item}}
+            :key="index"
+            :class="{deparmentListsLi:index===clickLi}"
+        >
+          {{item}}
         </li>
       </ul>
     </div>
@@ -59,15 +62,12 @@
   }
 
   .deparmentLists > ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     width: 140%;
     height: 100%;
   }
 
   .deparmentLists > ul > li {
+    float: left;
     padding: 0 27px;
     height: 100%;
     line-height: 97px;

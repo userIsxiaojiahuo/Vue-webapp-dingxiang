@@ -1,7 +1,5 @@
 <template>
-    <div class="searchSeparate">
-
-    </div>
+    <div class="searchSeparate"></div>
 </template>
 
 <script>

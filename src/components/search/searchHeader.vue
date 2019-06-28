@@ -6,11 +6,11 @@
 </template>
 
 <script>
+  /**
+   * 搜索头部
+   */
   export default {
     name: 'searchHeader',
-    data() {
-      return {}
-    },
     methods: {
       back() {
         this.$router.go(-1);

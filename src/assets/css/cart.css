@@ -1,0 +1,17 @@
+/* cartTotalPrice start*/
+.cartTotalPrice{
+	width: 100%;
+	height: 100%;
+}
+.cartTotalPrice>p{
+	color: #2c2c2c;
+	font-size: 28px;
+	padding-left: 10px;
+	line-height: 98px;
+}
+.cartTotalPrice>p>span{
+	color: #ff6600;
+	font-weight: 700;
+}
+/* cartTotalPrice end*/
+	

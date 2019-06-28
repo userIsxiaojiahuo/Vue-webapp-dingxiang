@@ -30,6 +30,9 @@
   import homeSwiper from '../components/index/homeSwiper'
   import homePageOne from '../components/index/homePageOne'
 
+  /**
+   * 首页
+   */
   export default {
     name: 'home',
     components: {
@@ -61,14 +64,14 @@
             imgs: require('../assets/img/home/maxNav-3.png'),
             spanContent: '在线购药',
             emContent: '限时包邮',
-            path: "/"
+            path: "/onLineBuy"
           }
         ],
         indexListNav: [
           {
             imgs: require('../assets/img/home/nav-1.png'),
             title: '电话急诊',
-            path: "/callEmergency"
+            path: "callEmergency"
           },
           {
             imgs: require('../assets/img/home/nav-2.png'),
@@ -78,7 +81,7 @@
           {
             imgs: require('../assets/img/home/nav-3.png'),
             title: '查疾病',
-            path: ""
+            path: "/illness"
           },
           {
             imgs: require('../assets/img/home/nav-4.png'),
@@ -88,7 +91,7 @@
           {
             imgs: require('../assets/img/home/nav-5.png'),
             title: '阳痿早泄',
-            path: ""
+            path: "/impotencePremature"
           },
           {
             imgs: require('../assets/img/home/nav-6.png'),
@@ -98,7 +101,7 @@
           {
             imgs: require('../assets/img/home/nav-7.png'),
             title: '急救大全',
-            path: ""
+            path: "/classification"
           },
           {
             imgs: require('../assets/img/home/nav-8.png'),
