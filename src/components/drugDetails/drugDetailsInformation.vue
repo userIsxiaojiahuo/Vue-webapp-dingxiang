@@ -19,7 +19,7 @@
 	.drugDetailsInformation{
 		width: 100%;
 		padding: 0 30px;
-		height: 408px;
+		height: 374px;
 		overflow-y: auto;
 	}
 	.drugDetailsInformation::-webkit-scrollbar {

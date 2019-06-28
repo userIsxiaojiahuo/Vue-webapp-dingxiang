@@ -19,14 +19,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .patient {
-        background: #f4f4f4;
-        padding-top: 20px;
-    }
-
-    .hotConsult {
-        background: white;
-    }
-</style>

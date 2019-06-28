@@ -34,9 +34,4 @@
   }
 </script>
 
-<style scoped>
-  .safeBeauty {
-    width: 100%;
-    height: 100%;
-  }
-</style>
+<style src="../assets/css/safeBeauty.css"></style>

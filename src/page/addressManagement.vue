@@ -21,6 +21,7 @@
 	/* 管理收货地址的底部 */
 	import AddressManagementFoot from "../components/addressManagement/addressManagementFoot.vue"
 	export default{
+		/* 管理守护地址 */
 		name:"addressManagement",
 		components:{
 			HeaderReturn,

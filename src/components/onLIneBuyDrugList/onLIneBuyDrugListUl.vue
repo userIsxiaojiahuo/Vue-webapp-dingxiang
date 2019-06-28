@@ -11,18 +11,16 @@
 </template>
 
 <script>
-  /* 药品列表的li */
-  import OnLineBuyDrugListLi from './onLineBuyDrugListLi.vue'
-  /* 药品列表 */
-
-  export default {
-    name: "onLineBuyDrugListUl",
-    props: ["drugList"],
-    components: {
-      OnLineBuyDrugListLi
-    },
-
-  }
+	/* 药品列表的li */
+	import OnLineBuyDrugListLi from './onLineBuyDrugListLi.vue'
+	/* 药品列表 */
+	export default{
+		name:"onLineBuyDrugListUl",
+		props:["drugList"],
+		components:{
+			OnLineBuyDrugListLi
+		}
+	}
 </script>
 
 <style>

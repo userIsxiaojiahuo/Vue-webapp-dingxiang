@@ -19,7 +19,7 @@
     import DoctorInfoHeader from "../components/doctorInfo/doctorInfoHeader"
     import DoctorVideo from "../components/doctorInfo/doctorVideo"
     import DoctorInfoMessage from "../components/doctorInfo/doctorInfoMessage"
-    import ExperienceStati from "../components/doctorResume/experienceStati"
+    import ExperienceStati from "../components/doctorInfo/experienceStati"
     import MainBusiness from "../components/doctorInfo/mainBusiness"
     import AskDoctorsWay from "../components/doctorInfo/askDoctorsWay"
     import HotConsult from "../components/doctorInfo/hotConsult"
@@ -82,6 +82,8 @@
                                 isClassImg: false,
                                 userName: "匿名用户8391",
                                 questionText: "性别：女，年龄：29医生您好，我5天前开始全身长包（如图），不疼不痒，集中在背部，腹部，大腿内侧根部，还有四肢。之前吃了抗过敏的药没有明显好转，部分包涂抹复方酮康唑软膏，没有太大作用。今天屁股又长了少量新包，有痒感。我没有皮肤过敏史，这次不知道是什么状况，这么长时间也没有消退，望医生能帮忙看看！感谢！",
+                                isShowClass: false,
+                                isTime:true
                             },
                             {
                                 isHeader: true,
@@ -90,6 +92,8 @@
                                 isClassImg: false,
                                 userName: "匿名用户8391",
                                 questionText: "性别:女，年龄:29医生您好，我5天前开始全身长包(如图)，不疼不痒，集中在背部，腹部，大腿内侧根部，还有四肢。之前吃了抗过敏的药没有明显好转，部分包涂抹复方酮康唑软膏，没有太大作用。今天屁股又长了少量新包，有痒感。我没有皮肤过敏史，这次不知道是什么状况，这么长时间也没有消退，望医生能帮忙看看！感谢！",
+                                isShowClass: false,
+                                isTime:true
                             }
                         ],
                         quaternionsNum: 100,
@@ -109,6 +113,8 @@
                                 isClassImg: true,
                                 userName: "匿名用户8391",
                                 questionText: "态度好，回复热情详细，感谢医生的专业解答！",
+                                isShowClass: true,
+                                isTime:true
                             },
                             {
                                 isHeader: false,
@@ -117,11 +123,14 @@
                                 isClassImg: true,
                                 userName: "匿名用户8391",
                                 questionText: "态度好，回复热情详细，感谢医生的专业解答！",
+                                isShowClass: true,
+                                isTime:true
                             }
                         ],
                         quaternionsNum: 100,
                         isShow: false,
-                        displayNone: true
+                        displayNone: true,
+                        isHospital: false
                     }
                 ]
             }
@@ -130,6 +139,3 @@
 </script>
 
 <style src="../assets/css/doctorInfo.css"></style>
-<style scoped>
-
-</style>

@@ -80,6 +80,9 @@
                         honor: "湿疹类",
                         imgPrice: "79",
                         phonePrice: "88",
+                        isAskImg: true,
+                        isMonthRecipe: true,
+                        isDesignation: true,
                         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
                     },
                     {
@@ -96,6 +99,9 @@
                         honor: "湿疹类",
                         imgPrice: "79",
                         phonePrice: "88",
+                        isAskImg: true,  // 是否又问医生
+                        isMonthRecipe: true, // 是否开药方
+                        isDesignation: true,// 是否是优秀医生
                         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
                     },
                     {
@@ -112,6 +118,10 @@
                         honor: "湿疹类",
                         imgPrice: "79",
                         phonePrice: "88",
+                        isAskImg: true,
+                        isPhone: true,
+                        isMonthRecipe: true,
+                        isDesignation: true,
                         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
                     }
                 ]
@@ -120,6 +130,3 @@
     }
 </script>
 <style src="../assets/css/departDetails.css"></style>
-<style scoped>
-
-</style>

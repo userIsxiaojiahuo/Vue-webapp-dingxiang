@@ -24,6 +24,11 @@ import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
 import phoneNumber from "../page/phoneNumber"
 import replacePhone from "../page/replacePhone"
+import doctorSearch from "../page/doctorSearch"
+import hospitalSearch from "../page/hospitalSearch"
+import drugSearch from "../page/drugSearch"
+import patientInformation from "../page/patientInformation"
+import addInformation from "../page/addInformation"
 import register from "../page/register"
 import login from "../page/login"
 import OnLineBuy from "../page/onLineBuy"
@@ -33,15 +38,13 @@ import Cart from "../page/cart"
 import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
-import doctorSearch from "../page/doctorSearch"
-import hospitalSearch from "../page/hospitalSearch"
-import drugSearch from "../page/drugSearch"
 
 Vue.use(Router);
 
 const router = new Router({
-    mode: "history",
-    routes: [
+  mode: "history",
+  routes:
+    [
       {
         path: "/",
         redirect: home
@@ -334,9 +337,21 @@ const router = new Router({
           footerIsShow: false
         }
       },
+      {
+        path: "/patientInformation",
+        component: patientInformation
+      },
+      {
+        path: "/addInformation",
+        component: addInformation
+      },
+      {
+        path: "**",
+        redirect: home
+      }
     ]
-  })
-;
+})
+
 
 // 路由守卫
 
