@@ -3,7 +3,7 @@
 		<div class="onLineBuyFoot-left">
 			<slot></slot>
 		</div>
-		<router-link :to="onLineBuyFoot.path" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
+			<router-link :to="onLineBuyFoot.path" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
 	</div>
 </template>
 

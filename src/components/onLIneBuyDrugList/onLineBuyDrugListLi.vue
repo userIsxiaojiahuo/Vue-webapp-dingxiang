@@ -35,10 +35,6 @@
 			choiceDrug(index){
 				this.isDrugNumBtu = index;
 				this.isChoiceDrugBtu = index;
-				// this.isChoiceDrugBtu = index;
-// 				for(let i=0;i<this.$refs.choiceDrugBtu.length;i++){
-// 					this.isChoiceDrugBtu.push(true);
-// 				}
 			}
 		}
 	}

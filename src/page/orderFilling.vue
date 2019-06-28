@@ -11,10 +11,7 @@
 		<!-- 提交订单小功能 -->
 		<OrderFillingSmallFunction v-for="item in orderFilling" :orderFilling="item" class="orderFillingSmallFunction"/>
 		<!-- 底部购买按钮 -->
-		<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
-			<!-- 底部购买按钮旁边的内容 -->
-			<OrderFillingFoot/>
-		</OnLineBuyFoot>
+		<OrderFillingFoot/>
 	</div>
 </template>
 
@@ -29,8 +26,6 @@
 	import OrderFillingDrugDetails from "../components/orderFilling/orderFillingDrugDetails.vue"
 	/* 提交订单小功能 */
 	import OrderFillingSmallFunction from "../components/orderFilling/orderFillingSmallFunction.vue"
-	/* 底部购买按钮 */
-	import OnLineBuyFoot from "../components/public/dxOnLineBuyFoot.vue"
 	/* 底部购买按钮旁边的内容 */
 	import OrderFillingFoot from "../components/orderFilling/orderFillingFoot.vue"
 	/* 订单填写 */
@@ -42,7 +37,6 @@
 			OrderFillingAddress,
 			OrderFillingDrugDetails,
 			OrderFillingSmallFunction,
-			OnLineBuyFoot,
 			OrderFillingFoot
 		},
 		data(){
@@ -104,10 +98,6 @@
 						isCalss:true
 					}
 				],
-				onLineBuyFoot:{
-					title:"支付",
-					path:"/"
-				}
 			}
 		}
 	}

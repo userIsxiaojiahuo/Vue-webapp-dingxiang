@@ -19,8 +19,7 @@
 		props:["drugList"],
 		components:{
 			OnLineBuyDrugListLi
-		},
-		
+		}
 	}
 </script>
 

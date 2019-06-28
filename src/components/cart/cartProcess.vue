@@ -56,8 +56,8 @@
 	.cartProcess_text{
 		color: 24px;
 		font-size: #CCCCCC;
-		margin-left: 10px;
-		margin-right: 16px;
+		margin-left: 8px;
+		margin-right: 8px;
 	}
 	.cartProcess_ico{
 		height: 20px;
