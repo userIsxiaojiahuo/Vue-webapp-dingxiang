@@ -1,8 +1,8 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Illness from "../page/illness"
-import IllnessTwo from "../page/illnessTwo"
-import Particulars from "../page/particulars"
+import IllnessTwo from "../page/illnessSearch"
+import particulars from "../page/particulars"
 import Popularization from "../page/popularization"
 import classification from "../page/classification"
 import AskDoctor from "../page/askDoctor"
@@ -22,6 +22,8 @@ import indexSearch from "../page/indexSearch"
 import HospitalMessage from "../page/hospitalMessage"
 import selectDeskList from "../page/selectDeskList"
 import conPic from "../page/conPic"
+import phoneNumber from "../page/phoneNumber"
+import replacePhone from "../page/replacePhone"
 import doctorSearch from "../page/doctorSearch"
 import hospitalSearch from "../page/hospitalSearch"
 import drugSearch from "../page/drugSearch"
@@ -36,6 +38,11 @@ import Cart from "../page/cart"
 import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
+import securiteyCode from "../page/securiteyCode"
+import setAbout from "../page/setAbout"
+import setAmendname from "../page/setAmendname"
+import setRecommend from "../page/setRecommend"
+import setting from "../page/setting"
 
 Vue.use(Router);
 
@@ -95,9 +102,9 @@ const router = new Router({
       }
     },
     {
-      path: "/Particulars",
-      name: "Particulars",
-      component: Particulars,
+      path: "/particulars",
+      name: "particulars",
+      component: particulars,
       meta: {
         footerIsShow: false
       }
@@ -290,7 +297,8 @@ const router = new Router({
       path: "/hospitalSearch",
       name: "hospitalSearch",
       component: hospitalSearch,
-    },{
+    },
+    {
       path: "/AddressManagement",
       name: "AddressManagement",
       component: AddressManagement,
@@ -302,18 +310,11 @@ const router = new Router({
       path: "/drugSearch",
       name: "drugSearch",
       component: drugSearch,
-    },{
+    },
+    {
       path: "/EditAddress",
       name: "EditAddress",
       component: EditAddress,
-      meta: {
-        footerIsShow: false
-      }
-    },
-    {
-      path: "/doctorSearch",
-      name: "doctorSearch",
-      component: doctorSearch,
       meta: {
         footerIsShow: false
       }
@@ -328,15 +329,6 @@ const router = new Router({
       },
     },
     {
-      path: "/hospitalSearch",
-      name: "hospitalSearch",
-      component: hospitalSearch,
-
-      meta: {
-        footerIsShow: false
-      }
-    },
-    {
       path: "/addInformation",
       name: "addInformation",
       component: addInformation,
@@ -344,19 +336,67 @@ const router = new Router({
         footerIsShow: false
       }
     },
-		{
-      path: "/drugSearch",
-      name: "drugSearch",
-      component: drugSearch,
+    {
+      path: "/securiteyCode",
+      name: "securiteyCode",
+      component: securiteyCode,
       meta: {
         footerIsShow: false
       }
     },
-		{
+    {
+      path: "/replacePhone",
+      name: "replacePhone",
+      component: replacePhone,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/phoneNumber",
+      name: "phoneNumber",
+      component: phoneNumber,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/setAbout",
+      name: "setAbout",
+      component: setAbout,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/setRecommend",
+      name: "setRecommend",
+      component: setRecommend,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/setAmendname",
+      name: "setAmendname",
+      component: setAmendname,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/setting",
+      name: "setting",
+      component: setting,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
       path: "**",
-      redirect: home
-    }
-		]
+      redirect: home,
+    },
+  ]
 });
 // 路由守卫
 

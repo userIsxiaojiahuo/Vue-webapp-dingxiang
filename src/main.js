@@ -7,8 +7,8 @@ import "lib-flexible/flexible"
 import vuex from "vuex"
 import axios from "axios"
 import qs from "qs"
-import "../static/css/reset.css"
-import {AddressEdit,Popup,PasswordInput, NumberKeyboard} from 'vant';
+import "./assets/css/reset.css"
+import {AddressEdit, Popup, PasswordInput, NumberKeyboard} from 'vant';
 
 axios.defaults.withCredentials = true;
 Vue.use(vuex);

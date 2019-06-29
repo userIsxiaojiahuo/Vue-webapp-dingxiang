@@ -16,7 +16,7 @@
         }
     }
 </script>
-
+<style src="../../src/assets/css/examine.css"></style>
 <style scoped>
   .examineWrap{
     width: 100%;

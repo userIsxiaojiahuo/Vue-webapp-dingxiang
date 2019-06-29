@@ -52,7 +52,7 @@
             imgs: require('../assets/img/home/maxNav-1.png'),
             spanContent: '问医生',
             emContent: '按科室找医生',
-            path: "/AskDoctor"
+            path: "/askDoctor"
           },
           {
             imgs: require('../assets/img/home/maxNav-2.png'),
@@ -91,12 +91,12 @@
           {
             imgs: require('../assets/img/home/nav-5.png'),
             title: '阳痿早泄',
-            path: "/SafeBeauty"
+            path: "/impotencePremature"
           },
           {
             imgs: require('../assets/img/home/nav-6.png'),
             title: '安全变美',
-            path: "/SafeBeauty"
+            path: "/safeBeauty"
           },
           {
             imgs: require('../assets/img/home/nav-7.png'),
