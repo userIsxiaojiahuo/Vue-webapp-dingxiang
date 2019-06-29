@@ -5,6 +5,12 @@
         <van-cell v-for="(items,index) in item.text" :title="items" :key="index"/>
       </van-index-anchor>
     </router-link>
+    <van-index-bar :index-list="classifyMsg.indexList"
+    >
+      <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
+        <van-cell v-for="(items,lis) in itme.text" :title="items" :key="lis"/>
+      </van-index-anchor>
+    </van-index-bar>
   </div>
 </template>
 
@@ -24,7 +30,3 @@
     methods: {}
   }
 </script>
-
-<style scoped>
-
-</style>

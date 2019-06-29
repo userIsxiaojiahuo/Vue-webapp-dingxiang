@@ -11,12 +11,3 @@
   }
 </script>
 
-<style scoped>
-  .callEmergencyPic {
-    width: 100%;
-  }
-  .callEmergencyPic > img {
-    width: 100%;
-    height: 100%;
-  }
-</style>

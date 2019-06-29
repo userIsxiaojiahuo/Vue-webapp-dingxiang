@@ -35,7 +35,9 @@
     },
     methods: {
       handleClickBack() {
-        this.$router.go(-1)
+        this.$router.push({
+          path: "/Diagonse"
+        })
       },
       handleClickLi(index) {
         this.clickLi = index;
@@ -44,10 +46,8 @@
   }
 </script>
 
-<style scoped>
-  .departmentSortSelectWrap {
 
-  }
+<style scoped>
 
   /*选择科室*/
   .departmentSortSelect {

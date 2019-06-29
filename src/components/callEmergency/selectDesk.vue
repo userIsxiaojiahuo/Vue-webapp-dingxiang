@@ -8,6 +8,9 @@
           <span class="selectDeskDesc">{{item.deskDes}}</span>
         </div>
       </div>
+      <div class="selectDeskCon" @click="handleAllDesk()">
+        <div class="selectDeskConTitle">全部科室</div>
+      </div>
     </div>
 </template>
 
@@ -23,52 +26,17 @@
     methods:{
       handleClickDiv(index){
         this.clickDiv = index;
+      },
+      handleAllDesk(){
+        this.$router.push({
+          path: "/selectDeskList",
+          query: {
+            id: 0
+          }
+        })
       }
     }
   }
 </script>
 
-<style scoped>
-  .selectDeskCon{
-    width: 214px;
-    height: 146px;
-    background: #fff;
-    border: 1px solid #ebebeb;/*no*/
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333333;
-  }
-  .selectDeskBox{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    flex: 1;
-    border-bottom: 1px solid #ebebeb;/*no*/
-  }
-  .selectDeskConTitle{
-    font-size: 30px;
-    font-weight: 600;
-    padding: 0 11px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .selectDeskConTitle .selectDeskDesc{
-    display: block;
-    font-size: 22px;
-    color: #999999;
-    margin-top: 6px;
-  }
-  .callListsLi{
-    color: #4ac8b0;
-    background: #f0f8fa;
-    border:1px solid #4ac8b0;
-  }
-  .callListsLi .selectDeskDesc{
-    color:#4ac8b0;
-  }
-</style>
+

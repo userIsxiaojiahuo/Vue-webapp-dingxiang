@@ -54,6 +54,12 @@
     components: {
       dxMsgCode
     },
+    methods: {
+      getMsgCode() {
+        console.log(111)
+        user.getMsgCode(this, "18703766795")
+      }
+    },
     watch: {
       phoneNumber(newValue, oldValue) {
         newValue.length >= 13 ? this.getMsgNum = true : this.getMsgNum = false;

@@ -12,6 +12,11 @@
                     :isOk="isOk"
                     class="gain"
     ></changePhoneBtn>
+
+    <!--  请输入新的手机号-->
+    <replacePhoneNum></replacePhoneNum>
+    <!--  下一步-->
+    <changePhoneBtn :repacePhoneNext="repacePhoneNext"></changePhoneBtn>
   </div>
 </template>
 
@@ -61,12 +66,13 @@
       },
       changeBtnClick() {
         // alert(this.inputValue)
+      },
+      data() {
+        return {
+          repacePhoneNext: "下一步"
+        }
       }
     }
   }
 </script>
-<style>
-
-</style>
 <style src="../assets/css/replacePhone.css"></style>
-

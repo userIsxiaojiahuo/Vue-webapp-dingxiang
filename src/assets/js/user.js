@@ -5,6 +5,7 @@ const getMsgCode = (_this, codeInfo) => {
     url: 'http://10.35.162.90:9006/send_code/',
     data: codeInfo
   }).then((returned) => {
+    console.log(returned);
     if (returned.data.code === 200) {
       this.$toast('短信发送成功')
     }

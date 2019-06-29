@@ -1,6 +1,7 @@
 <template>
 <!--科室分类-->
 <div class="departmentSort">
+
   <!--  每周提问-->
   <diagonseQuiz></diagonseQuiz>
   <!--  科室选择-->
@@ -25,6 +26,7 @@
     }
 </script>
 
+<style src="../../src/assets/css/departmentSortSelect.css"></style>
 <style scoped>
   .departmentSort{
     width: 100%;
