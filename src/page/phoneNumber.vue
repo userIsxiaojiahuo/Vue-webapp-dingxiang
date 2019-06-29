@@ -1,5 +1,5 @@
 <template>
-  <div class="phoneNumber">
+  <div class="phoneNumbers">
     <!--    顶部修改手机号-->
     <dxHeaderReturn :headerReturnTitle="repacePhoneNext"></dxHeaderReturn>
     <!--    content-->
