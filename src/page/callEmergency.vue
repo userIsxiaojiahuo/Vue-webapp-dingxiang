@@ -41,7 +41,7 @@
     },
     data() {
       return {
-        callPic: require("../assets/diagonseImg/emergencyPic.png"),
+        callPic: require("../assets/img/diagonseImg/emergencyPic.png"),
         deskTitle: '选择科室',
         deskList: [
           {

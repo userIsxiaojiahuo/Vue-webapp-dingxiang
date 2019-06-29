@@ -4,7 +4,7 @@
       <p class="selectItemTitle">{{item.selectItemTitle}}</p>
       <div class="selectItemCon">
         <p class="selectItemdDesc">{{item.selectItemdDesc}}</p>
-        <span class="rightArrow"><img src="../../assets/diagonseImg/hcp_into.png" alt=""></span>
+        <span class="rightArrow"><img src="../../assets/img/diagonseImg/hcp_into.png" alt=""></span>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ const getMsgCode = (_this, codeInfo) => {
 };
 // 改变样式
 const addInputColor = (_this) => {
-  
+    
 };
 export default {getMsgCode, addInputColor}
 

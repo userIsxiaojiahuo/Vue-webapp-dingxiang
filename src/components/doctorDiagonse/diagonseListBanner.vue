@@ -12,7 +12,7 @@
     </div>
     <!--    规则-->
     <div class="diagonseRule">
-      <span><img src="../../assets/diagonseImg/ic_title.png" alt=""></span>
+      <span><img src="../../assets/img/diagonseImg/ic_title.png" alt=""></span>
       <router-link to="rule" tag="span">规则</router-link>
     </div>
   </div>

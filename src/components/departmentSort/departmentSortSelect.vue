@@ -7,7 +7,7 @@
           选择科室
         </div>
         <div class="deparmentClassify" @click="handleClickBack()">
-          <img src="../../assets/diagonseImg/icon_classify.png" alt="">
+          <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
         </div>
       </div>
     </div>

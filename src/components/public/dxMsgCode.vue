@@ -21,6 +21,8 @@
     justify-content: center;
     align-items: center;
     margin-right: 18px;
+    position: absolute;
+    right: 0;
   }
 
   .codeBtnTxt {
@@ -28,8 +30,5 @@
     color: #cfcfcf;
   }
 
-  .activeMasCode {
-    background: #ededed;
-    color: #666666;
-  }
+
 </style>

@@ -10,7 +10,7 @@
       </ul>
     </div>
     <div class="deparmentClassify" @click="handleClickDiv()">
-      <img src="../../assets/diagonseImg/icon_classify.png" alt="">
+      <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
     </div>
   </div>
 </template>

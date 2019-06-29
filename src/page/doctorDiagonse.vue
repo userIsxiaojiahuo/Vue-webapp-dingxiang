@@ -35,11 +35,11 @@
           show: false,
           isStartImg: false
         },
-        diagnosePic: [require("../assets/diagonseImg/banner.png"), require("../assets/diagonseImg/banner.png")],
+        diagnosePic: [require("../assets/img/diagonseImg/banner.png"), require("../assets/img/diagonseImg/banner.png")],
         deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"],
         doctorInfo: [
           {
-            doctorImg: require("../assets/diagonseImg/introduce01.png"),
+            doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
             doctorIntroduce: {
               doctorName: "潘明孟",
               doctorJob: "主治医师",

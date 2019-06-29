@@ -1,7 +1,7 @@
 <template>
   <!--  医生介绍-->
   <div class="diagonseIntroduceWrap">
-    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce" v-for="item in diagonseIntroduce">
+    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce" v-for="(item,index) in diagonseIntroduce" :key="index">
       <div class="IntroduceImg">
         <img :src="item.doctorImg" alt="">
       </div>
@@ -21,7 +21,7 @@
         </div>
         <!--星级-->
         <div class="startLevel">
-          <img src="../../assets/diagonseImg/s_icon_rating_star_d.png" alt="">
+          <img src="../../assets/img/diagonseImg/s_icon_rating_star_d.png" alt="">
           <span class="grade">{{item.score.grade}}</span>
           <span class="answer"><i>{{item.score.answer}}</i>个月回答</span>
         </div>
