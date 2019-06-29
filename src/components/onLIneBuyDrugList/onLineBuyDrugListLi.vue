@@ -100,10 +100,13 @@
 
   .drugDetails {
     width: 100%;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
     font-size: 20px;
     letter-spacing: 1px;
     line-height: 30px;
@@ -115,6 +118,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+		margin-top: 10px;
   }
 
   .drug_price {

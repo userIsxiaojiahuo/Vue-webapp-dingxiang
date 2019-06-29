@@ -23,8 +23,7 @@ img {
   padding: 0;
 }
 
-fieldset,
-c {
+fieldset,c {
   border: none;
 }
 
@@ -67,6 +66,7 @@ a {
 
 input {
   outline: none;
+	border: 0;
 }
 
 /*清除浮动*/
@@ -98,9 +98,6 @@ input:focus {
   font-weight: 100;
 }
 
-input {
-  border: 0;
-}
 
 i {
   font-style: normal;

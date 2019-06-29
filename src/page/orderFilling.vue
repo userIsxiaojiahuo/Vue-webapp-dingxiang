@@ -47,27 +47,20 @@
 					ico: require("../assets/onlineImg/ic_titlebar_back.png")
 				},
 				// 购物流程
-				cartProcess: {
-					liIndex: 1,
-					cartProcess: [{
-							stepNumber: 1,
-							text: "选择药物",
-							ico: require("../assets/onLineImg/ic_arrow.png")
+				cartProcess:{
+					liIndex:1,
+					cartProcess:[
+						{
+							stepNumber:1,
+							text:"选择药品"
 						},
 						{
-							stepNumber: 2,
-							text: "提交订单",
-							ico: require("../assets/onLineImg/ic_arrow.png")
+							stepNumber:2,
+							text:"核对订单"
 						},
 						{
-							stepNumber: 3,
-							text: "选择地址",
-							ico: require("../assets/onLineImg/ic_arrow.png")
-						},
-						{
-							stepNumber: 4,
-							text: "支付",
-							ico: require("../assets/onLineImg/ic_arrow.png")
+							stepNumber:3,
+							text:"提交订单"
 						}
 					]
 				},

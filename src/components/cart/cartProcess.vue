@@ -2,9 +2,8 @@
 	<div class="cartProcess">
 		<ul>
 			<li v-for="(itme,index) in cartProcess.cartProcess" :key="index" :class="{click_cartProcess_li:index==cartProcess.liIndex}">
-				<span class="cartProcess_stepNumber">{{itme.stepNumber}}</span>
-				<span class="cartProcess_text">{{itme.text}}</span>
-				<img class="cartProcess_ico" :src="itme.ico">
+					<span class="cartProcess_stepNumber">{{itme.stepNumber}}</span>
+					<span class="cartProcess_text">{{itme.text}}</span>
 			</li>
 		</ul>
 	</div>
@@ -30,14 +29,30 @@
 		height: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: space-around;
 	}
 	.cartProcess>ul>li{
 		display: flex;
 		align-items: center;
-		margin-right: 14px;
 	}
 	.click_cartProcess_li{
 		color: #28b7a3;
+	}
+	.cartProcess>ul>li:nth-of-type(2):before{
+		content: "";
+		display: inline-block;
+		width: 60px;
+		background: #333333;
+		height: 1px;/* no */
+		margin-right: 32px;
+	}
+	.cartProcess>ul>li:nth-of-type(2):after{
+		content: "";
+		display: inline-block;
+		width: 60px;
+		background: #333333;
+		height: 1px;/* no */
+		margin-left: 30px;
 	}
 	.click_cartProcess_li>.cartProcess_stepNumber{
 		background: #28b7a3;
@@ -54,12 +69,8 @@
 		line-height: 28px;
 	}
 	.cartProcess_text{
-		color: 24px;
-		font-size: #CCCCCC;
+		font-size: 24px;
 		margin-left: 8px;
 		margin-right: 8px;
-	}
-	.cartProcess_ico{
-		height: 20px;
 	}
 </style>

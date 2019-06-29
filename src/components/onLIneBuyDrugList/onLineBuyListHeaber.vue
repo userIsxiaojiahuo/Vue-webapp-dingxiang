@@ -1,5 +1,5 @@
 <template>
-  <div class="onLineSearch-input">
+  <div class="onLineBuyListHeaber-input">
     <img :src="onLineSearch.pic">
     <span>{{onLineSearch.title}}</span>
   </div>

@@ -1,6 +1,6 @@
-/* onLineBuyListHeaber  strat */
+/* onLineBuyListHeaber-input  strat */
 
-.onLineSearch-input {
+.onLineBuyListHeaber-input {
     width: 100%;
     height: 80px;
     background: #f2f2f2;
@@ -10,17 +10,17 @@
     align-items: center;
 }
 
-.onLineSearch-input > img {
+.onLineBuyListHeaber-input > img {
 	width: 36px;
 	height: 36px;
 	margin: 0 22px;
 }
 
-.onLineSearch-input > span {
+.onLineBuyListHeaber-input > span {
 	font-size: 28px;
 	color: #000;
 }
-/* onLineBuyListHeaber  end */
+/* onLineBuyListHeaber-input  end */
 
 /* onLineBuyDrugListUl start */
 .onLIneBuyDrugListUl {

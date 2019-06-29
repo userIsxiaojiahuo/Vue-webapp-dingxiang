@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="photoBox">
+    <router-link :to="titMsg.path" tag="div" class="photoBox">
       <span>{{titMsg.name}}</span>
       <div class="right" @click="titMsg.event">
         <slot name="photoPic"></slot>
         <span class="tit">{{titMsg.tit}}</span>
         <dxRightArrows/>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>
