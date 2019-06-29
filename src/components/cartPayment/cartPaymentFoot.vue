@@ -29,22 +29,5 @@
 	}
 </script>
 
-<style scoped>
-	.cartPaymentFoot{
-		width: 100%;
-		padding: 0 30px;
-		position: absolute;
-		bottom: 24px;
-		left: 0;
-	}
-	.cartPaymentFoot>span{
-		display: inline-block;
-		width: 100%;
-		height: 92px;
-		background: #1e92e5;
-		color: #fff;
-		font-size: 34px;
-		line-height: 92px;
-		text-align: center;
-	}
+<style>
 </style>

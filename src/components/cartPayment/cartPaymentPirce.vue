@@ -10,16 +10,6 @@
 	}
 </script>
 
-<style scoped>
-	.cartPaymentPirce{
-		width: 100%;
-		color: #3c3d3e;
-		font-size: 38px;
-		margin: 100px 0 30px;
-		text-align: center;
-	}
-	.cartPaymentPirce>span{
-		font-size: 68px;
-		font-weight: 800;
-	}
+<style>
+	
 </style>

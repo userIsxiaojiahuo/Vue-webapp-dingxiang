@@ -81,7 +81,6 @@
   .onLIne_list_text > h2 {
     font-size: 30px;
     color: #000;
-    line-height: 30px;
   }
 
   .onLIne_list_text > h2 > span:first-of-type {
@@ -95,7 +94,7 @@
   }
 
   .onLIne_list_text > h2 > span:last-of-type {
-    vertical-align: super;
+    vertical-align: top;
     letter-spacing: 1px; /*no*/
   }
 
@@ -113,7 +112,6 @@
 
   .onLIne_list_price {
     height: 54px;
-    margin-top: 14px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;

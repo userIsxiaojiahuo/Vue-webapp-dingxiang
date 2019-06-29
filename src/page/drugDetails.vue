@@ -118,6 +118,7 @@
 	}
 </script>
 
+<style src="../assets/css/drugDetails.css"></style>
 <style scoped>
 	.drugDetails{
 		width: 100%;

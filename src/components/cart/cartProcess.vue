@@ -22,7 +22,7 @@
 	.cartProcess{
 		width: 100%;
 		padding: 0 30px;
-		height: 193px;
+		height: 100px;
 		background: #fff;
 	}
 	.cartProcess>ul{
@@ -33,7 +33,7 @@
 	}
 	.cartProcess>ul>li{
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		margin-right: 14px;
 	}
 	.click_cartProcess_li{

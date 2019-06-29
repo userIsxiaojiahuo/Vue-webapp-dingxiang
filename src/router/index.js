@@ -343,14 +343,16 @@ const router = new Router({
       meta: {
         footerIsShow: false
       }
-    },{
+    },
+		{
       path: "/drugSearch",
       name: "drugSearch",
       component: drugSearch,
       meta: {
         footerIsShow: false
       }
-    },{
+    },
+		{
       path: "**",
       redirect: home
     }

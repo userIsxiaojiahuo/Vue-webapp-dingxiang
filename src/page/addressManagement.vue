@@ -65,7 +65,7 @@
 		}
 	}
 </script>
-
+<style  src="../assets/css/addressManagement.css"></style>
 <style scoped>
 	.addressManagement{
 		width: 100%;

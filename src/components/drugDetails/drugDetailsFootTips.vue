@@ -12,24 +12,6 @@
 	}
 </script>
 
-<style scoped>
-	.drugDetailsFootTips{
-		width: 100%;
-	}
-	.drugDetailsFootTips_contract{
-		width: 100%;
-		font-size: 22px;
-		color: #f76260;
-		line-height: 72px;
-		padding: 0 30px;
-	}
-	.drugDetailsFootTips_freeShipping{
-		width: 100%;
-		background: #fff6e8;
-		color: #333333;
-		font-size: 25px;
-		padding: 0 30px;
-		height: 60px;
-		line-height: 60px;
-	}
+<style>
+	
 </style>

@@ -35,41 +35,6 @@
 	}
 </script>
 
-<style scoped>
-	.orderFillingFoot{
-		width: 100%;
-		height: 98px;
-		border-top: 1px solid #ebebeb;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-	}
-	.onLineBuyFoot-left{
-		flex: 71.2%;
-		min-width: 71.2%;
-		height: 100%;
-		padding-left: 30px;
-		line-height: 98px;
-	}
-	.onLineBuyFoot-left>span{
-		color: #5a5a5a;
-		font-size: 28px;
-	}
-	.onLineBuyFoot-left>span>span{
-		color: #fc4437;
-		font-weight: 700;
-	}
-	.orderFillingFoot_btu{
-		flex: 28.8%;
-		min-width: 28.8%;
-		height: 100%;
-		background: #28b7a3;;
-		font-size: 30px;
-		color: #fff;
-		text-align: center;
-		line-height: 98px;
-	}
+<style>
+	
 </style>

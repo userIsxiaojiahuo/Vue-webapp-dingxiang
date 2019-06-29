@@ -13,22 +13,5 @@
 </script>
 
 <style>
-	.orderFillingAddress{
-		width: 100%;
-		padding: 0 30px;
-		background: #fff;
-		margin-top: 20px;
-		height: 106px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.orderFillingAddress>p{
-		color: #8f8f8f;
-		font-size: 32px;
-		line-height: 106px;
-	}
-	.orderFillingAddress>img{
-		height: 26px;
-	}
+	
 </style>
