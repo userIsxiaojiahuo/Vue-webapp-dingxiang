@@ -12,7 +12,7 @@
 <script>
     import OfficeText from "../askDoctorPublic/officeText"
     import OfficImg from "../askDoctorPublic/officeImg"
-    import Bug from "../../../assets/js/common.js"
+    import Bug from "../../../assets/js/newVue.js"
 
     export default {
         name: "commonOffice",

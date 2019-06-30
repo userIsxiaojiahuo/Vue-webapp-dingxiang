@@ -1,20 +1,19 @@
 <template>
-<div class="dbBack">
-  <img src="../../assets/img/home/ic_titlebar_back.png" alt="" @click="back">
-</div>
+  <div class="dxBack">
+    <img class="imgAuto" src="../../assets/img/home/ic_titlebar_back.png" alt="">
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "dxBack",
-      methods:{
-        back(){
-          this.$router.go(-1)
-        }
-      }
-    }
+
+  export default {
+    name: "dxBack",
+
+  }
 </script>
 
 <style scoped>
-
+  .dxBack {
+    width: 32px;
+    height: 32px;
+  }
 </style>

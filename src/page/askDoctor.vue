@@ -1,7 +1,7 @@
 <template>
     <div class="askDoctor">
         <!-- 顶部组件-->
-        <AskDoctorHeader :headerMessage="headerMessage"></AskDoctorHeader>
+        <AskDoctorHeader :headerReturnTitle="headerMessage"></AskDoctorHeader>
         <!-- 搜索框-->
         <div class="posFixed">
             <Search :place="place"></Search>
@@ -21,8 +21,8 @@
 </template>
 
 <script>
-    import AskDoctorHeader from "../components/askDoctor/askDoctorPage/askDoctorTop"
     import Search from "../components/askDoctor/askDoctorPage/search"
+    import AskDoctorHeader from "../components/public/dxHeaderReturn"
     import AskDoctorControl from "../components/askDoctor/askDoctorPage/askDoctorControl"
     import AskDoctorFamous from "../components/askDoctor/askDoctorFamous"
     import AskDoctorAdinOffice from "../components/askDoctor/askDocutorAdinOffic"
@@ -55,7 +55,6 @@
                 },
                 // 放心问
                 controlImg: require("../assets/images/askdoctor/im_free_ask.png"),
-
                 // 名医
                 famousRouter: [
                     {
@@ -71,7 +70,6 @@
                         flag: false
                     }
                 ],
-
                 //科类信息
             }
         },
@@ -83,4 +81,5 @@
         }
     }
 </script>
+
 <style src="../../src/assets/css/askDoctor.css"></style>

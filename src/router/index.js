@@ -1,8 +1,8 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Illness from "../page/illness"
-import IllnessTwo from "../page/illnessTwo"
-import Particulars from "../page/particulars"
+import IllnessTwo from "../page/illnessSearch"
+import particulars from "../page/particulars"
 import Popularization from "../page/popularization"
 import classification from "../page/classification"
 import AskDoctor from "../page/askDoctor"
@@ -38,6 +38,11 @@ import Cart from "../page/cart"
 import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
+import securiteyCode from "../page/securiteyCode"
+import setAbout from "../page/setAbout"
+import setAmendname from "../page/setAmendname"
+import setRecommend from "../page/setRecommend"
+import setting from "../page/setting"
 
 Vue.use(Router);
 
@@ -100,7 +105,7 @@ const router = new Router({
             {
                 path: "/Particulars",
                 name: "Particulars",
-                component: Particulars,
+                component: particulars,
                 meta: {
                     footerIsShow: false
                 }
@@ -344,6 +349,79 @@ const router = new Router({
             {
                 path: "/addInformation",
                 component: addInformation
+            },
+            {
+
+                path: "/patientInformation",
+                name: "patientInformation",
+                component: patientInformation,
+                meta: {
+                    footerIsShow: false
+                },
+            },
+            {
+                path: "/addInformation",
+                name: "addInformation",
+                component: addInformation,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/securiteyCode",
+                name: "securiteyCode",
+                component: securiteyCode,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/replacePhone",
+                name: "replacePhone",
+                component: replacePhone,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/phoneNumber",
+                name: "phoneNumber",
+                component: phoneNumber,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/setAbout",
+                name: "setAbout",
+                component: setAbout,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/setRecommend",
+                name: "setRecommend",
+                component: setRecommend,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/setAmendname",
+                name: "setAmendname",
+                component: setAmendname,
+                meta: {
+                    footerIsShow: false
+                }
+            },
+            {
+                path: "/setting",
+                name: "setting",
+                component: setting,
+                meta: {
+                    footerIsShow: false
+                }
             },
             {
                 path: "**",

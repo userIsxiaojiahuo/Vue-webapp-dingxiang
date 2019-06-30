@@ -1,13 +1,15 @@
 <template>
   <div>
+    <router-link to="/particulars" :index-list="classifyMsg.indexList">
+      <van-index-anchor v-for="(item,index) in classifyMsg.classifyMsgTitle" :key="index">{{item.title}}
+        <van-cell v-for="(items,index) in item.text" :title="items" :key="index"/>
+      </van-index-anchor>
+    </router-link>
     <van-index-bar :index-list="classifyMsg.indexList"
     >
-
       <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
-
         <van-cell v-for="(items,lis) in itme.text" :title="items" :key="lis"/>
       </van-index-anchor>
-
     </van-index-bar>
   </div>
 </template>
@@ -25,8 +27,6 @@
       "van-cell": Cell,
     },
     props: ["classifyMsg"],
-    methods: {
-      // 返回一个特定的 DOM 节点，作为挂载的父节点
-    }
+    methods: {}
   }
 </script>

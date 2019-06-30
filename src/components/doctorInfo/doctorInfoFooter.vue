@@ -5,10 +5,20 @@
         </div>
         <div>
             <van-popup
-                    v-model="isShow"
+                    v-model="show"
                     position="bottom"
-                    :style="{ height: '48%' }"
+                    :style="{ height: '63%' }"
+                    class="doctorInfoFooterPopup"
             >
+                <div class="popupTitle">
+                    <div class="selectPopup">
+                        <h3>选择问诊方式</h3>
+                        <i class="popupCancel" @click="cancelBtn"></i>
+                    </div>
+                    <div v-for="(item,index) in popupText" :key="index">
+                        <InquiryModule :mes="item"/>
+                    </div>
+                </div>
             </van-popup>
         </div>
     </div>
@@ -16,17 +26,42 @@
 
 <script>
     import {Popup} from 'vant';
+    import InquiryModule from "../public/inquiryModule"
 
     export default {
         name: "doctorInfoFooter",
+        components: {
+            "van-popup": Popup,
+            InquiryModule
+        },
         data() {
             return {
                 show: false,
-                isShow: false
+                popupText: [
+                    {
+                        img: require("../../assets/images/askdoctor/ic_inquisition_word.png"),
+                        title: "图文问诊",
+                        price: "66",
+                        dec: [
+                            "通过文字、图片向医生提问，含2次免费追问机会",
+                            "适合常见病及健康类问题咨询"
+                        ],
+                        isShow: false,
+                        path: "/conPic"
+                    },
+                    {
+                        img: require("../../assets/images/askdoctor/ic_phonecall.png"),
+                        title: "电话问诊",
+                        price: "99",
+                        dec: [
+                            "和医生约定时间电话交流，通话时长15分钟",
+                            "舌合慢性病、复杂病情的咨询，和医生充分沟通"
+                        ],
+                        isShow: true,
+                        path: "/callEmergency"
+                    }
+                ]
             }
-        },
-        components: {
-            "van-popup": Popup
         },
         props: {
             doctorMessage: {
@@ -35,7 +70,10 @@
         },
         methods: {
             handleClick() {
-                this.isShow = true
+                this.show = true
+            },
+            cancelBtn() {
+                this.show = false
             }
         }
     }

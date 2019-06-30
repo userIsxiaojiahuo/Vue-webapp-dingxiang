@@ -1,7 +1,7 @@
 <template>
-  <div class="phoneNumber">
+  <div class="phoneNumbers">
     <!--    顶部修改手机号-->
-
+    <dxHeaderReturn :headerReturnTitle="repacePhoneNext"></dxHeaderReturn>
     <!--    content-->
     <changePhoneNum></changePhoneNum>
     <!--    btn-->
@@ -12,22 +12,23 @@
 <script>
   import changePhoneNum from '../components/phoneNumber/changePhoneNum'
   import changePhoneBtn from '../components/phoneNumber/changePhoneBtn'
+  import dxHeaderReturn from '../components/public/dxHeaderReturn'
 
   export default {
     name: "phoneNumber",
     components: {
       changePhoneNum,
-      changePhoneBtn
+      changePhoneBtn,
+      dxHeaderReturn
     },
     data() {
       return {
-        repacePhoneNext: "更换手机号"
+        repacePhoneNext: {
+          title: "修改手机号",
+          path: "/replacePhone"
+        }
       }
     }
   }
 </script>
-
-<style>
-  .phoneNumber {
-  }
-</style>
+<style src="../assets/css/replacePhone.css"></style>

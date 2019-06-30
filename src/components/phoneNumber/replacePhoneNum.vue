@@ -1,24 +1,35 @@
 <template>
-  <div class="replacePhoneNumWrap">
-    <p class="replacePhoneTit">请输入新的手机号</p>
-    <p class="replacePhoneCont">更换手机号后，下次登录可使用新的手机号登录。</p>
-    <p class="replacePhoneCont">当前手机号：<span>18703766795</span></p>
-    <div class="replacePhoneInput">
-      <label for="">
-        <input type="text" placeholder="+86" class="areaNumber"/>
-      </label>
-      <label for="">
-        <input type="text" placeholder="请输入手机号" class="phoneInput"/>
-      </label>
+  <div class="replacePhoneInput">
+    <input type="text" placeholder="+86" class="areaNumber"/>
+    <input type="number" @input="enter"
+           v-model="phoneInput"
+           placeholder="请输入手机号"
+           class="phoneInput"
+           oninput="if(value.length>11) {value=value.slice(0,11)} "
+    />
+    <div class="replacePhoneError">
+      <img src="../../assets/img/diagonseImg/upsdk_cancel_normal.png" alt="">
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "replacePhoneNum"
+    name: "replacePhoneNum",
+    data() {
+      return {
+        phoneInput: ""
+      }
+    },
+    methods: {
+      enter() {
+        this.$emit("inputNumber", this.phoneInput)
+
+      }
+    }
   }
 </script>
+
 
 <style scoped>
   .replacePhoneNumWrap {

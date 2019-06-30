@@ -24,18 +24,4 @@
 </script>
 
 <style>
-  .onLIneBuyDrugListUl {
-    width: 100%;
-    padding: 0 30px;
-    overflow: hidden;
-  }
-
-  .onLIneBuyDrugListUl_li {
-    width: 100%;
-    height: 252px;
-    border-bottom: 1px solid #ebebeb;
-    padding: 40px 0 42px;
-    display: flex;
-  }
-
 </style>

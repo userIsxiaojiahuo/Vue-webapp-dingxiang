@@ -37,30 +37,6 @@
 	}
 </script>
 
-<style scoped>
-	.cartPaymentSmallFunction{
-		width: 100%;
-		padding: 0 30px;
-	}
-	.cartPaymentSmall_text{
-		width: 100%;
-		height: 100%;
-		border-bottom: 1px solid #ececec;
-		padding: 32px 0;
-		display: flex;
-		justify-content: space-between;
-	}
-	.cartPaymentSmall_text>span{
-		font-size: 30px;
-	}
-	.cartPaymentSmall_text>span:first-of-type{
-		color: #9d9d9d;
-	}
-	.cartPaymentSmall_text>span:last-of-type{
-		color: #414141;
-	}
-	.cartPaymentSmall_text>span:last-of-type>img{
-		height: 28px;
-		margin-left: 20px;
-	}
+<style>
+	
 </style>
