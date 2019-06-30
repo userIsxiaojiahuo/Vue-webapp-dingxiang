@@ -1,10 +1,10 @@
 <template>
-  <div class="onLineBuyFoot">
-    <div class="onLineBuyFoot-left">
-      <slot></slot>
-    </div>
-    <router-link :to="onLineBuyFoot.path" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
-  </div>
+	<div class="onLineBuyFoot">
+		<div class="onLineBuyFoot-left">
+			<slot></slot>
+		</div>
+			<router-link :to="onLineBuyFoot.path" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
+	</div>
 </template>
 
 <script>

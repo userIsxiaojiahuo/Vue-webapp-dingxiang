@@ -63,7 +63,9 @@
                 })
             },
             handleToImgInquiry() {
-                console.log("1")
+                this.$router.push({
+                    path: "/conPic"
+                })
             }
         }
     }

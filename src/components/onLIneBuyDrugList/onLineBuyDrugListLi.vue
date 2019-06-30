@@ -20,28 +20,24 @@
   </div>
 </template>
 
-<script>
-  /* 药品列表的li */
-  export default {
-    name: "onLineBuyDrugListLi",
-    props: ["drugList", "drugListInndex"],
-    data() {
-      return {
-        isDrugNumBtu: -1,
-        isChoiceDrugBtu: -1
-      }
-    },
-    methods: {
-      choiceDrug(index) {
-        this.isDrugNumBtu = index;
-        this.isChoiceDrugBtu = index;
-        // this.isChoiceDrugBtu = index;
-// 				for(let i=0;i<this.$refs.choiceDrugBtu.length;i++){
-// 					this.isChoiceDrugBtu.push(true);
-// 				}
-      }
-    }
-  }
+<script> 
+	/* 药品列表的li */
+	export default{
+		name:"onLineBuyDrugListLi",
+		props:["drugList","drugListInndex"],
+		data(){
+			return{
+				isDrugNumBtu:-1,
+				isChoiceDrugBtu:-1
+			}
+		},
+		methods:{
+			choiceDrug(index){
+				this.isDrugNumBtu = index;
+				this.isChoiceDrugBtu = index;
+			}
+		}
+	}
 </script>
 
 <style scoped>

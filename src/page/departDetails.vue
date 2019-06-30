@@ -22,6 +22,7 @@
     import IlinessClassifyModule from "../components/departDetails/departModule/illnessClassifyModule"
     import PullDownSelect from "../components/departDetails/departModule/pullDownSelect"
     import DoctorMessage from "../components/departDetails/page/doctorMessage"
+    import Bug from "../assets/js/common.js"
 
     export default {
         name: "departDetails",
@@ -65,67 +66,80 @@
                         headerImg: require("../assets/images/askdoctor/doctorHead_04.png")
                     }
                 ],
-                doctorMessages: [
-                    {
-                        name: "曾梅华",
-                        headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
-                        department: "皮肤性病科",
-                        rank: "主治医师",
-                        hospitalAddress: "南京军区南京总医院",
-                        beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
-                        starLevel: "5.0",
-                        monthNum: "457",
-                        monthRecipe: "270",
-                        upTime: "12",
-                        honor: "湿疹类",
-                        imgPrice: "79",
-                        phonePrice: "88",
-                        isAskImg: true,
-                        isMonthRecipe: true,
-                        isDesignation: true,
-                        recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
-                    },
-                    {
-                        name: "曾梅华",
-                        headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
-                        department: "皮肤性病科",
-                        rank: "主治医师",
-                        hospitalAddress: "南京军区南京总医院",
-                        beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
-                        starLevel: "5.0",
-                        monthNum: "457",
-                        monthRecipe: "270",
-                        upTime: "12",
-                        honor: "湿疹类",
-                        imgPrice: "79",
-                        phonePrice: "88",
-                        isAskImg: true,  // 是否又问医生
-                        isMonthRecipe: true, // 是否开药方
-                        isDesignation: true,// 是否是优秀医生
-                        recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
-                    },
-                    {
-                        name: "曾梅华",
-                        headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
-                        department: "皮肤性病科",
-                        rank: "主治医师",
-                        hospitalAddress: "南京军区南京总医院",
-                        beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
-                        starLevel: "5.0",
-                        monthNum: "457",
-                        monthRecipe: "270",
-                        upTime: "12",
-                        honor: "湿疹类",
-                        imgPrice: "79",
-                        phonePrice: "88",
-                        isAskImg: true,
-                        isPhone: true,
-                        isMonthRecipe: true,
-                        isDesignation: true,
-                        recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
-                    }
-                ]
+                // doctorMessages: [
+                //     {
+                //         name: "曾梅华",
+                //         headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
+                //         department: "皮肤性病科",
+                //         rank: "主治医师",
+                //         hospitalAddress: "南京军区南京总医院",
+                //         beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
+                //         starLevel: "5.0",
+                //         monthNum: "457",
+                //         monthRecipe: "270",
+                //         upTime: "12",
+                //         honor: "湿疹类",
+                //         imgPrice: "79",
+                //         phonePrice: "88",
+                //         isAskImg: true,
+                //         isMonthRecipe: true,
+                //         isDesignation: true,
+                //         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
+                //     },
+                //     {
+                //         name: "曾梅华",
+                //         headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
+                //         department: "皮肤性病科",
+                //         rank: "主治医师",
+                //         hospitalAddress: "南京军区南京总医院",
+                //         beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
+                //         starLevel: "5.0",
+                //         monthNum: "457",
+                //         monthRecipe: "270",
+                //         upTime: "12",
+                //         honor: "湿疹类",
+                //         imgPrice: "79",
+                //         phonePrice: "88",
+                //         isAskImg: true,  // 是否又问医生
+                //         isMonthRecipe: true, // 是否开药方
+                //         isDesignation: true,// 是否是优秀医生
+                //         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
+                //     },
+                //     {
+                //         name: "曾梅华",
+                //         headerImg: require("../assets/images/askdoctor/doctors/doctors_1.png"),
+                //         department: "皮肤性病科",
+                //         rank: "主治医师",
+                //         hospitalAddress: "南京军区南京总医院",
+                //         beGoodAt: "荨麻疹、湿疹、尖锐湿疣、寻常疣、传染性软疣、性病、小儿湿疹、幼儿急疹、痤疮、足癣",
+                //         starLevel: "5.0",
+                //         monthNum: "457",
+                //         monthRecipe: "270",
+                //         upTime: "12",
+                //         honor: "湿疹类",
+                //         imgPrice: "79",
+                //         phonePrice: "88",
+                //         isAskImg: true,
+                //         isPhone: true,
+                //         isMonthRecipe: true,
+                //         isDesignation: true,
+                //         recommend: require("../assets/images/askdoctor/doctors/ic_list_translate.png")
+                //     }
+                // ]
+                ids: 0
             }
+        },
+        created() {
+
+        },
+        mounted() {
+            Bug.$on("id", (val) => {
+                let url = 'http://121.199.63.71:9006/ask_doctor/' + val + '/'
+                this.$axios.get(url).then(data => {
+                    console.log(data)
+                })
+            })
+
         }
     }
 </script>

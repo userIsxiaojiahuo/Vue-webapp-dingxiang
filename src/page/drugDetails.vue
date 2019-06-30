@@ -109,7 +109,10 @@
 						text:"泰尔丝(异维A酸胶丸)"
 					}
 				],
-				onLineBuyFoot:"选择药品"
+				onLineBuyFoot:{
+					title:"选择药品",
+					path:"/cart"
+				}
 			}
 		}
 	}

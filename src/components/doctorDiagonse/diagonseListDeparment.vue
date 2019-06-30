@@ -5,11 +5,14 @@
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
             @click="handleClickLi(index)"
-            :class="{deparmentListsLi:index===clickLi}">{{item}}
+            :key="index"
+            :class="{deparmentListsLi:index===clickLi}"
+        >
+          {{item}}
         </li>
       </ul>
     </div>
-    <div class="deparmentClassify" @click="handleClickDiv()">
+    <div class="deparmentClassify" @click="handleClickDiv">
       <img src="../../assets/diagonseImg/icon_classify.png" alt="">
     </div>
   </div>
@@ -27,7 +30,7 @@
     methods: {
       handleClickDiv() {
         this.$router.push({
-          path: "/departmentSort",
+          path: "/doctorDiagonse"
         })
       },
       handleClickLi(index) {
@@ -77,6 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .deparmentClassify::before {
@@ -85,7 +89,7 @@
     height: 32px;
     background: #fff;
     position: absolute;
-    right: 12%;
+    left: 0;
   }
 
   .deparmentClassify > img {

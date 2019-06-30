@@ -62,10 +62,6 @@
             deskTitle: '精神心理科',
             deskDes: '焦虑 抑郁 失眠'
           },
-          {
-            deskTitle: '全部科室',
-            deskDes: ''
-          }
         ],
         IllinessTitle: '病情描述',
         placeholderText: '简要描述你的年龄、性别及症状，我们将为你接通对症的专科医生，并确保隐私安全'
@@ -74,6 +70,7 @@
   }
 </script>
 
+<style src="../../src/assets/css/callEmergency.css"></style>
 <style scoped>
   .callEmergency {
     width: 100%;

@@ -1,11 +1,11 @@
 <template>
   <div class="homeItem">
-    <router-link :to="item.path" tag="div" class="indexList" v-for="(item,index) in indexList" :key="index">
+    <div class="indexList" @click="hanleToModule(item.path)" v-for="(item,index) in indexList" :key="index">
       <div class="homeItemWrapper">
         <img class="imgAuto" :src="item.imgs" alt="">
       </div>
       <span>{{item.title}}</span>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -16,7 +16,14 @@
    */
   export default {
     name: "homeItem",
-    props: ['indexList']
+    props: ['indexList'],
+    methods: {
+      hanleToModule(link) {
+        this.$router.push({
+          path: link
+        })
+      }
+    }
   }
 </script>
 

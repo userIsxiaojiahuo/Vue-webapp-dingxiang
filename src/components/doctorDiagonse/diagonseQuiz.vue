@@ -2,7 +2,7 @@
   <!--    每周提问-->
   <div class="diagonseQuiz">
     <span>每周可提问义诊问题<i class="quizCount">5</i>次</span>
-    <a href="" @click="handlelookUp">查看</a>
+    <a href="" @click="handleLookUp">查看</a>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   export default {
     name: "diagonseQuiz",
     methods: {
-      handlelookUp() {
+      handleLookUp() {
         this.$router.push({
           path: "/examine"
         })
