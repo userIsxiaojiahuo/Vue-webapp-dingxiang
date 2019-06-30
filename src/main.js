@@ -12,6 +12,7 @@ import {AddressEdit, Popup, PasswordInput, NumberKeyboard} from 'vant';
 
 axios.defaults.withCredentials = true;
 Vue.use(vuex);
+
 Vue.prototype.$axios = axios;
 Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard);
 Vue.config.productionTip = false;

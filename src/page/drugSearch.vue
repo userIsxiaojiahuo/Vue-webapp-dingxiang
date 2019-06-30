@@ -7,7 +7,6 @@
     <drugSearchHot></drugSearchHot>
     <drugSearchFooter :drugSearchFooter="drugSearchFooter"></drugSearchFooter>
   </div>
-
 </template>
 
 <script>

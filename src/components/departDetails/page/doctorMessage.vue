@@ -5,10 +5,8 @@
         <div class="headerImg">
           <img :src="item.headerImg" alt="">
         </div>
-        <i :style="{
-                            background:'url('+item.recommend+')' + 'no-repeat',
-                            backgroundSize:'cover'
-                       }"></i>
+        <!--力荐-->
+        <dxHighlyRecomIcon/>
       </div>
       <div class="messageRight">
         <div class="messageName">
@@ -45,6 +43,8 @@
 </template>
 
 <script>
+  import dxHighlyRecomIcon from '../../../components/public/dxHighlyRecomIcon'
+
   export default {
     name: "doctorMessage",
     props: {
@@ -58,6 +58,9 @@
           path: "/doctorInfo"
         })
       }
+    },
+    components: {
+      dxHighlyRecomIcon
     }
   }
 </script>

@@ -1,7 +1,6 @@
 <template>
 <!--科室分类-->
 <div class="departmentSort">
-
   <!--  每周提问-->
   <diagonseQuiz></diagonseQuiz>
   <!--  科室选择-->
