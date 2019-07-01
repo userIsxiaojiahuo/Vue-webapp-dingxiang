@@ -1,10 +1,10 @@
 <template>
     <ul class="classifyUls">
         <div class="classifyUlsDiv">
-            <li v-for="(itemB,lis) in officeMessage" :key="lis" @click="handleClick(lis)">
-                <OfficImg :images="itemB.img" v-if="itemB.show"></OfficImg>
-                <OfficeText :title="itemB.name" :pDom="itemB.pDom"></OfficeText>
-            </li>
+            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis" @click.native="handleClick(itemB.id)">
+                <OfficImg :images="itemB.img" v-if="itemB.img"></OfficImg>
+                <OfficeText :title="itemB.name" :show="show"></OfficeText>
+            </router-link>
         </div>
     </ul>
 </template>
@@ -12,12 +12,18 @@
 <script>
     import OfficeText from "../askDoctorPublic/officeText"
     import OfficImg from "../askDoctorPublic/officeImg"
+    import Bug from "../../../assets/js/newVue.js"
 
     export default {
         name: "commonOffice",
         components: {
             OfficeText,
             OfficImg
+        },
+        data() {
+            return {
+                show: false
+            }
         },
         props: {
             officeMessage: {
@@ -26,19 +32,17 @@
         },
         methods: {
             handleClick(index) {
-                this.$router.push({
-                    path: "/departDetails",
-                    query: {
-                        id: index
-                    }
-                })
+                Bug.$emit("id", index)
+            }
+        },
+        created() {
+            for (let i = 0; i < this.officeMessage.length; i++) {
+                if (this.officeMessage[i].id <= 9) {
+                    this.show = true
+                } else {
+                    this.show = false
+                }
             }
         }
     }
 </script>
-
-<style scoped>
-
-
-
-</style>

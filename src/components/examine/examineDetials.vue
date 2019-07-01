@@ -13,17 +13,3 @@
     }
 </script>
 
-<style scoped>
-  .examineContent{
-    padding: 60px 45px;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
-    background: #fff;
-  }
-  .examineContent p{
-    font-size: 28px;
-    color: #3c3c3c;
-    line-height: 45px;
-    font-weight: 400;
-  }
-</style>

@@ -10,13 +10,14 @@
                         }"
                 ></i>
             </a>
-            <em v-if="headerMessage.show"></em>
+            <em @click="showPopup" v-if="headerMessage.show"></em>
             <span v-if="headerMessage.isStartImg"></span>
         </div>
     </div>
 </template>
 
 <script>
+
     export default {
         name: "AskDoctorHeader",
         props: {
@@ -24,12 +25,7 @@
                 type: Object
             }
         },
-        methods: {
-            //顶部返回按钮
-            askDoctorGetBack() {
-                this.$router.back()
-            }
-        }
+
     }
 </script>
 
@@ -85,4 +81,6 @@
         background: url("../../../assets/images/askdoctor/ic_titlebar_start.png");
         background-size: cover;
     }
+
+
 </style>

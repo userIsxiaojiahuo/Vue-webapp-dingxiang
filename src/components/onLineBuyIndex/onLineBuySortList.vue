@@ -15,34 +15,6 @@
   }
 </script>
 
-<style scoped>
-  .onLineBuySortList {
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 18px;
-  }
-
-  .onLineBuySortList > li {
-    padding: 0 9px;
-    text-align: center;
-    max-width: 108px;
-    max-height: 158px;
-    margin-right: 0.74rem;
-  }
-
-  .onLineBuySortList > li:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  .onLineBuySortList > li > img {
-    width: 100%;
-  }
-
-  .onLineBuy-nav-title {
-    display: inline-block;
-    margin-top: 19px;
-  }
+<style>
+  
 </style>

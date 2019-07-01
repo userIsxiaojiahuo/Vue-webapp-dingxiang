@@ -12,24 +12,6 @@
 	}
 </script>
 
-<style scoped>
-	.addressManagementFoot{
-		width: 100%;
-		height: 104px;
-		background: #28b7a3;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		text-align: center;
-		line-height: 104px;
-	}
-	.addressManagementFoot>img{
-		width: 44px;
-		height: 44px;
-		vertical-align: sub;
-	}
-	.addressManagementFoot>span{
-		color: #fff;
-		font-size: 32px;
-	}
+<style>
+	
 </style>

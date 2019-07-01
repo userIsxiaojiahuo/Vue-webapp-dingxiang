@@ -119,7 +119,6 @@
 <script>
     import {DatetimePicker} from 'vant';
     import {Popup} from 'vant';
-    import addInformationHeader from './../components/addInformation/addInformationHeader'
     import homeSeparate from './../components/index/homeSeparate'
     import addInformationName from './../components/addInformation/addInformationName'
     import addInformationInp from './../components/addInformation/addInformationInp'
@@ -129,7 +128,6 @@
     export default {
         name: "addInformation",
         components: {
-            addInformationHeader,
             homeSeparate,
             addInformationName,
             addInformationInp,
@@ -145,7 +143,7 @@
                 show: false,
                 isShow: false,
                 date: "",
-                minDate: new Date(1900,1,1),
+                minDate: new Date(1900, 1, 1),
                 maxDate: new Date()
 
             }
@@ -193,6 +191,7 @@
             }
         }
     }
+
 </script>
 
 <style src="./../assets/css/addInformation.css"></style>

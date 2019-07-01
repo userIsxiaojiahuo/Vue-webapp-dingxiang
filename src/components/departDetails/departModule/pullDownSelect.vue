@@ -3,48 +3,29 @@
         <van-dropdown-menu class="zSelect" :z-index="999" active-color="#333">
             <van-dropdown-item v-model="value1" :options="option1"/>
         </van-dropdown-menu>
-        <!--        <div class="zSelect cnCity">-->
-        <!--            <p @click="handlePdom">全国</p>-->
-        <!--            <van-area :area-list="areaList" :columns-num="2" @change="onChange" v-if="show"/>-->
-        <!--        </div>-->
+        <div class="zSelect cnCity">
+            <p @click="handlePdom">全国</p>
+            <van-picker v-if="show" :columns="columns" @change="onChange"/>
+        </div>
     </div>
 </template>
 
 <script>
-    import {DropdownMenu, DropdownItem, Area} from 'vant';
+    import {DropdownMenu, DropdownItem, Picker} from 'vant';
     import 'vant/lib/index.css';
 
     const citys = {
-        province_list: {
-            110000: '北京市',
-            120000: '天津市'
-        },
-        city_list: {
-            110100: '北京市',
-            110200: '县',
-            120100: '天津市',
-            120200: '县'
-        },
-        county_list: {
-            110101: '东城区',
-            110102: '西城区',
-            110105: '朝阳区',
-            110106: '丰台区',
-            120101: '和平区',
-            120102: '河东区',
-            120103: '河西区',
-            120104: '南开区',
-            120105: '河北区',
-            // ....
-        }
+        '浙江': ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+        '福建': ['福州', '厦门', '莆田', '三明', '泉州']
     };
+
 
     export default {
         name: "pullDownSelect",
         components: {
             "van-dropdown-menu": DropdownMenu,
             "van-dropdown-item": DropdownItem,
-            "van-area": Area
+            "van-picker": Picker
         },
         data() {
             return {
@@ -116,4 +97,5 @@
         padding-left: 40px;
         overflow: hidden;
     }
+
 </style>

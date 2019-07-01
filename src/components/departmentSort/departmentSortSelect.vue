@@ -7,7 +7,7 @@
           选择科室
         </div>
         <div class="deparmentClassify" @click="handleClickBack()">
-          <img src="../../assets/diagonseImg/icon_classify.png" alt="">
+          <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
         </div>
       </div>
     </div>
@@ -35,7 +35,9 @@
     },
     methods: {
       handleClickBack() {
-        this.$router.go(-1)
+        this.$router.push({
+          path: "/Diagonse"
+        })
       },
       handleClickLi(index) {
         this.clickLi = index;
@@ -44,10 +46,8 @@
   }
 </script>
 
-<style scoped>
-  .departmentSortSelectWrap {
 
-  }
+<style scoped>
 
   /*选择科室*/
   .departmentSortSelect {
