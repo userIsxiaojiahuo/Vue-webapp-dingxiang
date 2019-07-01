@@ -10,17 +10,17 @@
 .goBack {
   width: 42px;
   height: 42px;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .register {
-  margin-right: 20px;
+  margin-right: 50px;
   color: #28b7a3;
   font-size: 28px;
 }
 
 .LoginContent {
-  padding: 86px 40px 0;
+  padding: 86px 0 0;
 }
 
 .checkLogin {

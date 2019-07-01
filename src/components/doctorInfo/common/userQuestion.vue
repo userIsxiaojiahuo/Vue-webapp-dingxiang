@@ -9,7 +9,7 @@
             <div class="questionText">
                 {{item.questionText}}
             </div>
-            <div class="maskTime">
+            <div class="maskTime" v-if="item.isTime">
                 {{time}}
             </div>
         </div>
@@ -38,7 +38,7 @@
 
 <style scoped>
     .questions {
-        padding-top: 38px;
+        padding-top: 18px;
         padding-bottom: 25px;
         border-bottom: 1px solid #ebebeb;
         padding-right: 30px;

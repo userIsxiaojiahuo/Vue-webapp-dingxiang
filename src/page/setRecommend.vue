@@ -4,7 +4,6 @@
         <RecommendShare :shareMsg="shareMsg"/>
         <RecommendReason :reasonMsg="reasonMsg"/>
     </div>
-
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div class="illness">
-    <IllnessHeader :headerMsg="headerMsg"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"/>
     <IllnessSearch :searchMsg="searchMsg"/>
     <IllnessAlldisease :alldiseaseMsg="alldiseaseMsg"/>
     <IllnessClassify :classifyMsg="classifyMsg"/>
@@ -9,7 +9,7 @@
 
 <script>
   //顶部
-  import IllnessHeader from '../components/illness/illnessHeader'
+  import dxHeaderReturn from '../components/public/dxHeaderReturn'
   //查询
   import IllnessSearch from '../components/illness/illnessSearch'
   //全部疾病
@@ -17,10 +17,13 @@
   //分类
   import IllnessClassify from '../components/illness/illnessClassify'
 
+  /**
+   * 查疾病列表页面
+   */
   export default {
     name: "Illness",
     components: {
-      IllnessHeader,
+      dxHeaderReturn,
       IllnessSearch,
       IllnessAlldisease,
       IllnessClassify
@@ -30,18 +33,18 @@
         //顶部
         headerMsg: {
           title: "查疾病",
-          icon: require("../public/img/ic_titlebar_back.png")
+          icon: require("../assets/img/illness/ic_titlebar_back.png")
         },
         //查询
         searchMsg: {
           placeholderMsg: "症状、疾病",
-          icon: require("../public/img/ic_search_after.png")
+          icon: require("../assets/img/illness/ic_search_after.png")
         },
         //全部疾病
         alldiseaseMsg: {
           title: '全部疾病',
-          icon: require("../public/img/ic_screen_green.png"),
-          iconn: require("../public/img/crop__ic_cancel.png"),
+          icon: require("../assets/img/illness/ic_screen_green.png"),
+          iconn: require("../assets/img/illness/crop__ic_cancel.png"),
           select: '筛选',
           tit: "疾病筛选",
           all: "全部疾病",
@@ -93,16 +96,13 @@
               ]
             },
           ]
+        },
+        headerReturnTitle: {
+          title: "查疾病"
         }
       }
     }
   }
 </script>
 
-<style scoped>
-  .illness {
-    height: 100%;
-    width: 100%;
-    background-color: #ffffff;
-  }
-</style>
+<style src="../assets/css/illness.css"></style>

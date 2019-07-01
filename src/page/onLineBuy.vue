@@ -108,7 +108,7 @@
     }
   }
 </script>
-
+<style src="../assets/css/onLineBuy.css"></style>
 <style scoped>
   .onLineBuy-box {
     width: 100%;

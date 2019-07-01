@@ -1,6 +1,6 @@
 
 .registerHeader {
-  height: 160px;
+  height: 120px;
   display: flex;
   align-items: center;
   background: #fcfcfc;
@@ -9,6 +9,5 @@
 .goBack {
   width: 32px;
   height: 32px;
-
   margin-left: 30px;
 }

@@ -1,0 +1,56 @@
+/*
+    position top start
+*/
+.hospitalMessageTitleFooter {
+    background: #f4f4f4;
+    padding-bottom: 50px;
+}
+
+.hospitalMessList {
+    padding-top: 20px;
+    background: #f4f4f4;
+    padding-bottom: 40px;
+}
+
+.hospitalModule {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hospitalContent {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/*
+    position top end
+*/
+
+
+/*
+    doctor list start
+*/
+
+.hospitalMessageListCon {
+    background: white;
+    padding-left: 30px;
+}
+
+/*
+    doctor list end
+*/
+
+/*
+    footer start
+ */
+
+.hospitalMessageFooter {
+    background: white;
+    padding-left: 30px;
+}
+
+/*
+    footer end
+*/

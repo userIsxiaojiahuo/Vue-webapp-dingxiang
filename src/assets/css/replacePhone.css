@@ -1,0 +1,232 @@
+/*
+  修改手机号顶部样式   start
+*/
+
+.changePhoneImg {
+  width: 100%;
+  height: 294px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.changePhoneImg > img {
+  width: 140px;
+  border-radius: 50%;
+}
+
+.changePhoneTitle {
+  line-height: 74px;
+  color: #333333;
+  font-size: 34px;
+  text-align: center;
+}
+
+.changePhoneCon {
+  text-align: center;
+  line-height: 40px;
+  color: #666666;
+  font-size: 22px;
+  padding: 0 136px;
+  letter-spacing: 1px;
+}
+
+.changePhoneTitle > span {
+  margin-left: 12px;
+}
+
+
+/*
+  修改手机号顶部样式   end
+*/
+
+
+/*
+  修改手机号按钮  start
+*/
+
+.changePhoneBtnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.changePhoneBtn {
+  margin-top: 96px;
+  width: 690px;
+  height: 90px;
+  background: #28b7a3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+/*
+  修改手机号按钮  end
+*/
+
+
+/*
+  输入新手机号and获取验证码  start
+*/
+
+.replacePhoneNumWrap {
+  padding-left: 30px;
+}
+
+.replacePhoneTit {
+  color: #333333;
+  line-height: 80px;
+  font-size: 48px;
+  margin-top: 20px;
+}
+
+.replacePhoneCont {
+  font-size: 28px;
+  line-height: 64px;
+  color: #999999;
+  letter-spacing: 1px; /*no*/
+}
+
+.gain {
+  color: #28b7a3;
+}
+
+/*
+  输入新手机号and获取验证码  end
+*/
+
+
+/*
+  input框内容  start
+*/
+.replacePhoneInput {
+  width: 690px;
+  height: 86px;
+  border-bottom: 1px solid #ebebeb; /*no*/
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 30px;
+}
+
+.gainCodeInput {
+  margin-top: 50px;
+}
+
+.replacePhoneInput > label > input {
+  outline: none;
+  border: none;
+}
+
+.areaNumber {
+  width: 110px;
+  position: relative;
+  margin-right: 30px;
+}
+
+.areaNumber::placeholder {
+  font-size: 24px;
+  color: black;
+}
+
+.replacePhoneInput > label > .areaNumber {
+  border-right: 1px solid #cccccc; /*no*/
+}
+
+.phoneInput {
+  color: black;
+  width: 455px;
+  caret-color: #4bc7ba;
+}
+
+.phoneInput::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.replacePhoneError {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 60px;
+}
+
+.replacePhoneError > img {
+  width: 100%;
+  height: 100%;
+}
+
+.againAcquire {
+  width: 235px;
+  height: 56px;
+  background: #ededed;
+  color: #cecece;
+  font-size: 24px;
+  border-radius: 3px; /*no*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+  input框内容  end
+*/
+
+
+/*
+  btn  start
+*/
+.changePhoneBtnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.changePhoneBtn {
+  margin-top: 96px;
+  width: 690px;
+  height: 90px;
+  background: #28b7a3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.changeBg {
+  margin-top: 96px;
+  width: 690px;
+  height: 90px;
+  background: #cccccc;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+/*
+  btn  end
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

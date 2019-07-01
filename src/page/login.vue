@@ -27,7 +27,8 @@
   import dxLoginTitle from '../components/public/dxLoginTitle'
   import loginBtn from '../components/public/loginBtn'
 
-  const login = require('../assets/js/login');
+  import login from '../assets/js/user.js'
+  import common from '../assets/js/common.js'
 
   export default {
     name: "register",
@@ -35,7 +36,7 @@
       dxLoginOrRegister, dxLoginTitle, loginBtn
     }, methods: {
       goBack() {
-        login.goBack(this);
+        common.goBack(this);
       }
     }
   }

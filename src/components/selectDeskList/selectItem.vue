@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="selectItem" v-for="item in selectItem">
+    <div class="selectItem" v-for="(item,index) in selectItem" :key="index" @click="clickDesk(index)">
       <p class="selectItemTitle">{{item.selectItemTitle}}</p>
       <div class="selectItemCon">
         <p class="selectItemdDesc">{{item.selectItemdDesc}}</p>
-        <span class="rightArrow"><img src="../../assets/diagonseImg/hcp_into.png" alt=""></span>
+        <span class="rightArrow"><img src="../../assets/img/diagonseImg/hcp_into.png" alt=""></span>
       </div>
     </div>
   </div>
@@ -13,7 +13,14 @@
 <script>
   export default {
     name: "selectItem",
-    props: ["selectItem"]
+    props: ["selectItem"],
+    methods: {
+      clickDesk() {
+        this.$router.push({
+          path: "/callEmergency"
+        })
+      }
+    }
   }
 </script>
 

@@ -30,7 +30,7 @@
     name: "loginPopup",
     data() {
       return {
-        IsShow: this.popupIsShow
+        IsShow: false
       }
     },
     components: {
@@ -39,7 +39,6 @@
     props: ['popupIsShow'],
     methods: {
       callOfLogin() {
-        this.IsShow = false;
         this.$emit('changeShow', this.IsShow)
       }
     }, mounted() {

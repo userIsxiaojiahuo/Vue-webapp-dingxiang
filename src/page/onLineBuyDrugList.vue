@@ -75,13 +75,13 @@
           title: "选择药品",
           path: "/cart"
         },
-        show: true
+        show: false
       }
     },
     methods: {}
   }
 </script>
-
+<style src="../assets/css/onLIneBuyDrugList.css"></style>
 <style scoped>
   .onLIneBuyDrugList {
     width: 100%;

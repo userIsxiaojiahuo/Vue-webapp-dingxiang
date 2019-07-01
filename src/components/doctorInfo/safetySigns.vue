@@ -9,7 +9,3 @@
         name: "safetySigns"
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -20,28 +20,24 @@
   </div>
 </template>
 
-<script>
-  /* 药品列表的li */
-  export default {
-    name: "onLineBuyDrugListLi",
-    props: ["drugList", "drugListInndex"],
-    data() {
-      return {
-        isDrugNumBtu: -1,
-        isChoiceDrugBtu: -1
-      }
-    },
-    methods: {
-      choiceDrug(index) {
-        this.isDrugNumBtu = index;
-        this.isChoiceDrugBtu = index;
-        // this.isChoiceDrugBtu = index;
-// 				for(let i=0;i<this.$refs.choiceDrugBtu.length;i++){
-// 					this.isChoiceDrugBtu.push(true);
-// 				}
-      }
-    }
-  }
+<script> 
+	/* 药品列表的li */
+	export default{
+		name:"onLineBuyDrugListLi",
+		props:["drugList","drugListInndex"],
+		data(){
+			return{
+				isDrugNumBtu:-1,
+				isChoiceDrugBtu:-1
+			}
+		},
+		methods:{
+			choiceDrug(index){
+				this.isDrugNumBtu = index;
+				this.isChoiceDrugBtu = index;
+			}
+		}
+	}
 </script>
 
 <style scoped>
@@ -85,7 +81,6 @@
   .onLIne_list_text > h2 {
     font-size: 30px;
     color: #000;
-    line-height: 30px;
   }
 
   .onLIne_list_text > h2 > span:first-of-type {
@@ -99,16 +94,19 @@
   }
 
   .onLIne_list_text > h2 > span:last-of-type {
-    vertical-align: super;
+    vertical-align: top;
     letter-spacing: 1px; /*no*/
   }
 
   .drugDetails {
     width: 100%;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
     font-size: 20px;
     letter-spacing: 1px;
     line-height: 30px;
@@ -117,10 +115,10 @@
 
   .onLIne_list_price {
     height: 54px;
-    margin-top: 14px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+		margin-top: 10px;
   }
 
   .drug_price {

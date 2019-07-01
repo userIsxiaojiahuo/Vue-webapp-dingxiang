@@ -62,13 +62,13 @@
             img: require('../../assets/img/home/ic_inquisition_record.png'),
             title: "电话急诊",
             popupsText: "一对一电话咨询 平均60秒接通",
-            path: '/conPic'
+            path: '/callEmergency'
           },
           {
             img: require('../../assets/img/home/ic_inquisition_doctor.png'),
             title: "问医生",
             popupsText: "按科室挑选合适的医生",
-            path: '/conPic'
+            path: '/askDoctor'
           },
         ]
       }
