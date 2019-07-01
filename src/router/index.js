@@ -283,10 +283,6 @@ const router = new Router({
                 }
             },
             {
-                path: "/phoneNumber",
-                name: "phoneNumber",
-            },
-            {
                 path: "/OrderFilling",
                 name: "OrderFilling",
                 component: OrderFilling,
