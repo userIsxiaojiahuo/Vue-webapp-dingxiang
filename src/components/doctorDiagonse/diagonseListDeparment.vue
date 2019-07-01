@@ -14,9 +14,6 @@
     </div>
     <div class="deparmentClassify" @click="handleClickDiv()">
       <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
-      <div class="deparmentClassify" @click="handleClickDiv">
-        <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
-      </div>
     </div>
   </div>
 </template>

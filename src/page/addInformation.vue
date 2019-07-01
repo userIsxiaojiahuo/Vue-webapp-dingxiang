@@ -1,8 +1,6 @@
 <template>
   <div class="addInformation">
-    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
-      <dxNextBtn :headerReturnTitle="headerReturnTitle"/>
-    </dxHeaderReturn>
+    <AskDoctorHeader :headerReturnTitle="headerMessage"></AskDoctorHeader>
     <homeSeparate></homeSeparate>
     <div class="NAI">
       <slot name="Name">
@@ -34,7 +32,20 @@
         <span class="name">出生年月</span>
       </slot>
       <slot name="Inp">
-        <input class="inp" type="date" placeholder="选择出生年月"/>
+        <input class="inp" type="text" placeholder="选择出生年月" @click="showPopup()" :value="date"/>
+        <van-popup v-model="isShow"
+                   position="bottom"
+                   :style="{ height: '38.2%' }">
+
+          <van-datetime-picker
+            @cancel="cancel"
+            @confirm="confirm"
+            v-model="currentDate"
+            type="date"
+            :min-date="minDate"
+            :max-date="maxDate"
+          />
+        </van-popup>
       </slot>
     </div>
     <div class="NAI">
@@ -106,34 +117,39 @@
 </template>
 
 <script>
-  import dxHeaderReturn from './../components/public/dxHeaderReturn'
-  import dxNextBtn from './../components/public/dxNextBtn'
+  import {DatetimePicker} from 'vant';
+  import {Popup} from 'vant';
   import homeSeparate from './../components/index/homeSeparate'
   import addInformationName from './../components/addInformation/addInformationName'
   import addInformationInp from './../components/addInformation/addInformationInp'
   import medicalHistory from './../components/addInformation/medicalHistory'
   import options from './../components/addInformation/option'
+  import AskDoctorHeader from "../components/public/dxHeaderReturn"
 
   export default {
     name: "addInformation",
     components: {
-      dxHeaderReturn,
+      AskDoctorHeader,
       homeSeparate,
       addInformationName,
       addInformationInp,
       medicalHistory,
       options,
-      dxNextBtn
+      "van-popup": Popup,
+      "van-datetime-picker": DatetimePicker
     },
     data() {
       return {
+        currentDate: new Date(),
         isFales: false,
         show: false,
-        headerReturnTitle: {
-          title: "添加患者",
-          txt: "完成",
-          path: "/patientInformation"
-        }
+        isShow: false,
+        date: "",
+        minDate: new Date(1900, 1, 1),
+        maxDate: new Date(),
+        headerMessage: {
+          title: "添加患者"
+        },
       }
     },
     methods: {
@@ -155,10 +171,27 @@
           this.isFales = true;
         } else {
           this.show = true;
+
         }
+      },
+      cancel() {
+        this.isShow = false
+      },
+      confirm(val) {
+        // this.date = val
+        let year = val.getFullYear();
+        let month = val.getMonth();
+        let day = val.getDate();
+        let dateStr = year + '年' + (month + 1) + '月' + day + '日';
+        this.date = dateStr;
+        this.cancel();
+      },
+      showPopup() {
+        this.isShow = true;
       }
     }
   }
+
 </script>
 
 <style src="./../assets/css/addInformation.css"></style>

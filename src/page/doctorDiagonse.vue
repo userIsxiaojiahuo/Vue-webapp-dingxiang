@@ -1,6 +1,8 @@
 <template>
   <div class="doctorDiagonse">
-    <dxHeaderReturn urn :headerReturnTitle="headerMessage"></dxHeaderReturn>
+    <dxHeaderReturn urn :headerReturnTitle="headerMessage">
+      <dxHeaderIcon/>
+    </dxHeaderReturn>
     <!--轮播图-->
     <diagonseListBanner :diagonseListBanner="diagnosePic"></diagonseListBanner>
     <!--每周提问-->
@@ -13,6 +15,7 @@
 </template>
 <script>
   import dxHeaderReturn from "../components/public/dxHeaderReturn"
+  import dxHeaderIcon from "../components/public/dxAttentionBtn"
   import diagonseListBanner from '../components/doctorDiagonse/diagonseListBanner'
   import diagonseQuiz from '../components/doctorDiagonse/diagonseQuiz'
   import diagonseListDeparment from '../components/doctorDiagonse/diagonseListDeparment'
@@ -25,15 +28,13 @@
       diagonseQuiz,
       diagonseListDeparment,
       diagonseIntroduce,
-      dxHeaderReturn
+      dxHeaderReturn,
+      dxHeaderIcon
     },
     data() {
       return {
         headerMessage: {
-          title: "名医义诊",
-          ico: require("../assets/images/askdoctor/ic_titlebar_back.png"),
-          show: false,
-          isStartImg: false
+          title: "返回",
         },
         diagnosePic: [require("../assets/img/diagonseImg/banner.png"), require("../assets/img/diagonseImg/banner.png")],
         deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"],

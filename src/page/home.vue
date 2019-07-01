@@ -46,7 +46,6 @@
     },
     data() {
       return {
-
         indexNav: [
           {
             imgs: require('../assets/img/home/maxNav-1.png'),

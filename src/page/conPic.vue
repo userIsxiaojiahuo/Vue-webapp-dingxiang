@@ -42,3 +42,12 @@
     }
   }
 </script>
+<<<<<<< HEAD
+
+<style scoped>
+  .conPic{
+    overflow-x: hidden;
+  }
+</style>
+=======
+>>>>>>> eb16cf7afa4668f16c80bcd902684b1459fc7dd9

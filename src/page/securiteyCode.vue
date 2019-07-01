@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!--  请输入新的手机号-->
-    <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
     <!--    文本框内容-->
-    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
+    <dxHeaderReturn :headerReturnTitle="headerMessage"></dxHeaderReturn>
     <!--  请输入新的手机号-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
     <!--    文本框内容-->
@@ -14,7 +12,6 @@
                     :isOk="isOk"
                     class="gain"
     ></changePhoneBtn>
-    <!--    收不到验证码-->
     <!--    收不到验证码-->
     <notReceiveCode></notReceiveCode>
   </div>
@@ -41,7 +38,17 @@
         repacePhoneNext: {
           title: "确认",
           path: "/home",
-        }
+        },
+        headerMessage: {
+          title: "填写验证码",
+        },
+        newsPhone: {
+          newsPhoneTit: '输入验证码',
+          newsPhoneDesc: '',
+          newPhoneCurrent: '验证码已发送至:',
+          newPhone: 18703766795
+        },
+        isOk: false
       }
     },
     methods: {
