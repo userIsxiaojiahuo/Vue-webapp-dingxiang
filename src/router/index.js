@@ -388,7 +388,6 @@ const router = new Router({
         redirect: home
       }
     ]
-
 })
 
 
