@@ -45,7 +45,7 @@
 		}
 	}
 </script>
-
+<style  src="../assets/css/paymentMethod.css"></style>
 <style>
 	.paymentMethod{
 		width: 100%;

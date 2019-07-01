@@ -1,5 +1,5 @@
 <template>
-  <div class="onLineSearch-input">
+  <div class="onLineBuyListHeaber-input">
     <img :src="onLineSearch.pic">
     <span>{{onLineSearch.title}}</span>
   </div>
@@ -13,25 +13,6 @@
   }
 </script>
 
-<style scoped>
-  .onLineSearch-input {
-    width: 100%;
-    height: 80px;
-    background: #f2f2f2;
-    margin-left: 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-  }
-
-  .onLineSearch-input > img {
-    width: 36px;
-    height: 36px;
-    margin: 0 22px;
-  }
-
-  .onLineSearch-input > span {
-    font-size: 28px;
-    color: #000;
-  }
+<style>
+  
 </style>

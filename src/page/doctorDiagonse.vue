@@ -1,5 +1,6 @@
 <template>
   <div class="doctorDiagonse">
+    <dxHeaderReturn urn :headerReturnTitle="headerMessage"></dxHeaderReturn>
     <!--轮播图-->
     <diagonseListBanner :diagonseListBanner="diagnosePic"></diagonseListBanner>
     <!--每周提问-->
@@ -11,6 +12,7 @@
   </div>
 </template>
 <script>
+  import dxHeaderReturn from "../components/public/dxHeaderReturn"
   import diagonseListBanner from '../components/doctorDiagonse/diagonseListBanner'
   import diagonseQuiz from '../components/doctorDiagonse/diagonseQuiz'
   import diagonseListDeparment from '../components/doctorDiagonse/diagonseListDeparment'
@@ -22,15 +24,22 @@
       diagonseListBanner,
       diagonseQuiz,
       diagonseListDeparment,
-      diagonseIntroduce
+      diagonseIntroduce,
+      dxHeaderReturn
     },
     data() {
       return {
-        diagnosePic: [require("../assets/diagonseImg/banner.png"), require("../assets/diagonseImg/banner.png")],
+        headerMessage: {
+          title: "名医义诊",
+          ico: require("../assets/images/askdoctor/ic_titlebar_back.png"),
+          show: false,
+          isStartImg: false
+        },
+        diagnosePic: [require("../assets/img/diagonseImg/banner.png"), require("../assets/img/diagonseImg/banner.png")],
         deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"],
         doctorInfo: [
           {
-            doctorImg: require("../assets/diagonseImg/introduce01.png"),
+            doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
             doctorIntroduce: {
               doctorName: "潘明孟",
               doctorJob: "主治医师",
@@ -54,7 +63,7 @@
             justNeed: 4
           },
           {
-            doctorImg: require("../assets/diagonseImg/introduce01.png"),
+            doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
             doctorIntroduce: {
               doctorName: "潘明孟",
               doctorJob: "主治医师",

@@ -1,6 +1,7 @@
 <template>
     <div class="doctorsMessage">
-        <div class="doctorMess" @click="toDoctorMessage" v-for="(item,index) in doctorMessages" :key="index">
+        <div class="doctorMess" @click.stop="toDoctorMessage($event)" v-for="(item,index) in doctorMessages"
+             :key="index">
             <div class="messageLeft">
                 <div class="headerImg">
                     <img :src="item.headerImg" alt="">
@@ -39,7 +40,8 @@
                         <span class="spanText priceRule" v-if="item.isPhone">|</span>
                         <span class="spanText phonePrice" v-if="item.isPhone">电话￥{{item.phonePrice}}</span>
                     </div>
-                    <img v-if="item.isAskImg" src="../../../assets/images/askdoctor/doctors/ask_doctor.png" alt="">
+                    <img @click.stop="handleToImgInquiry($event)" v-if="item.isAskImg"
+                         src="../../../assets/images/askdoctor/doctors/ask_doctor.png" alt="">
                 </div>
             </div>
         </div>
@@ -58,6 +60,11 @@
             toDoctorMessage() {
                 this.$router.push({
                     path: "/doctorInfo"
+                })
+            },
+            handleToImgInquiry() {
+                this.$router.push({
+                    path: "/conPic"
                 })
             }
         }

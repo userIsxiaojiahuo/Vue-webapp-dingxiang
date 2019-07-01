@@ -1,6 +1,8 @@
 <template>
   <div class="conPic">
-    <conPicHeader></conPicHeader>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+      <dxNextBtn :headerReturnTitle="headerReturnTitle"/>
+    </dxHeaderReturn>
     <conPicImg></conPicImg>
     <illinessInfo :placeholderText="placeholderText"></illinessInfo>
     <conPicOffer></conPicOffer>
@@ -9,7 +11,8 @@
 </template>
 
 <script>
-  import conPicHeader from './../components/conPic/conPicHeader'
+  import dxHeaderReturn from './../components/public/dxHeaderReturn'
+  import dxNextBtn from './../components/public/dxNextBtn'
   import conPicImg from './../components/conPic/conPicImg'
   import illinessInfo from './../components/conPic/illinessInfo'
   import conPicOffer from './../components/conPic/conPicOffer'
@@ -21,20 +24,21 @@
   export default {
     name: "conPic",
     components: {
-      conPicHeader,
+      dxHeaderReturn,
       conPicImg,
       illinessInfo,
       conPicOffer,
-      conPicFooter
+      conPicFooter,
+      dxNextBtn
     },
     data() {
       return {
-        placeholderText: '请描述你的性别年龄、症状、就诊经历，我们会保证你的隐私安全'
+        placeholderText: '请描述你的性别年龄、症状、就诊经历，我们会保证你的隐私安全',
+        headerReturnTitle: {
+          title: "图文问诊",
+          txt: "下一步"
+        }
       }
     }
   }
 </script>
-
-<style scoped>
-
-</style>

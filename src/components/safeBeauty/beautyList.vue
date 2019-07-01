@@ -6,7 +6,7 @@
         <span class="beautyItemDesc">{{item.desc}}</span>
       </div>
       <div class="beautyMore">更多
-        <img src="../../assets/diagonseImg/ic_symptom_arrow.png" alt="">
+        <img src="../../assets/img/diagonseImg/ic_symptom_arrow.png" alt="">
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
     <div class="askDoctorContent">
         <div class="administrativeOffice" v-for="(item,index) in officeMessage" :key="index">
             <h3>{{item.title}}</h3>
-            <CommonOffice :officeMessage="item.classify"></CommonOffice>
+            <CommonOffice :officeMessage="item.departments_info"></CommonOffice>
         </div>
         <div class="blankDiv"></div>
     </div>

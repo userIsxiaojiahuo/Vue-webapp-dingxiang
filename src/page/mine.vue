@@ -34,7 +34,7 @@
           },
           {
             text: "设置",
-            path: ''
+            path: '/setting'
           },
           {
             text: "用户反馈",

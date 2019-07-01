@@ -15,7 +15,8 @@
 </template>
 
 <script>
-  const login = require('../assets/js/login');
+  import login from '../assets/js/user.js'
+  import common from '../assets/js/common.js'
   import loginBtn from '../components/public/loginBtn'
   import dxLoginOrRegister from '../components/public/dxLoginOrRegister'
 
@@ -26,7 +27,7 @@
     },
     methods: {
       goBack() {
-        login.goBack(this);
+        common.goBack(this);
       }
     }
   }

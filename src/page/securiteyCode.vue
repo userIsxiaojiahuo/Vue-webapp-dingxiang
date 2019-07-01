@@ -2,7 +2,11 @@
   <div>
     <!--  请输入新的手机号-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
-<!--    文本框内容-->
+    <!--    文本框内容-->
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
+    <!--  请输入新的手机号-->
+    <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
+    <!--    文本框内容-->
     <gainCode @inputNumber="getInputVal"></gainCode>
     <!--  下一步-->
     <changePhoneBtn :repacePhoneNext="repacePhoneNext"
@@ -10,7 +14,8 @@
                     :isOk="isOk"
                     class="gain"
     ></changePhoneBtn>
-<!--    收不到验证码-->
+    <!--    收不到验证码-->
+    <!--    收不到验证码-->
     <notReceiveCode></notReceiveCode>
   </div>
 </template>
@@ -20,6 +25,7 @@
   import changePhoneCon from '../components/phoneNumber/changePhoneCon'
   import gainCode from '../components/phoneNumber/gainCode'
   import notReceiveCode from '../components/phoneNumber/notReceiveCode'
+  import dxHeaderReturn from '../components/public/dxHeaderReturn'
 
   export default {
     name: "securiteyCode",
@@ -27,22 +33,15 @@
       changePhoneCon,
       gainCode,
       changePhoneBtn,
-      notReceiveCode
+      notReceiveCode,
+      dxHeaderReturn
     },
     data() {
       return {
-        repacePhoneNext:{
-          title:"确认",
-          path:"/home"
-        },
-        newsPhone: {
-          newsPhoneTit: '输入验证码',
-          newsPhoneDesc: '',
-          newPhoneCurrent: '验证码已发送至：',
-          newPhone: 18703766795
-        },
-        isOk: false,
-        inputValue: ""
+        repacePhoneNext: {
+          title: "确认",
+          path: "/home",
+        }
       }
     },
     methods: {
@@ -51,7 +50,7 @@
         this.inputValue = data;
         if (this.inputValue !== "") {
           this.isOk = true
-        }else {
+        } else {
           this.isOk = false
         }
 

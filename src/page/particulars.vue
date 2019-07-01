@@ -1,18 +1,21 @@
 <template>
   <div>
-    <ParticularsHeader :headerMag="headerMag"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+      <dxHeaderIconWrap>
+        <dxShareBtn/>
+      </dxHeaderIconWrap>
+    </dxHeaderReturn>
     <ParticularsIntroduce :introMsg="introMsg"/>
     <ParticularsAetiological :particMsg="particMsg"/>
     <ParticularsBtn :btnMsg="btnMsg"/>
     <ParticularsClassification/>
-    <!--:classMsg="classMsg"-->
   </div>
 
 </template>
 
 <script>
   // 顶部
-  import ParticularsHeader from "../components/particulars/particularsHeader"
+  import dxHeaderReturn from "../components/public/dxHeaderReturn"
   //介绍
   import ParticularsIntroduce from "../components/particulars/particularsIntroduce"
   //发病原因
@@ -22,23 +25,28 @@
   //分类
   import ParticularsClassification from "../components/particulars/particularsClassification"
 
+  import dxHeaderIconWrap from '../components/public/dxHeaderIconWrap'
+  import dxShareBtn from '../components/public/dxShareBtn'
+
 
   export default {
     name: "particulars",
     components: {
-      ParticularsHeader,
+      dxHeaderReturn,
       ParticularsIntroduce,
       ParticularsAetiological,
       ParticularsBtn,
-      ParticularsClassification
+      ParticularsClassification,
+      dxHeaderIconWrap,
+      dxShareBtn
     },
     data() {
       return {
         // 头部
         headerMag: {
-          icon: require("../public/img/ic_titlebar_back.png"),
-          iconn: require("../public/img/abc_ic_star_black_36dp.png"),
-          iconnn: require("../public/img/ic_titlebar_share.png")
+          icon: require("../assets/img/illness/ic_titlebar_back.png"),
+          iconn: require("../assets/img/illness/abc_ic_star_black_36dp.png"),
+          iconnn: require("../assets/img/illness/ic_titlebar_share.png")
         },
 
         //介绍
@@ -47,19 +55,19 @@
           informaTion: [
             {
               autho: "词条作者",
-              img: require("../public/img/timg.jpg"),
+              img: require("../assets/img/illness/timg.jpg"),
               name: "张三",
               administrative: "儿科",
               post: "主治医生",
-              icon: require("../public/img/ic_inquisition_arrow.png")
+              icon: require("../assets/img/illness/ic_inquisition_arrow.png")
             },
             {
               autho: "审核专家",
-              img: require("../public/img/timg (2).jpg"),
+              img: require("../assets/img/illness/timg (2).jpg"),
               name: "李四",
               administrative: "精神科",
               post: "主治医生",
-              icon: require("../public/img/ic_inquisition_arrow.png")
+              icon: require("../assets/img/illness/ic_inquisition_arrow.png")
             }
           ],
           release: "发布时间",
@@ -74,7 +82,8 @@
         //按钮
         btnMsg: {
           txt: "查看详情"
-        }
+        },
+        headerReturnTitle: {}
       }
     }
   }

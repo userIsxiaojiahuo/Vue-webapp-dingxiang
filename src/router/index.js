@@ -1,8 +1,8 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Illness from "../page/illness"
-import IllnessTwo from "../page/illnessTwo"
-import Particulars from "../page/particulars"
+import IllnessTwo from "../page/illnessSearch"
+import particulars from "../page/particulars"
 import Popularization from "../page/popularization"
 import classification from "../page/classification"
 import AskDoctor from "../page/askDoctor"
@@ -39,6 +39,10 @@ import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
 import securiteyCode from "../page/securiteyCode"
+import setAbout from "../page/setAbout"
+import setAmendname from "../page/setAmendname"
+import setRecommend from "../page/setRecommend"
+import setting from "../page/setting"
 
 Vue.use(Router);
 
@@ -94,14 +98,6 @@ const router = new Router({
         path: "/IllnessTwo",
         name: "IllnessTwo",
         component: IllnessTwo,
-        meta: {
-          footerIsShow: false
-        }
-      },
-      {
-        path: "/Particulars",
-        name: "Particulars",
-        component: Particulars,
         meta: {
           footerIsShow: false
         }
@@ -281,7 +277,7 @@ const router = new Router({
       {
         path: "/phoneNumber",
         name: "phoneNumber",
-        component:phoneNumber
+        component: phoneNumber
       },
       {
         path: "/OrderFilling",
@@ -356,10 +352,43 @@ const router = new Router({
         component: addInformation
       },
       {
+        path: "/setRecommend",
+        name: "setRecommend",
+        component: setRecommend,
+        meta: {
+          footerIsShow: false
+        }
+      },
+      {
+        path: "/setAmendname",
+        name: "setAmendname",
+        component: setAmendname,
+        meta: {
+          footerIsShow: false
+        }
+      },
+      {
+        path: "/setting",
+        name: "setting",
+        component: setting,
+        meta: {
+          footerIsShow: false
+        }
+      },
+      {
+        path: "/particulars",
+        component: particulars
+      },
+      {
+        path: "/setAbout",
+        component: setAbout
+      },
+      {
         path: "**",
         redirect: home
       }
     ]
+
 })
 
 
