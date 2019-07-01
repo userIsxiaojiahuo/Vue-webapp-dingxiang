@@ -3,7 +3,7 @@
         <van-index-bar :index-list="classifyMsg.indexList"
         >
 
-            <van-index-anchor v-for="itme in classifyMsg.classifyMsgTitle">{{itme.title}}
+            <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
 
                 <van-cell v-for="(items,index) in itme.text" :title="items" :key="index"/>
             </van-index-anchor>

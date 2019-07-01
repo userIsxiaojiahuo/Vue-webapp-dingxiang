@@ -36,5 +36,7 @@
 </script>
 
 <style scoped>
-
+  .conPic{
+    overflow-x: hidden;
+  }
 </style>
