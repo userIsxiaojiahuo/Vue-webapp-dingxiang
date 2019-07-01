@@ -21,13 +21,12 @@
     },
     data() {
       return {
-        repacePhoneNext: "更换手机号"
+        repacePhoneNext:{
+          title:"更换手机号",
+          path:"/replacePhone"
+        }
       }
     }
   }
 </script>
-
-<style>
-  .phoneNumber {
-  }
-</style>
+<style src="../assets/css/replacePhone.css"></style>

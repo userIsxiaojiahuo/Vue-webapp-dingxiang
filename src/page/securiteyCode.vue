@@ -1,42 +1,44 @@
 <template>
   <div>
-    <!--  顶部更换手机号-->
-
-    <!--  请输入新的手机号标题-->
+    <!--  请输入新的手机号-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
-    <!--    文本框内容-->
-    <replacePhoneNum @inputNumber="getInputVal"></replacePhoneNum>
+<!--    文本框内容-->
+    <gainCode @inputNumber="getInputVal"></gainCode>
     <!--  下一步-->
-    <changePhoneBtn @changeBtnClick="changeBtnClick"
-                    :repacePhoneNext="repacePhone"
+    <changePhoneBtn :repacePhoneNext="repacePhoneNext"
+                    @changeBtnClick="changeBtnClick"
                     :isOk="isOk"
                     class="gain"
     ></changePhoneBtn>
+<!--    收不到验证码-->
+    <notReceiveCode></notReceiveCode>
   </div>
 </template>
 
 <script>
-  import replacePhoneNum from '../components/phoneNumber/replacePhoneNum'
   import changePhoneBtn from '../components/phoneNumber/changePhoneBtn'
   import changePhoneCon from '../components/phoneNumber/changePhoneCon'
+  import gainCode from '../components/phoneNumber/gainCode'
+  import notReceiveCode from '../components/phoneNumber/notReceiveCode'
 
   export default {
-    name: "replacePhone",
+    name: "securiteyCode",
     components: {
-      replacePhoneNum,
       changePhoneCon,
-      changePhoneBtn
+      gainCode,
+      changePhoneBtn,
+      notReceiveCode
     },
     data() {
       return {
-        repacePhone:{
-          title:"下一步",
-          path:"/securiteyCode"
+        repacePhoneNext:{
+          title:"确认",
+          path:"/home"
         },
         newsPhone: {
-          newsPhoneTit: '请输入新的手机号',
-          newsPhoneDesc: '更换手机号后，下次登录可使用新的手机号登录。',
-          newPhoneCurrent: '当前手机号：',
+          newsPhoneTit: '输入验证码',
+          newsPhoneDesc: '',
+          newPhoneCurrent: '验证码已发送至：',
           newPhone: 18703766795
         },
         isOk: false,
@@ -49,7 +51,7 @@
         this.inputValue = data;
         if (this.inputValue !== "") {
           this.isOk = true
-        } else {
+        }else {
           this.isOk = false
         }
 
@@ -60,8 +62,4 @@
     }
   }
 </script>
-<style>
-
-</style>
 <style src="../assets/css/replacePhone.css"></style>
-

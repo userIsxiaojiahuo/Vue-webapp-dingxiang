@@ -38,6 +38,7 @@ import Cart from "../page/cart"
 import OrderFilling from "../page/orderFilling"
 import AddressManagement from "../page/addressManagement"
 import EditAddress from "../page/editAddress"
+import securiteyCode from "../page/securiteyCode"
 
 Vue.use(Router);
 
@@ -280,6 +281,7 @@ const router = new Router({
       {
         path: "/phoneNumber",
         name: "phoneNumber",
+        component:phoneNumber
       },
       {
         path: "/OrderFilling",
@@ -293,6 +295,14 @@ const router = new Router({
         path: "/replacePhone",
         name: "replacePhone",
         component: replacePhone,
+        meta: {
+          footerIsShow: false
+        }
+      },
+      {
+        path: "/securiteyCode",
+        name: "securiteyCode",
+        component: securiteyCode,
         meta: {
           footerIsShow: false
         }

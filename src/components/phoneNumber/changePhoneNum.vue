@@ -13,38 +13,3 @@
     name: "changePhoneNum",
   }
 </script>
-
-<style scoped>
-  .changePhoneImg {
-    width: 100%;
-    height: 294px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .changePhoneImg > img {
-    width: 140px;
-    border-radius: 50%;
-  }
-
-  .changePhoneTitle {
-    line-height: 74px;
-    color: #333333;
-    font-size: 34px;
-    text-align: center;
-  }
-
-  .changePhoneCon {
-    text-align: center;
-    line-height: 40px;
-    color: #666666;
-    font-size: 22px;
-    padding: 0 136px;
-    letter-spacing: 1px;
-  }
-
-  .changePhoneTitle > span {
-    margin-left: 12px;
-  }
-</style>
