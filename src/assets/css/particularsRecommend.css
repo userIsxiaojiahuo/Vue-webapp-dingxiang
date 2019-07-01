@@ -1,0 +1,9 @@
+.van-tabs__content{
+     line-height: 70px;
+ }
+.van-ellipsis{
+    font-size: 14px;
+}
+.van-tabs__line {
+    background-color: #28b7a3!important;
+}

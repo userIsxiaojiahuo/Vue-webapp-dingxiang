@@ -1,27 +1,23 @@
 <template>
     <div>
-        <div class="photoBox" v-for="(items,index) in titMsg">
-            <span>{{items.name}}</span>
-            <div class="right">
-                <span class="tit">{{items.tit}}</span>
-                <i
-                        :style="{
-           'background':'url('+ items.icon +')'+'no-repeat',
-           'backgroundSize':'cover'
-        }"
-                ></i>
+        <div class="photoBox">
+            <span>{{titMsg.name}}</span>
+            <div class="right" @click="titMsg.event">
+                <slot name="photoPic"></slot>
+                <span class="tit">{{titMsg.tit}}</span>
+                <dxRightArrows/>
             </div>
         </div>
     </div>
 </template>
-
+span
 <script>
+    import dxRightArrows from '../../components/public/dxRightArrows'
     export default {
         name: "SetContent",
-        props:{
-            titMsg:{
-                type:Array
-            }
+        props:["titMsg"],
+        components:{
+            dxRightArrows
         }
     }
 </script>
@@ -31,7 +27,7 @@
         width: 100%;
         height: 100px;
         border-bottom: #ebebeb 1px solid;
-        padding-left: 30px;
+        padding:0 30px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -43,6 +39,7 @@
     }
     .tit{
         color: #999999;
+        margin-right: 20px;
     }
     i{
         display: inline-block;
@@ -55,5 +52,11 @@
         height:100%;
         display: flex;
         align-items: center;
+    }
+    .photoWrapper{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        overflow: hidden;
     }
 </style>

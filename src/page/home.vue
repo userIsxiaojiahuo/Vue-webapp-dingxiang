@@ -30,6 +30,9 @@
   import homeSwiper from '../components/index/homeSwiper'
   import homePageOne from '../components/index/homePageOne'
 
+  /**
+   * 首页
+   */
   export default {
     name: 'home',
     components: {
@@ -49,53 +52,61 @@
             imgs: require('../assets/img/home/maxNav-1.png'),
             spanContent: '问医生',
             emContent: '按科室找医生',
-            path:"/askDoctor"
+            path: "/AskDoctor"
           },
           {
             imgs: require('../assets/img/home/maxNav-2.png'),
             spanContent: '名医义诊',
             emContent: '新人1元起',
-            path:"/Diagonse"
+            path: "/Diagonse"
           },
           {
             imgs: require('../assets/img/home/maxNav-3.png'),
             spanContent: '在线购药',
             emContent: '限时包邮',
-            path:"/"
+            path: "/onLineBuy"
           }
         ],
         indexListNav: [
           {
             imgs: require('../assets/img/home/nav-1.png'),
-            title: '电话急诊'
+            title: '电话急诊',
+            path: "callEmergency"
           },
           {
             imgs: require('../assets/img/home/nav-2.png'),
-            title: '成长测评'
+            title: '成长测评',
+            path: ""
           },
           {
             imgs: require('../assets/img/home/nav-3.png'),
-            title: '查疾病'
+            title: '查疾病',
+            path: "/illness"
           },
           {
             imgs: require('../assets/img/home/nav-4.png'),
-            title: '医师讲堂'
+            title: '医师讲堂',
+            path: ""
           },
           {
             imgs: require('../assets/img/home/nav-5.png'),
-            title: '阳痿早泄'
+            title: '阳痿早泄',
+            path: "/SafeBeauty"
           },
           {
             imgs: require('../assets/img/home/nav-6.png'),
-            title: '安全变美'
+            title: '安全变美',
+            path: "/SafeBeauty"
           },
           {
             imgs: require('../assets/img/home/nav-7.png'),
-            title: '急救大全'
+            title: '急救大全',
+            path: "/classification"
           },
           {
             imgs: require('../assets/img/home/nav-8.png'),
-            title: '孕期管家'
+            title: '孕期管家',
+            path: ""
           }
         ],
         indexExplain: require('../assets/img/home/im_trest_homepage.png'),

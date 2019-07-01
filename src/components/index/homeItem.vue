@@ -1,11 +1,11 @@
 <template>
   <div class="homeItem">
-    <div class="indexList" v-for="(item,index) in indexList">
+    <router-link :to="item.path" tag="div" class="indexList" v-for="(item,index) in indexList" :key="index">
       <div class="homeItemWrapper">
         <img class="imgAuto" :src="item.imgs" alt="">
       </div>
       <span>{{item.title}}</span>
-    </div>
+    </router-link>
   </div>
 </template>
 

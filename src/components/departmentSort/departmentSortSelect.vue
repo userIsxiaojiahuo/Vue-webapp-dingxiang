@@ -16,8 +16,9 @@
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
             @click="handleClickLi(index)"
-            :class="{deparmentListsLis:index==clickLi}"
-        >{{item}}</li>
+            :class="{deparmentListsLis:index===clickLi}"
+        >{{item}}
+        </li>
       </ul>
     </div>
   </div>
@@ -27,18 +28,16 @@
   export default {
     name: "departmentSortSelect",
     props: ["diagonseListDeparment"],
-    data(){
-      return{
-        clickLi:0
+    data() {
+      return {
+        clickLi: 0
       }
     },
     methods: {
       handleClickBack() {
-        this.$router.push({
-          path: "/"
-        })
+        this.$router.go(-1)
       },
-      handleClickLi(index){
+      handleClickLi(index) {
         this.clickLi = index;
       }
     }
@@ -88,10 +87,12 @@
     margin: 30px 24px 0;
     background: #fff;
   }
-  .departmentSorItem .deparmentListsLis{
+
+  .departmentSorItem .deparmentListsLis {
     border: 1px solid #28b7a3;
     color: #28b7a3;
   }
+
   .departmentSorItem > ul > li {
     margin: 10px 16px;
     float: left;
