@@ -43,6 +43,9 @@ import setAbout from "../page/setAbout"
 import setAmendname from "../page/setAmendname"
 import setRecommend from "../page/setRecommend"
 import setting from "../page/setting"
+import myAttention from "../components/mine/myAttention"
+import myCollect from "../components/mine/myCollect"
+import myInquiry from "../components/mine/myInquiry"
 
 Vue.use(Router);
 
@@ -388,6 +391,30 @@ const router = new Router({
       path: "/setting",
       name: "setting",
       component: setting,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/myCollect",
+      name: "myCollect",
+      component: myCollect,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/myAttention",
+      name: "myAttention",
+      component: myAttention,
+      meta: {
+        footerIsShow: false
+      }
+    },
+    {
+      path: "/myInquiry",
+      name: "myInquiry",
+      component: myInquiry,
       meta: {
         footerIsShow: false
       }

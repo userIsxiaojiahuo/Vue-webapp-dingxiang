@@ -9,15 +9,6 @@
     />
     <div class="replacePhoneError">
       <img src="../../assets/img/diagonseImg/upsdk_cancel_normal.png" alt="">
-      <div class="replacePhoneNumWrap">
-        <p class="replacePhoneTit">请输入新的手机号</p>
-        <p class="replacePhoneCont">更换手机号后，下次登录可使用新的手机号登录。</p>
-        <p class="replacePhoneCont">当前手机号：<span>18703766795</span></p>
-        <div class="replacePhoneInput">
-          <input type="text" placeholder="+86" class="areaNumber"/>
-          <input type="text" placeholder="请输入手机号" class="phoneInput"/>
-        </div>
-      </div>
     </div>
   </div>
 </template>

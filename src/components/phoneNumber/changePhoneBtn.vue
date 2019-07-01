@@ -1,15 +1,10 @@
 <template>
-  <div>
     <router-link :to="repacePhoneNext.path" tag="div" class="changePhoneBtnWrap">
       <div @click="handleClick()"
            :class="isOk?'changePhoneBtn':'changeBg'"
            class="changePhoneBtn">{{repacePhoneNext.title}}
       </div>
     </router-link>
-    <div class="changePhoneBtnWrap">
-      <div class="changePhoneBtn">{{repacePhoneNext}}</div>
-    </div>
-  </div>
 </template>
 
 <script>

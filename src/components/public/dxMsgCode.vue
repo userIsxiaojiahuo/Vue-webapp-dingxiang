@@ -1,13 +1,16 @@
 <template>
-  <div class="codeBtn">
-    <span class="codeBtnTxt" :class="{activeMasCode:IsMsgCode}">获取验证码</span>
+  <div class="codeBtn" :class="{codeBtnOk:IsMsgCode}">
+    <span>获取验证码</span>
   </div>
 </template>
 
 <script>
   export default {
     name: "dxMsgCode",
-    props: ['IsMsgCode']
+    props: ['IsMsgCode'],
+    methods: {
+
+    }
   }
 </script>
 
@@ -23,12 +26,13 @@
     margin-right: 18px;
     position: absolute;
     right: 0;
-  }
-
-  .codeBtnTxt {
+    color: #cccccc;
     font-size: 24px;
-    color: #cfcfcf;
   }
 
+  .codeBtnOk {
+    background: #ededed;
+    color: #484848;
+  }
 
 </style>

@@ -81,7 +81,7 @@
     methods: {}
   }
 </script>
-
+<style src="../assets/css/onLIneBuyDrugList.css"></style>
 <style scoped>
   .onLIneBuyDrugList {
     width: 100%;

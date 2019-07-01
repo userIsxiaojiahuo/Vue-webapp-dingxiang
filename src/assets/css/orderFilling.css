@@ -1,0 +1,137 @@
+/* orderFillingAddress start */
+.orderFillingAddress{
+	width: 100%;
+	padding: 0 30px;
+	background: #fff;
+	margin-top: 20px;
+	height: 106px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.orderFillingAddress>p{
+	color: #8f8f8f;
+	font-size: 32px;
+	line-height: 106px;
+}
+.orderFillingAddress>img{
+	height: 26px;
+}
+/* orderFillingAddress end */
+
+/* orderFillingDrugDetails start */
+.orderFillingDrugDetails{
+	width: 100%;
+	height: 230px;
+	background: #f8f8f8;
+	padding: 21px 30px;
+}
+.orderFillingDrugDetails_box{
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+.orderFillingDrugDetails_pic{
+	width: 188px;
+	height: 188px;
+	margin-right: 20px;
+}
+.orderFillingDrugDetails_text{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.orderFillingDrugDetails_title>p{
+	color: #3c3c3c;
+	font-size: 24px;
+}
+.orderFillingDrugDetails_title>span{
+	color: #a9a9a9;
+	font-size: 24px;
+	margin-top: 10px;
+}
+.orderFilling_pirceAddNum{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 26px;
+}
+.orderFilling_pirceAddNum>span:first-of-type{
+	color: #e33a43;
+	font-weight: 700;
+}
+.orderFilling_pirceAddNum>span:last-of-type{
+	margin-right: 24px;
+}
+/* orderFillingDrugDetails end */
+
+/* orderFillingSmallFunction start */
+.orderFillingSmallFunction{
+	width: 100%;
+	padding: 0 30px;
+	border-bottom: 2px solid #e3e3e3;
+	height: 90px;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.orderFillingSmallFunction>span{
+	font-size: 26px;
+	color: #141414;
+}
+.orderFillingSmallFunction_contenText{
+	color: #818181;
+	margin-left: 22px;
+}
+.orderFillingSmallFunction>.orderFillingSmall{
+	color: #818181;
+}
+
+/* orderFillingSmallFunction end */
+
+
+/* orderFillingFoot start */
+.orderFillingFoot_box{
+	width: 100%;
+	height: 98px;
+	border-top: 1px solid #ebebeb;
+	background: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.orderFillingFoot{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.onLineBuyFoot-left{
+	flex: 71.2%;
+	min-width: 71.2%;
+	height: 100%;
+	padding-left: 30px;
+	line-height: 98px;
+}
+.onLineBuyFoot-left>span{
+	color: #5a5a5a;
+	font-size: 28px;
+}
+.onLineBuyFoot-left>span>span{
+	color: #fc4437;
+	font-weight: 700;
+}
+.orderFillingFoot_btu{
+	flex: 28.8%;
+	min-width: 28.8%;
+	height: 100%;
+	background: #28b7a3;;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 98px;
+}
+/* orderFillingFoot end */

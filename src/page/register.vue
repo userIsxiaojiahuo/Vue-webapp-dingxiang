@@ -6,11 +6,18 @@
       </div>
     </div>
     <!--短信注册主体-->
-    <dx-login-or-register/>
-    <!--协议-->
-    <loginBtn v-slot:loginBtn>
-      <span>注册</span>
-    </loginBtn>
+    <div class="registerWrapper">
+      <dxLoginOrRegister>
+        <template v-slot:register>
+          <span class="title">手机号注册</span>
+        </template>
+      </dxLoginOrRegister>
+      <!--协议-->
+      <loginBtn v-slot:loginBtn>
+        <span>注册</span>
+      </loginBtn>
+    </div>
+
   </div>
 </template>
 

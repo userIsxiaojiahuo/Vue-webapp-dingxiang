@@ -4,23 +4,18 @@ import Vue from "vue"
 import App from "./App"
 import router from "./router"
 import "lib-flexible/flexible"
-import vuex from "vuex"
+import store from './store/index.js'
 import axios from "axios"
 import qs from "qs"
 import "./assets/css/reset.css"
 import {AddressEdit, Popup, PasswordInput, NumberKeyboard} from 'vant';
 
 axios.defaults.withCredentials = true;
-Vue.use(vuex);
 
 Vue.prototype.$axios = axios;
 Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard);
 Vue.config.productionTip = false;
 
-
-const store = new vuex.Store({
-  //管理
-});
 new Vue({
   el: "#app",
   router,

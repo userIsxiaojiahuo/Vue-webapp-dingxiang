@@ -40,7 +40,7 @@
     }
   }
 </script>
-
+<style  src="../assets/css/cartPayment.css"></style>
 <style scoped>
   .cartPayment {
     width: 100%;

@@ -1,6 +1,6 @@
 <template>
   <div class="mineNav">
-    <div class="mineItem" v-for="(item,index) in nav" :key="index">
+    <router-link :to="item.path" tag="div" class="mineItem" v-for="(item,index) in nav" :key="index">
       <div class="itemLogo">
         <div class="itemLogoWrapper">
           <img class="imgAuto" :src="item.itemImg" alt="">
@@ -10,7 +10,7 @@
         <h4>{{item.itemTitle}}</h4>
       </div>
       <div class="itemNumber" v-if="false">{{item.cont}}</div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -26,22 +26,26 @@
           {
             itemImg: require("../../assets/img/mine/ic_inquiry_me.png"),
             itemTitle: "我的问诊",
-            cont: "0次"
+            cont: "0次",
+            path: "myInquiry"
           },
           {
             itemImg: require("../../assets/img/mine/ic_prescription_me.png"),
             itemTitle: "我的处方",
-            cont: "0张"
+            cont: "0张",
+            path: "myInquiry"
           },
           {
             itemImg: require("../../assets/img/mine/ic_drug_me.png"),
             itemTitle: "药品订单",
-            cont: "0单"
+            cont: "0单",
+            path: "myInquiry"
           },
           {
             itemImg: require("../../assets/img/mine/ic_lecture_me.png"),
             itemTitle: "医师讲堂",
-            cont: "0节"
+            cont: "0节",
+            path: "myInquiry"
           }
         ]
       }

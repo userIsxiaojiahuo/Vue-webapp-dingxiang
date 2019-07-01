@@ -121,14 +121,14 @@
         }
       }
     },
-    mounted() {
+    /*mounted() {
       this.$nextTick(() => {
         new BScroll(document.getElementsByClassName('homeContentWrapper')[0], {
           scrollY: true,
           click: true
         })
       })
-    }
+    }*/
   }
 </script>
 
@@ -140,6 +140,7 @@
 
   .homeContentWrapper {
     height: 100%;
+    overflow-y: auto;
   }
 
 </style>
