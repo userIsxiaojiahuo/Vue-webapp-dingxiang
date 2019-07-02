@@ -1,6 +1,7 @@
 <template>
   <div>
-    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
+    <!--    文本框内容-->
+    <dxHeaderReturn :headerReturnTitle="headerMessage"></dxHeaderReturn>
     <!--  请输入新的手机号-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
     <!--    文本框内容-->
@@ -36,19 +37,18 @@
       return {
         repacePhoneNext: {
           title: "确认",
-          path: "/home"
+          path: "/home",
+        },
+        headerMessage: {
+          title: "填写验证码",
         },
         newsPhone: {
           newsPhoneTit: '输入验证码',
           newsPhoneDesc: '',
-          newPhoneCurrent: '验证码已发送至：',
+          newPhoneCurrent: '验证码已发送至:',
           newPhone: 18703766795
         },
-        isOk: false,
-        inputValue: "",
-        headerReturnTitle: {
-          title: "填写验证码"
-        }
+        isOk: false
       }
     },
     methods: {

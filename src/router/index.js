@@ -44,6 +44,7 @@ import setAmendname from "../page/setAmendname"
 import setRecommend from "../page/setRecommend"
 import setting from "../page/setting"
 import setIdentity from  "../page/setIdentity"
+import add from "../page/add"
 
 Vue.use(Router);
 
@@ -429,12 +430,19 @@ const router = new Router({
                     }
                 },
                 {
+                    path: "/add",
+                    name: "add",
+                    component: add,
+                    meta: {
+                        footerIsShow: false
+                    }
+                },
+                {
                     path: "**",
                     redirect: home
                 }
             ]
     })
-
 
 
 

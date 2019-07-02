@@ -1,8 +1,10 @@
 <template>
     <div class="setBox">
         <dxHeaderReturn :headerReturnTitle="headerTitle"/>
+        <!--大循环-->
         <div class="contentWrapper">
-            <SetContent :titMsg="items" v-for="(items,index) in titMsg" :key="index" @click.native="showPopup(index)">
+            <SetContent :titMsg="items" v-for="(items,index) in titMsg" :key="index" @click.native="showPopup(index)" ref="buttonSex">
+                <!--插槽 头像-->
                 <template v-slot:photoPic>
                     <div class="photoWrapper" v-if="items.img">
                         <img class="imgAuto" :src="items.img">
@@ -15,8 +17,7 @@
                 <div class="names">上传图片</div>
             </van-popup>
             <van-popup v-model="showTwo" :style="{height: '17%',width:'85%',borderRadius:'3px'}">
-                <div class="names">男</div>
-                <div class="names">女</div>
+                <div class="names" v-for="(item,index) in sex" :key="index">{{item}}</div>
             </van-popup>
         </div>
         <div class="contentWrapper">
@@ -91,6 +92,7 @@
                         }
                     }
                 ],
+                sex:["男","女"],
                 titMsgg: [
                     {
                         name: "检查更新",
@@ -114,6 +116,7 @@
             }
         },
         methods: {
+            //弹出框
             showPopup(index) {
                 if(index == 0){
                     this.showOne = true
@@ -121,7 +124,11 @@
                 if(index == 2){
                     this.showTwo = true
                 }
-            }
+            },
+            //性别选择
+            // handleAdd(index){
+            //     this.$refs.buttonSex(index===3).tit=""
+            // }
         }
     }
 </script>
