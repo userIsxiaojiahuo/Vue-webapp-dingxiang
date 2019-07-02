@@ -14,11 +14,7 @@
 
   export default {
     name: "aboutContent",
-    props: {
-      aboutMsg: {
-        type: Array
-      }
-    },
+    props: ['aboutMsg'],
     components: {
       dxRightArrows
     }

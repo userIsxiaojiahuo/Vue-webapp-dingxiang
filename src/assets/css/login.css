@@ -13,14 +13,14 @@
   margin-left: 50px;
 }
 
-.register {
+.registerBtn {
   margin-right: 50px;
   color: #28b7a3;
   font-size: 28px;
 }
 
 .LoginContent {
-  padding: 86px 0 0;
+  padding: 86px 40px 0;
 }
 
 .checkLogin {
@@ -28,4 +28,5 @@
   font-size: 28px;
   margin-left: 52px;
   margin-top: 35px;
+  display: inline-block;
 }

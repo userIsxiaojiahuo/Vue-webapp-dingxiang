@@ -43,6 +43,12 @@ import setAbout from "../page/setAbout"
 import setAmendname from "../page/setAmendname"
 import setRecommend from "../page/setRecommend"
 import setting from "../page/setting"
+import hospitalMap from "../page/hospitalMap"
+import myAttention from "../components/mine/myAttention"
+import myCollect from "../components/mine/myCollect"
+import myInquiry from "../components/mine/myInquiry"
+import myPrescription from "../components/mine/myPrescription"
+import myDrugOrders from "../components/mine/myDrugOrders"
 
 Vue.use(Router);
 
@@ -74,205 +80,131 @@ const router = new Router({
         path: "/login",
         name: "login",
         component: login,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/register",
         name: "register",
         component: register,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/Illness",
         name: "Illness",
         component: Illness,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/IllnessTwo",
         name: "IllnessTwo",
         component: IllnessTwo,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/Popularization",
         name: "Popularization",
         component: Popularization,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/classification",
         name: "classification",
         component: classification,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/departDetails",
         name: "departDetails",
         component: departDetails,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/doctorInfo",
         name: "doctorInfo",
         component: doctorInfo,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/doctorResume",
         name: "doctorResume",
         component: doctorResume,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/AskDoctor",
         name: "AskDoctor",
         component: AskDoctor,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/Diagonse",
         name: "Diagonse",
         component: Diagonse,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/doctorDiagonse",
+        name: "doctorDiagonse",
         component: departmentSort,
       },
       {
         path: "/safeBeauty",
         name: "SafeBeauty",
         component: SafeBeauty,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/departmentSort",
         name: "departmentSort",
         component: departmentSort,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/examine",
         name: "examine",
         component: examine,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/rule",
         name: "rule",
         component: rule,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/impotencePremature",
         name: "impotencePremature",
         component: impotencePremature,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/callEmergency",
         name: "callEmergency",
         component: callEmergency,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/indexSearch",
         name: "indexSearch",
         component: indexSearch,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/HospitalMessage",
         name: "HospitalMessage",
         component: HospitalMessage,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/conPic",
         name: "conPic",
         component: conPic,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/selectDeskList",
         name: "selectDeskList",
         component: selectDeskList,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/OnLineBuy",
         name: "OnLineBuy",
         component: OnLineBuy,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/OnLineBuyDrugList",
         name: "OnLineBuyDrugList",
         component: OnLineBuyDrugList,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/DrugDetails",
         name: "DrugDetails",
         component: DrugDetails,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/Cart",
         name: "Cart",
         component: Cart,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/phoneNumber",
@@ -283,65 +215,41 @@ const router = new Router({
         path: "/OrderFilling",
         name: "OrderFilling",
         component: OrderFilling,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/replacePhone",
         name: "replacePhone",
         component: replacePhone,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/securiteyCode",
         name: "securiteyCode",
         component: securiteyCode,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/AddressManagement",
         name: "AddressManagement",
         component: AddressManagement,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/EditAddress",
         name: "EditAddress",
         component: EditAddress,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/doctorSearch",
         name: "doctorSearch",
         component: doctorSearch,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/hospitalSearch",
         name: "hospitalSearch",
         component: hospitalSearch,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/drugSearch",
         name: "drugSearch",
         component: drugSearch,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/patientInformation",
@@ -355,40 +263,64 @@ const router = new Router({
         path: "/setRecommend",
         name: "setRecommend",
         component: setRecommend,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/setAmendname",
         name: "setAmendname",
         component: setAmendname,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/setting",
         name: "setting",
         component: setting,
-        meta: {
-          footerIsShow: false
-        }
       },
       {
         path: "/particulars",
-        component: particulars
+        name: "/particulars",
+        component: particulars,
       },
       {
         path: "/setAbout",
-        component: setAbout
+        name: "setAbout",
+        component: setAbout,
+
+      },
+      {
+        path: "/myAttention",
+        name: "myAttention",
+        component: myAttention
+      },
+      {
+        path: "/myCollect",
+        name: "myCollect",
+        component: myCollect
+      },
+      {
+        path: "/myInquiry",
+        name: "myInquiry",
+        component: myInquiry
+      },
+      {
+        path: "/myPrescription",
+        name: "myPrescription",
+        component: myPrescription
+      },
+      {
+        path: "/myDrugOrders",
+        name: "myDrugOrders",
+        component: myDrugOrders
+      },
+      {
+        path: "/hospitalMap",
+        name: "hospitalMap",
+        component: hospitalMap
       },
       {
         path: "**",
         redirect: home
       }
     ]
-})
+});
 
 
 // 路由守卫
