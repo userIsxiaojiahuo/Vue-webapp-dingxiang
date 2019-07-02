@@ -1,27 +1,30 @@
 <template>
     <div>
-        <AmendHeader :amendHead="amendHead"/>
+        <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+            <AmendHeader/>
+        </dxHeaderReturn>
         <IdentityContent :indentMsg="indentMsg"/>
     </div>
 </template>
 
 <script>
-    import AmendHeader from "../components/setting/setAmendname/amendHeader"
+    import dxHeaderReturn from '../components/public/dxHeaderReturn'
     import IdentityContent from "../components/setting/setIdentity/identityContent"
+    import AmendHeader from  "../components/setting/setAmendname/amendHeader"
 
 
     export default {
         name: "setIdentity",
         components:{
-            AmendHeader,
-            IdentityContent
+            dxHeaderReturn,
+            IdentityContent,
+            AmendHeader
         },
         data(){
             return{
                 //头部·
-                amendHead:{
-                    tit:"我的身份",
-                    txt:"保存",
+                headerReturnTitle: {
+                    title: "我的身份"
                 },
                 //有无宝宝
                 indentMsg:[

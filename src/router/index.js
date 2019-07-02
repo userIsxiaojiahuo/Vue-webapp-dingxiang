@@ -43,6 +43,7 @@ import setAbout from "../page/setAbout"
 import setAmendname from "../page/setAmendname"
 import setRecommend from "../page/setRecommend"
 import setting from "../page/setting"
+import setIdentity from  "../page/setIdentity"
 
 Vue.use(Router);
 
@@ -283,10 +284,6 @@ const router = new Router({
                     }
                 },
                 {
-                    path: "/phoneNumber",
-                    name: "phoneNumber",
-                },
-                {
                     path: "/OrderFilling",
                     name: "OrderFilling",
                     component: OrderFilling,
@@ -419,6 +416,14 @@ const router = new Router({
                     path: "/setting",
                     name: "setting",
                     component: setting,
+                    meta: {
+                        footerIsShow: false
+                    }
+                },
+                {
+                    path: "/setIdentity",
+                    name: "setIdentity",
+                    component: setIdentity,
                     meta: {
                         footerIsShow: false
                     }
