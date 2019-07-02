@@ -5,7 +5,7 @@
     <!--  请输入新的手机号-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
     <!--    文本框内容-->
-    <gainCode @inputNumber="getInputVal"></gainCode>
+    <gainChode @inputNumber="getInputVal"></gainChode>
     <!--  下一步-->
     <changePhoneBtn :repacePhoneNext="repacePhoneNext"
                     @changeBtnClick="changeBtnClick"
