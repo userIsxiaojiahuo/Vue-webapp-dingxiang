@@ -1,10 +1,13 @@
 <template>
-  <div class="headerReturn">
-    <div class="headerReturn-box">
-      <backWrapper :headerReturnTitle="headerReturnTitle"/>
-      <slot></slot>
+  <div class="headerWrapper">
+    <div class="headerReturn">
+      <div class="headerReturn-box">
+        <backWrapper :headerReturnTitle="headerReturnTitle"/>
+        <slot></slot>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -21,12 +24,20 @@
 </script>
 
 <style scoped>
+  .headerWrapper {
+    height: 120px;
+    width: 100%;
+  }
+
   .headerReturn {
     width: 100%;
     height: 120px;
     background: #fcfcfc;
     border-bottom: 1px solid #ebebeb;
     padding: 0 30px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 
   }
 

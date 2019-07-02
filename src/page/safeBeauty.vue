@@ -29,7 +29,9 @@
             title: "脱发了？医生给你生发秘籍",
             desc: "变丑千万条  脱发第一条"
           }
-        ], headerReturnTitle: {}
+        ], headerReturnTitle: {
+          title: "返回"
+        }
       }
     },
     components: {

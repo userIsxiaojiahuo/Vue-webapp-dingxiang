@@ -1,21 +1,21 @@
 <template>
-    <div class="infoCon">
-        <div class="textContent">
+  <div class="infoCon">
+    <div class="textContent">
       <textarea class="textHtml" :placeholder="placeholderText">
 
       </textarea>
-        </div>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "illinessInfo",
-        props: {
-            placeholderText: {
-                type: String
-            }
-        }
+  export default {
+    name: "illinessInfo",
+    props: {
+      placeholderText: {
+        type: String
+      }
     }
+  }
 </script>
 

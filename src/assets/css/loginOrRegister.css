@@ -4,8 +4,6 @@
   align-content: center;
   font-size: 46px;
   flex-direction: column;
-  margin-bottom: 60px;
-  padding: 0 40px;
 }
 
 .inputWrapper {
@@ -133,3 +131,8 @@
 input:focus {
   border-bottom: 1px solid #28b7a3;
 }
+
+.inputNumError {
+  border-color: red;
+}
+

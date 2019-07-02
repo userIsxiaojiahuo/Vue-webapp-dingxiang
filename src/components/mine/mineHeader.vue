@@ -13,10 +13,10 @@
     </div>
     <!--用户信息-->
     <div class="userInfo">
-      <div class="userInfoItem" v-for="(item,index) in userInfo" :key="index">
+      <router-link :to="item.path" tag="div" class="userInfoItem" v-for="(item,index) in userInfo" :key="index">
         <div class="userItem infoNumber">{{item.cont}}</div>
         <div class="userItem infoTitle">{{item.title}}</div>
-      </div>
+      </router-link>
     </div>
     <!--通知组件-->
     <dxMessage class="mineDxMsg"/>
@@ -39,19 +39,23 @@
         userInfo: [
           {
             cont: 0,
-            title: "关注医生"
+            title: "关注医生",
+            path: "/myAttention"
           },
           {
             cont: 0,
-            title: "医生卡"
+            title: "医生卡",
+            path: "/myAttention"
           },
           {
             cont: 0,
-            title: "优惠券"
+            title: "优惠券",
+            path: "/myAttention"
           },
           {
             cont: 0,
-            title: "收藏内容"
+            title: "收藏内容",
+            path: "/myCollect"
           }
         ],
         show: false

@@ -3,9 +3,9 @@
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
       <dxNextBtn :headerReturnTitle="headerReturnTitle"/>
     </dxHeaderReturn>
-    /*   已经添加患者信息界面*/
+<!--   已经添加患者信息界面-->
 <!--    <patientInformationCon></patientInformationCon>-->
-    /*   未添加患者信息界面*/
+<!--       未添加患者信息界面-->
     <patientInformationFooter></patientInformationFooter>
   </div>
 </template>

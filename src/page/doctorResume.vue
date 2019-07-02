@@ -7,7 +7,7 @@
       <DoctorInfoMessage :doctorMessage="doctorMessage"></DoctorInfoMessage>
       <ResumePageModule :resumeHtml="resumeHtml"></ResumePageModule>
       <HospitalMessage :hospitalMess="hospitalMess"></HospitalMessage>
-      <ResumeFooter></ResumeFooter>
+      <ResumeFooter/>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="addInformation">
-        <addInformationHeader></addInformationHeader>
+            <AskDoctorHeader :headerReturnTitle="headerMessage"></AskDoctorHeader>
         <homeSeparate></homeSeparate>
         <div class="NAI">
             <slot name="Name">
@@ -32,11 +32,10 @@
                 <span class="name">出生年月</span>
             </slot>
             <slot name="Inp">
-                <input class="inp" type="text" placeholder="选择出生年月" @click="showPopup" :value="date"/>
+                <input class="inp" type="text" placeholder="选择出生年月" @click="showPopup()" :value="date"/>
                 <van-popup v-model="isShow"
                            position="bottom"
                            :style="{ height: '38.2%' }">
-
                     <van-datetime-picker
                             @cancel="cancel"
                             @confirm="confirm"
@@ -134,6 +133,7 @@
     import addInformationInp from './../components/addInformation/addInformationInp'
     import medicalHistory from './../components/addInformation/medicalHistory'
     import options from './../components/addInformation/option'
+    import AskDoctorHeader from "../components/public/dxHeaderReturn"
     export default {
         name: "addInformation",
         components: {
@@ -142,6 +142,7 @@
             addInformationInp,
             medicalHistory,
             options,
+            AskDoctorHeader,
             "van-popup": Popup,
             "van-datetime-picker": DatetimePicker
         },
@@ -155,14 +156,16 @@
                 minDate: new Date(1900, 1, 1),
                 maxDate: new Date(),
                 pregency: ["无", "备孕中", "怀孕中", "哺乳中"],
-                kidney:["正常","异常"],
-                liver:["正常","异常"],
+                kidney: ["正常", "异常"],
+                liver: ["正常", "异常"],
                 clickSpan: -1,
-                clickKidney:-1,
-                clickLiver:-1,
-                shows:false,
+                clickKidney: -1,
+                clickLiver: -1,
+                shows: false,
                 isFaless: false,
-
+                headerMessage: {
+                    title: "添加患者"
+                }
             }
         },
         methods: {
@@ -172,11 +175,11 @@
             handleSpan(index) {
                 this.clickSpan = index;
             },
-            handleKidney(index){
+            handleKidney(index) {
                 this.clickKidney = index;
             },
-            handleLiver(index){
-                this.clickLiver=index;
+            handleLiver(index) {
+                this.clickLiver = index;
             },
             confirm(val) {
                 // this.date = val
@@ -192,14 +195,14 @@
             },
             handleName() {
                 let reg = /^[\u4e00-\u9fa5]/;
-                if(this.$refs.name.value.length===0){
+                if (this.$refs.name.value.length === 0) {
                     // this.$refs.name.parentElement.style.borderBottom = '1px solid red';
                     alert("真实姓名不能为空")
 
-                }else {
+                } else {
                     if (reg.test(this.$refs.name.value)) {
 
-                    } else{
+                    } else {
                         alert("请正确输入姓名")
                     }
                 }
@@ -207,10 +210,10 @@
             handleCard() {
                 let reg = /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$/;
                 let regs = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-                if(this.$refs.card.value.length===0){
+                if (this.$refs.card.value.length === 0) {
                     // this.$refs.card.parentElement.style.borderBottom = '1px solid red';
                     alert("身份证号码不能为空");
-                }else {
+                } else {
                     if ((reg.test(this.$refs.card.value) && this.$refs.card.value.length === 15) || (regs.test(this.$refs.card.value) && this.$refs.card.value.length === 18)) {
                         if (this.$refs.card.value.slice(16, 17) % 2 === 0) {
                             this.isFales = true;
@@ -219,16 +222,16 @@
                             this.show = true;
                             this.isFales = false;
                         }
-                    } else{
+                    } else {
                         alert("请输入有效身份证件号码");
                     }
                 }
             },
-            handleShow(){
+            handleShow() {
                 this.shows = true;
                 this.isFaless = false;
             },
-            hadnleFales(){
+            hadnleFales() {
                 this.isFaless = true;
                 this.shows = false;
             }

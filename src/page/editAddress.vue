@@ -4,7 +4,6 @@
 		<van-address-edit :area-list="areaList" show-search-result :search-result="searchResult" @save="onSave" @delete="onDelete" @change-detail="onChangeDetail"/>
 	</div>
 </template>
-
 <script>
 	/* 顶部返回 */
 	import HeaderReturn from "../components/public/dxHeaderReturn.vue"
