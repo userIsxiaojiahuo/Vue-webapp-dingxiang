@@ -1,6 +1,8 @@
 <template>
     <div class="addInformation">
-            <AskDoctorHeader :headerReturnTitle="headerMessage"></AskDoctorHeader>
+            <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+                <dxNextBtn :headerReturnTitle="headerReturnTitle"></dxNextBtn>
+            </dxHeaderReturn>
         <homeSeparate></homeSeparate>
         <div class="NAI">
             <slot name="Name">
@@ -133,7 +135,8 @@
     import addInformationInp from './../components/addInformation/addInformationInp'
     import medicalHistory from './../components/addInformation/medicalHistory'
     import options from './../components/addInformation/option'
-    import AskDoctorHeader from "../components/public/dxHeaderReturn"
+    import dxHeaderReturn from "../components/public/dxHeaderReturn"
+    import dxNextBtn from "../components/public/dxNextBtn"
     export default {
         name: "addInformation",
         components: {
@@ -142,7 +145,8 @@
             addInformationInp,
             medicalHistory,
             options,
-            AskDoctorHeader,
+            dxHeaderReturn,
+            dxNextBtn,
             "van-popup": Popup,
             "van-datetime-picker": DatetimePicker
         },
@@ -163,8 +167,10 @@
                 clickLiver: -1,
                 shows: false,
                 isFaless: false,
-                headerMessage: {
-                    title: "添加患者"
+                headerReturnTitle: {
+                    title: "添加患者",
+                    txt:"完成",
+                    path:"patientInformation"
                 }
             }
         },
