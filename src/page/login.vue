@@ -53,10 +53,10 @@
         this.loginMode = !this.loginMode
       },
       MsgLogin() {
-        // console.log(this.loginMode);
-        // if (this.loginMode) {
-        //   user.login(this,)
-        // }
+        console.log(this.loginMode);
+          // if (this.loginMode) {
+          //   user.login(this,)
+          // }
       }
     }
   }

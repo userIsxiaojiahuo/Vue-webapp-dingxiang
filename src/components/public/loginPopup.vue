@@ -1,7 +1,7 @@
 <template>
   <!--登录弹出层-->
   <van-popup
-    v-model="popupIsShow"
+    v-model="$store.state.loginPopups"
     :close-on-click-overlay="false"
   >
     <div class="loginPopupsWrapper">
@@ -16,7 +16,7 @@
           </div>
           微信 一键快速登录
         </div>
-        <router-link to="login" tag="p" class="loginText">其他方式登录</router-link>
+        <p @click="goLogin()" class="loginText">其他方式登录</p>
         <p class="loginText callOff" @click="callOfLogin()">取消</p>
       </div>
     </div>
@@ -39,10 +39,12 @@
     props: ['popupIsShow'],
     methods: {
       callOfLogin() {
-        this.$emit('changeShow', this.IsShow)
+        this.$store.dispatch("isLoginPopup", false);
+      },
+      goLogin() {
+        this.callOfLogin()
+        this.$router.push('login')
       }
-    }, mounted() {
-      console.log(this.IsShow)
     }
   }
 </script>

@@ -21,14 +21,13 @@
         </div>
         <div class="AreaInputWrapper">
           <input class="AreaInput input" type="text" placeholder="请输入密码" v-model="passWordNum"
-                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}"
-                 @keydown="">
+                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}">
         </div>
       </div>
       <!--验证码-->
       <div class="noCode">
         <div class="hintInfo" v-show="promptMSg">{{this.promptMSgInfo}}</div>
-        <div class="noCodeText">忘记密码？</div>
+        <router-link to="/findPassword" tag="div" class="noCodeText" @click="findPass">忘记密码？</router-link>
       </div>
     </div>
     <!--登录按钮-->
@@ -64,7 +63,9 @@
         this.passWordNum.length !== 0 ? this.promptMSg = false : this.promptMSg = true;
         this.promptMSgInfo = "密码格式错误";
         console.log(this.promptMSgInfo)
-
+      },
+      findPass(){
+        this.$router.push("/findPassword")
       }
     },
     watch: {
@@ -82,4 +83,3 @@
   }
 </script>
 
-<style src="../../assets/css/loginOrRegister.css"></style>

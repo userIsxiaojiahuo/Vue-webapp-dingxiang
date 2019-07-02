@@ -1,5 +1,6 @@
 // 获取验证码
 const MsgCode = (_this, codeInfo) => {
+  _this.$store.dispatch('GetInfo', true);
   _this.$axios({
     method: 'post',
     url: 'http://121.199.63.71:9006/send_code/',
@@ -9,8 +10,7 @@ const MsgCode = (_this, codeInfo) => {
   }).then((returned) => {
     if (returned.data.code === 200) {
       _this.$store.dispatch('GetInfo', false);
-      console.log("验证码发送成功");
-      console.log(returned);
+      alert("验证码发送成功");
     }
   });
   console.log("发送中")
@@ -35,7 +35,8 @@ const loginOrRegister = (_this, codeInfo) => {
     data: info
   }).then((returned) => {
     if (returned.data.code === 200) {
-      console.log("短信发送成功")
+      this.$router.push("/mine");
+      return returned.data.data
     }
   })
 };
