@@ -1,12 +1,11 @@
 <template>
 	<div class="drugDetails">
-		<DrugDetailsOpacity/>
 		<div class="drugDetails_box">
 			<!-- 药品详情页头部关闭 -->
-			<DrugDetailsHeader/>
+			<DrugDetailsHeader  @isNoDrugDetails="isNoDrugDetails"/>
 			<div class="onLineBuyDrugListLi_box">
 				<!-- 药品图片、价格和数目的加减 -->
-				<OnLineBuyDrugListLi :drugList="drug"/>
+				<OnLineBuyDrugListLi :drugList="drug" :isDrugBtu="isDrugBtu"/>
 			</div>
 			<!-- 药品详情页的提示 -->
 			<DrugDetailsTips :drugDetailsTips="drugDetailsTips"/>
@@ -65,6 +64,7 @@
 					drugPirce:35.60,
 					drugNum:0
 				},
+				isDrugBtu:true,
 				// 药品上边提示和保证
 				drugDetailsTips:{
 					beCareful:{
@@ -114,6 +114,11 @@
 					path:"/cart"
 				}
 			}
+		},
+		methods:{
+			isNoDrugDetails(){
+				this.$emit("isNoDrugDetails",false)
+			}
 		}
 	}
 </script>
@@ -128,7 +133,6 @@
 	.drugDetails_box{
 		width: 100%;
 		position: absolute;
-		top: 165px;
 		left: 0;
 		background: #fff;
 	}

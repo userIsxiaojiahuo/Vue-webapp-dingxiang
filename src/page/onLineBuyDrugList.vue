@@ -6,15 +6,12 @@
       <OnLineBuyListHeaber :onLineSearch="search"/>
     </HeaderReturn>
     <!-- 药品列表 -->
-    <OnLineBuyDrugListUl :drugList="drug"/>
+    <OnLineBuyDrugListUl :drugList="drug" :isDrugBtu="isDrugBtu"/>
     <!-- 药品列表底部购物车和购买按钮 -->
     <OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
       <!-- 在线购药底部购物车按钮的图片和内容 -->
       <OnLineFootCratBtu/>
     </OnLineBuyFoot>
-    <van-popup v-model="show" position="bottom"
-               :style="{ height: '535px' }">内容
-    </van-popup>
   </div>
 </template>
 
@@ -29,7 +26,6 @@
   import OnLineBuyFoot from '../components/public/dxOnLineBuyFoot.vue'
   /* 在线购药底部购物车按钮的图片和内容 */
   import OnLineFootCratBtu from '../components/onLIneBuyDrugList/onLineFootCratBtu.vue'
-  import {Popup} from 'vant'
   /* 本组件在线购药药品列表 */
   export default {
     name: "onLIneBuyDrugList",
@@ -39,7 +35,6 @@
       OnLineBuyDrugListUl,
       OnLineBuyFoot,
       OnLineFootCratBtu,
-      "van-popup": Popup
     },
     data() {
       return {
@@ -51,6 +46,7 @@
           pic: require("../assets/onLineImg/ic_search_after.png"),
           title: "痘痘"
         },
+				isDrugBtu:true,
         drug: [
           {
             pic: require("../assets/onLineImg/drug-1.png"),
@@ -72,7 +68,7 @@
           }
         ],
         onLineBuyFoot: {
-          title: "选择药品",
+          title: "购物车",
           path: "/cart"
         },
         show: false

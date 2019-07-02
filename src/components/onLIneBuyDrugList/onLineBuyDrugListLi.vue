@@ -7,34 +7,25 @@
     <div class="onLIne_list_text">
       <h2><span>{{drugList.drugName}}</span><span>{{drugList.drugpackage}}</span></h2>
       <p class="drugDetails">{{drugList.indications}}</p>
-      <div class="onLIne_list_price">
-        <span class="drug_price">￥{{drugList.drugPirce}}</span>
-        <span @click="choiceDrug(drugListInndex)" class="drug_btu" v-if="isChoiceDrugBtu!=drugListInndex">选择该药</span>
-        <div v-if="isDrugNumBtu==drugListInndex" class="drug_num_btu">
-          <img class="drug_num_btu_add" src="../../assets/onLineImg/ic_cut_drug.png">
-          <span>1</span>
-          <img class="drug_num_btu_reduce" src="../../assets/onLineImg/ic_add_drug.png">
-        </div>
-      </div>
+			<!-- 药品列表的li 的价格组件 -->
+			<OnLinenBuyDrugListLiBtu :drugLists="drugList.drugPirce" :drugListInndexs="drugListInndex" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" />
     </div>
   </div>
 </template>
 
 <script> 
+	/* 药品列表的li 的价格组件 */
+	import OnLinenBuyDrugListLiBtu from "./onLineBuyDrugListLiBtu"
 	/* 药品列表的li */
 	export default{
 		name:"onLineBuyDrugListLi",
-		props:["drugList","drugListInndex"],
-		data(){
-			return{
-				isDrugNumBtu:-1,
-				isChoiceDrugBtu:-1
-			}
+		props:["drugList","drugListInndex","isDrugBtu"],
+		components:{
+			OnLinenBuyDrugListLiBtu
 		},
 		methods:{
-			choiceDrug(index){
-				this.isDrugNumBtu = index;
-				this.isChoiceDrugBtu = index;
+			cartZoPirce(val){
+				this.$emit("@cartZoPirce",val)
 			}
 		}
 	}
@@ -112,48 +103,5 @@
     letter-spacing: 1px;
     line-height: 30px;
     color: #999999;
-  }
-
-  .onLIne_list_price {
-    height: 54px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-		margin-top: 10px;
-  }
-
-  .drug_price {
-    color: #28b7a3;
-    font-size: 22px;
-    font-weight: 600;
-  }
-
-  .drug_btu {
-    display: inline-block;
-    width: 152px;
-    height: 54px;
-    background: #28b7a3;
-    color: #fff;
-    font-size: 24px;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 54px;
-  }
-
-  .drug_num_btu {
-    width: 182px;
-    height: 54px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .drug_num_btu > img {
-    height: 100%;
-  }
-
-  .drug_num_btu > span {
-    color: #333333;
-    font-size: 22px;
   }
 </style>

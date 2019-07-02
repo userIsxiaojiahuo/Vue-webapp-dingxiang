@@ -5,11 +5,11 @@
 		<!-- 购药流程 -->
 		<CartProcess :cartProcess="cartProcess"/>
 		<!-- 购物车列表 -->
-		<OnLineBuyDrugListUl :drugList="drug" class="OnLineBuyDrugListUl"/>
+		<OnLineBuyDrugListUl :drugList="drug" :isDrugBtu="isDrugBtu" class="OnLineBuyDrugListUl" @cartZoPirce="cartZoPirce"/>
 		<!-- 药品列表底部购物车和购买按钮 -->
 		<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
 			<!-- 购物车商品总计 -->
-			<CartTotalPrice/>
+			<CartTotalPrice :cartPirce="cartPirce"/>
 		</OnLineBuyFoot>
 	</div>
 </template>
@@ -71,10 +71,17 @@
 						drugNum:0
 					},
 				],
+				isDrugBtu:false,
 				onLineBuyFoot:{
 					title:"提交订单",
 					path:"/orderFilling"
-				}
+				},
+				cartPirce:0
+			}
+		},
+		methods:{
+			cartZoPirce(val){
+				this.cartPirce = val;
 			}
 		}
 	}
