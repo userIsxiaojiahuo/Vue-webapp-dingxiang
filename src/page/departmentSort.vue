@@ -1,7 +1,7 @@
 <template>
   <!--科室分类-->
   <div class="departmentSort">
-    <dxHeaderReturn urn :headerReturnTitle="headerMessage">
+    <dxHeaderReturn :headerReturnTitle="headerMessage">
       <dxHeaderIcon/>
     </dxHeaderReturn>
     <!--  每周提问-->
@@ -30,8 +30,17 @@
         headerMessage: {
           title: "返回",
         },
-        deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"]
+        deparmentList: []
       }
+    },
+    mounted() {
+      this.$axios.get("http://121.199.63.71:9006/ask_doctor").then((data) => {
+        data.data.ofc_data.map((index) => {
+          index.departments_info.map((item) => {
+            this.deparmentList.push(item)
+          })
+        })
+      })
     }
   }
 </script>

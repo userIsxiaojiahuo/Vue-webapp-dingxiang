@@ -1,19 +1,20 @@
 <template>
   <!--  医生介绍-->
   <div class="diagonseIntroduceWrap">
-    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce" v-for="(item,index) in diagonseIntroduce" :key="index">
+    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce" v-for="(item,index) in diagonseIntroduce"
+                 :key="index">
       <div class="IntroduceImg">
-        <img :src="item.doctorImg" alt="">
+        <img :src="item.doc_img" alt="">
       </div>
       <div class="IntroduceContent">
         <!-- 医生姓名-->
-        <p class="doctorName">{{item.doctorIntroduce.doctorName}}<span>{{item.doctorIntroduce.doctorJob}}</span>
+        <p class="doctorName">{{item.doc_name}}<span>{{item.doc_title}}</span>
         </p>
         <!--医院等级 -->
         <div class="hospitalLevel">
-          <div class="Grade">{{item.hospitalAttr.grade}}</div>
-          <div class="Desk">{{item.hospitalAttr.Desk}}</div>
-          <div class="hospitalName">{{item.hospitalAttr.hospitalName}}</div>
+          <div class="Grade">三甲</div>
+          <div class="Desk">{{item.name}}</div>
+          <div class="hospitalName">{{item.hop_name}}</div>
         </div>
         <!--擅长-->
         <div class="adept">
@@ -22,24 +23,24 @@
         <!--星级-->
         <div class="startLevel">
           <img src="../../assets/img/diagonseImg/s_icon_rating_star_d.png" alt="">
-          <span class="grade">{{item.score.grade}}</span>
-          <span class="answer"><i>{{item.score.answer}}</i>个月回答</span>
+          <span class="grade">{{item.d_level}}</span>
+          <span class="answer">月<i>{{item.m_answer}}</i></span>
         </div>
         <!--折扣-->
         <div class="discount">
           <span class="ingText">图文</span>
           <span class="dollar">￥</span>
-          <span class="price">{{item.price.current}}</span>
-          <del>￥ {{item.price.delPrice}}</del>
+          <span class="price">{{item.text_price}}</span>
+          <del>￥ {{item.text_price}}</del>
           <div class="dis">
-            <span class="disNum">{{item.price.discount}}</span>
-            <span class="surplus">仅剩{{item.price.surplus}}个名额</span>
+            <span class="disNum">3.6折</span>
+            <span class="surplus">仅剩2个名额</span>
           </div>
         </div>
         <!--新人专享-->
         <div class="news">
           <span class="newsIcon">新</span>
-          <span class="newsPrice">新人专享，折后仅需{{item.justNeed}}元</span>
+          <span class="newsPrice">新人专享，折后仅需1元</span>
         </div>
       </div>
     </router-link>
@@ -98,7 +99,7 @@
   .hospitalLevel {
     width: 100%;
     height: 44px;
-    display: flex;
+    display: -webkit-box;
     align-items: center;
     color: #6f7580;
     font-size: 24px;
@@ -117,6 +118,16 @@
 
   .hospitalLevel .Desk, .hospitalLevel .hospitalName {
     margin-left: 14px;
+  }
+
+  .hospitalName {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    min-width: 1px;
+    padding-right: 20px;
   }
 
   /*擅长*/

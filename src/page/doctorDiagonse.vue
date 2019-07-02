@@ -37,59 +37,76 @@
           title: "返回",
         },
         diagnosePic: [require("../assets/img/diagonseImg/banner.png"), require("../assets/img/diagonseImg/banner.png")],
-        deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"],
-        doctorInfo: [
-          {
-            doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
-            doctorIntroduce: {
-              doctorName: "潘明孟",
-              doctorJob: "主治医师",
-            },
-            hospitalAttr: {
-              grade: "三甲",
-              Desk: "皮肤科",
-              hospitalName: "福建医科大学附属第二医院"
-            },
-            adept: "玫瑰痤疮、色素痣、雀斑、太田痣、血管、色素痣、雀斑",
-            score: {
-              grade: 4.9,
-              answer: "331"
-            },
-            price: {
-              current: 14,
-              delPrice: 88,
-              discount: "1.6折",
-              surplus: 5
-            },
-            justNeed: 4
-          },
-          {
-            doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
-            doctorIntroduce: {
-              doctorName: "潘明孟",
-              doctorJob: "主治医师",
-            },
-            hospitalAttr: {
-              grade: "三甲",
-              Desk: "皮肤科",
-              hospitalName: "福建医科大学附属第二医院"
-            },
-            adept: "玫瑰痤疮、色素痣、雀斑、太田痣、血管、色素痣、雀斑",
-            score: {
-              grade: 4.9,
-              answer: "331"
-            },
-            price: {
-              current: 14,
-              delPrice: 88,
-              discount: "1.6折",
-              surplus: 5
-            },
-            justNeed: 4
-          }
-        ]
+        deparmentList: [],
+        doctorInfo: []
+        // doctorInfo: [
+        //   {
+        //     doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
+        //     doctorIntroduce: {
+        //       doctorName: "潘明孟",
+        //       doctorJob: "主治医师",
+        //     },
+        //     hospitalAttr: {
+        //       grade: "三甲",
+        //       Desk: "皮肤科",
+        //       hospitalName: "福建医科大学附属第二医院"
+        //     },
+        //     adept: "玫瑰痤疮、色素痣、雀斑、太田痣、血管、色素痣、雀斑",
+        //     score: {
+        //       grade: 4.9,
+        //       answer: "331"
+        //     },
+        //     price: {
+        //       current: 14,
+        //       delPrice: 88,
+        //       discount: "1.6折",
+        //       surplus: 5
+        //     },
+        //     justNeed: 4
+        //   },
+        //   {
+        //     doctorImg: require("../assets/img/diagonseImg/introduce01.png"),
+        //     doctorIntroduce: {
+        //       doctorName: "潘明孟",
+        //       doctorJob: "主治医师",
+        //     },
+        //     hospitalAttr: {
+        //       grade: "三甲",
+        //       Desk: "皮肤科",
+        //       hospitalName: "福建医科大学附属第二医院"
+        //     },
+        //     adept: "玫瑰痤疮、色素痣、雀斑、太田痣、血管、色素痣、雀斑",
+        //     score: {
+        //       grade: 4.9,
+        //       answer: "331"
+        //     },
+        //     price: {
+        //       current: 14,
+        //       delPrice: 88,
+        //       discount: "1.6折",
+        //       surplus: 5
+        //     },
+        //     justNeed: 4
+        //   }
+        // ]
       }
-    }
+    },
+    created() {
+      this.$axios.get("http://121.199.63.71:9006/ask_doctor/12/").then((data) => {
+        this.doctorInfo = data.data.doct_data;
+        console.log(this.doctorInfo)
+      })
+    },
+    mounted() {
+      this.$axios.get("http://121.199.63.71:9006/ask_doctor").then((data) => {
+        data.data.ofc_data.map((index) => {
+          index.departments_info.map((item) => {
+            this.deparmentList.push(item)
+          })
+        })
+      })
+    },
+    methods: {}
   }
 </script>
 

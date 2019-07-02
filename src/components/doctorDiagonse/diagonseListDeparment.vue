@@ -8,7 +8,7 @@
             :key="index"
             :class="{deparmentListsLi:index===clickLi}"
         >
-          {{item}}
+          {{item.name}}
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
   }
 
   .deparmentLists > ul {
-    width: 140%;
+    width: 770%;
     height: 100%;
   }
 
@@ -71,6 +71,7 @@
     padding: 0 27px;
     height: 100%;
     line-height: 97px;
+    flex-wrap: nowrap;
   }
 
   .deparmentClassify {
