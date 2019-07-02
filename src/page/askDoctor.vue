@@ -9,7 +9,7 @@
             <AskDoctorControl :controlImg="controlImg"></AskDoctorControl>
             <!-- 名医-->
             <AskDoctorFamous :famousRouter="famousRouter"></AskDoctorFamous>
-            <!--             科类-->
+            <!-- 科类-->
             <AskDoctorAdinOffice
                     :officeMessage="askDoctorMessage.officeMessage"
             >
@@ -61,22 +61,22 @@
                         imgs: require("../assets/images/askdoctor/ic_inquisition_one.png"),
                         title: "1元问名医",
                         textHtml: "名额有限  先到先得",
-                        flag: true
+                        flag: true,
+                        path:"/Diagonse",
                     },
                     {
                         imgs: require("../assets/images/askdoctor/ic_inquisition_word.png"),
                         title: "快速问医生",
                         textHtml: "无需选科  自动匹配",
-                        flag: false
+                        flag: false,
+                        path:"/conPic",
                     }
                 ],
-                //科类信息
             }
         },
         mounted() {
             this.$axios.get("http://121.199.63.71:9006/ask_doctor/").then(data => {
                 this.askDoctorMessage.officeMessage = data.data.ofc_data
-                console.log(data)
             })
         }
     }

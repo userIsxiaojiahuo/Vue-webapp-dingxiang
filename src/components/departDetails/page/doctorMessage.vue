@@ -4,43 +4,38 @@
              :key="index">
             <div class="messageLeft">
                 <div class="headerImg">
-                    <img :src="item.headerImg" alt="">
+                    <img :src="item.doc_img" alt="">
                 </div>
-                <i
-                        :style="{
-                            background:'url('+item.recommend+')' + 'no-repeat',
-                            backgroundSize:'cover'
-                       }"
-                ></i>
+                <i v-if="item.is_recommend"></i>
             </div>
             <div class="messageRight">
                 <div class="messageName">
-                    <span class="doctorName">{{item.name}}</span>
+                    <span class="doctorName">{{item.doc_name}}</span>
                     <span class="rank">{{item.rank}}</span>
                 </div>
                 <p class="doctorMessPdom">
-                    <span class="rank">{{item.department}}</span>
-                    <span class="rank hospitalAddress">{{item.hospitalAddress}}</span>
+                    <span class="rank">{{item.doc_title}}</span>
+                    <span class="rank hospitalAddress">{{item.hop_name}}</span>
                 </p>
                 <p class="doctorMessPdom beGoodAt">
-                    擅长:{{item.beGoodAt}}
+                    擅长:{{item.doc_goods}}
                 </p>
                 <div class="achievement">
-                    <span class="starLevel">{{item.starLevel}}</span>
-                    <span class="doctorSpanDom monthNum">月回答{{item.monthNum}}</span>
-                    <span class="doctorSpanDom monthRecipe" v-if="item.isMonthRecipe">月处方{{item.monthRecipe}}</span>
-                    <span class="doctorSpanDom upTime">{{item.upTime}}分钟响应</span>
+                    <span class="starLevel">{{item.d_level}}</span>
+                    <span class="doctorSpanDom monthNum">{{item.m_answer}}</span>
+                    <span class="doctorSpanDom monthRecipe" v-if="item.isMonthRecipe">月处方{{item.m_recipel}}</span>
+                    <span class="doctorSpanDom upTime">{{item.avg_response}}分钟响应</span>
                 </div>
                 <div class="representative" v-if="item.isDesignation">
                     {{item.honor}}
                 </div>
                 <div class="bidPrice">
                     <div class="price">
-                        <span class="spanText imgPrice">图片￥{{item.imgPrice}}</span>
-                        <span class="spanText priceRule" v-if="item.isPhone">|</span>
-                        <span class="spanText phonePrice" v-if="item.isPhone">电话￥{{item.phonePrice}}</span>
+                        <span class="spanText imgPrice">{{item.text_price}}</span>
+                        <span class="spanText priceRule" v-if="item.tel_price">|</span>
+                        <span class="spanText phonePrice" v-if="item.tel_price">电话￥56</span>
                     </div>
-                    <img @click.stop="handleToImgInquiry($event)" v-if="item.isAskImg"
+                    <img @click.stop="handleToImgInquiry($event)" v-if="item.avg_response"
                          src="../../../assets/images/askdoctor/doctors/ask_doctor.png" alt="">
                 </div>
             </div>
@@ -97,6 +92,8 @@
         width: 88px;
         height: 40px;
         margin-top: 12px;
+        background: url("../../../assets/images/askdoctor/doctors/ic_list_translate.png") no-repeat;
+        background-size: cover
     }
 
     .messageRight {

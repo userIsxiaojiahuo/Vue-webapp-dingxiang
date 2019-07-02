@@ -1,7 +1,8 @@
 <template>
     <ul class="classifyUls">
         <div class="classifyUlsDiv">
-            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis" @click.native="handleClick(itemB.id)">
+            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis"
+                         @click.native="handleClick(itemB.id)">
                 <OfficImg :images="itemB.img" v-if="itemB.img"></OfficImg>
                 <OfficeText :title="itemB.name" :show="show"></OfficeText>
             </router-link>
