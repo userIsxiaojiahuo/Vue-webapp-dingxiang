@@ -26,8 +26,7 @@
         </div>
         <div class="AreaInputWrapper">
           <input class="AreaInput input" type="text" maxlength="6" placeholder="6位验证码" v-model="passWordNum"
-                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}"
-                 @keydown="">
+                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}">
           <dxMsgCode @click.native="getMsgCode" :IsMsgCode="getMsgNum"/>
         </div>
       </div>
@@ -64,6 +63,8 @@
       // 获取验证码
       getMsgCode() {
         if (this.getMsgNum) {
+          this.$store.dispatch('GetInfo', true);
+          console.log("发送请求" + this.$store.state.isGetInfo);
           user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
         }
       },
@@ -76,6 +77,7 @@
       MsgCodePromptMsg() {
         this.passWordNum.length === 6 ? this.promptMSg = false : this.promptMSg = true;
         this.promptMSgInfo = "验证码错误";
+        this.$emit("info", {phone: this.phoneNumber.replace(/\s/g, ""), msgCode: this.passWordNum})
       }
     },
     watch: {

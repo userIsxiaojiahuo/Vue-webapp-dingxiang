@@ -1,26 +1,31 @@
 <template>
   <div class="setTotal">
-    <AmendHeader :amendHead="amendHead"/>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+      <dxNextBtn :headerReturnTitle="headerReturnTitle"></dxNextBtn>
+    </dxHeaderReturn>
     <AmendContent :contentMsg="contentMsg"/>
   </div>
 </template>
 
 <script>
-  import AmendHeader from "../components/setting/setAmendname/amendHeader"
+  import dxHeaderReturn from "../components/public/dxHeaderReturn"
+  import dxNextBtn from "../components/public/dxNextBtn"
   import AmendContent from "../components/setting/setAmendname/amendContent"
 
   export default {
     name: "setAmendname",
     components: {
-      AmendHeader,
-      AmendContent
+      dxHeaderReturn,
+      AmendContent,
+      dxNextBtn
     },
     data() {
       return {
         //头部·
-        amendHead: {
-          tit: "修改昵称",
+        headerReturnTitle: {
+          title: "修改昵称",
           txt: "保存",
+          path: "setting",
         },
         //修改昵称
         contentMsg: {

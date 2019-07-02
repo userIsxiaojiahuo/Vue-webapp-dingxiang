@@ -33,13 +33,13 @@
             itemImg: require("../../assets/img/mine/ic_prescription_me.png"),
             itemTitle: "我的处方",
             cont: "0张",
-            path: "myInquiry"
+            path: "myPrescription"
           },
           {
             itemImg: require("../../assets/img/mine/ic_drug_me.png"),
             itemTitle: "药品订单",
             cont: "0单",
-            path: "myInquiry"
+            path: "myDrugOrders"
           },
           {
             itemImg: require("../../assets/img/mine/ic_lecture_me.png"),

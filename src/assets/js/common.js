@@ -7,4 +7,8 @@ const goBack = (_this) => {
     _this.$router.go(-1)
   }
 };
-export default {goBack}
+//地图
+const createMap = () => {
+
+};
+export default {goBack, createMap}

@@ -4,11 +4,10 @@
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
     <!--  请输入新的手机号标题-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
-    <!--    文本框内容-->
+    <!-- 文本框内容-->
     <replacePhoneNum @inputNumber="getInputVal"></replacePhoneNum>
-    <!--  下一步-->
-    <changePhoneBtn @changeBtnClick="changeBtnClick"
-                    :repacePhoneNext="repacePhone"
+    <!-- 下一步-->
+    <changePhoneBtn :repacePhoneNext="repacePhone"
                     :isOk="isOk"
                     class="gain"
     ></changePhoneBtn>
@@ -33,7 +32,7 @@
       return {
         repacePhone: {
           title: "下一步",
-          path: "/securiteyCode"
+          path: ""
         },
         newsPhone: {
           newsPhoneTit: '请输入新的手机号',
@@ -49,25 +48,23 @@
       }
     },
     methods: {
-      getInputVal(data) {
+      getInputVal(data, reg) {
         // console.log(data);
         this.inputValue = data;
         if (this.inputValue !== "") {
-          this.isOk = true
+          this.isOk = true;
+          if (reg.test(this.inputValue)) {
+            this.repacePhone.path = "/securiteyCode";
+          } else {
+            this.repacePhone.path = ""
+          }
         } else {
-          this.isOk = false
-        }
-
-      },
-      changeBtnClick() {
-        // alert(this.inputValue)
-      },
-      data() {
-        return {
-          repacePhoneNext: "下一步"
+          this.repacePhone.path = "";
+          this.isOk = false;
         }
       }
     }
   }
 </script>
+
 <style src="../assets/css/replacePhone.css"></style>

@@ -7,9 +7,10 @@ const MsgCode = (_this, codeInfo) => {
       phone: codeInfo
     }
   }).then((returned) => {
-    console.log(returned);
     if (returned.data.code === 200) {
-      console.log(returned)
+      _this.$store.dispatch('GetInfo', false);
+      console.log("验证码发送成功");
+      console.log(returned);
     }
   });
   console.log("发送中")
@@ -21,20 +22,21 @@ const isMsgSuccess = (phoneNumber) => {
 };
 
 // 手机号登录注册
-const login = (_this, codeInfo) => {
-  let {phoneNumber, Code} = codeInfo;
+const loginOrRegister = (_this, codeInfo) => {
+  let {TEL, code} = codeInfo;
+  let info = {
+    phone: TEL,
+    input_code: code
+  };
+  console.log(info);
   _this.$axios({
     method: 'post',
     url: 'http://121.199.63.71:9006/login_code/',
-    data: {
-      phone: phoneNumber,
-      input_code: Code
-    }
+    data: info
   }).then((returned) => {
-    console.log(returned);
     if (returned.data.code === 200) {
-      console.log(returned)
+      console.log("短信发送成功")
     }
   })
 };
-export default {MsgCode, isMsgSuccess, login}
+export default {MsgCode, isMsgSuccess, loginOrRegister}

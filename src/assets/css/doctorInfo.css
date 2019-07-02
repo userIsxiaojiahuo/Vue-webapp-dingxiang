@@ -217,3 +217,31 @@
 /*
     footer end
 */
+
+/*
+    popup start
+*/
+.doctorInfoFooterPopup {
+    background: #f8f8f8;
+    padding: 0 30px 60px 30px;
+}
+
+.selectPopup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectPopup > h3 {
+    line-height: 103px;
+    font-size: 30px;
+    color: #333333;
+}
+
+.popupCancel {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url("../../assets/images/askdoctor/doctorInfo/ic_close_details.png");
+    background-size: cover;
+}

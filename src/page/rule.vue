@@ -10,6 +10,7 @@
 <script>
   import ruleContent from '../components/rule/ruleContent'
   import dxHeaderReturn from "../components/public/dxHeaderReturn"
+  import dxHeaderIcon from "../components/public/dxAttentionBtn"
 
   export default {
     name: "rule",
@@ -25,6 +26,7 @@
       }
     }
   }
+
 </script>
 
 <style scoped>

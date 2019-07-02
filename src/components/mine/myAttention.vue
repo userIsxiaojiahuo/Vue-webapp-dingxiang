@@ -1,7 +1,7 @@
 <template>
   <div class="myAttention">
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
-    <dxDefaultPage v-slot:DefaultPageLogo>
+    <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt">
       <img class="imgAuto" src="../../assets/img/defaultPage/ic_doctor_empty.png" alt="">
     </dxDefaultPage>
   </div>
@@ -20,6 +20,9 @@
       return {
         headerReturnTitle: {
           title: "我关注的医生"
+        },
+        DefaultPageTxt: {
+          txt: "暂无关注的医生"
         }
       }
     },
@@ -32,5 +35,8 @@
 <style scoped>
   .myAttention {
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 </style>

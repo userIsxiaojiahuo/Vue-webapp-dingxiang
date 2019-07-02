@@ -8,7 +8,7 @@
     </div>
     <div class="LoginContent">
       <!--手机登录板块-->
-      <dxLoginOrRegister v-if="loginMode" >
+      <dxLoginOrRegister v-if="loginMode">
         <template v-slot:register>
           <span class="title">手机号登录</span>
         </template>
@@ -53,10 +53,10 @@
         this.loginMode = !this.loginMode
       },
       MsgLogin() {
-        console.log(this.loginMode);
-        if (this.loginMode) {
-          user.login(this,)
-        }
+        // console.log(this.loginMode);
+        // if (this.loginMode) {
+        //   user.login(this,)
+        // }
       }
     }
   }

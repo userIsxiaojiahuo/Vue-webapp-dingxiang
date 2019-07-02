@@ -2,8 +2,8 @@
   <div class="myInquiry">
     <div class="myCollect">
       <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
-      <dxDefaultPage v-slot:DefaultPageLogo>
-        <img class="imgAuto" src="../../assets/img/defaultPage/ic_collection_empty.png" alt="">
+      <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt">
+        <img class="imgAuto" src="../../assets/img/defaultPage/ic_inquiry_empty.png" alt="">
       </dxDefaultPage>
     </div>
   </div>
@@ -22,6 +22,9 @@
       return {
         headerReturnTitle: {
           title: "我的问诊"
+        },
+        DefaultPageTxt: {
+          txt: "暂无相关问诊"
         }
       }
     }
@@ -31,5 +34,10 @@
 <style scoped>
   .myCollect, .myInquiry {
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 </style>

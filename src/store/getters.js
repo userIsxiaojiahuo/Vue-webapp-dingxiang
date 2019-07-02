@@ -1,8 +1,2 @@
-const getters = {
-  changeLogin(state) {
-    if (state) {
-
-    }
-  }
-};
+const getters = {};
 export default getters

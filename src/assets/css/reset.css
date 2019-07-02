@@ -94,6 +94,10 @@ input:focus {
   font-weight: 100;
 }
 
+div::-webkit-scrollbar {
+  display: none;
+  -webkit-overflow-scrolling: touch
+}
 
 i {
   font-style: normal;
