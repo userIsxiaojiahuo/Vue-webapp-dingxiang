@@ -130,7 +130,7 @@
     height: 116px;
     position: absolute;
     top: -56px;
-    left: 317px;
+    /*left: 317px;*/
   }
 
   .dx_tab p:last-of-type img {

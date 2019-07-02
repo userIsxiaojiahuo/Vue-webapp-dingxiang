@@ -90,11 +90,11 @@
 .medicalHistory textarea{
   height: 196px;
   width: 100%;
+  padding-right: 40px;
   border: none;
-  text-indent: -60px;
   outline: none;
   font-size: 26px;
-  color: #CCCCCC;
+  color: #666666;
 }
 .addInformation .liver{
   border-bottom: none;
@@ -119,4 +119,29 @@
 }
 .addInformation .lastSpan span:last-of-type{
   margin-top: 30px;
+}
+.addInformation  .lastSpan  .spanBack {
+  background: #219c8b;
+  color: white;
+}
+.addInformation .span .spanKidney {
+  background: #219c8b;
+  color: white;
+}
+.addInformation .span .spanLiver {
+  background: #219c8b;
+  color: white;
+}
+.textWrapper {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.textNum {
+  position: absolute;
+  right: 50px;
+  bottom: 16px;
+  color: #999999;
 }

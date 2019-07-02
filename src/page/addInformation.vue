@@ -61,8 +61,8 @@
                 <span class="name">过敏史</span>
             </slot>
             <slot name="Inp">
-                <i class="check"></i><span>有</span>
-                <i class="checked"></i><span>无</span>
+                <i :class="{isCheck:shows}" @click="handleShow"></i><span>有</span>
+                <i :class="{isChecked:isFaless}" @click="hadnleFales"></i><span>无</span>
             </slot>
         </div>
         <homeSeparate></homeSeparate>
@@ -80,8 +80,12 @@
         </div>
         <div class="span">
             <slot name="span">
-                <span>正常</span>
-                <span>异常</span>
+                <span
+                        v-for="(item,index) in liver"
+                        :key="index"
+                        @click="handleLiver(index)"
+                        :class="{spanLiver:index===clickLiver}"
+                >{{item}}</span>
             </slot>
         </div>
         <div class="NAI liver">
@@ -91,8 +95,12 @@
         </div>
         <div class="span">
             <slot name="span">
-                <span>正常</span>
-                <span>异常</span>
+                <span
+                        v-for="(item,index) in kidney"
+                        :key="index"
+                        @click="handleKidney(index)"
+                        :class="{spanKidney:index===clickKidney}"
+                >{{item}}</span>
             </slot>
         </div>
         <div class="NAI liver">
@@ -102,10 +110,12 @@
         </div>
         <div class="span lastSpan">
             <slot name="span">
-                <span>无</span>
-                <span>备孕中</span>
-                <span>怀孕中</span>
-                <span>哺乳中</span>
+                <span
+                        v-for="(item,index) in pregency"
+                        :key="index"
+                        @click="handleSpan(index)"
+                        :class="{spanBack:index===clickSpan}"
+                >{{item}}</span>
             </slot>
         </div>
         <homeSeparate></homeSeparate>
@@ -124,7 +134,6 @@
     import addInformationInp from './../components/addInformation/addInformationInp'
     import medicalHistory from './../components/addInformation/medicalHistory'
     import options from './../components/addInformation/option'
-
     export default {
         name: "addInformation",
         components: {
@@ -144,13 +153,30 @@
                 isShow: false,
                 date: "",
                 minDate: new Date(1900, 1, 1),
-                maxDate: new Date()
+                maxDate: new Date(),
+                pregency: ["无", "备孕中", "怀孕中", "哺乳中"],
+                kidney:["正常","异常"],
+                liver:["正常","异常"],
+                clickSpan: -1,
+                clickKidney:-1,
+                clickLiver:-1,
+                shows:false,
+                isFaless: false,
 
             }
         },
         methods: {
             cancel() {
                 this.isShow = false
+            },
+            handleSpan(index) {
+                this.clickSpan = index;
+            },
+            handleKidney(index){
+                this.clickKidney = index;
+            },
+            handleLiver(index){
+                this.clickLiver=index;
             },
             confirm(val) {
                 // this.date = val
@@ -166,32 +192,48 @@
             },
             handleName() {
                 let reg = /^[\u4e00-\u9fa5]/;
-                if (reg.test(this.$refs.name.value)) {
+                if(this.$refs.name.value.length===0){
+                    // this.$refs.name.parentElement.style.borderBottom = '1px solid red';
+                    alert("真实姓名不能为空")
 
-                } else {
-                    this.$refs.name.parentElement.style.borderBottom = '1px solid red';
-                    alert("请正确输入姓名")
+                }else {
+                    if (reg.test(this.$refs.name.value)) {
+
+                    } else{
+                        alert("请正确输入姓名")
+                    }
                 }
             },
             handleCard() {
                 let reg = /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$/;
                 let regs = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-                if ((reg.test(this.$refs.card.value) && this.$refs.card.value.length === 15) || (regs.test(this.$refs.card.value) && this.$refs.card.value.length === 18)) {
-                    if (this.$refs.card.value.slice(16, 17) % 2 === 0) {
-                        this.isFales = true;
-                    } else if (this.$refs.card.value.slice(16, 17) % 2 !== 0) {
-                        this.show = true;
+                if(this.$refs.card.value.length===0){
+                    // this.$refs.card.parentElement.style.borderBottom = '1px solid red';
+                    alert("身份证号码不能为空");
+                }else {
+                    if ((reg.test(this.$refs.card.value) && this.$refs.card.value.length === 15) || (regs.test(this.$refs.card.value) && this.$refs.card.value.length === 18)) {
+                        if (this.$refs.card.value.slice(16, 17) % 2 === 0) {
+                            this.isFales = true;
+                            this.show = false;
+                        } else if (this.$refs.card.value.slice(16, 17) % 2 !== 0) {
+                            this.show = true;
+                            this.isFales = false;
+                        }
+                    } else{
+                        alert("请输入有效身份证件号码");
                     }
-                } else {
-
-                    this.$refs.card.parentElement.style.borderBottom = '1px solid red';
-                    alert("请有效身份证件号码");
                 }
-
+            },
+            handleShow(){
+                this.shows = true;
+                this.isFaless = false;
+            },
+            hadnleFales(){
+                this.isFaless = true;
+                this.shows = false;
             }
         }
     }
-
 </script>
 
 <style src="./../assets/css/addInformation.css"></style>
