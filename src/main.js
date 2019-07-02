@@ -4,22 +4,18 @@ import Vue from "vue"
 import App from "./App"
 import router from "./router"
 import "lib-flexible/flexible"
-import vuex from "vuex"
+import store from './store/index.js'
 import axios from "axios"
 import qs from "qs"
 import "./assets/css/reset.css"
 import {AddressEdit, Popup, PasswordInput, NumberKeyboard} from 'vant';
 
 axios.defaults.withCredentials = true;
-Vue.use(vuex);
+
 Vue.prototype.$axios = axios;
 Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard);
 Vue.config.productionTip = false;
 
-
-const store = new vuex.Store({
-  //管理
-});
 new Vue({
   el: "#app",
   router,
@@ -31,10 +27,10 @@ new Vue({
 axios.interceptors.request.use(
   function (config) {
     config.headers["Content-Type"] = "application/x-www-form-urlencoded";
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     if (config.method === "post") {
       // post请求时，处理数据
-      token ? (config.headers.Authorization = token) : null;
+      // token ? (config.headers.Authorization = token) : null;
       config.data = qs.stringify({
         ...config.data //后台数据接收这块需要以表单形式提交数据，而axios中post默认的提交是json数据,所以这里选用qs模块来处理数据，也有其他处理方式，但个人觉得这个方式最简单好用
       })

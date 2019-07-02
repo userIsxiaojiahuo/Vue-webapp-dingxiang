@@ -1,5 +1,5 @@
 <template>
-    <p :class="pDom">{{title}}</p>
+    <p :class="show?'nameStyle':'toNameStyle'" class="nameStyle">{{title}}</p>
 </template>
 
 <script>
@@ -9,8 +9,8 @@
             title: {
                 type: String
             },
-            pDom: {
-                type: String
+            show: {
+                type: Boolean
             }
         }
     }
@@ -18,7 +18,13 @@
 
 <style scoped>
     .nameStyle {
-        margin-top: 30px;
+        font-weight: 100;
+        color: #333333;
+        font-weight: bolder;
+    }
+
+    .toNameStyle {
+        color: #999999;
         font-weight: 100;
     }
 </style>

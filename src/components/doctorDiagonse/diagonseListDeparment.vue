@@ -8,15 +8,12 @@
             :key="index"
             :class="{deparmentListsLi:index===clickLi}"
         >
-          {{item}}
+          {{item.name}}
         </li>
       </ul>
     </div>
     <div class="deparmentClassify" @click="handleClickDiv()">
       <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
-      <div class="deparmentClassify" @click="handleClickDiv">
-        <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
-      </div>
     </div>
   </div>
 </template>
@@ -65,7 +62,7 @@
   }
 
   .deparmentLists > ul {
-    width: 140%;
+    width: 770%;
     height: 100%;
   }
 
@@ -74,6 +71,7 @@
     padding: 0 27px;
     height: 100%;
     line-height: 97px;
+    flex-wrap: nowrap;
   }
 
   .deparmentClassify {

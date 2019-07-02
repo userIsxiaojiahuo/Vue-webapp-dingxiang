@@ -1,7 +1,7 @@
 <template>
   <div class="backIcon" @click="Back">
     <dxBack/>
-    <span class="headerReturn-text">{{headerReturnTitle.title}}</span>
+    <span class="headerReturn-text" v-html="headerReturnTitle.title"></span>
   </div>
 </template>
 
@@ -18,7 +18,8 @@
       Back() {
         common.goBack(this)
       }
-    }, props: ['headerReturnTitle']
+    },
+    props: ['headerReturnTitle']
   }
 </script>
 

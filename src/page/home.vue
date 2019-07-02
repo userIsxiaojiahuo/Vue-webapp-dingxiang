@@ -30,6 +30,9 @@
   import homeSwiper from '../components/index/homeSwiper'
   import homePageOne from '../components/index/homePageOne'
 
+  import BScroll from 'better-scroll'
+
+
   /**
    * 首页
    */
@@ -46,7 +49,6 @@
     },
     data() {
       return {
-
         indexNav: [
           {
             imgs: require('../assets/img/home/maxNav-1.png'),
@@ -118,7 +120,15 @@
           ]
         }
       }
-    }
+    },
+    /*mounted() {
+      this.$nextTick(() => {
+        new BScroll(document.getElementsByClassName('homeContentWrapper')[0], {
+          scrollY: true,
+          click: true
+        })
+      })
+    }*/
   }
 </script>
 

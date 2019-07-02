@@ -45,23 +45,23 @@
   修改手机号按钮  start
 */
 
-.changePhoneBtnWrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/*.changePhoneBtnWrap {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
 
-.changePhoneBtn {
-  margin-top: 96px;
-  width: 690px;
-  height: 90px;
-  background: #28b7a3;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
+/*.changePhoneBtn {*/
+/*  margin-top: 96px;*/
+/*  width: 690px;*/
+/*  height: 90px;*/
+/*  background: #28b7a3;*/
+/*  color: #fff;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  font-size: 30px;*/
+/*}*/
 
 /*
   修改手机号按钮  end
