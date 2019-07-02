@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <!--  科室分类-->
     <div class="deparmentListsWarp">
         <div class="deparmentLists">
@@ -16,6 +17,25 @@
             <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
         </div>
     </div>
+=======
+  <!--  科室分类-->
+  <div class="deparmentListsWarp">
+    <div class="deparmentLists">
+      <ul>
+        <li v-for="(item,index) in diagonseListDeparment"
+            @click="handleClickLi(index)"
+            :key="index"
+            :class="{deparmentListsLi:index===clickLi}"
+        >
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="deparmentClassify" @click="handleClickDiv()">
+      <img src="../../assets/img/diagonseImg/icon_classify.png" alt="">
+    </div>
+  </div>
+>>>>>>> f99337fa1de7787d77837350c180b99687abac26
 </template>
 
 <script>
@@ -61,6 +81,7 @@
         display: none;
     }
 
+<<<<<<< HEAD
     .deparmentLists > ul {
         width: 140%;
         height: 100%;
@@ -72,6 +93,20 @@
         height: 100%;
         line-height: 97px;
     }
+=======
+  .deparmentLists > ul {
+    width: 770%;
+    height: 100%;
+  }
+
+  .deparmentLists > ul > li {
+    float: left;
+    padding: 0 27px;
+    height: 100%;
+    line-height: 97px;
+    flex-wrap: nowrap;
+  }
+>>>>>>> f99337fa1de7787d77837350c180b99687abac26
 
     .deparmentClassify {
         width: 12.26%;

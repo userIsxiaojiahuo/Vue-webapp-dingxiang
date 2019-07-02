@@ -100,7 +100,7 @@
         justify-content: space-around;
         background: #f9f9f9;
         flex-wrap: wrap;
-        padding-bottom: 10px;
+        padding-bottom:80px;
     }
 
     .share > ul > li {

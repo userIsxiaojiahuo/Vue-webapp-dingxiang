@@ -1,4 +1,3 @@
-
 // 回退
 const goBack = (_this) => {
   if (window.history.length <= 1) {
@@ -8,4 +7,8 @@ const goBack = (_this) => {
     _this.$router.go(-1)
   }
 };
-export default {goBack}
+//地图
+const createMap = () => {
+
+};
+export default {goBack, createMap}

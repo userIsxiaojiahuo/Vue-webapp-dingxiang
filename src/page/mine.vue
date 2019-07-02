@@ -26,7 +26,7 @@
         title: [
           {
             text: "购物车",
-            path: ''
+            path: '/cart'
           },
           {
             text: "患者信息",

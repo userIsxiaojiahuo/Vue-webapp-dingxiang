@@ -34,48 +34,48 @@
         // 头部
         headerTitle: {
           title: "设置",
-		  ico:require("../assets/onlineImg/ic_titlebar_back.png")
+          ico: require("../assets/onlineImg/ic_titlebar_back.png")
         },
         titMsg: [
           {
             name: "头像",
             img: require("../assets/img/public/start_active.png"),
-						path:"",
+            path: "",
             event: () => {
             }
           },
           {
             name: "昵称",
             tit: "江花花",
-						path:"",
+            path: "setAmendname",
             event: () => {
             }
           },
           {
             name: "性别",
             tit: "未设置",
-						path:"",
+            path: "",
             event: () => {
             }
           },
           {
             name: "我的身份",
             tit: "未设置",
-						path:"",
+            path: "",
             event: () => {
             }
           },
           {
             name: "我的手机号",
             tit: "12345665tgrg",
-						path:"/phoneNumber",
+            path: "/phoneNumber",
             event: () => {
             }
           },
           {
             name: "微信",
             tit: "已绑定",
-						path:"",
+            path: "",
             event: () => {
             }
           }
@@ -84,21 +84,18 @@
           {
             name: "检查更新",
             path: '',
-						path:"",
             event: () => {
             }
           },
           {
             name: "推荐给朋友",
-            path: '',
-						path:"",
+            path: 'setRecommend',
             event: () => {
             }
           },
           {
             name: "关于我们",
-            path: '',
-						path:"",
+            path: 'setAbout',
             event: () => {
             }
           },

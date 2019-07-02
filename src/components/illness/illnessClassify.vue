@@ -1,4 +1,16 @@
 <template>
+    <div>
+    <div>
+        <van-index-bar :index-list="classifyMsg.indexList"
+        >
+
+            <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
+
+                <van-cell v-for="(items,index) in itme.text" :title="items" :key="index"/>
+            </van-index-anchor>
+
+        </van-index-bar>
+    </div>
   <div>
     <router-link to="/particulars" :index-list="classifyMsg.indexList">
       <van-index-anchor v-for="(item,index) in classifyMsg.classifyMsgTitle" :key="index">{{item.title}}
@@ -12,6 +24,7 @@
       </van-index-anchor>
     </van-index-bar>
   </div>
+    </div>
 </template>
 
 <script>
@@ -30,3 +43,7 @@
     methods: {}
   }
 </script>
+
+<style scoped>
+
+</style>

@@ -6,11 +6,18 @@
       </div>
     </div>
     <!--短信注册主体-->
-    <dx-login-or-register/>
-    <!--协议-->
-    <loginBtn v-slot:loginBtn>
-      <span>注册</span>
-    </loginBtn>
+    <div class="registerWrapper">
+      <dxLoginOrRegister @info="telCode">
+        <template v-slot:register>
+          <span class="title">手机号注册</span>
+        </template>
+      </dxLoginOrRegister>
+      <!--协议-->
+      <loginBtn v-slot:loginBtn @click.native="registerBtn">
+        <span>注册</span>
+      </loginBtn>
+    </div>
+
   </div>
 </template>
 
@@ -25,9 +32,27 @@
     components: {
       loginBtn, dxLoginOrRegister
     },
+    data() {
+      return {
+        TEL: "",
+        code: ""
+      }
+    },
     methods: {
+      telCode(val) {
+        let {phone, msgCode} = val;
+        this.TEL = phone;
+        this.code = msgCode
+      },
       goBack() {
         common.goBack(this);
+      },
+      registerBtn() {
+
+        // login.loginOrRegister(this, {
+        //   TEL: this.TEL,
+        //   code: this.code
+        // })
       }
     }
   }

@@ -5,7 +5,7 @@
     <!--    content-->
     <changePhoneNum></changePhoneNum>
     <!--    btn-->
-    <changePhoneBtn :repacePhoneNext="repacePhoneNext"></changePhoneBtn>
+    <changePhoneBtn :repacePhoneNext="repacePhoneNext" :isOk="isOk"></changePhoneBtn>
   </div>
 </template>
 
@@ -26,7 +26,8 @@
         repacePhoneNext: {
           title: "修改手机号",
           path: "/replacePhone"
-        }
+        },
+        isOk:true
       }
     }
   }
