@@ -23,6 +23,7 @@
       <loginBtn v-slot:loginBtn @click.native="MsgLogin">
         <span>登录</span>
       </loginBtn>
+      <dxProtocol/>
     </div>
   </div>
 </template>
@@ -32,13 +33,14 @@
   import dxLoginTitle from '../components/public/dxLoginTitle'
   import loginBtn from '../components/public/loginBtn'
   import dxPassWordLogin from '../components/login/dxPassWordLogin'
+  import dxProtocol from '../components/login/dxProtocol'
   import common from '../assets/js/common.js'
   import user from '../assets/js/user.js'
 
   export default {
     name: "register",
     components: {
-      dxLoginOrRegister, dxLoginTitle, loginBtn, dxPassWordLogin
+      dxLoginOrRegister, dxLoginTitle, loginBtn, dxPassWordLogin, dxProtocol
     },
     data() {
       return {
@@ -54,9 +56,9 @@
       },
       MsgLogin() {
         console.log(this.loginMode);
-          // if (this.loginMode) {
-          //   user.login(this,)
-          // }
+        // if (this.loginMode) {
+        //   user.login(this,)
+        // }
       }
     }
   }

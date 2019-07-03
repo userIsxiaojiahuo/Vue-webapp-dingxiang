@@ -34,9 +34,8 @@ const loginOrRegister = (_this, codeInfo) => {
     url: 'http://121.199.63.71:9006/login_code/',
     data: info
   }).then((returned) => {
-    if (returned.data.code === 200) {
-      this.$router.push("/mine");
-      return returned.data.data
+    if (returned.data.status === 200) {
+      console.log(returned)
     }
   })
 };

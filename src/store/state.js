@@ -5,5 +5,7 @@ const state = {
   isGetInfo: false,
   // 登录弹出层
   loginPopups: false,
+  //是否同意协议
+  dxProtocol: true
 };
 export default state

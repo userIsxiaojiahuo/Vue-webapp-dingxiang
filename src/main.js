@@ -27,7 +27,7 @@ new Vue({
 axios.interceptors.request.use(
   function (config) {
     config.headers["Content-Type"] = "application/x-www-form-urlencoded";
-    // const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (config.method === "post") {
       // post请求时，处理数据
       token ? (config.headers.Authorization = token) : null;
