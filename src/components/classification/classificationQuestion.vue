@@ -23,14 +23,14 @@ img{
     width:690px;
     height:140px;
     border-radius: 5px;
-    margin: 50px auto 460px;
+    margin: 50px 30px 460px 30px;
 }
     p{
         font-size:30px;
         color: #333333;
         text-indent: 20px;
         font-weight: 500;
-        margin-left: 30px;
+        margin-left: 10px;
         margin-bottom: 65px;
     }
 </style>

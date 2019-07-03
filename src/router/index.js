@@ -49,275 +49,283 @@ import myCollect from "../components/mine/myCollect"
 import myInquiry from "../components/mine/myInquiry"
 import myPrescription from "../components/mine/myPrescription"
 import myDrugOrders from "../components/mine/myDrugOrders"
+import setIdentity from "../page/setIdentity"
 import findPassword from "../components/login/findPassword"
 import phoneFind from "../components/login/phoneFind"
 import setPassWord from "../components/login/setPassWord"
-
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
-  routes:
-    [
-      {
-        path: "/",
-        redirect: home
-      },
-      {
-        path: "/home",
-        name: "home",
-        component: home,
-        meta: {
-          footerIsShow: true
-        }
-      },
-      {
-        path: "/mine",
-        name: "mine",
-        component: mine,
-        meta: {
-          footerIsShow: true
-        }
-      },
-      {
-        path: "/login",
-        name: "login",
-        component: login,
-      },
-      {
-        path: "/register",
-        name: "register",
-        component: register,
-      },
-      {
-        path: "/Illness",
-        name: "Illness",
-        component: Illness,
-      },
-      {
-        path: "/IllnessTwo",
-        name: "IllnessTwo",
-        component: IllnessTwo,
-      },
-      {
-        path: "/Popularization",
-        name: "Popularization",
-        component: Popularization,
-      },
-      {
-        path: "/classification",
-        name: "classification",
-        component: classification,
-      },
-      {
-        path: "/departDetails",
-        name: "departDetails",
-        component: departDetails,
-      },
-      {
-        path: "/doctorInfo",
-        name: "doctorInfo",
-        component: doctorInfo,
-      },
-      {
-        path: "/doctorResume",
-        name: "doctorResume",
-        component: doctorResume,
-      },
-      {
-        path: "/AskDoctor",
-        name: "AskDoctor",
-        component: AskDoctor,
-      },
-      {
-        path: "/Diagonse",
-        name: "Diagonse",
-        component: Diagonse,
-      },
-      {
-        path: "/doctorDiagonse",
-        name: "doctorDiagonse",
-        component: departmentSort,
-      },
-      {
-        path: "/safeBeauty",
-        name: "SafeBeauty",
-        component: SafeBeauty,
-      },
-      {
-        path: "/departmentSort",
-        name: "departmentSort",
-        component: departmentSort,
-      },
-      {
-        path: "/examine",
-        name: "examine",
-        component: examine,
-      },
-      {
-        path: "/rule",
-        name: "rule",
-        component: rule,
-      },
-      {
-        path: "/impotencePremature",
-        name: "impotencePremature",
-        component: impotencePremature,
-      },
-      {
-        path: "/callEmergency",
-        name: "callEmergency",
-        component: callEmergency,
-      },
-      {
-        path: "/indexSearch",
-        name: "indexSearch",
-        component: indexSearch,
-      },
-      {
-        path: "/HospitalMessage",
-        name: "HospitalMessage",
-        component: HospitalMessage,
-      },
-      {
-        path: "/conPic",
-        name: "conPic",
-        component: conPic,
-      },
-      {
-        path: "/selectDeskList",
-        name: "selectDeskList",
-        component: selectDeskList,
-      },
-      {
-        path: "/OnLineBuy",
-        name: "OnLineBuy",
-        component: OnLineBuy,
-      },
-      {
-        path: "/OnLineBuyDrugList",
-        name: "OnLineBuyDrugList",
-        component: OnLineBuyDrugList,
-      },
-      {
-        path: "/DrugDetails",
-        name: "DrugDetails",
-        component: DrugDetails,
-      },
-      {
-        path: "/Cart",
-        name: "Cart",
-        component: Cart,
-      },
-      {
-        path: "/phoneNumber",
-        name: "phoneNumber",
-        component: phoneNumber
-      },
-      {
-        path: "/OrderFilling",
-        name: "OrderFilling",
-        component: OrderFilling,
-      },
-      {
-        path: "/replacePhone",
-        name: "replacePhone",
-        component: replacePhone,
-      },
-      {
-        path: "/securiteyCode",
-        name: "securiteyCode",
-        component: securiteyCode,
-      },
-      {
-        path: "/AddressManagement",
-        name: "AddressManagement",
-        component: AddressManagement,
-      },
-      {
-        path: "/EditAddress",
-        name: "EditAddress",
-        component: EditAddress,
-      },
-      {
-        path: "/doctorSearch",
-        name: "doctorSearch",
-        component: doctorSearch,
-      },
-      {
-        path: "/hospitalSearch",
-        name: "hospitalSearch",
-        component: hospitalSearch,
-      },
-      {
-        path: "/drugSearch",
-        name: "drugSearch",
-        component: drugSearch,
-      },
-      {
-        path: "/patientInformation",
-        component: patientInformation
-      },
-      {
-        path: "/addInformation",
-        component: addInformation
-      },
-      {
-        path: "/setRecommend",
-        name: "setRecommend",
-        component: setRecommend,
-      },
-      {
-        path: "/setAmendname",
-        name: "setAmendname",
-        component: setAmendname,
-      },
-      {
-        path: "/setting",
-        name: "setting",
-        component: setting,
-      },
-      {
-        path: "/particulars",
-        name: "/particulars",
-        component: particulars,
-      },
-      {
-        path: "/setAbout",
-        name: "setAbout",
-        component: setAbout,
-
-      },
-      {
-        path: "/myAttention",
-        name: "myAttention",
-        component: myAttention
-      },
-      {
-        path: "/myCollect",
-        name: "myCollect",
-        component: myCollect
-      },
-      {
-        path: "/myInquiry",
-        name: "myInquiry",
-        component: myInquiry
-      },
-      {
-        path: "/myPrescription",
-        name: "myPrescription",
-        component: myPrescription
-      },
-      {
-        path: "/myDrugOrders",
-        name: "myDrugOrders",
-        component: myDrugOrders
-      },
-      {
-        path: "/hospitalMap",
-        name: "hospitalMap",
-        component: hospitalMap
-      },
+    mode: "history",
+    routes:
+        [
+            {
+                path: "/",
+                redirect: home
+            },
+            {
+                path: "/home",
+                name: "home",
+                component: home,
+                meta: {
+                    footerIsShow: true
+                }
+            },
+            {
+                path: "/mine",
+                name: "mine",
+                component: mine,
+                meta: {
+                    footerIsShow: true
+                }
+            },
+            {
+                path: "/login",
+                name: "login",
+                component: login,
+            },
+            {
+                path: "/register",
+                name: "register",
+                component: register,
+            },
+            {
+                path: "/Illness",
+                name: "Illness",
+                component: Illness,
+            },
+            {
+                path: "/IllnessTwo",
+                name: "IllnessTwo",
+                component: IllnessTwo,
+            },
+            {
+                path: "/Popularization",
+                name: "Popularization",
+                component: Popularization,
+            },
+            {
+                path: "/classification",
+                name: "classification",
+                component: classification,
+            },
+            {
+                path: "/departDetails",
+                name: "departDetails",
+                component: departDetails,
+            },
+            {
+                path: "/doctorInfo",
+                name: "doctorInfo",
+                component: doctorInfo,
+            },
+            {
+                path: "/doctorResume",
+                name: "doctorResume",
+                component: doctorResume,
+            },
+            {
+                path: "/AskDoctor",
+                name: "AskDoctor",
+                component: AskDoctor,
+            },
+            {
+                path: "/Diagonse",
+                name: "Diagonse",
+                component: Diagonse,
+            },
+            {
+                path: "/doctorDiagonse",
+                name: "doctorDiagonse",
+                component: departmentSort,
+            },
+            {
+                path: "/safeBeauty",
+                name: "SafeBeauty",
+                component: SafeBeauty,
+            },
+            {
+                path: "/departmentSort",
+                name: "departmentSort",
+                component: departmentSort,
+            },
+            {
+                path: "/examine",
+                name: "examine",
+                component: examine,
+            },
+            {
+                path: "/rule",
+                name: "rule",
+                component: rule,
+            },
+            {
+                path: "/impotencePremature",
+                name: "impotencePremature",
+                component: impotencePremature,
+            },
+            {
+                path: "/callEmergency",
+                name: "callEmergency",
+                component: callEmergency,
+            },
+            {
+                path: "/indexSearch",
+                name: "indexSearch",
+                component: indexSearch,
+            },
+            {
+                path: "/HospitalMessage",
+                name: "HospitalMessage",
+                component: HospitalMessage,
+            },
+            {
+                path: "/conPic",
+                name: "conPic",
+                component: conPic,
+            },
+            {
+                path: "/selectDeskList",
+                name: "selectDeskList",
+                component: selectDeskList,
+            },
+            {
+                path: "/OnLineBuy",
+                name: "OnLineBuy",
+                component: OnLineBuy,
+            },
+            {
+                path: "/OnLineBuyDrugList",
+                name: "OnLineBuyDrugList",
+                component: OnLineBuyDrugList,
+            },
+            {
+                path: "/DrugDetails",
+                name: "DrugDetails",
+                component: DrugDetails,
+            },
+            {
+                path: "/Cart",
+                name: "Cart",
+                component: Cart,
+            },
+            {
+                path: "/phoneNumber",
+                name: "phoneNumber",
+                component: phoneNumber
+            },
+            {
+                path: "/OrderFilling",
+                name: "OrderFilling",
+                component: OrderFilling,
+            },
+            {
+                path: "/replacePhone",
+                name: "replacePhone",
+                component: replacePhone,
+            },
+            {
+                path: "/securiteyCode",
+                name: "securiteyCode",
+                component: securiteyCode,
+            },
+            {
+                path: "/AddressManagement",
+                name: "AddressManagement",
+                component: AddressManagement,
+            },
+            {
+                path: "/EditAddress",
+                name: "EditAddress",
+                component: EditAddress,
+            },
+            {
+                path: "/doctorSearch",
+                name: "doctorSearch",
+                component: doctorSearch,
+            },
+            {
+                path: "/hospitalSearch",
+                name: "hospitalSearch",
+                component: hospitalSearch,
+            },
+            {
+                path: "/drugSearch",
+                name: "drugSearch",
+                component: drugSearch,
+            },
+            {
+                path: "/patientInformation",
+                component: patientInformation
+            },
+            {
+                path: "/addInformation",
+                component: addInformation
+            },
+            {
+                path: "/setRecommend",
+                name: "setRecommend",
+                component: setRecommend,
+            },
+            {
+                path: "/setAmendname",
+                name: "setAmendname",
+                component: setAmendname,
+            },
+            {
+                path: "/setting",
+                name: "setting",
+                component: setting,
+            },
+            {
+                path: "/particulars",
+                name: "/particulars",
+                component: particulars,
+            },
+            {
+                path: "/setAbout",
+                name: "setAbout",
+                component: setAbout,
+            },
+            {
+                path: "/myAttention",
+                name: "myAttention",
+                component: myAttention
+            },
+            {
+                path: "/myCollect",
+                name: "myCollect",
+                component: myCollect
+            },
+            {
+                path: "/myInquiry",
+                name: "myInquiry",
+                component: myInquiry
+            },
+            {
+                path: "/myPrescription",
+                name: "myPrescription",
+                component: myPrescription
+            },
+            {
+                path: "/myDrugOrders",
+                name: "myDrugOrders",
+                component: myDrugOrders
+            },
+            {
+                path: "/hospitalMap",
+                name: "hospitalMap",
+                component: hospitalMap
+            },
+            {
+                path: "/setIdentity",
+                name: "setIdentity",
+                component: setIdentity
+            },
+            {
+                path: "**",
+                redirect: home
+            },
       {
         path: "/findPassword",
         name: "findPassword",
