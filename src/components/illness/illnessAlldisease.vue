@@ -23,7 +23,7 @@
             }"
            @click="Ishandle"></i>
       </div>
-      <div :class="isAll?'active':'all'"
+      <div :class="isAll?'actives':'all'"
            @click="currentAll">
         {{alldiseaseMsg.all}}
       </div>

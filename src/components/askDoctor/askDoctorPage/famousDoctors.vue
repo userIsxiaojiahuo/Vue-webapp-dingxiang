@@ -1,5 +1,5 @@
 <template>
-    <div class="famousDoctor" :class="{'active':show==index}">
+    <router-link tag="div" :to="message.path" class="famousDoctor" :class="{'active':show==index}">
         <div class="famousImg">
             <img :src="message.imgs" alt="">
         </div>
@@ -7,7 +7,7 @@
             <h3>{{message.title}}</h3>
             <p>{{message.textHtml}}</p>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <script>

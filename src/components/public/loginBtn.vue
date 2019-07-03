@@ -1,40 +1,42 @@
 <template>
   <div class="loginUnder">
     <div class="loginBtn">
-      <button class="btn" :disabled="!$store.state.loginIsOK">
+      <button class="btn" :disabled="!(protocolOK&&inputOK)">
         <slot name="loginBtn"></slot>
       </button>
-      <div class="userAgreement">
-        <div class="agreementIcon" @click="changeShow()">
-          <img class="imgAuto" src="../../assets/img/loginOrRegister/mobile-muli-checked.png" alt="" v-if="show">
-          <img class="imgAuto" src="../../assets/img/loginOrRegister/mobile-muli-unchecked.png" alt="" v-if="!show">
-        </div>
-        <p class="agreementTxt">同意丁香医生用户协议</p>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import newVue from '../../assets/js/newVue.js'
+
   export default {
     name: "loginBtn",
     data() {
       return {
         show: true,
+        protocolOK: true,
+        inputOK: false
       }
     },
-    methods: {
-      changeShow() {
-        this.show = !this.show;
-        this.$store.dispatch('protocol', this.show)
-      },
+    methods: {},
+    mounted() {
+      newVue.$on('protocolOK', (protocolOK) => {
+        this.protocolOK = protocolOK;
+        console.log(this.protocolOK)
+      });
+      newVue.$on('inputOK', (inputOK) => {
+        this.inputOK = inputOK;
+        console.log(this.inputOK)
+      })
     }
   }
 </script>
 
 <style scoped>
   .loginUnder {
-    padding: 40px;
+    margin: 40px;
   }
 
   .btn {
@@ -51,20 +53,5 @@
     background: #90d8d2;
   }
 
-  .userAgreement {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 36px;
-  }
 
-  .agreementIcon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .agreementTxt {
-    color: #28b7a3;
-    text-decoration: underline;
-  }
 </style>

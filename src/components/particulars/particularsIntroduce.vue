@@ -44,7 +44,6 @@
    }
     .tit{
         line-height: 160px;
-        width: 100%;
         font-size:60px;
         color:#ffffff;
         font-weight: bolder;
@@ -53,17 +52,19 @@
     .information{
         width: 100%;
         height:66px;
+        display: flex;
+        align-items: center;
     }
     .information span{
         margin-left: 30px;
-        text-align: center;
-        line-height: 66px;
+        font-size: 22px;
     }
     .sutho{
         width:112px;
         height:40px;
         background-color:#53c5b5;
         border-radius:5px;
+        display: inline-block;
         line-height: 40px;
         text-align: center;
     }
@@ -72,7 +73,6 @@
         height: 33px;
         border-radius: 50%;
         margin-left: 22px;
-        display: inline-block;
     }
     .icon{
         display: inline-block;

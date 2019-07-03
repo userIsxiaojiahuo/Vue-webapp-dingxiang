@@ -19,14 +19,15 @@
                  :class="{inputNumError:promptMSgInfo === '手机号输入格式不正确' && promptMSg===true}">
         </div>
       </div>
-      <!--密码-->
+      <!--验证密码-->
       <div class="inputItem">
         <div class="phonePic">
           <img class="imgAuto" src="../../assets/img/loginOrRegister/sso_pw.png" alt="">
         </div>
         <div class="AreaInputWrapper">
           <input class="AreaInput input" type="text" maxlength="6" placeholder="6位验证码" v-model="passWordNum"
-                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}">
+                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}"
+                 @input="loginBntOK">
           <dxMsgCode @click.native="getMsgCode" :IsMsgCode="getMsgNum"/>
         </div>
       </div>
@@ -43,6 +44,7 @@
 
 <script>
   import user from '../../assets/js/user.js'
+  import newVue from '../../assets/js/newVue.js'
   import dxMsgCode from '../../components/public/dxMsgCode'
 
   export default {
@@ -63,7 +65,6 @@
       // 获取验证码
       getMsgCode() {
         if (this.getMsgNum) {
-          this.$store.dispatch('GetInfo', true);
           console.log("发送请求" + this.$store.state.isGetInfo);
           user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
         }
@@ -72,12 +73,20 @@
       phoneNumberPromptMsg() {
         this.promptMSg = !user.isMsgSuccess(this.phoneNumber.replace(/\s/g, ""));
         this.promptMSgInfo = "手机号输入格式不正确";
+        console.log("手机号输入格式不正确")
       },
       // 短信手机验证提示
       MsgCodePromptMsg() {
         this.passWordNum.length === 6 ? this.promptMSg = false : this.promptMSg = true;
         this.promptMSgInfo = "验证码错误";
         this.$emit("info", {phone: this.phoneNumber.replace(/\s/g, ""), msgCode: this.passWordNum})
+      },
+      loginBntOK() {
+        if (user.isMsgSuccess(this.phoneNumber.replace(/\s/g, "")) && this.passWordNum.length >= 6) {
+          newVue.$emit('inputOK', true)
+        } else {
+          newVue.$emit('inputOK', false)
+        }
       }
     },
     watch: {

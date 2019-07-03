@@ -43,24 +43,6 @@
 </script>
 
 <style scoped>
-  .replacePhoneNumWrap {
-    padding-left: 30px;
-  }
-
-  .replacePhoneTit {
-    color: #333333;
-    line-height: 80px;
-    font-size: 48px;
-    margin-top: 20px;
-  }
-
-  .replacePhoneCont {
-    font-size: 28px;
-    line-height: 64px;
-    color: #999999;
-    letter-spacing: 1px; /*no*/
-  }
-
   .replacePhoneInput {
     width: 690px;
     height: 86px;
@@ -101,6 +83,7 @@
   .replacePhoneInput > label > .phoneInput {
     border-left: 1px solid #cccccc; /*no*/
     padding-left: 30px;
+    color: black;
   }
 
   .phoneInput:focus {

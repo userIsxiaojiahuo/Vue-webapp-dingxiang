@@ -8,7 +8,7 @@
     </div>
     <div class="LoginContent">
       <!--手机登录板块-->
-      <dxLoginOrRegister v-if="loginMode">
+      <dxLoginOrRegister v-if="loginMode" @info="telCode">
         <template v-slot:register>
           <span class="title">手机号登录</span>
         </template>
@@ -23,6 +23,7 @@
       <loginBtn v-slot:loginBtn @click.native="MsgLogin">
         <span>登录</span>
       </loginBtn>
+      <dxProtocol/>
     </div>
   </div>
 </template>
@@ -32,17 +33,20 @@
   import dxLoginTitle from '../components/public/dxLoginTitle'
   import loginBtn from '../components/public/loginBtn'
   import dxPassWordLogin from '../components/login/dxPassWordLogin'
+  import dxProtocol from '../components/login/dxProtocol'
   import common from '../assets/js/common.js'
-  import user from '../assets/js/user.js'
+  import login from '../assets/js/user.js'
 
   export default {
     name: "register",
     components: {
-      dxLoginOrRegister, dxLoginTitle, loginBtn, dxPassWordLogin
+      dxLoginOrRegister, dxLoginTitle, loginBtn, dxPassWordLogin, dxProtocol
     },
     data() {
       return {
-        loginMode: true
+        loginMode: true,
+        TEL: "",
+        code: ""
       }
     },
     methods: {
@@ -53,11 +57,17 @@
         this.loginMode = !this.loginMode
       },
       MsgLogin() {
-        // console.log(this.loginMode);
-        // if (this.loginMode) {
-        //   user.login(this,)
-        // }
-      }
+        console.log(this.loginMode);
+        login.loginOrRegister(this, {
+          TEL: this.TEL,
+          code: this.code
+        });
+      },
+      telCode(val) {
+        let {phone, msgCode} = val;
+        this.TEL = phone;
+        this.code = msgCode
+      },
     }
   }
 </script>
