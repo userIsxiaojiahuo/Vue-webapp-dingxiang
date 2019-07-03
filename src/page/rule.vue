@@ -1,11 +1,9 @@
 <template>
   <div class="ruleWrap">
     <!--      顶部返回-->
-    <dxHeaderReturn urn :headerReturnTitle="headerMessage">
-      <dxHeaderIcon/>
-    </dxHeaderReturn>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"/>
     <!--      内容-->
-    <ruleContent></ruleContent>
+    <ruleContent/>
   </div>
 </template>
 
@@ -18,17 +16,17 @@
     name: "rule",
     components: {
       ruleContent,
-      dxHeaderReturn,
-      dxHeaderIcon
+      dxHeaderReturn
     },
     data() {
       return {
-        headerMessage: {
-          title: "返回",
+        headerReturnTitle: {
+          title: "返回"
         }
       }
     }
   }
+
 </script>
 
 <style scoped>

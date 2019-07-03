@@ -16,7 +16,7 @@
                 <div class="names">拍照</div>
                 <div class="names">上传图片</div>
             </van-popup>
-            <van-popup v-model="showTwo" :style="{height: '17%',width:'85%',borderRadius:'3px'}">
+            <van-popup v-model="showTwo" :style="{height: '17%',width:'85%',borderRadius:'3px'}" @click="selectPhotoPic">
                 <div class="names" v-for="(item,index) in sex" :key="index">{{item}}</div>
             </van-popup>
         </div>
@@ -125,10 +125,13 @@
                     this.showTwo = true
                 }
             },
-            //性别选择
-            // handleAdd(index){
-            //     this.$refs.buttonSex(index===3).tit=""
-            // }
+            selectPhotoPic(event){
+                let evt = event || window.event;
+                let tar = evt.target || evt.srcElement;
+                this.titMsg[2].tit = tar.innerHTML;
+                this.showTwo = false
+
+            }
         }
     }
 </script>

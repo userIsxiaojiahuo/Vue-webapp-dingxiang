@@ -30,6 +30,9 @@
   import homeSwiper from '../components/index/homeSwiper'
   import homePageOne from '../components/index/homePageOne'
 
+  import BScroll from 'better-scroll'
+
+
   /**
    * 首页
    */
@@ -117,7 +120,15 @@
           ]
         }
       }
-    }
+    },
+    /*mounted() {
+      this.$nextTick(() => {
+        new BScroll(document.getElementsByClassName('homeContentWrapper')[0], {
+          scrollY: true,
+          click: true
+        })
+      })
+    }*/
   }
 </script>
 

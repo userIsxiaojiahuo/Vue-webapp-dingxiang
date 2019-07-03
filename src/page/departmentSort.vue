@@ -30,8 +30,17 @@
         headerMessage: {
           title: "返回",
         },
-        deparmentList: ["皮肤性病科", "儿科", "妇产科", "泌尿外科", "骨科", "消化内科"]
+        deparmentList: []
       }
+    },
+    mounted() {
+      this.$axios.get("http://121.199.63.71:9006/ask_doctor").then((data) => {
+        data.data.ofc_data.map((index) => {
+          index.departments_info.map((item) => {
+            this.deparmentList.push(item)
+          })
+        })
+      })
     }
   }
 </script>

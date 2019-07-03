@@ -18,6 +18,7 @@
         components:{
             dxRightArrows,
         }
+
     }
 </script>
 

@@ -1,31 +1,27 @@
 <template>
   <div class="examineWrap">
     <!--      顶部返回-->
-    <dxHeaderReturn urn :headerReturnTitle="headerMessage">
-      <dxHeaderIcon/>
-    </dxHeaderReturn>
+    <dxHeaderReturn :headerReturnTitle="headerReturnTitle"/>
     <!--      文字-->
-    <examineDetials></examineDetials>
+    <examineDetials/>
   </div>
 </template>
 
 <script>
   import examineDetials from '../components/examine/examineDetials'
-  import dxHeaderReturn from "../components/public/dxHeaderReturn"
-  import dxHeaderIcon from "../components/public/dxAttentionBtn"
+  import dxHeaderReturn from '../components/public/dxHeaderReturn'
 
   export default {
     name: "examine",
     components: {
       examineDetials,
-      dxHeaderReturn,
-      dxHeaderIcon
+      dxHeaderReturn
     },
     data() {
       return {
-        headerMessage: {
-          title: "返回",
-        },
+        headerReturnTitle: {
+          title: "返回"
+        }
       }
     }
   }

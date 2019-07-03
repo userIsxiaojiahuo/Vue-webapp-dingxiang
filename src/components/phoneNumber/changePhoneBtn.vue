@@ -10,6 +10,14 @@
 <script>
   export default {
     name: "changePhoneBtn",
-    props: ["repacePhoneNext", "isOk"]
+    props: ["repacePhoneNext", "isOk"],
+    methods: {
+      handleClick() {
+        this.$emit("changeBtnClick")
+      }
+    },
+    created() {
+
+    }
   }
 </script>
