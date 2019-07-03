@@ -19,10 +19,7 @@
 </script>
 
 <style scoped>
-  .ruleContent{
-    width: 100%;
-    height: 100%;
-  }
+
   .ruleTitle{
     width: 100%;
     height: 120px;
