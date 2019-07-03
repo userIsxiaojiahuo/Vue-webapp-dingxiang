@@ -26,7 +26,6 @@
     methods: {
       changeShow() {
         this.show = !this.show;
-        this.$store.dispatch('protocol', this.show)
       },
     }
   }
@@ -34,7 +33,7 @@
 
 <style scoped>
   .loginUnder {
-    padding: 40px;
+    margin: 40px;
   }
 
   .btn {

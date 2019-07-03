@@ -36,7 +36,8 @@
         placeholderText: '请描述你的性别年龄、症状、就诊经历，我们会保证你的隐私安全',
         headerReturnTitle: {
           title: "图文问诊",
-          txt: "下一步"
+          txt: "下一步",
+          path:"/"
         }
       }
     }
@@ -45,7 +46,7 @@
 <<<<<<< HEAD
 
 <style scoped>
-  .conPic{
+  .conPic {
     overflow-x: hidden;
   }
 </style>

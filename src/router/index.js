@@ -49,6 +49,9 @@ import myCollect from "../components/mine/myCollect"
 import myInquiry from "../components/mine/myInquiry"
 import myPrescription from "../components/mine/myPrescription"
 import myDrugOrders from "../components/mine/myDrugOrders"
+import findPassword from "../components/login/findPassword"
+import phoneFind from "../components/login/phoneFind"
+import setPassWord from "../components/login/setPassWord"
 
 Vue.use(Router);
 
@@ -314,6 +317,22 @@ const router = new Router({
         path: "/hospitalMap",
         name: "hospitalMap",
         component: hospitalMap
+      },
+      {
+        path: "/findPassword",
+        name: "findPassword",
+        component: findPassword
+      },
+      {
+        path: "/setPassWord",
+        name: "setPassWord",
+        component: setPassWord
+      },
+
+      {
+        path: "/phoneFind",
+        name: "phoneFind",
+        component: phoneFind
       },
       {
         path: "**",

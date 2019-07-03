@@ -21,7 +21,7 @@
     <!--通知组件-->
     <dxMessage class="mineDxMsg"/>
     <!--登录弹出层-->
-    <loginPopup :popupIsShow="show" v-on:changeShow="showState"/>
+    <loginPopup :popupIsShow="$store.state.loginPopups" @changeShow="showState"/>
   </div>
 </template>
 
@@ -67,7 +67,7 @@
     },
     methods: {
       isLogin() {
-        this.show = true;
+        this.$store.dispatch("isLoginPopup", true);
       },
       showState(val) {
         this.show = val

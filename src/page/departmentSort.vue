@@ -1,7 +1,7 @@
 <template>
   <!--科室分类-->
   <div class="departmentSort">
-    <dxHeaderReturn urn :headerReturnTitle="headerMessage">
+    <dxHeaderReturn :headerReturnTitle="headerMessage">
       <dxHeaderIcon/>
     </dxHeaderReturn>
     <!--  每周提问-->

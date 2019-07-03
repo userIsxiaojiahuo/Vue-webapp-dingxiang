@@ -78,7 +78,7 @@
         mounted() {
             this.$store.dispatch("GetInfo", true);
             this.$axios.get("http://121.199.63.71:9006/ask_doctor/").then(data => {
-                if (data.data.code === 200) {
+                if (data.data.code === 201) {
                     this.isShowDiv = true;
                     this.$store.dispatch("GetInfo", false);
                     this.askDoctorMessage.officeMessage = data.data.ofc_data
