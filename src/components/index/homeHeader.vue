@@ -35,7 +35,8 @@
     font-size: 30px;
     line-height: 90px;
     text-indent: 80px;
-    width: 598px;
+    flex: 1;
+    margin-right: 34px;
     border-radius: 10px;
     border: 1px solid #f3f3f3; /*no*/
     outline: none;
