@@ -1,7 +1,8 @@
 <template>
     <ul class="classifyUls">
         <div class="classifyUlsDiv">
-            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis" @click.native="handleClick(itemB.id)">
+            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis"
+                         @click.native="handleClick(itemB.id,itemB.name)">
                 <OfficImg :images="itemB.img" v-if="itemB.img"></OfficImg>
                 <OfficeText :title="itemB.name" :show="show"></OfficeText>
             </router-link>
@@ -31,8 +32,8 @@
             }
         },
         methods: {
-            handleClick(index) {
-                Bug.$emit("id", index)
+            handleClick(index, name) {
+                Bug.$emit("id", {index, name})
             }
         },
         created() {

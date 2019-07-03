@@ -19,7 +19,7 @@
         common.goBack(this)
       }
     },
-    props: ['headerReturnTitle']
+    props: ["headerReturnTitle"]
   }
 </script>
 

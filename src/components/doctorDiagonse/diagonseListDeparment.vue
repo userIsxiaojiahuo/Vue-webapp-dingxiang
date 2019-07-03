@@ -90,7 +90,24 @@
   }
 
   .deparmentLists > ul {
+    width: 140%;
+    height: 100%;
+  }
+
+  .deparmentLists > ul > li {
+    float: left;
+    padding: 0 27px;
+    height: 100%;
+    line-height: 97px;
+  }
+
+  .deparmentLists > ul {
     width: 790%;
+    height: 100%;
+  }
+
+  .deparmentLists > ul {
+    width: 770%;
     height: 100%;
   }
 

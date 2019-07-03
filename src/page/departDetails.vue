@@ -4,7 +4,7 @@
         <dxHeaderReturn :headerReturnTitle="headerMessage">
             <dxHeaderIconWrap/>
         </dxHeaderReturn>
-        <div class="depart">
+        <div class="depart" v-if="isShowDiv">
             <!-- 搜索框-->
             <Search :place="place"></Search>
             <!-- 疾病种类-->
@@ -12,7 +12,7 @@
             <!-- 医生列表-->
             <div class="doctorList">
                 <PullDownSelect></PullDownSelect>
-                <!--                <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>-->
+                <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
             </div>
         </div>
     </div>
@@ -41,15 +41,14 @@
             return {
                 headerMessage: {
                     title: "皮肤病科",
-
                     show: false,
                     isStartImg: false
                 },
+                isShowDiv: false,
                 place: {
                     placeholderMessage: "症状、疾病、医院、科室、医生名",
                     icon: require("../assets/images/askdoctor/ic_search_after.png")
                 },
-                ids: 0,
                 classifyHtml: [
                     {
                         bg: require("../assets/images/askdoctor/classify_bg1.png"),
@@ -72,17 +71,34 @@
                         headerImg: require("../assets/images/askdoctor/doctorHead_04.png")
                     }
                 ],
+                ids: 0,
+                doctorMessages: []
             }
         },
         mounted() {
-            Bug.$on("id", (val) => {
-                let url = 'http://121.199.63.71:9006/ask_doctor/' + val + '/'
+            this.$store.dispatch("GetInfo", true);
+            Bug.$on("id", ({index, name}) => {
+                this.headerMessage.title = name;
+                let url = 'http://121.199.63.71:9006/ask_doctor/' + index + '/';
                 this.$axios.get(url).then(data => {
-                    console.log(data)
+                    if (data.data.code === 200) {
+                        this.isShowDiv = true;
+                        this.$store.dispatch("GetInfo", false);
+                        this.doctorMessages = data.data.doct_data;
+                    }
                 })
             })
-
         },
+        created() {
+            this.$store.dispatch("GetInfo", true);
+            this.$axios.get("http://121.199.63.71:9006/ask_doctor/1/").then(data => {
+                if (data.data.code === 200) {
+                    this.isShowDiv = true;
+                    this.$store.dispatch("GetInfo", false);
+                    this.doctorMessages = data.data.doct_data;
+                }
+            })
+        }
     }
 </script>
 <style src="../assets/css/departDetails.css"></style>

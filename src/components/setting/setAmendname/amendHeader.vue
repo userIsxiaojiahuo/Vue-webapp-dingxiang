@@ -1,23 +1,26 @@
 <template>
-    <div class="conPicHeader">
-        <div class="back">
-            <img src="../../../assets/img/home/ic_titlebar_back.png" alt="">
-            <h2>{{amendHead.tit}}</h2>
-        </div>
-        <p>{{amendHead.txt}}</p>
+    <div class="conPicHeader" @click="handleClick">
+        <p>保存</p>
     </div>
 </template>
 
 <script>
     export default {
         name: "amendHeader",
-        props:["amendHead"],
+        methods: {
+            handleClick() {
+                this.$router.push(
+                    {
+                        path: "/setting"
+                    }
+                )
+            }
+        }
     }
 </script>
 
 <style scoped>
     .conPicHeader {
-        width: 100%;
         background-color: #fcfcfc;
         display: flex;
         justify-content: space-between;

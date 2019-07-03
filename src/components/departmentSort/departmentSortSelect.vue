@@ -15,9 +15,9 @@
     <div class="departmentSorItem">
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
-            @click="handleClickLi(index,item.id)"
+            @click="handleClickLi(index)"
             :class="{deparmentListsLis:index===clickLi}"
-        >{{item.name}}
+        >{{item}}
         </li>
       </ul>
     </div>
@@ -117,5 +117,18 @@
     line-height: 85px;
     text-align: center;
   }
+
+  .departmentSorItem > ul > li {
+    margin: 10px 16px;
+    float: left;
+    font-size: 28px;
+    width: 315px;
+    height: 85px;
+    border: 2px solid #d9d9d9;
+    border-radius: 7px;
+    line-height: 85px;
+    text-align: center;
+  }
+
 
 </style>

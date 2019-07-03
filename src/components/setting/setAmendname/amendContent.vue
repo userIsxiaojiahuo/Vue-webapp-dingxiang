@@ -1,7 +1,7 @@
 <template>
     <div class="contentBox">
         <div class="contentLeft">
-            <span>{{contentMsg.nickname}}</span>
+            <input type="text" :placeholder="contentMsg.nickname">
             <i :style="{
         'background':'url('+ contentMsg.icon+')'+'no-repeat',
         'backgroundSize':'cover'
@@ -27,10 +27,10 @@
         padding: 0 30px;
         margin-top: 20px;
     }
-    .contentLeft>span{
+    .contentLeft>input{
         font-size:30px;
         color: #333333;
-        line-height: 100px;
+        line-height: 96px;
     }
     i{
         display: inline-block;
