@@ -17,7 +17,7 @@
         <li v-for="(item,index) in diagonseListDeparment"
             @click="handleClickLi(index)"
             :class="{deparmentListsLis:index===clickLi}"
-        >{{item.name}}
+        >{{item}}
         </li>
       </ul>
     </div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+  import Bug from "../../assets/js/newVue"
+
   export default {
     name: "departmentSortSelect",
     props: ["diagonseListDeparment"],
@@ -39,8 +41,14 @@
           path: "/Diagonse"
         })
       },
-      handleClickLi(index) {
+      handleClickLi(index, id) {
         this.clickLi = index;
+        this.$router.push(
+          {
+            path: "/Diagonse"
+          }
+        );
+        Bug.$emit("info", {index, id});
       }
     }
   }
@@ -93,6 +101,11 @@
     color: #28b7a3;
   }
 
+  .departmentSorItem > ul {
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
   .departmentSorItem > ul > li {
     margin: 10px 16px;
     float: left;
@@ -104,5 +117,18 @@
     line-height: 85px;
     text-align: center;
   }
+
+  .departmentSorItem > ul > li {
+    margin: 10px 16px;
+    float: left;
+    font-size: 28px;
+    width: 315px;
+    height: 85px;
+    border: 2px solid #d9d9d9;
+    border-radius: 7px;
+    line-height: 85px;
+    text-align: center;
+  }
+
 
 </style>

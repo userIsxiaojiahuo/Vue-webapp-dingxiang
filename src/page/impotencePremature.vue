@@ -21,6 +21,9 @@
     },
     data() {
       return {
+        headerReturnTitle: {
+          title: "返回"
+        },
         importenceItem: [
           {
             // backgroundImg:require("url()"),

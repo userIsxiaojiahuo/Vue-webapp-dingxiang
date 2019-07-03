@@ -30,16 +30,22 @@
         headerMessage: {
           title: "返回",
         },
-        deparmentList: []
+        deparmentList: [],
+        isShowDiv: true
       }
     },
     mounted() {
+      this.$store.dispatch("GetInfo", true)
       this.$axios.get("http://121.199.63.71:9006/ask_doctor").then((data) => {
-        data.data.ofc_data.map((index) => {
-          index.departments_info.map((item) => {
-            this.deparmentList.push(item)
+        console.log(data)
+        if (data.data.code === 201) {
+          this.$store.dispatch("GetInfo", false)
+          data.data.ofc_data.map((index) => {
+            index.departments_info.map((item) => {
+              this.deparmentList.push(item)
+            })
           })
-        })
+        }
       })
     }
   }

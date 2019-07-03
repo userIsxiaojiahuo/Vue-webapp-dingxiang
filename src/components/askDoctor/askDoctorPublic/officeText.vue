@@ -24,7 +24,7 @@
     }
 
     .toNameStyle {
-        color: #999999;
+        color: #333333;
         font-weight: 100;
     }
 </style>

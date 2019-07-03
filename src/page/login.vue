@@ -8,7 +8,7 @@
     </div>
     <div class="LoginContent">
       <!--手机登录板块-->
-      <dxLoginOrRegister v-if="loginMode">
+      <dxLoginOrRegister v-if="loginMode" @info="telCode">
         <template v-slot:register>
           <span class="title">手机号登录</span>
         </template>
@@ -35,7 +35,7 @@
   import dxPassWordLogin from '../components/login/dxPassWordLogin'
   import dxProtocol from '../components/login/dxProtocol'
   import common from '../assets/js/common.js'
-  import user from '../assets/js/user.js'
+  import login from '../assets/js/user.js'
 
   export default {
     name: "register",
@@ -44,7 +44,9 @@
     },
     data() {
       return {
-        loginMode: true
+        loginMode: true,
+        TEL: "",
+        code: ""
       }
     },
     methods: {
@@ -56,10 +58,16 @@
       },
       MsgLogin() {
         console.log(this.loginMode);
-        // if (this.loginMode) {
-        //   user.login(this,)
-        // }
-      }
+        login.loginOrRegister(this, {
+          TEL: this.TEL,
+          code: this.code
+        });
+      },
+      telCode(val) {
+        let {phone, msgCode} = val;
+        this.TEL = phone;
+        this.code = msgCode
+      },
     }
   }
 </script>

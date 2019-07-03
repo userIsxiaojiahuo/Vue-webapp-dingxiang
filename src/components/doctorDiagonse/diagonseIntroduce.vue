@@ -18,20 +18,19 @@
         </div>
         <!--擅长-->
         <div class="adept">
-          擅长：{{item.adept}}
+          擅长：{{item.doc_goods}}
         </div>
         <!--星级-->
         <div class="startLevel">
           <img src="../../assets/img/diagonseImg/s_icon_rating_star_d.png" alt="">
-          <span class="grade">{{item.d_level}}</span>
-          <span class="answer">月<i>{{item.m_answer}}</i></span>
+          <span class="grade">{{item.d_level}}.0</span>
+          <span class="answer"><i>{{item.m_answer}}</i></span>
         </div>
         <!--折扣-->
         <div class="discount">
           <span class="ingText">图文</span>
           <span class="dollar">￥</span>
           <span class="price">{{item.text_price}}</span>
-          <del>￥ {{item.text_price}}</del>
           <div class="dis">
             <span class="disNum">3.6折</span>
             <span class="surplus">仅剩2个名额</span>
@@ -40,7 +39,7 @@
         <!--新人专享-->
         <div class="news">
           <span class="newsIcon">新</span>
-          <span class="newsPrice">新人专享，折后仅需1元</span>
+          <span class="newsPrice">新人专享</span>
         </div>
       </div>
     </router-link>
@@ -99,10 +98,14 @@
   .hospitalLevel {
     width: 100%;
     height: 44px;
-    display: -webkit-box;
+    display: -webkit-flex;
     align-items: center;
     color: #6f7580;
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
 
   .hospitalLevel .Grade {
@@ -116,7 +119,7 @@
     text-align: center;
   }
 
-  .hospitalLevel .Desk, .hospitalLevel .hospitalName {
+  .hospitalLevel .Desk, .hospitalName {
     margin-left: 14px;
   }
 
@@ -127,7 +130,8 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     min-width: 1px;
-    padding-right: 20px;
+    padding-right: 30px;
+    flex: 1;
   }
 
   /*擅长*/
@@ -170,6 +174,7 @@
 
   .startLevel > span > i {
     font-style: normal;
+    margin-left: 8px;
   }
 
   /*折扣*/
@@ -190,13 +195,8 @@
     color: #f76260;
   }
 
-  .discount del {
-    font-size: 20px;
-    color: #999999;
-  }
-
   .dis {
-    width: 230px;
+    width: 210px;
     line-height: 24px;
     font-size: 18px;
     color: white;
@@ -211,6 +211,7 @@
     width: 75px;
     height: 24px;
     background: #f76260;
+    text-align: center;
   }
 
   .surplus {
@@ -218,7 +219,7 @@
     color: #f76260;;
     white-space: nowrap;
     letter-spacing: 1px; /*no*/
-    text-indent: 3px;
+    text-indent: 6px;
   }
 
   /*.discount .dis {*/
