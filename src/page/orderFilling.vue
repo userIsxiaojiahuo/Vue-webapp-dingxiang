@@ -12,7 +12,7 @@
 		<OrderFillingSmallFunction v-for="(item,index) in orderFilling" :orderFilling="item" class="orderFillingSmallFunction"
 		 :key="index" />
 		<!-- 底部购买按钮旁边的内容 -->
-		<OrderFillingFoot />
+		<OrderFillingFoot @clickIndex="clickIndex" @isClickIndex="isClickIndex"/>
 	</div>
 </template>
 
@@ -43,7 +43,7 @@
 		data() {
 			return {
 				headerReturn: {
-					title: "订单填写",
+					title: "核对订单",
 					ico: require("../assets/onlineImg/ic_titlebar_back.png")
 				},
 				// 购物流程
@@ -52,7 +52,7 @@
 					cartProcess:[
 						{
 							stepNumber:1,
-							text:"选择药品"
+							text:"购物车"
 						},
 						{
 							stepNumber:2,
@@ -93,6 +93,18 @@
 				onLineBuyFoot: {
 					title: "支付",
 					path: "/"
+				}
+			}
+		},
+		methods:{
+			clickIndex(val){
+				if(val){
+					this.cartProcess.liIndex = 2;
+				}
+			},
+			isClickIndex(val){
+				if(!val){
+					this.cartProcess.liIndex = 1;
 				}
 			}
 		}

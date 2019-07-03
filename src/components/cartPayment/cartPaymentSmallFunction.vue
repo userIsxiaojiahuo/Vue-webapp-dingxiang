@@ -10,7 +10,7 @@
 		</div>
 		<van-popup v-model="show" position="bottom" :style="{ height: '60%' }">
 			<!-- 支付界面 -->
-			<PaymentMethod/>
+			<PaymentMethod @isClickIndex="isClickIndex"/>
 		</van-popup>
 	</div>
 </template>
@@ -32,6 +32,9 @@
 		methods:{
 			showPopup() {
 			  this.show = true;
+			},
+			isClickIndex(val){
+				this.show = val;
 			}
 		}
 	}

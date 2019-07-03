@@ -1,14 +1,14 @@
 <template>
   <div class="onLIneBuyDrugListLi">
     <div class="onLIne_list_img">
-      <img :src="drugList.pic"/>
-      <span v-if="drugList.isPrescription">处方药</span>
+      <img :src="drugList.med_img"/>
     </div>
     <div class="onLIne_list_text">
-      <h2><span>{{drugList.drugName}}</span><span>{{drugList.drugpackage}}</span></h2>
-      <p class="drugDetails">{{drugList.indications}}</p>
+      <h2 class="drugList_med_name">药品名: {{drugList.med_name}}</h2>
+			<span class="drugList_packing_size">药品规格: {{drugList.packing_size}}</span>
+			<span class="drugList_med_stock">库存: {{drugList.med_stock}}盒</span>
 			<!-- 药品列表的li 的价格组件 -->
-			<OnLinenBuyDrugListLiBtu :drugLists="drugList.drugPirce" :drugListInndexs="drugListInndex" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" />
+			<OnLinenBuyDrugListLiBtu :drugLists="drugList.price" :drugListInndexs="drugListInndex" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" />
     </div>
   </div>
 </template>
@@ -67,41 +67,26 @@
 
   .onLIne_list_text {
     height: 100%;
+		width: 100%;
   }
 
-  .onLIne_list_text > h2 {
-    font-size: 30px;
+  .drugList_med_name {
+    font-size: 35px;
     color: #000;
   }
-
-  .onLIne_list_text > h2 > span:first-of-type {
-    display: inline-block;
-    width: 222px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 34px;
-    letter-spacing: 1px; /*no*/
-  }
-
+	.onLIne_list_text>span{
+		display:block;
+		font-size: 24px;
+		color: #000;
+	}
+	.onLIne_list_text>.drugList_packing_size{
+		color: #333333;
+	}
+	.onLIne_list_text>.drugList_med_stock{
+		color: #999;
+	}
   .onLIne_list_text > h2 > span:last-of-type {
     vertical-align: top;
     letter-spacing: 1px; /*no*/
-  }
-
-  .drugDetails {
-    width: 100%;
-    text-overflow: -o-ellipsis-lastline;
-		display: -webkit-box;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
-		line-clamp: 2;
-		-webkit-box-orient: vertical;
-    font-size: 20px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    color: #999999;
   }
 </style>

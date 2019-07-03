@@ -42,6 +42,18 @@
       OnLineBuySortList,
       OnLineBuySortNavigation
     },
+		created(){
+			this.$axios.get('http://121.199.63.71:9006/medc_illness/')
+			.then((response)=>{
+				this.buySort.nav = response.data.data[0];
+				for(let i=1;i<response.data.data.length;i++){
+					this.buySortNavigation[i-1].nav = response.data.data[i];
+				}
+			})
+			.catch((error)=>{
+				console.log(error)
+			})
+		},
     data() {
       return {
         headerReturn: {
@@ -55,53 +67,20 @@
         onLineSearch: "搜索疾病，症状",
         buySort: {
           title: "常见症状",
-          nav: [
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            },
-            {
-              pic: require("../assets/onLineImg/nav.png"),
-              name: "避孕"
-            }
-          ]
+          nav: []
         },
         buySortNavigation: [
           {
             title: "呼吸系统",
-            nav: ["上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染"]
+            nav: []
           },
           {
             title: "皮肤问题",
-            nav: ["上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染"]
+            nav: []
           },
           {
             title: "消化系统",
-            nav: ["上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染", "上呼吸道感染"]
+            nav: []
           },
         ]
       }

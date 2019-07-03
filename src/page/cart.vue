@@ -47,7 +47,7 @@
 					cartProcess:[
 						{
 							stepNumber:1,
-							text:"选择药品"
+							text:"购物车"
 						},
 						{
 							stepNumber:2,
@@ -73,7 +73,7 @@
 				],
 				isDrugBtu:false,
 				onLineBuyFoot:{
-					title:"提交订单",
+					title:"下一步",
 					path:"/orderFilling"
 				},
 				cartPirce:0

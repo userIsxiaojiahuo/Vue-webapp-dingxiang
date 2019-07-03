@@ -1,6 +1,6 @@
 <template>
   <ul class="onLIneBuyDrugListUl">
-    <li @click.stop="showPopup" class="onLIneBuyDrugListUl_li"
+    <li @click.stop="showPopup(item.id)" class="onLIneBuyDrugListUl_li"
         v-for="(item,index) in drugList"
         :key="index"
     >
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+	import newVue from "../../assets/js/newVue.js"
 	/* 药品列表的li */
 	import OnLineBuyDrugListLi from './onLineBuyDrugListLi.vue'
 	/* 药品详情 */
@@ -30,11 +31,13 @@
 		data(){
 			return{
 				show: false,
+				drugDetails:{}
 			}
 		},
 		methods:{
-			showPopup() {
-			  this.show = true;
+			showPopup(val) {
+				this.show = true;
+				newVue.$emit("drugDetalis",val);
 			},
 			isNoDrugDetails(val){
 				this.show = val;

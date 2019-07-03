@@ -1,7 +1,7 @@
 <template>
 	<div class="paymentMethod">
 		<!-- 头部 -->
-		<CartPaymentHeader :cartPaymentHeader="cartPaymentHeader"/>
+		<CartPaymentHeader :cartPaymentHeader="cartPaymentHeader" @isClickIndex="isClickIndex"/>
 		<!-- 支付方式列表 -->
 		<PaymentMethodUl :paymentMethodUl="paymentMethodUl"/>
 	</div>
@@ -41,6 +41,11 @@
 						isSelection:false
 					}
 				]
+			}
+		},
+		methods:{
+			isClickIndex(val){
+				this.$emit("isClickIndex",val);
 			}
 		}
 	}

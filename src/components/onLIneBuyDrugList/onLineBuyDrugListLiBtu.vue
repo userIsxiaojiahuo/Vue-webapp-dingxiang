@@ -1,6 +1,6 @@
 <template>
 	<div class="onLIne_list_price">
-	  <span class="drug_price">￥{{drugLists}}</span>
+	  <span class="drug_price">￥{{drugLists}}.00</span>
 	  <span @click.stop="choiceDrug(drugListInndexs)" class="drug_btu" v-if="isDrugBtu?isChoiceDrugBtu!=drugListInndexs:isDrugBtu">选择该药</span>
 	  <div v-if="isDrugBtu?isDrugNumBtu==drugListInndexs:true" class="drug_num_btu">
 		<img @click.stop="btuReduce" class="drug_num_btu_reduce" src="../../assets/onLineImg/ic_cut_drug.png">
@@ -59,12 +59,11 @@
 	  display: flex;
 	  justify-content: space-between;
 	  align-items: flex-end;
-		margin-top: 10px;
 	}
 	
 	.drug_price {
 	  color: #28b7a3;
-	  font-size: 22px;
+	  font-size: 30px;
 	  font-weight: 600;
 	}
 	
