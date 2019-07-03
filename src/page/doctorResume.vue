@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div class="resume">
         <dxHeaderReturn :headerReturnTitle="headerMessage">
             <dxHeaderIconWrap/>
@@ -10,17 +9,6 @@
             <HospitalMessage :hospitalMess="hospitalMess"></HospitalMessage>
             <ResumeFooter></ResumeFooter>
         </div>
-=======
-  <div class="resume">
-    <div class="resumeContent">
-      <dxHeaderReturn :headerReturnTitle="headerMessage">
-        <dxHeaderIconWrap/>
-      </dxHeaderReturn>
-      <DoctorInfoMessage :doctorMessage="doctorMessage"></DoctorInfoMessage>
-      <ResumePageModule :resumeHtml="resumeHtml"></ResumePageModule>
-      <HospitalMessage :hospitalMess="hospitalMess"></HospitalMessage>
-      <ResumeFooter/>
->>>>>>> f99337fa1de7787d77837350c180b99687abac26
     </div>
 </template>
 

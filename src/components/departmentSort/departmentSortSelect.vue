@@ -22,20 +22,6 @@
             </ul>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-    <!--  列表-->
-    <div class="departmentSorItem">
-      <ul>
-        <li v-for="(item,index) in diagonseListDeparment"
-            @click="handleClickLi(index)"
-            :class="{deparmentListsLis:index===clickLi}"
-        >{{item.name}}
-        </li>
-      </ul>
-    </div>
-  </div>
->>>>>>> f99337fa1de7787d77837350c180b99687abac26
 </template>
 
 <script>

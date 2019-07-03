@@ -1,7 +1,7 @@
 <template>
     <div class="doctorSelect">
-        <van-dropdown-menu class="zSelect" :z-index="999" active-color="#333">
-            <van-dropdown-item v-model="value1" :options="option1"/>
+        <van-dropdown-menu class="zSelect" id="vanBg" active-color="#333">
+            <van-dropdown-item v-model="value1" z-index="3" :options="option1"/>
         </van-dropdown-menu>
         <div class="zSelect cnCity">
             <p @click="handlePdom">{{city?city:"全国"}}</p>
@@ -97,6 +97,10 @@
 
     .cnCity > p {
         font-size: 30px;
+    }
+
+    #vanBg {
+        background: none;
     }
 
     .doctorSelect {

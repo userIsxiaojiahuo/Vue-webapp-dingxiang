@@ -7,6 +7,7 @@
                 v-model="show"
                 position="bottom"
                 :style="{ height: '48%' }"
+                z-index="999"
         >
             <div class="share">
                 <ul>
@@ -100,7 +101,7 @@
         justify-content: space-around;
         background: #f9f9f9;
         flex-wrap: wrap;
-        padding-bottom:80px;
+        padding-bottom: 80px;
     }
 
     .share > ul > li {
