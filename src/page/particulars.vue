@@ -9,6 +9,7 @@
     <ParticularsAetiological :particMsg="particMsg"/>
     <ParticularsBtn :btnMsg="btnMsg"/>
     <ParticularsClassification/>
+    <ParticularsRecommend/>
   </div>
 
 </template>
@@ -24,6 +25,8 @@
   import ParticularsBtn from "../components/particulars/particularsBtn"
   //分类
   import ParticularsClassification from "../components/particulars/particularsClassification"
+  //推荐
+  import ParticularsRecommend from "../components/particulars/particularsRecommend"
 
   import dxHeaderIconWrap from '../components/public/dxHeaderIconWrap'
   import dxShareBtn from '../components/public/dxShareBtn'
@@ -37,6 +40,7 @@
       ParticularsAetiological,
       ParticularsBtn,
       ParticularsClassification,
+      ParticularsRecommend,
       dxHeaderIconWrap,
       dxShareBtn
     },
