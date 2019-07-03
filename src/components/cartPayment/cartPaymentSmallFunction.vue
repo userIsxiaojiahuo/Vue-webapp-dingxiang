@@ -6,11 +6,11 @@
 		</div>
 		<div class="cartPaymentSmall_text">
 			<span>付款方式</span>
-			<span @click="showPopup">账号余额<img src="../../assets/onLineImg/ic_arrow.png"></span>
+			<span @click="showPopup">{{cartPaymentSmall}}<img src="../../assets/onLineImg/ic_arrow.png"></span>
 		</div>
 		<van-popup v-model="show" position="bottom" :style="{ height: '60%' }">
 			<!-- 支付界面 -->
-			<PaymentMethod @isClickIndex="isClickIndex"/>
+			<PaymentMethod @isClickIndex="isClickIndex" @paymentMethodValue="paymentMethodValue"/>
 		</van-popup>
 	</div>
 </template>
@@ -27,6 +27,7 @@
 		data(){
 			return{
 				show: false,
+				cartPaymentSmall:"账号余额"
 			}
 		},
 		methods:{
@@ -35,6 +36,10 @@
 			},
 			isClickIndex(val){
 				this.show = val;
+			},
+			paymentMethodValue(val){
+				this.cartPaymentSmall = val;
+				this.show = false;
 			}
 		}
 	}

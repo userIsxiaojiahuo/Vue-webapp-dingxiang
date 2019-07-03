@@ -1,6 +1,6 @@
 <template>
   <ul class="onLIneBuyDrugListUl">
-    <li @click.stop="showPopup(item.id)" class="onLIneBuyDrugListUl_li"
+    <li @click="showPopup(item.id)" class="onLIneBuyDrugListUl_li"
         v-for="(item,index) in drugList"
         :key="index"
     >
@@ -9,13 +9,13 @@
     </li>
 	<van-popup v-model="show" position="bottom" :style="{ height: '90%' }">
 		<!-- 药品详情 -->
-		<DrugDetails @isNoDrugDetails="isNoDrugDetails"/>
+		<DrugDetails @isNoDrugDetails="isNoDrugDetails" :drugIndex="drugIndex"/>
 	</van-popup>
   </ul>
 </template>
 
 <script>
-	import newVue from "../../assets/js/newVue.js"
+	// import newVue from "../../assets/js/newVue.js"
 	/* 药品列表的li */
 	import OnLineBuyDrugListLi from './onLineBuyDrugListLi.vue'
 	/* 药品详情 */
@@ -31,19 +31,20 @@
 		data(){
 			return{
 				show: false,
-				drugDetails:{}
+				drugDetails:{},
+				drugIndex:0,
 			}
 		},
 		methods:{
 			showPopup(val) {
+				this.drugIndex = val;
 				this.show = true;
-				newVue.$emit("drugDetalis",val);
 			},
 			isNoDrugDetails(val){
 				this.show = val;
 			},
 			cartZoPirce(val){
-				this.$emit("@cartZoPirce",val)
+				this.$emit("cartZoPirce",val)
 			}
 		}
 	}

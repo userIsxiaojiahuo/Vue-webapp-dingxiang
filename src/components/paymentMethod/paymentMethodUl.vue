@@ -1,7 +1,7 @@
 <template>
 	<div class="paymentMethodUl">
 		<ul>
-			<li v-for="itme in paymentMethodUl">
+			<li v-for="(itme,index) in paymentMethodUl" :key="index" @click="paymentMethodIdex(index)">
 				<img :src="itme.paymentMethodIco">
 				<div class="paymentMethodUl_title">
 					<span>{{itme.title}}(剩余:￥{{itme.balance}}元)</span>
@@ -16,7 +16,12 @@
 	/* 支付方式列表 */
 	export default{
 		naem:"paymentMethodUl",
-		props:["paymentMethodUl"]
+		props:["paymentMethodUl"],
+		methods:{
+			paymentMethodIdex(index){
+				this.$emit("paymentMethodIdex",index);
+			}
+		}
 	}
 </script>
 

@@ -5,7 +5,17 @@
 		<!-- 购药流程 -->
 		<CartProcess :cartProcess="cartProcess"/>
 		<!-- 购物车列表 -->
-		<OnLineBuyDrugListUl :drugList="drug" :isDrugBtu="isDrugBtu" class="OnLineBuyDrugListUl" @cartZoPirce="cartZoPirce"/>
+		<van-swipe-cell :on-close="onClose">
+			<CartList :drugList="drug" class="OnLineBuyDrugListUl"/>
+			<van-button
+			square
+			slot="right"
+			type="danger"
+			text="删除"
+			:style="{height:'100%'}"
+			/>
+		</van-swipe-cell>
+		
 		<!-- 药品列表底部购物车和购买按钮 -->
 		<OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
 			<!-- 购物车商品总计 -->
@@ -20,7 +30,7 @@
 	/* 购药流程 */
 	import CartProcess from "../components/cart/cartProcess.vue"
 	/* 药品列表 */
-	import OnLineBuyDrugListUl from '../components/onLIneBuyDrugList/onLineBuyDrugListUl.vue'
+	import CartList from '../components/cart/cartList.vue'
 	/* 药品列表底部购物车和购买按钮 */
 	import OnLineBuyFoot from '../components/public/dxOnLineBuyFoot.vue'
 	/* 购物车商品总计 */
@@ -31,7 +41,7 @@
 		components:{
 			HeaderReturn,
 			CartProcess,
-			OnLineBuyDrugListUl,
+			CartList,
 			OnLineBuyFoot,
 			CartTotalPrice
 		},
@@ -60,28 +70,27 @@
 					]
 				},
 				// 药品信息
-				drug:[
-					{
-						pic:require("../assets/onLineImg/drug-1.png"),
-						isPrescription:true,
-						drugName:"泰尔丝(异维A酸胶丸)",
-						drugpackage:"10mgx20粒/盒",
-						indications:"适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
-						drugPirce:35.60,
-						drugNum:0
-					},
-				],
-				isDrugBtu:false,
+				drug:[],
 				onLineBuyFoot:{
 					title:"下一步",
 					path:"/orderFilling"
 				},
-				cartPirce:0
 			}
 		},
 		methods:{
-			cartZoPirce(val){
-				this.cartPirce = val;
+			onClose(clickPosition, instance) {
+			  switch (clickPosition) {
+				case 'cell':
+				case 'outside':
+				  instance.close();
+				  break;
+				  case 'right':
+				   this.cartDelete();
+				  break;
+			  }
+			},
+			cartDelete(){
+				console.log(11)
 			}
 		}
 	}

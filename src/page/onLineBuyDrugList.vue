@@ -38,11 +38,15 @@
       OnLineFootCratBtu,
     },
 		created(){
+			this.$store.dispatch('GetInfo', true);
 			let url = "";
 			if(url==""){
 				this.$axios.get('http://121.199.63.71:9006/medc_illness/1-1/')
 				.then((response)=>{
-					this.drug = response.data.data;
+					if(response.data.code==200){
+						this.$store.dispatch('GetInfo', false);
+						this.drug = response.data.data;
+					}
 				})
 				.catch((error)=>{
 					console.log(error)
@@ -52,7 +56,10 @@
 				url = 'http://121.199.63.71:9006/medc_illness/'+val+'/';
 				this.$axios.get(url)
 				.then((response)=>{
-					this.drug = response.data.data;
+					if(response.data.code==200){
+						this.$store.dispatch('GetInfo', false);
+						this.drug = response.data.data;
+					}
 				})
 				.catch((error)=>{
 					console.log(error)

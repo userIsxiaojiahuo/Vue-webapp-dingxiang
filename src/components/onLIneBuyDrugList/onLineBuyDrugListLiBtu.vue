@@ -1,6 +1,6 @@
 <template>
 	<div class="onLIne_list_price">
-	  <span class="drug_price">￥{{drugLists}}.00</span>
+	  <span class="drug_price">￥{{drugLists}}</span>
 	  <span @click.stop="choiceDrug(drugListInndexs)" class="drug_btu" v-if="isDrugBtu?isChoiceDrugBtu!=drugListInndexs:isDrugBtu">选择该药</span>
 	  <div v-if="isDrugBtu?isDrugNumBtu==drugListInndexs:true" class="drug_num_btu">
 		<img @click.stop="btuReduce" class="drug_num_btu_reduce" src="../../assets/onLineImg/ic_cut_drug.png">
@@ -11,10 +11,11 @@
 </template>
 <!-- .native -->
 <script>
+	import common from "../../assets/js/common.js"
 	/* 药品列表的li 的价格组件 */
 	export default {
 		name:"onLineBuyDrugListLiBtu",
-		props:["drugLists","drugListInndexs","isDrugBtu"],
+		props:["drugLists","drugListInndexs","isDrugBtu","drugIndex"],
 		data(){
 			return{
 				isDrugNumBtu:-1,
@@ -30,8 +31,33 @@
 		},
 		methods:{
 			choiceDrug(index){
+				let token = common.getCookie("token");
+				console.log(token);
 				this.isDrugNumBtu = index;
 				this.isChoiceDrugBtu = index;
+				let url = 'http://121.199.63.71:9006/add_cart/';
+				// ?token='+token+'&med_id:'+this.drugIndex
+				// {"token":token,"med_id":this.drugIndex}
+				// console.log(this.drugIndex);
+				// console.log(token);
+// 				this.$axios.get(url,{token:token,"med_id:this.drugIndex})
+// 				.then((response)=>{
+// 					if(response.data.code==200){
+// 						this.$store.dispatch('GetInfo', false);
+// 					}
+// 					console.log(response);
+// 				})
+// 				.catch((error)=>{
+// 					console.log(error)
+// 				})
+				this.$axios({
+					methods:"get",
+					url:'http://121.199.63.71:9006/add_cart/?' + 'token='+token+'&med_id:'+this.drugIndex
+				}).then((dataed)=>{
+					console.log(dataed)
+				}).catch((error)=>{
+					console.log(error);
+				})
 			},
 			btuAdd(){
 				let num = parseInt(this.$refs.drugNum.innerHTML);

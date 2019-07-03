@@ -43,11 +43,15 @@
       OnLineBuySortNavigation
     },
 		created(){
+			this.$store.dispatch('GetInfo', true);
 			this.$axios.get('http://121.199.63.71:9006/medc_illness/')
 			.then((response)=>{
-				this.buySort.nav = response.data.data[0];
-				for(let i=1;i<response.data.data.length;i++){
-					this.buySortNavigation[i-1].nav = response.data.data[i];
+				if(response.data.code==200){
+					this.$store.dispatch('GetInfo', false);
+					this.buySort.nav = response.data.data[0];
+					for(let i=1;i<response.data.data.length;i++){
+						this.buySortNavigation[i-1].nav = response.data.data[i];
+					}
 				}
 			})
 			.catch((error)=>{

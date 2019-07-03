@@ -23,7 +23,7 @@
 </template>
 
 <script>
-	import newVue from "../assets/js/newVue.js"
+	// import newVue from "../assets/js/newVue.js"
 	/* 顶部透明模块 */	
 	import DrugDetailsOpacity from '../components/drugDetails/drugDetailsOpacity.vue'
 	/* 药品详情页头部关闭 */
@@ -53,11 +53,14 @@
 			OnLineBuyFoot,
 			OnLineFootCratBtu
 		},
+		props:["drugIndex"],
 		created(){
-			newVue.$on("drugDetalis",(val)=>{
-				let url = 'http://121.199.63.71:9006/medc_illness/'+val+'/details/'
-				this.$axios.get(url)
-				.then((response)=>{
+			this.$store.dispatch('GetInfo', true);
+			let url = 'http://121.199.63.71:9006/medc_illness/'+this.drugIndex+'/details/'
+			this.$axios.get(url)
+			.then((response)=>{
+				if(response.data.code==200){
+					this.$store.dispatch('GetInfo', false);
 					this.drug = response.data.data[0];
 					this.drugInformation[0].text = response.data.data[0].med_name;
 					this.drugInformation[1].text = response.data.data[0].approval_number;
@@ -74,10 +77,10 @@
 					this.drugInformation[12].text = response.data.data[0].indications;
 					this.drugInformation[13].text = response.data.data[0].reaction;
 					this.drugInformation[14].text = response.data.data[0].med_formulation;
-				})
-				.catch((error)=>{
-					console.log(error)
-				})
+				}
+			})
+			.catch((error)=>{
+				console.log(error)
 			})
 		},
 		data(){
