@@ -11,8 +11,8 @@ const mutations = {
     state.loginPopups = data
   },
   // 同意协议
-  PROTOCOL(state, data) {
-    state.dxProtocol = data
+  ISLOGIN(state, data) {
+    state.isLogin = data
   }
 };
 export default mutations

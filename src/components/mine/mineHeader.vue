@@ -5,9 +5,11 @@
       <div class="intoRegister" @click="isLogin()">
         <div class="userPortrait">
           <img class="imgAuto" src="../../assets/img/mine/ic_male.png" alt="">
+          <img class="imgAuto" :src="mineInfo.photo" alt="">
         </div>
         <div class="loginWrapper">
           <h1>登录/注册</h1>
+          <h1>{{mineInfo.nick_name}}</h1>
         </div>
       </div>
     </div>
@@ -65,6 +67,7 @@
       dxMessage, loginPopup
 
     },
+    props: ['mineInfo'],
     methods: {
       isLogin() {
         this.$store.dispatch("isLoginPopup", true);

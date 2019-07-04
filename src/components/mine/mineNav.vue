@@ -26,29 +26,30 @@
           {
             itemImg: require("../../assets/img/mine/ic_inquiry_me.png"),
             itemTitle: "我的问诊",
-            cont: "0次",
+            cont: this.mineInfo.my_inquiry + "次",
             path: "myInquiry"
           },
           {
             itemImg: require("../../assets/img/mine/ic_prescription_me.png"),
             itemTitle: "我的处方",
-            cont: "0张",
+            cont: this.mineInfo.my_recipel + "张",
             path: "myPrescription"
           },
           {
             itemImg: require("../../assets/img/mine/ic_drug_me.png"),
             itemTitle: "药品订单",
-            cont: "0单",
+            cont: this.mineInfo.collect_content + "单",
             path: "myDrugOrders"
           },
           {
             itemImg: require("../../assets/img/mine/ic_lecture_me.png"),
             itemTitle: "医师讲堂",
-            cont: "0节",
+            cont: this.mineInfo.focus_doctor + "节",
             path: "myInquiry"
           }
         ]
       }
-    }
+    },
+    props: ['mineInfo']
   }
 </script>

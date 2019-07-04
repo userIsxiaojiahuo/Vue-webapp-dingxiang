@@ -1,9 +1,9 @@
 <template>
   <div class="mine">
     <!--我的头部-->
-    <mineHeader/>
+    <mineHeader :mineInfo="mineInfo"/>
     <!--我的问诊、处方、药品订单、讲师、测评-->
-    <mineNav/>
+    <mineNav :mineInfo="mineInfo"/>
     <!--下面列表-->
     <mineListWrapper v-for="(item,index) in title" :path="item.path" :titleText="item.text"
                      :key="index"/>
@@ -39,8 +39,10 @@
           {
             text: "用户反馈",
             path: ''
-          }
-        ]
+          },
+        ],
+        mineInfo: "",
+        isLogin: false,
       }
     },
     components: {
@@ -55,7 +57,13 @@
         method: 'get',
         url: "http://121.199.63.71:9006/own_page/?token=" + token,
       }).then((returnInfo) => {
-        console.log(returnInfo)
+        console.log(returnInfo);
+        if (returnInfo.data.code === 200) {
+          this.isLogin = false;
+          this.mineInfo = returnInfo.data.data
+        } else {
+          this.login = true
+        }
       })
     }
 
