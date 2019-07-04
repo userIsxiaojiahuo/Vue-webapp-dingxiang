@@ -1,5 +1,5 @@
 <template>
-    <p>{{topicMsg.tit}}</p>
+        <p>{{topicMsg.tit}}</p>
 </template>
 
 <script>
@@ -20,5 +20,6 @@ p{
     margin-left:30px;
     margin-top: 36px;
     margin-bottom: 66px;
+    display: block;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
     <div class="recommebdBox">
+        <div class="solidd"></div>
         <van-tabs @click="onClick">
             <van-tab title="推荐医生" >内容 1</van-tab>
 
@@ -41,6 +42,12 @@
     .recommebdBox {
         width: 100%;
         height: 50px;
+        margin-top: 40px;
+    }
+    .solidd{
+        width: 100%;
+        height: 20px;
+        background-color:#ebebeb;
     }
     .van-tabs__content{
         line-height: 92px;

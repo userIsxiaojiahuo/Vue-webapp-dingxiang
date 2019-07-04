@@ -4,13 +4,25 @@
     <PopularizationCouncil :councilMsg="councilMsg"/>
     <PopularizationTopic :topicMsg="topicMsg"/>
     <PopularizationAuthor :authorMsg="authorMsg"/>
+
+
+
     <PopularizationPicture :picMsg="picMsg"/>
+
     <PopularizationArticletitle :articMsg="articMsg"/>
+
     <PopularizationMainbody :mainMsg="mainMsg"/>
+
     <PopularizationArticletitle :articMsg="articMess"/>
     <PopularizationMainbodtwo :mainMsgT="mainMsgT"/>
+
     <PopularizationArticletitle :articMsg="articMesss"/>
+
     <PopularizationMainbodthree :mainMsgg="mainMsgg"/>
+
+
+
+
     <PopularizationCopyright :copyMsg="copyMsg"/>
     <PopularizationShare :shareMsg="shareMsg"/>
     <PopularizationMore :moreMsg="moreMsg"/>
@@ -28,16 +40,24 @@
   import PopularizationTopic from "../components/popularization/popularizationTopic"
   //作者信息
   import PopularizationAuthor from "../components/popularization/popularizationAuthor"
+
+
+
   //疾病图片
   import PopularizationPicture from "../components/popularization/popularizationPicture"
   //文章标题
   import PopularizationArticletitle from "../components/popularization/popularizationArticletitle"
-  //正文
+  //正文1
   import PopularizationMainbody from "../components/popularization/popularizationMainbody"
   //正文2
   import PopularizationMainbodtwo from "../components/popularization/popularizationMainbodtwo"
   //正文3
   import PopularizationMainbodthree from "../components/popularization/popularizationMainbodthree"
+
+
+
+
+
   //版权
   import PopularizationCopyright from "../components/popularization/popularizationCopyright"
   //分享

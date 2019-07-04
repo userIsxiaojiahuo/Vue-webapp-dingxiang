@@ -47,6 +47,7 @@
     }
     .name{
         float: right;
+        margin-top: 86px;
     }
     .btn{
         width:274px;
