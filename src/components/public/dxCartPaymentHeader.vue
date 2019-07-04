@@ -1,6 +1,6 @@
 <template>
 	<div class="cartPaymentHeader">
-		<img class="cartPaymentHeader_close" :src="cartPaymentHeader.ico">
+		<img class="cartPaymentHeader_close" :src="cartPaymentHeader.ico" @click="isClickIndex">
 		<p class="cartPaymentHeader_title"><span>{{cartPaymentHeader.title}}</span></p>
 	</div>
 </template>
@@ -10,6 +10,11 @@
 	export default{
 		name:"cartPaymentHeader",
 		props:["cartPaymentHeader"],
+		methods:{
+			isClickIndex(){
+				this.$emit("isClickIndex",false);
+			}
+		}
 	}
 </script>
 

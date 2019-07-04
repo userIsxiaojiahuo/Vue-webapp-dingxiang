@@ -1,12 +1,11 @@
 <template>
 	<div class="drugDetails">
-		<DrugDetailsOpacity/>
 		<div class="drugDetails_box">
 			<!-- 药品详情页头部关闭 -->
-			<DrugDetailsHeader/>
+			<DrugDetailsHeader  @isNoDrugDetails="isNoDrugDetails"/>
 			<div class="onLineBuyDrugListLi_box">
 				<!-- 药品图片、价格和数目的加减 -->
-				<OnLineBuyDrugListLi :drugList="drug"/>
+				<OnLineBuyDrugListLi :drugList="drug" :isDrugBtu="isDrugBtu"/>
 			</div>
 			<!-- 药品详情页的提示 -->
 			<DrugDetailsTips :drugDetailsTips="drugDetailsTips"/>
@@ -24,6 +23,7 @@
 </template>
 
 <script>
+	// import newVue from "../assets/js/newVue.js"
 	/* 顶部透明模块 */	
 	import DrugDetailsOpacity from '../components/drugDetails/drugDetailsOpacity.vue'
 	/* 药品详情页头部关闭 */
@@ -53,18 +53,41 @@
 			OnLineBuyFoot,
 			OnLineFootCratBtu
 		},
+		props:["drugIndex"],
+		created(){
+			this.$store.dispatch('GetInfo', true);
+			let url = 'http://121.199.63.71:9006/medc_illness/'+this.drugIndex+'/details/'
+			this.$axios.get(url)
+			.then((response)=>{
+				if(response.data.code==200){
+					this.$store.dispatch('GetInfo', false);
+					this.drug = response.data.data[0];
+					this.drugInformation[0].text = response.data.data[0].med_name;
+					this.drugInformation[1].text = response.data.data[0].approval_number;
+					this.drugInformation[2].text = response.data.data[0].packing_size;
+					this.drugInformation[3].text = response.data.data[0].manufacturer;
+					this.drugInformation[4].text = response.data.data[0].shape;
+					this.drugInformation[5].text = response.data.data[0].attentions;
+					this.drugInformation[6].text = response.data.data[0].pdc_date;
+					this.drugInformation[7].text = response.data.data[0].taboo;
+					this.drugInformation[8].text = response.data.data[0].composition;
+					this.drugInformation[9].text = response.data.data[0].med_interact;
+					this.drugInformation[10].text = response.data.data[0].pharm_toxicity;
+					this.drugInformation[11].text = response.data.data[0].storage;
+					this.drugInformation[12].text = response.data.data[0].indications;
+					this.drugInformation[13].text = response.data.data[0].reaction;
+					this.drugInformation[14].text = response.data.data[0].med_formulation;
+				}
+			})
+			.catch((error)=>{
+				console.log(error)
+			})
+		},
 		data(){
 			return{
 				 // 药品的信息
-				drug:{
-					pic:require("../assets/onLineImg/drug-1.png"),
-					isPrescription:true,
-					drugName:"泰尔丝(异维A酸胶丸)",
-					drugpackage:"10mgx20粒/盒",
-					indications:"适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
-					drugPirce:35.60,
-					drugNum:0
-				},
+				drug:{},
+				isDrugBtu:true,
 				// 药品上边提示和保证
 				drugDetailsTips:{
 					beCareful:{
@@ -97,15 +120,59 @@
 						text:"泰尔丝(异维A酸胶丸)"
 					},
 					{
-						name:"药品名称",
+						name:"批准文号",
 						text:"泰尔丝(异维A酸胶丸)"
 					},
 					{
-						name:"药品名称",
+						name:"包装规格",
 						text:"泰尔丝(异维A酸胶丸)"
 					},
 					{
-						name:"药品名称",
+						name:"制造商",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"性状",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"注意事项",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"生产日期",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"禁忌",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"药品成分",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"药品相互作用",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"药理毒理",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"贮藏",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"适应症",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"不良反应",
+						text:"泰尔丝(异维A酸胶丸)"
+					},
+					{
+						name:"剂型",
 						text:"泰尔丝(异维A酸胶丸)"
 					}
 				],
@@ -113,6 +180,11 @@
 					title:"选择药品",
 					path:"/cart"
 				}
+			}
+		},
+		methods:{
+			isNoDrugDetails(){
+				this.$emit("isNoDrugDetails",false)
 			}
 		}
 	}
@@ -128,7 +200,6 @@
 	.drugDetails_box{
 		width: 100%;
 		position: absolute;
-		top: 165px;
 		left: 0;
 		background: #fff;
 	}

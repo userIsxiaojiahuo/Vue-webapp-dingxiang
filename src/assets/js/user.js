@@ -1,3 +1,4 @@
+import common from './common.js'
 // 获取验证码
 const MsgCode = (_this, codeInfo) => {
   _this.$store.dispatch('GetInfo', true);
@@ -10,7 +11,6 @@ const MsgCode = (_this, codeInfo) => {
   }).then((returned) => {
     if (returned.data.code === 200) {
       _this.$store.dispatch('GetInfo', false);
-      alert("验证码发送成功");
     }
   });
   console.log("发送中")
@@ -34,9 +34,11 @@ const loginOrRegister = (_this, codeInfo) => {
     url: 'http://121.199.63.71:9006/login_code/',
     data: info
   }).then((returned) => {
-    if (returned.data.code === 200) {
-      this.$router.push("/mine");
-      return returned.data.data
+    if (returned.status === 200) {
+      if (returned.data.code === 200) {
+        common.setCookie("token", returned.data.token);
+        _this.$router.replace('/mine')
+      }
     }
   })
 };

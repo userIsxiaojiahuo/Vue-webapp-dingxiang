@@ -8,12 +8,12 @@ import store from './store/index.js'
 import axios from "axios"
 import qs from "qs"
 import "./assets/css/reset.css"
-import {AddressEdit, Popup, PasswordInput, NumberKeyboard} from 'vant';
+import {AddressEdit, Popup, PasswordInput, NumberKeyboard,SwipeCell,Button,Checkbox, CheckboxGroup} from 'vant';
 
 axios.defaults.withCredentials = true;
 
 Vue.prototype.$axios = axios;
-Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard);
+Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard).use(SwipeCell).use(Button).use(Checkbox).use(CheckboxGroup);
 Vue.config.productionTip = false;
 
 new Vue({
@@ -27,7 +27,7 @@ new Vue({
 axios.interceptors.request.use(
   function (config) {
     config.headers["Content-Type"] = "application/x-www-form-urlencoded";
-    // const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (config.method === "post") {
       // post请求时，处理数据
       token ? (config.headers.Authorization = token) : null;

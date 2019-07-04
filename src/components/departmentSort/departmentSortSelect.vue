@@ -15,7 +15,7 @@
         <div class="departmentSorItem">
             <ul>
                 <li v-for="(item,index) in diagonseListDeparment"
-                    @click="handleClickLi(index)"
+                    @click="handleClickLi(index,item.id)"
                     :class="{deparmentListsLis:index===clickLi}"
                 >{{item.name}}
                 </li>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
     export default {
         name: "departmentSortSelect",
         props: ["diagonseListDeparment"],
@@ -39,8 +40,16 @@
                     path: "/Diagonse"
                 })
             },
-            handleClickLi(index) {
+            handleClickLi(index, id) {
                 this.clickLi = index;
+                this.$router.push(
+                    {
+                        path: "/Diagonse",
+                        query: {
+                            id: id
+                        }
+                    }
+                );
             }
         }
     }
@@ -49,7 +58,7 @@
 
 <style scoped>
 
-    /*选择科室*/
+    /* 选择科室 */
     .departmentSortSelect {
         width: 100%;
         height: 97px;
@@ -104,5 +113,6 @@
         line-height: 85px;
         text-align: center;
     }
+
 
 </style>

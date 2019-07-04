@@ -3,7 +3,7 @@
     <!--      顶部返回-->
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"/>
     <!--      内容-->
-    <ruleContent/>
+    <ruleContent v-if="isShowDiv"/>
   </div>
 </template>
 
@@ -22,8 +22,20 @@
       return {
         headerReturnTitle: {
           title: "返回"
-        }
+        },
+        isShowDiv: false
       }
+    },
+    mounted() {
+      // 内容加载时，显示的动画
+      this.$store.dispatch("GetInfo", true);
+      let times = null;
+      clearTimeout(times);
+      //延时加载
+      times = setTimeout(() => {
+        this.$store.dispatch("GetInfo", false);
+        this.isShowDiv = true
+      }, 2000)
     }
   }
 

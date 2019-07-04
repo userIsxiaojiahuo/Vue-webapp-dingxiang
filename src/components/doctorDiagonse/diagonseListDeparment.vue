@@ -1,12 +1,12 @@
 <template>
     <!--  科室分类-->
-    <div class="deparmentListsWarp">
+    <div class="deparmentListsWarp" :class="{deparmentListFixed:!scrollTop}">
         <div class="deparmentLists">
             <ul>
-                <li v-for="(item,index) in diagonseListDeparment"
-                    @click="handleClickLi(index)"
-                    :key="index"
-                    :class="{deparmentListsLi:index===clickLi}"
+                <li v-for="(item,lis) in diagonseListDeparment"
+                    @click="handleClickLi(lis,item.id)"
+                    :key="lis"
+                    :class="{deparmentListsLi:lis===clickLi}"
                 >
                     {{item.name}}
                 </li>
@@ -19,13 +19,18 @@
 </template>
 
 <script>
+
     export default {
         name: "diagonseListDeparment",
-        props: ["diagonseListDeparment"],
+        props: ["diagonseListDeparment", "scrollTop", "index"],
         data() {
             return {
-                clickLi: 0
+                clickLi: 0,
+                doctorListMessage: []
             }
+        },
+        created() {
+            // console.log(this.scrollTop)
         },
         methods: {
             handleClickDiv() {
@@ -33,10 +38,22 @@
                     path: "/doctorDiagonse"
                 })
             },
-            handleClickLi(index) {
+            handleClickLi(index, id) {
                 this.clickLi = index;
+                // 点击对应的科室渲染不同的数据
+                let url = "http://121.199.63.71:9006/ask_doctor/" + id + "/";
+                this.$axios.get(url).then((data) => {
+                    this.doctorListMessage = data.data.doct_data;
+                    //  把拿到的数据，传到父元素上渲染
+                    if (this.doctorListMessage !== "") {
+                        this.$emit("doctorInfo", this.doctorListMessage)
+                    }
+                });
             }
-        }
+        },
+        // mounted() {
+        //   console.log(this.diagonseListDeparment)
+        // }
     }
 </script>
 
@@ -48,6 +65,12 @@
         color: #fff;
         font-size: 28px;
         display: flex;
+    }
+
+    .deparmentListFixed {
+        position: fixed;
+        top: 120px;
+        z-index: 10;
     }
 
     .deparmentLists {
@@ -74,7 +97,7 @@
     }
 
     .deparmentLists > ul {
-        width: 770%;
+        width: 790%;
         height: 100%;
     }
 

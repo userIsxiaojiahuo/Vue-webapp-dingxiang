@@ -19,10 +19,7 @@
 </script>
 
 <style scoped>
-  .ruleContent{
-    width: 100%;
-    height: 100%;
-  }
+
   .ruleTitle{
     width: 100%;
     height: 120px;
@@ -52,5 +49,6 @@
     color: #999999;
     line-height: 50px;
     margin-bottom: 10px;
+    letter-spacing: 1px;/*no*/
   }
 </style>

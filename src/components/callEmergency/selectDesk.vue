@@ -20,7 +20,7 @@
     props:["selectDesk"],
     data(){
       return{
-        clickDiv:0
+        clickDiv:-1
       }
     },
     methods:{
