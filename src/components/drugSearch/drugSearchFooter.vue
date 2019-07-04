@@ -1,6 +1,6 @@
 <template>
   <div class="drugSearchFooter">
-    <span v-for="(item,index) in drugSearchFooter">{{item.title}}</span>
+    <span @click="drugSearch(item.title)" v-for="(item,index) in drugSearchFooter">{{item.title}}</span>
   </div>
 </template>
 
@@ -14,7 +14,23 @@
     },
     data() {
       return {}
-    }
+    },
+		methods: {
+			drugSearch(val) {
+				this.$store.dispatch('GetInfo', true);
+				let url = 'http://121.199.63.71:9006/medcine_search/'
+				this.$axios.post(url,{index:val})
+				.then((response)=>{
+					if(response.data.code==200){
+						this.$store.dispatch('GetInfo', false);
+						this.$emit("drugSearchResult",{isDrugSearchHot:false,isDrugSearchResult:true,result:response.data.datas})
+					}
+				})
+				.catch((error)=>{
+					console.log(error)
+				})
+			}
+		},
   }
 </script>
 
