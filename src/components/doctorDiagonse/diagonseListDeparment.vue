@@ -8,7 +8,7 @@
                     :key="index"
                     :class="{deparmentListsLi:index===clickLi}"
                 >
-                    {{item}}
+                    {{item.name}}
                 </li>
             </ul>
         </div>

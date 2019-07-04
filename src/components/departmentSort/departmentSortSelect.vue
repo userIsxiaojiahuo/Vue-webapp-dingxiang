@@ -17,7 +17,7 @@
                 <li v-for="(item,index) in diagonseListDeparment"
                     @click="handleClickLi(index)"
                     :class="{deparmentListsLis:index===clickLi}"
-                >{{item}}
+                >{{item.name}}
                 </li>
             </ul>
         </div>
