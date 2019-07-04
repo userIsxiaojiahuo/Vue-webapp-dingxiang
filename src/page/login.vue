@@ -14,15 +14,13 @@
         </template>
       </dxLoginOrRegister>
       <!--账号密码登录-->
-      <dxPassWordLogin v-if="!loginMode">
+      <dxPassWordLogin v-if="!loginMode" @phonePass="phonePass">
         <template v-slot:register>
           <span class="title">账号密码登录</span>
         </template>
       </dxPassWordLogin>
       <div class="checkLogin" @click="checkLoginMode">用账号密码登录</div>
-      <loginBtn v-slot:loginBtn @click.native="MsgLogin">
-        <span>登录</span>
-      </loginBtn>
+      <loginBtn v-slot:loginBtn @click.native="MsgLogin">登录</loginBtn>
       <dxProtocol/>
     </div>
   </div>
@@ -54,20 +52,33 @@
         common.goBack(this);
       },
       checkLoginMode() {
-        this.loginMode = !this.loginMode
+        this.loginMode = !this.loginMode;
       },
       MsgLogin() {
-        console.log(this.loginMode);
-        login.loginOrRegister(this, {
-          TEL: this.TEL,
-          code: this.code
-        });
+        if (this.loginMode) {
+          login.loginOrRegister(this, {
+            TEL: this.TEL,
+            code: this.code
+          });
+        } else {
+          console.log(this.phonePass());
+          login.phonePassLogin(this, {
+            TEL: this.TEL,
+            code: this.code
+          })
+        }
+
       },
       telCode(val) {
         let {phone, msgCode} = val;
         this.TEL = phone;
         this.code = msgCode
       },
+      phonePass(val) {
+        let {tel, password} = val;
+        this.TEL = tel;
+        this.code = password
+      }
     }
   }
 </script>

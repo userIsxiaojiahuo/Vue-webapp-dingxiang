@@ -1,7 +1,7 @@
 <template>
   <div class="loginUnder">
     <div class="loginBtn">
-      <button class="btn" :disabled="!(protocolOK&&inputOK)">
+      <button class="btn" :disabled="!(protocolOK&&inputOK || isLoginBtn)">
         <slot name="loginBtn"></slot>
       </button>
     </div>
@@ -17,18 +17,21 @@
       return {
         show: true,
         protocolOK: true,
-        inputOK: false
+        inputOK: false,
+        isLoginBtn: false
       }
     },
     methods: {},
     mounted() {
       newVue.$on('protocolOK', (protocolOK) => {
         this.protocolOK = protocolOK;
-        console.log(this.protocolOK)
       });
       newVue.$on('inputOK', (inputOK) => {
         this.inputOK = inputOK;
-        console.log(this.inputOK)
+      });
+      newVue.$on('isLoginBtn', (inputOK) => {
+        this.isLoginBtn = inputOK;
+        console.log(this.isLoginBtn)
       })
     }
   }

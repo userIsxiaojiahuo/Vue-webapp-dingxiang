@@ -33,6 +33,7 @@
           {
             title: '首页',
             img: require('../../assets/img/home/ic_home_s.png'),
+            img_active: require('../../assets/img/home/ic_home_n.png'),
             path: '/home',
             click: () => {
             }
@@ -46,6 +47,7 @@
           {
             title: '我的',
             img: require('../../assets/img/home/ic_mine_n.png'),
+            img_active: require('../../assets/img/home/ic_home_s.png'),
             path: '/mine',
             click: () => {
             }
