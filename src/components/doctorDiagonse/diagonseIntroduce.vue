@@ -1,7 +1,8 @@
 <template>
   <!--  医生介绍-->
   <div class="diagonseIntroduceWrap">
-    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce" v-for="(item,index) in diagonseIntroduce"
+    <router-link to="/doctorInfo" tag="div" class="diagonseIntroduce"
+                 v-for="(item,index) in diagonseIntroduce"
                  :key="index">
       <div class="IntroduceImg">
         <img :src="item.doc_img" alt="">
@@ -47,9 +48,15 @@
 </template>
 
 <script>
+  // import {Lazyload} from 'vant';
+
   export default {
     name: "diagonseIntroduce",
-    props: ["diagonseIntroduce"]
+    props: ["diagonseIntroduce"],
+    // components: {
+    //   "lazy-component": Lazyload
+    // }
+
   }
 </script>
 
