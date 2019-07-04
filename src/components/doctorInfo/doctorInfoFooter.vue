@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="doctorInfoFooterCon" @click="handleClick">
-            向{{doctorMessage.name}}医生提问
+            向{{doctorMessage.doctorMess.doc_name}}医生提问
         </div>
         <div>
             <van-popup

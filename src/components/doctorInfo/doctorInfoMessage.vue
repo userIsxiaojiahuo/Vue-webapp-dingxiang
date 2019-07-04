@@ -2,32 +2,28 @@
     <div class="messageCon">
         <div class="messageConLeft">
             <div class="messageLeftTop">
-                <h3>{{doctorMessage.name}}</h3>
-                <i v-if="doctorMessage.isRecommend"
-                   :style="{
-                            background:'url('+doctorMessage.recommend+')' + 'no-repeat',
-                            backgroundSize:'cover'
-                       }"
-                ></i>
+                <h3>{{doctorMessage.doctorMess.doc_name}}</h3>
+                <i v-if="doctorMessage.doctorMess.is_recommend"></i>
             </div>
             <div class="occupation">
-                <span class="occupationSpan">{{doctorMessage.department}}</span>
-                <span class="occupationSpan rank">{{doctorMessage.rank}}</span>
+                <span class="occupationSpan">{{doctorMessage.dep.dep_name}}</span>
+                <span class="occupationSpan rank">{{doctorMessage.doctorMess.doc_title}}</span>
             </div>
             <div class="hospitalClass">
-                <span class="hospitalSpan">{{doctorMessage.hospitalClass}}</span>
-                <span class="occupationSpan hospitalAddress">{{doctorMessage.hospitalAddress}}</span>
+                <span class="hospitalSpan" v-if="isShowDiv.isStarLevel">{{doctorMessage.hospital.hosp_level}}</span>
+                <span class="occupationSpan hospitalAddress">{{doctorMessage.hospital.hosp_name}}</span>
             </div>
-            <div class="CurriculumVitae" v-if="doctorMessage.isCurriculumVitae" @click="toDoctorResume">
+            <div class="CurriculumVitae"
+                 @click="toDoctorResume(doctorMessage.doctorMess.doc_id)">
                 医生履历
                 <i></i>
             </div>
         </div>
         <div class="messageConRight">
             <div class="doctorPhoto">
-                <img :src="doctorMessage.headerImg" alt="">
+                <img :src="doctorMessage.doctorMess.doc_img" alt="">
             </div>
-            <div class="attention" v-if="doctorMessage.isAttention">
+            <div class="attention">
                 关注
                 <i></i>
             </div>
@@ -36,17 +32,27 @@
 </template>
 
 <script>
+
     export default {
         name: "doctorInfoMessage",
         props: {
             doctorMessage: {
                 type: Object
+            },
+            isShowDiv: {
+                type: Object
             }
         },
+        // created() {
+        //     console.log(this.doctorMessage)
+        // },
         methods: {
-            toDoctorResume() {
+            toDoctorResume(id) {
                 this.$router.push({
-                    path: "/doctorResume"
+                    path: "/doctorResume",
+                    query: {
+                        id: id
+                    }
                 })
             }
         }
@@ -76,6 +82,8 @@
         width: 88px;
         height: 40px;
         margin-left: 14px;
+        background: url("../../assets/images/askdoctor/doctors/ic_list_translate.png") no-repeat;
+        background-size: cover;
     }
 
     .occupationSpan {
@@ -118,6 +126,7 @@
     .doctorPhoto > img {
         width: 140px;
         height: 140px;
+        border-radius: 50%;
     }
 
     .attention {

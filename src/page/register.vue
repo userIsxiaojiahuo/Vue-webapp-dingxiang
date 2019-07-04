@@ -43,11 +43,21 @@
         this.code = msgCode
       },
       registerBtn() {
-        console.log()
-        login.loginOrRegister(this, {
-          TEL: this.TEL,
-          code: this.code
-        });
+        this.$axios({
+          method: 'post',
+          url: 'http://121.199.63.71:9006/login_code/',
+          data: {
+            TEL: this.TEL,
+            code: this.code
+          }
+        }).then((returned) => {
+          if (returned.status === 200) {
+            if (returned.data.code === 200) {
+              common.setCookie("token", returned.data.token, 1);
+              this.$router.replace('/login')
+            }
+          }
+        })
       }
     }
   }

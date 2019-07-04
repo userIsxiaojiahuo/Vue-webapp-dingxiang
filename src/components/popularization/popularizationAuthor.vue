@@ -1,9 +1,9 @@
 <template>
     <div class="bigBox">
-        <img :src="authorMsg.img">
+        <img :src="popuMessage.auth_img"/>
         <div class="box">
-            <p class="name">{{authorMsg.name}}</p>
-            <p class="platform">{{authorMsg.platform}}</p>
+            <p class="name">{{popuMessage.auth}}</p>
+            <p class="platform">{{popuMessage.subjection}}</p>
         </div>
     </div>
 </template>
@@ -12,7 +12,7 @@
     export default {
         name: "popularizationAuthor",
         props:{
-            authorMsg:{
+            popuMessage:{
                 type:Object
             }
         }
