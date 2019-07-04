@@ -12,7 +12,11 @@
 		name:"drugDetailsHeader",
 		methods:{
 			isDrugDetails(){
-				this.$emit("isNoDrugDetails",false)
+				if(this.$route.query.id){
+					this.$router.go(-1);
+				}else{
+					this.$emit("isNoDrugDetails",false)
+				}
 			}
 		}
 	}

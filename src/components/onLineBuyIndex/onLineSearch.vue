@@ -1,10 +1,10 @@
 <template>
-	<div class="onLineSearch">
+	<router-link to="/drugSearch" tag="div" class="onLineSearch">
 		<div class="onLineSearch-input">
 			<img src="../../assets/onLineImg/ic_search_after.png">
 			<span>{{onLineSearch}}</span>
 		</div>
-	</div>
+	</router-link>
 </template>
 
 <script>
