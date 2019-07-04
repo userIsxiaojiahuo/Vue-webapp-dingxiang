@@ -1,7 +1,7 @@
 <template>
   <div class="cartPayment">
     <!-- 支付界面头部 -->
-    <CartPaymentHeader :cartPaymentHeader="cartPaymentHeader"/>
+    <CartPaymentHeader :cartPaymentHeader="cartPaymentHeader" @isClickIndex="isClickIndex"/>
     <!-- 支付金额 -->
     <CartPaymentPirce :CartPaymentPirce="CartPaymentPirce"/>
     <!-- 支付页面的支付方式 订单信息 -->
@@ -37,7 +37,12 @@
           title: "确认支付"
         }
       }
-    }
+    },
+		methods:{
+			isClickIndex(val){
+				this.$emit("isClickIndex",val);
+			}
+		}
   }
 </script>
 <style  src="../assets/css/cartPayment.css"></style>

@@ -3,7 +3,7 @@
         <div class="resumecontent">
             <div class="resumeTitle" v-for="(item,index) in resumeHtml" :key="index">
                 <h3>{{item.title}}</h3>
-                <ResumePageText :text="item.text"></ResumePageText>
+                <ResumePageText :text="doctorMessage.doctorMess.doc_goods"></ResumePageText>
             </div>
         </div>
     </div>
@@ -17,10 +17,6 @@
         components: {
             ResumePageText
         },
-        props: {
-            resumeHtml: {
-                type: Array
-            }
-        }
+        props: ["resumeHtml", "doctorMessage"]
     }
 </script>

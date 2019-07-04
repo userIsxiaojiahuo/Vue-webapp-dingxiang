@@ -1,6 +1,7 @@
 <template>
     <div class="doctorsMessage">
-        <div class="doctorMess" @click.stop="toDoctorMessage($event)" v-for="(item,index) in doctorMessages"
+        <div class="doctorMess" @click="toDoctorMessage(item.id)"
+             v-for="(item,index) in doctorMessages"
              :key="index">
             <div class="messageLeft">
                 <div class="headerImg">
@@ -45,6 +46,7 @@
 
 <script>
     import dxHighlyRecomIcon from '../../../components/public/dxHighlyRecomIcon'
+    import Bug from "../../../assets/js/newVue"
 
     export default {
         name: "doctorMessage",
@@ -54,9 +56,12 @@
             }
         },
         methods: {
-            toDoctorMessage() {
+            toDoctorMessage(id) {
                 this.$router.push({
-                    path: "/doctorInfo"
+                    path: "/doctorInfo",
+                    query: {
+                        id: id
+                    }
                 })
             },
             handleToImgInquiry() {

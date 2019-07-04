@@ -1,7 +1,8 @@
 <template>
   <!--安全变美-->
   <div class="safeBeautyWrap">
-    <div class="beautyItem" v-for="item in beautyList"><!--:style="{background:item.backgroundImg}"-->
+    <div class="beautyItem" v-for="item in beautyList"
+         :style="{backgroundImage:'url('+item.backgroundImg+')'}">
       <div class="beautyItemTitle">{{item.title}}
         <span class="beautyItemDesc">{{item.desc}}</span>
       </div>
@@ -18,4 +19,5 @@
     props:["beautyList"]
   }
 </script>
+
 

@@ -27,7 +27,7 @@
         name: "messageList",
         props: {
             hospitalMess: {
-                type: Array
+                type: Object
             }
         },
         methods: {

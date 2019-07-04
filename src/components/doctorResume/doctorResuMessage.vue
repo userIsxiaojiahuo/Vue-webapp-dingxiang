@@ -6,54 +6,34 @@
                 <i v-if="doctorMessage.doctorMess.is_recommend"></i>
             </div>
             <div class="occupation">
-                <span class="occupationSpan">{{doctorMessage.dep.dep_name}}</span>
+                <span class="occupationSpan">{{doctorMessage.doctorMess.dep_name}}</span>
                 <span class="occupationSpan rank">{{doctorMessage.doctorMess.doc_title}}</span>
             </div>
             <div class="hospitalClass">
-                <span class="hospitalSpan" v-if="isShowDiv.isStarLevel">{{doctorMessage.hospital.hosp_level}}</span>
-                <span class="occupationSpan hospitalAddress">{{doctorMessage.hospital.hosp_name}}</span>
-            </div>
-            <div class="CurriculumVitae"
-                 @click="toDoctorResume(doctorMessage.doctorMess.doc_id)">
-                医生履历
-                <i></i>
+                <span class="hospitalSpan">{{doctorMessage.hospitalMess.hosp_level}}</span>
+                <span class="occupationSpan hospitalAddress">{{doctorMessage.hospitalMess.hosp_name}}</span>
             </div>
         </div>
         <div class="messageConRight">
             <div class="doctorPhoto">
                 <img :src="doctorMessage.doctorMess.doc_img" alt="">
             </div>
-            <div class="attention">
-                关注
-                <i></i>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import Bug from "../../assets/js/newVue"
 
     export default {
         name: "doctorInfoMessage",
-        props: {
-            doctorMessage: {
-                type: Object
-            },
-            isShowDiv: {
-                type: Object
-            }
+        props: ["doctorMessage"],
+        created() {
+            console.log(this.doctorMessage)
         },
-        // created() {
-        //     console.log(this.doctorMessage)
-        // },
         methods: {
             toDoctorResume(id) {
-                this.$router.push({
-                    path: "/doctorResume",
-                    query: {
-                        id: id
-                    }
-                })
+                Bug.$emit("doctorMess", id)
             }
         }
     }

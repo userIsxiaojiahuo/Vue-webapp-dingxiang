@@ -1,9 +1,9 @@
 <template>
 	<div class="paymentMethod">
 		<!-- 头部 -->
-		<CartPaymentHeader :cartPaymentHeader="cartPaymentHeader"/>
+		<CartPaymentHeader :cartPaymentHeader="cartPaymentHeader" @isClickIndex="isClickIndex"/>
 		<!-- 支付方式列表 -->
-		<PaymentMethodUl :paymentMethodUl="paymentMethodUl"/>
+		<PaymentMethodUl :paymentMethodUl="paymentMethodUl" @paymentMethodIdex="paymentMethodIdex"/>
 	</div>
 </template>
 
@@ -41,6 +41,18 @@
 						isSelection:false
 					}
 				]
+			}
+		},
+		methods:{
+			isClickIndex(val){
+				this.$emit("isClickIndex",val);
+			},
+			paymentMethodIdex(val){
+				for(let i=0;i<this.paymentMethodUl.length;i++){
+					this.paymentMethodUl[i].isSelection = false;
+				}
+				this.paymentMethodUl[val].isSelection = true;
+				this.$emit("paymentMethodValue",this.paymentMethodUl[val].title)
 			}
 		}
 	}

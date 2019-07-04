@@ -1,10 +1,10 @@
 <template>
-  <router-link to="OnLineBuyDrugList" tag="div" class="onLineBuySort">
+  <div class="onLineBuySort">
     <div class="onLineBuySort-title">
       <span>{{commSort?commSort:buySortNavigation}}</span>
     </div>
     <slot></slot>
-  </router-link>
+  </div>
 </template>
 
 <script>

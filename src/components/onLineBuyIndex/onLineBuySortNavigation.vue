@@ -1,14 +1,20 @@
 <template>
   <ul class="onLineBuySortNavigation">
-    <li v-for="(item,index) in buySortNavigation" :key="index">{{item}}</li>
+    <router-link to="/onLineBuyDrugList" tag="li" v-for="(item,index) in buySortNavigation" @click.native="drugIndex(item.id)" :key="index" >{{item.name}}</router-link>
   </ul>
 </template>
 
 <script>
+	import newVue from "../../assets/js/newVue.js"
   /*病情分类导航列表*/
   export default {
     name: "onLineBuySortNavigation",
-    props: ["buySortNavigation"]
+    props: ["buySortNavigation"],
+		methods: {
+			drugIndex(val){
+				newVue.$emit("drugIndex",val)
+			}
+		}
   }
 </script>
 
