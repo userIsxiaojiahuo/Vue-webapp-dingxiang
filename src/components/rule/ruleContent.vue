@@ -49,5 +49,6 @@
     color: #999999;
     line-height: 50px;
     margin-bottom: 10px;
+    letter-spacing: 1px;/*no*/
   }
 </style>

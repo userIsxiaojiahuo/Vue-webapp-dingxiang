@@ -7,7 +7,6 @@
     <!--安全变美-->
     <beautyList :beautyList="beautyItem"></beautyList>
   </div>
-
 </template>
 
 <script>
@@ -21,11 +20,17 @@
       return {
         beautyItem: [
           {
-            // backgroundImg:require("url()"),
+            backgroundImg: require('../assets/img/diagonseImg/back04.jpg'),
             title: "脱发了？医生给你生发秘籍",
             desc: "变丑千万条  脱发第一条"
           },
           {
+            backgroundImg: require('../assets/img/diagonseImg/back02.jpg'),
+            title: "脱发了？医生给你生发秘籍",
+            desc: "变丑千万条  脱发第一条"
+          },
+          {
+            backgroundImg: require('../assets/img/diagonseImg/back06.jpg'),
             title: "脱发了？医生给你生发秘籍",
             desc: "变丑千万条  脱发第一条"
           }

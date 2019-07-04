@@ -143,7 +143,7 @@
 
   .swiper-pagination {
     position: absolute;
-    bottom: 0;
+    /*bottom: 0;*/
   }
 
   /deep/ .swiper-pagination-bullet-active {

@@ -6,19 +6,17 @@
       <OnLineBuyListHeaber :onLineSearch="search"/>
     </HeaderReturn>
     <!-- 药品列表 -->
-    <OnLineBuyDrugListUl :drugList="drug"/>
+    <OnLineBuyDrugListUl :drugList="drug" :isDrugBtu="isDrugBtu"/>
     <!-- 药品列表底部购物车和购买按钮 -->
     <OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
       <!-- 在线购药底部购物车按钮的图片和内容 -->
       <OnLineFootCratBtu/>
     </OnLineBuyFoot>
-    <van-popup v-model="show" position="bottom"
-               :style="{ height: '535px' }">内容
-    </van-popup>
   </div>
 </template>
 
 <script>
+	import newVue from "../assets/js/newVue.js"
   /* 头部返回 */
   import HeaderReturn from '../components/public/dxHeaderReturn.vue'
   /* 搜索 */
@@ -29,7 +27,6 @@
   import OnLineBuyFoot from '../components/public/dxOnLineBuyFoot.vue'
   /* 在线购药底部购物车按钮的图片和内容 */
   import OnLineFootCratBtu from '../components/onLIneBuyDrugList/onLineFootCratBtu.vue'
-  import {Popup} from 'vant'
   /* 本组件在线购药药品列表 */
   export default {
     name: "onLIneBuyDrugList",
@@ -39,8 +36,36 @@
       OnLineBuyDrugListUl,
       OnLineBuyFoot,
       OnLineFootCratBtu,
-      "van-popup": Popup
     },
+		created(){
+			this.$store.dispatch('GetInfo', true);
+			let url = "";
+			if(url==""){
+				this.$axios.get('http://121.199.63.71:9006/medc_illness/1-1/')
+				.then((response)=>{
+					if(response.data.code==200){
+						this.$store.dispatch('GetInfo', false);
+						this.drug = response.data.data;
+					}
+				})
+				.catch((error)=>{
+					console.log(error)
+				})
+			}
+			newVue.$on("drugIndex",(val)=>{
+				url = 'http://121.199.63.71:9006/medc_illness/'+val+'/';
+				this.$axios.get(url)
+				.then((response)=>{
+					if(response.data.code==200){
+						this.$store.dispatch('GetInfo', false);
+						this.drug = response.data.data;
+					}
+				})
+				.catch((error)=>{
+					console.log(error)
+				})
+			})
+		},
     data() {
       return {
         headerReturn: {
@@ -51,29 +76,11 @@
           pic: require("../assets/onLineImg/ic_search_after.png"),
           title: "痘痘"
         },
-        drug: [
-          {
-            pic: require("../assets/onLineImg/drug-1.png"),
-            isPrescription: true,
-            drugName: "泰尔丝(异维A酸胶丸)",
-            drugpackage: "10mgx20粒/盒",
-            indications: "适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
-            drugPirce: 35.60,
-            drugNum: 0
-          },
-          {
-            pic: require("../assets/onLineImg/drug-1.png"),
-            isPrescription: false,
-            drugName: "泰尔丝(异维A酸胶丸)",
-            drugpackage: "10mgx20粒/盒",
-            indications: "适用于重度难治性结节性痔疮(结节性痔疮，即直径≥5mm的炎性损害，结节可能化脓或出血)。适用于重度难治性结节",
-            drugPirce: 35.60,
-            drugNum: 0
-          }
-        ],
+				isDrugBtu:true,
+        drug: [],
         onLineBuyFoot: {
-          title: "选择药品",
-          path: "/cart"
+          title: "去支付",
+          path: "/orderFilling"
         },
         show: false
       }

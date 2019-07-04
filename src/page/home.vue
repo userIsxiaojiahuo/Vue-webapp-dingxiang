@@ -12,11 +12,14 @@
       <!--分割-->
       <homeSeparate/>
       <!--轮播图-->
-      <homeSwiper :indexSwiper="indexSwiper"/>
+      <homeSwiper :indexSwiper="obj"/>
       <!--分割-->
       <homeSeparate/>
       <!--科普文章-->
-      <homePageOne/>
+      <h1>今日推荐</h1>
+      <div class="homeRecommend">
+        <homePageOne :obj="item" v-for="(item,index) in obj.today_recommend" :key="index"/>
+      </div>
     </div>
   </div>
 </template>
@@ -112,23 +115,19 @@
           }
         ],
         indexExplain: require('../assets/img/home/im_trest_homepage.png'),
-        indexSwiper: {
-          indexSwiperImgs: [
-            require("../assets/img/home/swiper1.jpg"),
-            require("../assets/img/home/swiper1.jpg"),
-            require("../assets/img/home/swiper1.jpg"),
-          ]
-        }
+        obj: []
       }
     },
-    /*mounted() {
-      this.$nextTick(() => {
-        new BScroll(document.getElementsByClassName('homeContentWrapper')[0], {
-          scrollY: true,
-          click: true
-        })
+    created() {
+      this.$store.dispatch("GetInfo", true);
+      this.$axios.get("http://121.199.63.71:9006/article/").then((data) => {
+        if (data.data.code === 206) {
+          this.$store.dispatch("GetInfo", false);
+          this.obj = data.data.data;
+          console.log(this.obj)
+        }
       })
-    }*/
+    },
   }
 </script>
 
@@ -143,4 +142,12 @@
     overflow-y: auto;
   }
 
+  .homeRecommend {
+    margin-bottom: 340px;
+    padding: 20px 36px;
+  }
+
+  h1 {
+    padding: 36px 0 0 36px;
+  }
 </style>

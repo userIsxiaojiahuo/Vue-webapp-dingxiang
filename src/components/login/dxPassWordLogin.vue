@@ -37,7 +37,6 @@
 
 <script>
   import user from '../../assets/js/user.js'
-  import newVue from '../../assets/js/newVue.js'
 
   export default {
     name: "dxLoginOrRegister",
@@ -71,7 +70,7 @@
     watch: {
       phoneNumber(newValue) {
         if (newValue.length > 0) {
-          newVue.$emit('isLoginBtn', true)
+          this.newVue.$emit('isLoginBtn', true)
         }
       }
     }

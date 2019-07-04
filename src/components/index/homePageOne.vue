@@ -1,38 +1,34 @@
 <template>
   <div class="homePageOne">
     <div class="indexPage">
-      <span>6月22日</span>
-      <h1>今日推荐</h1>
-      <div class="homeArticleWrapper">
-        <img class="imgAuto" src="../../assets/img/home/20190317165726_wVYP8.png" alt="">
-        <h3>热门关注</h3>
-      </div>
-      <div class="homeArticleWrapper">
-        <img class="imgAuto" src="../../assets/img/home/20190317165726_wVYP8.png" alt="">
-      </div>
+      <span>{{obj.recommend_time}}</span>
+      <router-link :to="'/Popularization?id='+item.id" tag="div" class="homeArticleWrapper"
+                   v-for="(item,index) in obj.recommend_info" :key="index">
+        <img class="imgAuto" :src="item.title_img" alt="">
+        <h3>{{item.art_class}}</h3>
+        <div class="InfoTitle">{{item.title}}</div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "homePageOne"
+    name: "homePageOne",
+    props: ['obj']
   }
 </script>
 
 <style scoped>
   .homePageOne {
     width: 100%;
-    margin-bottom: 340px;
   }
 
   .indexPage {
-    width: 690px;
     margin: 0 auto;
-    padding-top: 30px;
   }
 
-  .homePageOne span {
+  .homePageOne span:nth-child(0) {
     color: #9d9d9d;
     font-size: 22px;
   }
@@ -43,10 +39,30 @@
   }
 
   .homePageOne .homeArticleWrapper {
-    width: 690px;
+    width: 100%;
     height: 520px;
     margin-top: 60px;
     border-radius: 32px;
     overflow: hidden;
+    position: relative;
+    box-shadow: 5px 5px 20px #999999;
+  }
+
+
+  h3 {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    color: #999999;
+    font-size: 24px;
+    padding: 0 20px;
+  }
+
+  .InfoTitle {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    font-size: 36px;
+    padding: 0 20px;
   }
 </style>

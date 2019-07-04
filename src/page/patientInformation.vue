@@ -33,7 +33,10 @@
           path: "/addInformation"
         },
         isHaveInfo: true,
-        patientInfo: ""
+        patientInfo: "",
+        isShow: false,
+        isShowDiv: true,
+        login: "未登录"
       }
     },
     created() {
@@ -56,7 +59,22 @@
           }
         }
       })
+
     }
+
+    ,
+    mounted() {
+      // this.$store.dispatch("GetInfo", true);
+      // this.$axios.get("http://121.199.63.71:9006/patient_list/").then(data => {
+      //   if (data.data.code === 400) {
+      //     this.isShow = false;
+      //     this.isShowDiv=false;
+      //     this.$store.dispatch("GetInfo", false);
+      //     this.login= data.data.msg
+      //   }
+      // })
+    }
+
   }
 </script>
 

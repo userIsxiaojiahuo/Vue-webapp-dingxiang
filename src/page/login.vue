@@ -53,27 +53,62 @@
       },
       checkLoginMode() {
         this.loginMode = !this.loginMode;
+        console.log(this.loginMode);
       },
       MsgLogin() {
         if (this.loginMode) {
-          login.loginOrRegister(this, {
-            TEL: this.TEL,
-            code: this.code
-          });
+          // 手机号验证码登录
+          this.$store.dispatch('GetInfo', true);
+          this.$axios({
+            method: 'post',
+            url: 'http://121.199.63.71:9006/login_code/',
+            data: {
+              phone: this.TEL,
+              input_code: this.code
+            }
+          }).then((returned) => {
+            if (returned.status === 200) {
+              if (returned.data.code === 200) {
+                this.$store.dispatch('GetInfo', false);
+                common.setCookie("token", returned.data.token, 1);
+                this.$router.replace('/mine')
+              }
+            }
+          })
         } else {
-          console.log(this.phonePass());
-          login.phonePassLogin(this, {
-            TEL: this.TEL,
-            code: this.code
+          console.log(123456);
+          console.log({
+            phone: this.TEL,
+            auth_str: this.code
+          });
+          // 手机号密码登录
+          this.$store.dispatch('GetInfo', true);
+          this.$axios({
+            method: 'post',
+            url: 'http://121.199.63.71:9006/login_str/',
+            data: {
+              phone: this.TEL,
+              auth_str: this.code
+            }
+          }).then((returned) => {
+            if (returned.status === 200) {
+              if (returned.data.code === 200) {
+                this.$store.dispatch('GetInfo', false);
+                common.setCookie("token", returned.data.token, 1);
+                this.$router.replace('/mine')
+              }
+            }
           })
         }
 
       },
+      // 手机验证码登录
       telCode(val) {
         let {phone, msgCode} = val;
         this.TEL = phone;
         this.code = msgCode
       },
+      // 手机密码登录
       phonePass(val) {
         let {tel, password} = val;
         this.TEL = tel;

@@ -14,4 +14,98 @@
 	font-weight: 700;
 }
 /* cartTotalPrice end*/
+
+
+/* cartList start */
+	.cartList{
+		width: 100%;
+		padding: 0 30px;
+	}
+	.cartList>li{
+		width: 100%;
+		height: 252px;
+		border-bottom: 1px solid #ebebeb;
+		padding: 40px 0 42px;
+		display: flex;
+	}
+	.cartListDrug{
+		width: 100%;
+		margin-left: 10px;
+		display: flex;
+	}
+	.cartList_img {
+		width: 170px;
+		height: 170px;
+		flex: 0 0 24.63%;
+		position: relative;
+		margin-right: 20px;
+	}
+
+	.cartList_img > img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.cartList_img > span {
+		display: block;
+		width: 100%;
+		height: 56px;
+		background: #666666;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		line-height: 56px;
+		font-size: 26px;
+		color: #fff;
+	}
+
+	.cartList_text {
+		height: 100%;
+		width: 100%;
+	}
+
+	.cartList_med_name {
+	font-size: 35px;
+	color: #000;
+	}
+	.cartList_text>span{
+		display:block;
+		font-size: 24px;
+		color: #000;
+	}
+	.cartList_text>.cartList_packing_size{
+		color: #333333;
+	}
+	.cartList_text>.cartList_med_stock{
+		color: #999;
+	}
+	.cartList_num_btu {
+	  width: 182px;
+	  height: 54px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
+	
+	.cartList_num_btu > img {
+	  height: 100%;
+	}
+	
+	.cartList_num_btu > span {
+	  color: #333333;
+	  font-size: 22px;
+	}
+	.cartList_price {
+	  color: #28b7a3;
+	  font-size: 30px;
+	  font-weight: 600;
+	}
+	.cartList_list_price{
+		height: 54px;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+/* cartList end */
 	

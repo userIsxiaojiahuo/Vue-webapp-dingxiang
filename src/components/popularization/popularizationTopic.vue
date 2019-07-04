@@ -1,12 +1,12 @@
 <template>
-    <p>{{topicMsg.tit}}</p>
+    <p>{{popuMessage.title}}</p>
 </template>
 
 <script>
     export default {
         name: "popularizationTopic",
         props:{
-            topicMsg:{
+            popuMessage:{
                 type:Object
             }
         }
