@@ -44,6 +44,7 @@
               this.deparmentList.push(item)
             })
           })
+          // console.log(this.deparmentList)
         }
       })
     }
