@@ -49,6 +49,15 @@
       mineListWrapper,
       dxUnderState
     },
+    created() {
+      let token = this.common.getCookie('token');
+      this.$axios({
+        method: 'get',
+        url: "http://121.199.63.71:9006/own_page/?token=" + token,
+      }).then((returnInfo) => {
+        console.log(returnInfo)
+      })
+    }
 
   }
 </script>

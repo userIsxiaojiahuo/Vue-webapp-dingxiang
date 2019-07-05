@@ -2,7 +2,7 @@
     <div class="hospitalMessageTitle">
         <div class="messagecon">
             <h3>医院信息</h3>
-            <MessageList :hospitalMess="hospitalMess"></MessageList>
+            <MessageList :hospitalMess="doctorMessage.hospitalMess"></MessageList>
         </div>
     </div>
 </template>
@@ -15,10 +15,6 @@
         components: {
             MessageList
         },
-        props: {
-            hospitalMess: {
-                type: Array
-            }
-        }
+        props: ["doctorMessage"]
     }
 </script>

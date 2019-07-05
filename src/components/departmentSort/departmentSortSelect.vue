@@ -16,8 +16,8 @@
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
             @click="handleClickLi(item.id)"
-            :class="{deparmentListsLis:item.id==clickLi}"
-        >{{item.name}}
+            :class="{deparmentListsLis:item.id==clickLi}">
+          {{item.name}}
         </li>
       </ul>
     </div>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-
   export default {
     name: "departmentSortSelect",
     props: ["diagonseListDeparment"],
@@ -35,9 +34,9 @@
       }
     },
     created() {
-      if(this.$route.query.id){
+      if (this.$route.query.id) {
         this.clickLi = this.$route.query.id;
-      }else {
+      } else {
         this.clickLi = 1;
       }
     },
@@ -66,7 +65,7 @@
 
 <style scoped>
 
-  /*选择科室*/
+  /* 选择科室 */
   .departmentSortSelect {
     width: 100%;
     height: 97px;
@@ -108,23 +107,6 @@
   .departmentSorItem .deparmentListsLis {
     border: 1px solid #28b7a3;
     color: #28b7a3;
-  }
-
-  .departmentSorItem > ul {
-    overflow: hidden;
-    margin-bottom: 30px;
-  }
-
-  .departmentSorItem > ul > li {
-    margin: 10px 16px;
-    float: left;
-    font-size: 28px;
-    width: 315px;
-    height: 85px;
-    border: 2px solid #d9d9d9;
-    border-radius: 7px;
-    line-height: 85px;
-    text-align: center;
   }
 
   .departmentSorItem > ul > li {

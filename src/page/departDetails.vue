@@ -20,7 +20,6 @@
 
 <script>
 
-    import Bug from "../assets/js/newVue.js"
     import dxHeaderReturn from "../components/public/dxHeaderReturn"
     import dxHeaderIconWrap from "../components/public/dxHeaderIconWrap"
     import Search from "../components/askDoctor/askDoctorPage/search"
@@ -40,7 +39,7 @@
         data() {
             return {
                 headerMessage: {
-                    title: "皮肤病科",
+                    title: "",
                     show: false,
                     isStartImg: false
                 },
@@ -71,34 +70,20 @@
                         headerImg: require("../assets/images/askdoctor/doctorHead_04.png")
                     }
                 ],
-                ids: 0,
                 doctorMessages: []
             }
         },
-        mounted() {
-            this.$store.dispatch("GetInfo", true);
-            Bug.$on("id", ({index, name}) => {
-                this.headerMessage.title = name;
-                let url = 'http://121.199.63.71:9006/ask_doctor/' + index + '/';
-                this.$axios.get(url).then(data => {
-                    if (data.data.code === 200) {
-                        this.isShowDiv = true;
-                        this.$store.dispatch("GetInfo", false);
-                        this.doctorMessages = data.data.doct_data;
-                    }
-                })
-            })
-        },
         created() {
+            this.headerMessage.title = this.$route.query.name;
             this.$store.dispatch("GetInfo", true);
-            this.$axios.get("http://121.199.63.71:9006/ask_doctor/1/").then(data => {
+            this.$axios.get("http://121.199.63.71:9006/ask_doctor/" + this.$route.query.id).then(data => {
                 if (data.data.code === 200) {
                     this.isShowDiv = true;
                     this.$store.dispatch("GetInfo", false);
                     this.doctorMessages = data.data.doct_data;
                 }
             })
-        }
+        },
     }
 </script>
 <style src="../assets/css/departDetails.css"></style>

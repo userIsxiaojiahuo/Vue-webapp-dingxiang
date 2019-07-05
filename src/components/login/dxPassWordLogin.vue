@@ -21,7 +21,7 @@
         </div>
         <div class="AreaInputWrapper">
           <input class="AreaInput input" type="text" placeholder="请输入密码" v-model="passWordNum"
-                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}">
+                 @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '密码格式错误' && promptMSg===true}">
         </div>
       </div>
       <!--验证码-->
@@ -44,7 +44,7 @@
       return {
         phoneNumber: '',
         passWordNum: '',
-        promptMSgInfo: "",
+        promptMSgInfo: '',
         getMsgNum: false,
         promptMSg: false,
       }
@@ -56,27 +56,21 @@
         // 正则验证
         this.promptMSg = !user.isMsgSuccess(this.phoneNumber.replace(/\s/g, ""));
         this.promptMSgInfo = "手机号输入格式不正确";
-        console.log(this.promptMSgInfo)
       },
       // 短信手机验证
       MsgCodePromptMsg() {
         this.passWordNum.length !== 0 ? this.promptMSg = false : this.promptMSg = true;
         this.promptMSgInfo = "密码格式错误";
-        console.log(this.promptMSgInfo)
+        this.$emit('phonePass', {tel: this.phoneNumber, password: this.passWordNum})
       },
-      findPass(){
+      findPass() {
         this.$router.push("/findPassword")
       }
     },
     watch: {
-      phoneNumber(newValue, oldValue) {
-        if (newValue.length >= 13 && user.isMsgSuccess(newValue.replace(/\s/g, ""))) {
-          this.getMsgNum = true;
-        }
-        if (newValue.length > oldValue.length) {
-          if (newValue.length === 3 || newValue.length === 8) {
-            this.phoneNumber += ' ';
-          }
+      phoneNumber(newValue) {
+        if (newValue.length > 0) {
+          this.newVue.$emit('isLoginBtn', true)
         }
       }
     }

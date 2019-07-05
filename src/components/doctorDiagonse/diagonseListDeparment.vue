@@ -22,7 +22,7 @@
 
   export default {
     name: "diagonseListDeparment",
-    props: ["diagonseListDeparment", "scrollTop","index"],
+    props: ["diagonseListDeparment", "scrollTop", "index"],
     data() {
       return {
         clickLi: 1,
@@ -30,9 +30,9 @@
       }
     },
     created() {
-      if(this.$route.query.id){
+      if (this.$route.query.id) {
         this.clickLi = this.$route.query.id;
-      }else {
+      } else {
         this.clickLi = 1;
       }
     },
@@ -55,9 +55,6 @@
         });
       }
     },
-    // mounted() {
-    //   console.log(this.diagonseListDeparment)
-    // }
   }
 </script>
 
@@ -103,6 +100,7 @@
   .deparmentLists > ul {
     width: 790%;
     height: 100%;
+    float: left;
   }
 
   .deparmentLists > ul > li {
