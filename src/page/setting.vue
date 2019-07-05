@@ -1,7 +1,7 @@
 <template>
     <div class="setBox">
         <dxHeaderReturn :headerReturnTitle="headerTitle"/>
-        <!--大循环-->
+        <!--大循环头像昵称性别身份手机号微信-->
         <div class="contentWrapper">
             <SetContent :titMsg="items" v-for="(items,index) in titMsg" :key="index" @click.native="showPopup(index)" ref="buttonSex">
                 <!--插槽 头像-->
@@ -10,18 +10,27 @@
                         <img class="imgAuto" :src="items.img">
                     </div>
                 </template>
-
             </SetContent>
-            <van-popup v-model="showOne" :style="{height: '17%',width:'85%',borderRadius:'3px'}">
+            <!--vant组件弹出层换头像-->
+            <van-popup v-model="showOne"
+                       :style="{height: '17%',width:'85%',borderRadius:'3px'}"
+            >
                 <div class="names">拍照</div>
                 <div class="names">上传图片</div>
             </van-popup>
-            <van-popup v-model="showTwo" :style="{height: '17%',width:'85%',borderRadius:'3px'}" @click="selectPhotoPic">
+            <!--vant组件弹出层修改性别-->
+            <van-popup v-model="showTwo"
+                       :style="{height: '17%',width:'85%',borderRadius:'3px'}"
+                       @click="selectPhotoPic"
+            >
                 <div class="names" v-for="(item,index) in sex" :key="index">{{item}}</div>
             </van-popup>
         </div>
+        <!--检查更新推荐给朋友关于我们-->
         <div class="contentWrapper">
-            <SetContent :titMsg="items" v-for="(items,index) in titMsgg" :key="index"/>
+            <SetContent :titMsg="items"
+                        v-for="(items,index) in titMsgg"
+                        :key="index"/>
         </div>
         <SetQuit/>
     </div>
@@ -62,6 +71,7 @@
                         tit: "江花花",
                         path: "setAmendname",
                         event: ()=>{
+                            console.log(11)
                         }
                     },
                     {

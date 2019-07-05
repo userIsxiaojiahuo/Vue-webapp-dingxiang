@@ -23,18 +23,29 @@
             <div class="doctorPhoto">
                 <img :src="doctorMessage.doctorMess.doc_img" alt="">
             </div>
-            <div class="attention">
+            <div class="attention" @click="handleAttention(doctorMessage.doctorMess.doc_id)" v-if="isShowAttention">
                 关注
                 <i></i>
+            </div>
+            <div v-if="isShowInfoCancel" class="attention infoCancel"
+                 @click="handleInfoCancel(doctorMessage.doctorMess.doc_id)">
+                取消
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import common from "../../assets/js/common.js"
 
     export default {
         name: "doctorInfoMessage",
+        data() {
+            return {
+                isShowAttention: true,
+                isShowInfoCancel: false
+            }
+        },
         props: {
             doctorMessage: {
                 type: Object
@@ -43,9 +54,6 @@
                 type: Object
             }
         },
-        // created() {
-        //     console.log(this.doctorMessage)
-        // },
         methods: {
             toDoctorResume(id) {
                 this.$router.push({
@@ -54,8 +62,32 @@
                         id: id
                     }
                 })
+            },
+            // 关注
+            handleAttention(id) {
+                let token = common.getCookie("token");
+                let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
+                this.$axios.get(url).then((data) => {
+                    console.log(data);
+                    if (data.data.code === 200) {
+                        this.isShowInfoCancel = true;
+                        this.isShowAttention = false
+                    }
+                })
+            },
+            // 取消
+            handleInfoCancel(id) {
+                let token = common.getCookie("token");
+                let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
+                this.$axios.get(url).then((data) => {
+                    console.log(data);
+                    if (data.data.code === 200) {
+                        this.isShowInfoCancel = false;
+                        this.isShowAttention = true
+                    }
+                })
             }
-        }
+        },
     }
 </script>
 
@@ -153,4 +185,12 @@
         left: 25px;
         top: 9px;
     }
+
+    .infoCancel {
+        background: white;
+        border: 1px solid #bababa; /*no*/
+        color: #333333;
+        text-indent: 0;
+    }
+
 </style>

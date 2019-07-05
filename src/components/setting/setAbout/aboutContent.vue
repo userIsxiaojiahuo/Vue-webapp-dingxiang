@@ -24,9 +24,8 @@
 
 <style scoped>
     .aboutParcel{
-        width: 100%;
         height: 100px;
-        margin-left: 30px;
+        margin:0 30px;
         border-bottom: #ebebeb 1px solid;
         display: flex;
         justify-content: space-between;

@@ -1,15 +1,11 @@
 <template>
-    <p>{{councilMsg.tit}}</p>
+        <p>{{councilMsg.tit}}</p>
 </template>
 
 <script>
     export default {
         name: "popularizationCouncil",
-        props:{
-            councilMsg:{
-                type:Object
-            }
-        }
+        props:["councilMsg"]
     }
 </script>
 
@@ -17,7 +13,7 @@
 p{
     display: block;
     width:345px;
-    height:40px;
+    height:100%;
     font-size:24px;
     background-color:#f4f4f4;
     color:#717171;

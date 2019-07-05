@@ -13,7 +13,6 @@
             <AskDoctorAdinOffice
                     :officeMessage="askDoctorMessage.officeMessage"
             >
-
             </AskDoctorAdinOffice>
 
         </div>

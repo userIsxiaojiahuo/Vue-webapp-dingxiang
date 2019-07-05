@@ -8,7 +8,7 @@
 
                     }"
             ></i>
-            <input type="text" :placeholder="place.placeholderMessage" class="search">
+            <input @click="handleInput" type="text" :placeholder="place.placeholderMessage" class="search">
         </div>
     </div>
 </template>
@@ -19,6 +19,15 @@
         props: {
             place: {
                 type: Object
+            }
+        },
+        methods: {
+            handleInput() {
+                this.$router.push(
+                    {
+                        path: "/doctorSearch"
+                    }
+                )
             }
         }
     }
