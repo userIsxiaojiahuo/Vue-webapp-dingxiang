@@ -14,15 +14,13 @@
         </template>
       </dxLoginOrRegister>
       <!--账号密码登录-->
-      <dxPassWordLogin v-if="!loginMode">
+      <dxPassWordLogin v-if="!loginMode" @phonePass="phonePass">
         <template v-slot:register>
           <span class="title">账号密码登录</span>
         </template>
       </dxPassWordLogin>
       <div class="checkLogin" @click="checkLoginMode">用账号密码登录</div>
-      <loginBtn v-slot:loginBtn @click.native="MsgLogin">
-        <span>登录</span>
-      </loginBtn>
+      <loginBtn v-slot:loginBtn @click.native="MsgLogin">登录</loginBtn>
       <dxProtocol/>
     </div>
   </div>
@@ -54,20 +52,68 @@
         common.goBack(this);
       },
       checkLoginMode() {
-        this.loginMode = !this.loginMode
+        this.loginMode = !this.loginMode;
+        console.log(this.loginMode);
       },
       MsgLogin() {
-        console.log(this.loginMode);
-        login.loginOrRegister(this, {
-          TEL: this.TEL,
-          code: this.code
-        });
+        if (this.loginMode) {
+          // 手机号验证码登录
+          this.$store.dispatch('GetInfo', true);
+          this.$axios({
+            method: 'post',
+            url: 'http://121.199.63.71:9006/login_code/',
+            data: {
+              phone: this.TEL,
+              input_code: this.code
+            }
+          }).then((returned) => {
+            if (returned.status === 200) {
+              if (returned.data.code === 200) {
+                this.$store.dispatch('GetInfo', false);
+                common.setCookie("token", returned.data.token, 1);
+                this.$router.replace('/mine')
+              }
+            }
+          })
+        } else {
+          console.log(123456);
+          console.log({
+            phone: this.TEL,
+            auth_str: this.code
+          });
+          // 手机号密码登录
+          this.$store.dispatch('GetInfo', true);
+          this.$axios({
+            method: 'post',
+            url: 'http://121.199.63.71:9006/login_str/',
+            data: {
+              phone: this.TEL,
+              auth_str: this.code
+            }
+          }).then((returned) => {
+            if (returned.status === 200) {
+              if (returned.data.code === 200) {
+                this.$store.dispatch('GetInfo', false);
+                common.setCookie("token", returned.data.token, 1);
+                this.$router.replace('/mine')
+              }
+            }
+          })
+        }
+
       },
+      // 手机验证码登录
       telCode(val) {
         let {phone, msgCode} = val;
         this.TEL = phone;
         this.code = msgCode
       },
+      // 手机密码登录
+      phonePass(val) {
+        let {tel, password} = val;
+        this.TEL = tel;
+        this.code = password
+      }
     }
   }
 </script>

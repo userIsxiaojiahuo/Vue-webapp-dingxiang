@@ -1,23 +1,30 @@
 <template>
     <div class="listDivCon">
-        <div :class="item.isClassName?'listCon':'messageText'" @click="toHospaital(item.path)" class="messageText"
-             v-for="(item,index) in hospitalMess" :key="index">
-            <i
-                    :style="{
-                    background:'url(' +item.logoImg + ')' + 'no-repeat',
-                    backgroundSize:'cover'
-                }"
-                    v-if="item.isLogo"
-            ></i>
+        <div class="messageText" @click="toHospaital(hospitalMess.id)">
             <h3>
-                <p class="meName" :class="item.isShowList?'meNameBolder':'meName'">{{item.name}}</p>
-                <p class="mePhone" v-if="item.isShowPhone">{{item.phone}}</p>
+                <p class="meName">{{hospitalMess.hosp_name}}</p>
             </h3>
-            <ul v-if="item.isShowList">
-                <li :class="item.isClassName?'acive':'listUls'" v-for="(itemA,lis) in item.liList" :key="lis">
-                    {{itemA}}
+            <ul>
+                <li class="listUls">
+                    {{hospitalMess.hosp_level}}
+                </li>
+                <li class="listUls">
+                    {{hospitalMess.medical_insurance}}
                 </li>
             </ul>
+        </div>
+        <div class="messageText">
+
+            <h3>
+                <p class="meName">联系电话</p>
+                <p class="mePhone">{{hospitalMess.hosp_tel}}</p>
+            </h3>
+        </div>
+        <div class="messageText">
+
+            <h3>
+                <p class="meName nameNowrap">{{hospitalMess.hosp_addr}}</p>
+            </h3>
         </div>
     </div>
 </template>
@@ -25,16 +32,15 @@
 <script>
     export default {
         name: "messageList",
-        props: {
-            hospitalMess: {
-                type: Object
-            }
-        },
+        props: ["isShowHospital", "hospitalMess"],
         methods: {
-            toHospaital(link) {
+            toHospaital(id) {
                 this.$router.push({
-                    path: "/hospitalMessage"
-                })
+                    path: "/hospitalMessage",
+                    query: {
+                        id: id
+                    }
+                });
             }
         }
     }
@@ -72,6 +78,7 @@
         overflow: hidden;
         padding: 0 0 10px 0;
     }
+
 
     .listUls {
         float: left;
@@ -116,5 +123,13 @@
         color: #999999;
         letter-spacing: 0;
         margin-right: 38px;
+    }
+
+    .nameNowrap {
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
     }
 </style>

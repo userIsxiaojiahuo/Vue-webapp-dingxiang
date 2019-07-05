@@ -2,7 +2,9 @@
   <div class="homePageOne">
     <div class="indexPage">
       <span>{{obj.recommend_time}}</span>
-      <router-link :to="'/Popularization?home_id='+item.id" tag="div" class="homeArticleWrapper" v-for="(item,index) in obj.recommend_info" :key="index">
+      <router-link :to="'/Popularization?home_id='+item.id" tag="div" class="homeArticleWrapper" v-for="(item,index) in obj.recommend_info" :key="index"/>
+      <router-link :to="'/Popularization?id='+item.id" tag="div" class="homeArticleWrapper"
+                   v-for="(item,index) in obj.recommend_info" :key="index">
         <img class="imgAuto" :src="item.title_img" alt="">
         <h3>{{item.art_class}}</h3>
         <div class="InfoTitle">{{item.title}}</div>
@@ -14,7 +16,7 @@
 <script>
   export default {
     name: "homePageOne",
-    props:['obj']
+    props: ['obj']
   }
 </script>
 
@@ -24,12 +26,15 @@
   }
 
   .indexPage {
-    width: 690px;
     margin: 0 auto;
-    padding-top: 30px;
   }
-
-  .homePageOne span {
+.indexPage span{
+  display: inline-block;
+  font-size: 48px;
+  padding-top: 30px;
+  margin-bottom: -20px;
+}
+  .homePageOne span:nth-child(0) {
     color: #9d9d9d;
     font-size: 22px;
   }
@@ -40,7 +45,7 @@
   }
 
   .homePageOne .homeArticleWrapper {
-    width: 690px;
+    width: 100%;
     height: 520px;
     margin-top: 60px;
     border-radius: 32px;
@@ -48,10 +53,9 @@
     position: relative;
     box-shadow: 5px 5px 20px #999999;
   }
-  .homeArticleWrapper img{
-    background-size: cover!important;
-  }
-  h3{
+
+
+  h3 {
     position: absolute;
     top: 20px;
     left: 10px;
@@ -59,7 +63,8 @@
     font-size: 24px;
     padding: 0 20px;
   }
-  .InfoTitle{
+
+  .InfoTitle {
     position: absolute;
     top: 80px;
     left: 10px;

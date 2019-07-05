@@ -56,9 +56,9 @@
         // components: {
         //   "lazy-component": Lazyload
         // }
-        created() {
-            console.log(this.diagonseIntroduce)
-        },
+        // created() {
+        //     console.log(this.diagonseIntroduce)
+        // },
         methods: {
             handleDivToDoctorInfo(id) {
                 this.$router.push(

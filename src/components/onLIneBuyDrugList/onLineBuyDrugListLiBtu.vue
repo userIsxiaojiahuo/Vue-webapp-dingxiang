@@ -15,11 +15,19 @@
 	/* 药品列表的li 的价格组件 */
 	export default {
 		name:"onLineBuyDrugListLiBtu",
-		props:["drugLists","drugListInndexs","isDrugBtu","drugIndex"],
+		props:["drugLists","drugListInndexs","isDrugBtu","drugIndex","IsShowDrugBtu"],
 		data(){
 			return{
 				isDrugNumBtu:-1,
 				isChoiceDrugBtu:-1
+			}
+		},
+		watch:{
+			IsShowDrugBtu:{
+				immediate:true,
+				handler(val){
+					
+				}
 			}
 		},
 		computed:{
@@ -31,33 +39,26 @@
 		},
 		methods:{
 			choiceDrug(index){
+				this.$emit("clickIsShowDrugBtu",true);
 				let token = common.getCookie("token");
 				console.log(token);
 				this.isDrugNumBtu = index;
 				this.isChoiceDrugBtu = index;
 				let url = 'http://121.199.63.71:9006/add_cart/';
-				// ?token='+token+'&med_id:'+this.drugIndex
-				// {"token":token,"med_id":this.drugIndex}
-				// console.log(this.drugIndex);
-				// console.log(token);
-// 				this.$axios.get(url,{token:token,"med_id:this.drugIndex})
-// 				.then((response)=>{
-// 					if(response.data.code==200){
-// 						this.$store.dispatch('GetInfo', false);
-// 					}
-// 					console.log(response);
-// 				})
-// 				.catch((error)=>{
-// 					console.log(error)
-// 				})
 				this.$axios({
-					methods:"get",
-					url:'http://121.199.63.71:9006/add_cart/?' + 'token='+token+'&med_id:'+this.drugIndex
-				}).then((dataed)=>{
-					console.log(dataed)
-				}).catch((error)=>{
-					console.log(error);
+					method: 'get',
+					url: 'http://121.199.63.71:9006/add_cart/?token='+token+'&med_id='+this.drugIndex,
 				})
+				.then(function (response) {
+					// if(response.data.code==200){
+						// this.$emit("cartNumber",response.data.data[1].med_kind)
+					// }
+					// console.log(response.data.data[1].med_kind);
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
 			},
 			btuAdd(){
 				let num = parseInt(this.$refs.drugNum.innerHTML);
@@ -72,6 +73,21 @@
 				if(num > 1){
 					num--;
 				}
+				let token = common.getCookie("token");
+				this.$axios({
+					method: 'get',
+					url: 'http://121.199.63.71:9006/sub_cart/?token='+token+'&med_id='+this.drugIndex,
+				})
+				.then(function (response) {
+					// if(response.data.code==200){
+						// this.$emit("cartNumber",response.data.data[1].med_kind)
+					// }
+					// console.log(response.data.data[1].med_kind);
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
 				this.$refs.drugNum.innerHTML = num;
 				console.log(this.calculationPrice)
 			}

@@ -8,7 +8,7 @@
 			<span class="drugList_packing_size">药品规格: {{drugList.packing_size}}</span>
 			<span class="drugList_med_stock">库存: {{drugList.med_stock}}盒</span>
 			<!-- 药品列表的li 的价格组件 -->
-			<OnLinenBuyDrugListLiBtu :drugIndex="drugList.id" :drugLists="drugList.price" :drugListInndexs="drugListInndex" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce"/>
+			<OnLinenBuyDrugListLiBtu :drugIndex="drugList.id" :drugLists="drugList.price" :drugListInndexs="drugListInndex" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" @clickIsShowDrugBtu="clickIsShowDrugBtu" :IsShowDrugBtu="IsShowDrugBtu"/>
     </div>
   </div>
 </template>
@@ -19,13 +19,16 @@
 	/* 药品列表的li */
 	export default{
 		name:"onLineBuyDrugListLi",
-		props:["drugList","drugListInndex","isDrugBtu"],
+		props:["drugList","drugListInndex","isDrugBtu","IsShowDrugBtu"],
 		components:{
 			OnLinenBuyDrugListLiBtu
 		},
 		methods:{
 			cartZoPirce(val){
-				this.$emit("@cartZoPirce",val)
+				this.$emit("cartZoPirce",val)
+			},
+			clickIsShowDrugBtu(val){
+				this.$emit("clickIsShowDrugBtu",val);
 			}
 		}
 	}

@@ -3,11 +3,10 @@
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
       <dxNextBtn :headerReturnTitle="headerReturnTitle"/>
     </dxHeaderReturn>
-<!--   已经添加患者信息界面-->
-    <patientInformationCon v-if="isShow"></patientInformationCon>
-<!--       未添加患者信息界面-->
-    <patientInformationFooter v-if="isShowDiv"></patientInformationFooter>
-    <p>{{login}}</p>
+    <!--   已经添加患者信息界面-->
+    <patientInformationCon v-if="isHaveInfo"/>
+    <!--       未添加患者信息界面-->
+    <patientInformationFooter v-if="!isHaveInfo"/>
   </div>
 </template>
 
@@ -16,7 +15,7 @@
   import dxNextBtn from './../components/public/dxNextBtn'
   import patientInformationFooter from './../components/patientInformation/patientInformationFooter'
   import patientInformationCon from './../components/patientInformation/patientInformationCon'
-
+  import patientInfo from '../assets/js/patientInfo.js'
 
   export default {
     name: "patientInformation",
@@ -33,11 +32,37 @@
           txt: "添加",
           path: "/addInformation"
         },
-        isShow:false,
-        isShowDiv:true,
-        login:"未登录"
+        isHaveInfo: true,
+        patientInfo: "",
+        isShow: false,
+        isShowDiv: true,
+        login: "未登录"
       }
     },
+    created() {
+      let token = this.common.getCookie("token");
+      this.$store.dispatch('GetInfo', true);
+      this.$axios({
+        method: "get",
+        url: 'http://121.199.63.71:9006/patient_list/?token=' + token
+      }).then((returned) => {
+        if (returned.status === 200) {
+          this.$store.dispatch('GetInfo', false);
+          if (returned.data.code === 200) {
+            console.log(returned);
+            if (returned.data.data.length !== 0) {
+              this.isHaveInfo = true;
+              this.patientInfo = returned.data.data;
+            } else {
+              this.isHaveInfo = false
+            }
+          }
+        }
+      })
+
+    }
+
+    ,
     mounted() {
       // this.$store.dispatch("GetInfo", true);
       // this.$axios.get("http://121.199.63.71:9006/patient_list/").then(data => {

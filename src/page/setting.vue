@@ -71,6 +71,7 @@
                         tit: "江花花",
                         path: "setAmendname",
                         event: ()=>{
+                            console.log(11)
                         }
                     },
                     {

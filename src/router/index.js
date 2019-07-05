@@ -53,6 +53,9 @@ import setIdentity from "../page/setIdentity"
 import findPassword from "../components/login/findPassword"
 import phoneFind from "../components/login/phoneFind"
 import setPassWord from "../components/login/setPassWord"
+import firstSetPass from "../components/login/firstSetPass"
+import common from "../assets/js/common.js"
+
 Vue.use(Router);
 
 const router = new Router({
@@ -260,7 +263,10 @@ const router = new Router({
             },
             {
                 path: "/addInformation",
-                component: addInformation
+                component: addInformation,
+                meta: {
+                    auth: true
+                }
             },
             {
                 path: "/setRecommend",
@@ -326,63 +332,63 @@ const router = new Router({
                 path: "**",
                 redirect: home
             },
-      {
-        path: "/findPassword",
-        name: "findPassword",
-        component: findPassword
-      },
-      {
-        path: "/setPassWord",
-        name: "setPassWord",
-        component: setPassWord
-      },
+            {
+                path: "/findPassword",
+                name: "findPassword",
+                component: findPassword
+            },
+            {
+                path: "/setPassWord",
+                name: "setPassWord",
+                component: setPassWord
+            },
 
-      {
-        path: "/phoneFind",
-        name: "phoneFind",
-        component: phoneFind
-      },
-      {
-        path: "**",
-        redirect: home
-      }
-    ]
+            {
+                path: "/phoneFind",
+                name: "phoneFind",
+                component: phoneFind
+            },
+            {
+                path: "**",
+                redirect: home
+            }
+        ]
 });
 
 
 // 路由守卫
 
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.auth) {
-//     // 判断该路由是否需要登录权限
-//     if (localStorage.getItem("token")) {
-//       //判断本地是否存在token
-//       next()
-//     } else {
-//       if (to.path === "/loginOrRegister") {
-//         next()
-//       } else {
-//         next({
-//           path: "/loginOrRegister"
-//         })
-//       }
-//     }
-//   } else {
-//     next()
-//   }
-//   /*如果本地 存在 token 则 不允许直接跳转到 登录页面*/
-//   if (to.fullPath == "/loginOrRegister") {
-//     if (localStorage.getItem("token")) {
-//       next({
-//         path: from.fullPath
-//       })
-//     } else {
-//       next()
-//     }
-//   }
-// })
+router.beforeEach((to, from, next) => {
+    if (to.meta.auth) {
+        // 判断该路由是否需要登录权限
+        if (common.getCookie("token")) {
+            //判断本地是否存在token
+            next()
+        } else {
+            if (to.path === "/login") {
+                next()
+            } else {
+                next({
+                    path: "/login"
+                })
+            }
+        }
+    } else {
+        next()
+    }
+    /*如果本地 存在 token 则 不允许直接跳转到 登录页面*/
+    if (to.fullPath === "/loginOrRegister") {
+        if (common.getCookie("token")) {
+            next({
+                path: from.fullPath
+            })
+        } else {
+            next()
+        }
+    }
+});
 
-// //改变title值
+//改变title值
 // router.beforeEach((to, form, next) => {
 //   if (to.meta.title) {
 //     document.title = to.meta.title

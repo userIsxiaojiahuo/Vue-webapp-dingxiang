@@ -115,7 +115,7 @@
           }
         ],
         indexExplain: require('../assets/img/home/im_trest_homepage.png'),
-        obj:[]
+        obj: []
       }
     },
     created() {
@@ -142,11 +142,12 @@
     overflow-y: auto;
   }
 
-  .homeRecommend{
+  .homeRecommend {
     margin-bottom: 340px;
-    padding: 36px;
+    padding: 20px 36px;
   }
-  h1{
+
+  h1 {
     padding: 36px 0 0 36px;
   }
 </style>
