@@ -1,7 +1,14 @@
 <template>
 	<div class="editAddress">
 		<HeaderReturn :headerReturnTitle="headerReturn"/>
-		<van-address-edit :area-list="areaList" show-search-result :search-result="searchResult" @save="onSave" @delete="onDelete" @change-detail="onChangeDetail"/>
+		<van-address-edit :area-list="areaList"
+                      show-search-result
+                      :search-result="searchResult"
+                      @save="onSave"
+                      @delete="onDelete"
+                      @change-detail="onChangeDetail"
+    >
+    </van-address-edit>
 	</div>
 </template>
 <script>

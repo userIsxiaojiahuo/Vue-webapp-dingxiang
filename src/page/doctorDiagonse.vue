@@ -92,6 +92,7 @@
         this.index = this.$route.query.index;
         this.doctorInfo = data.data.doct_data;
       });
+
       //给window添加一个滚动滚动监听事件
       window.addEventListener('scroll', this.handleScroll)
     },

@@ -55,7 +55,7 @@
         method: 'get',
         url: "http://121.199.63.71:9006/own_page/?token=" + token,
       }).then((returnInfo) => {
-        console.log(returnInfo)
+        // console.log(returnInfo)
       })
     }
 
