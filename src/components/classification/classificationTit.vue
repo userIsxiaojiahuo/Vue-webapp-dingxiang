@@ -1,6 +1,6 @@
 <template>
     <p>
-        {{titMsg.tit}}
+        {{title}}
     </p>
 </template>
 
@@ -8,8 +8,8 @@
     export default {
         name: "classificationTit",
         props:{
-            titMsg:{
-                type:Object
+            title:{
+                type:String
             }
         }
     }

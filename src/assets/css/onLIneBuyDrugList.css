@@ -36,4 +36,33 @@
 	padding: 40px 0 42px;
 	display: flex;
 }
+.onLineBuyDrugFootTips{
+	width: 100%;
+	height: 120px;
+	margin-bottom: 100px;
+	text-align: center;
+	line-height: 120px;
+}
+.onLineBuyDrugFootTips:before{
+	content: "";
+	width: 60px;
+	height: 1px;/* no */
+	background: #999999;
+	display: inline-block;
+	vertical-align: super;
+	margin-right: 10px;
+}
+.onLineBuyDrugFootTips:after{
+	content: "";
+	width: 60px;
+	height: 1px;/* no */
+	background: #999999;
+	display: inline-block;
+	vertical-align: super;
+	margin-left: 10px;
+}
+.onLineBuyDrugFootTips>span{
+	font-size: 30px;
+	color: #999999;
+}
 /* onLineBuyDrugListUl end */

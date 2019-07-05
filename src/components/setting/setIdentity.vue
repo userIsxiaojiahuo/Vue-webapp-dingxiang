@@ -1,17 +1,19 @@
 <template>
     <div>
-        <AmendHeader :amendHead="amendHead"/>
+        <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
+            <dxNextBtn @click.native="setNameOK" :headerReturnTitle="headerReturnTitle"></dxNextBtn>
+        </dxHeaderReturn>
     </div>
 </template>
 
 <script>
-    import AmendHeader from "../../components/setting/setAmendname/amendHeader"
 
-
+    import dxHeaderReturn from "../../components/public/dxHeaderReturn"
+    import dxNextBtn from '../../components/public/dxNextBtn'
     export default {
         name: "setIdentity",
         components:{
-            AmendHeader,
+            dxHeaderReturn,dxNextBtn
         },
         data(){
             return{
@@ -19,6 +21,11 @@
                 amendHead:{
                     tit:"我的身份",
                     txt:"保存",
+                },
+                headerReturnTitle: {
+                    title: "修改昵称",
+                    txt:"完成",
+                    path:'/Setting'
                 },
             }
         }

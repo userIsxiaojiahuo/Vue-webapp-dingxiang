@@ -5,12 +5,16 @@
       <dxHeaderIconWrap/>
     </dxHeaderReturn>
     <PopularizationCouncil :councilMsg="councilMsg"/>
-    <PopularizationTopic :topicMsg="topicMsg"/>
-    <PopularizationAuthor :authorMsg="authorMsg"/>
+    <PopularizationTopic :popuMessage="classiFicationMessage"/>
+<!--    <PopularizationAuthor :authorMsg="authorMsg"/>-->
     <!--新的-->
     <ClassificationDirecting :direcMsg="direcMsg"/>
-    <ClassificationTit :titMsg="titMsg"/>
-    <ClassificationOther :otherMsg="otherMsg"/>
+    <div>
+      <div v-for="(item,index) in classiFicationMessage.article" :key="index">
+        <ClassificationTit :title="item.title"/>
+        <ClassificationOther :classiFicationMessageImg="item.article_info"/>
+      </div>
+    </div>
     <ClassificationQuestion :questionMsg="questionMsg"/>
     <!--复用-->
     <PopularizationCopyright :copyMsg="copyMsg"/>
@@ -82,6 +86,7 @@
         councilMsg: {
           tit: "丁香医生审稿专业委员会通过"
         },
+        classiFicationMessage:{},
         //文章标题
         topicMsg: {
           tit: "收好这 36 个应急锦囊，遇到小病不再慌，值得分享"
@@ -96,25 +101,6 @@
         //指路
         direcMsg: {
           tit: "点击下方任一图片，即可查看对应处理办法。"
-        },
-        //文章标题
-        titMsg: {
-          tit: "身体常见不适"
-        },
-        //疾病分类图片
-        otherMsg: {
-          img: [
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-            require("../assets/img/illness/picture.png"),
-          ]
-
         },
         //1元问医生
         questionMsg: {
@@ -160,10 +146,18 @@
           title: "科普文章"
         }
       }
+    },
+    created() {
+      this.$store.dispatch("GetInfo", true);
+      this.$axios.get("http://121.199.63.71:9006/science_article/").then(data => {
+        if (data.data.code === 206) {
+          this.$store.dispatch("GetInfo", false);
+          this.classiFicationMessage = data.data.data;
+        }
+      })
     }
   }
 </script>
 
 <style scoped>
-
 </style>

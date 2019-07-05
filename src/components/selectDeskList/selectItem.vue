@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="selectItem" v-for="(item,index) in selectItem" :key="index" @click="clickDesk(index)">
-      <p class="selectItemTitle">{{item.selectItemTitle}}</p>
+    <div class="selectItem" v-for="(item,index) in selectItem" :key="index" @click="clickDesk(item.med_name,item.med_name_id)">
+      <p class="selectItemTitle">{{item.med_name?item.med_name:item.selectItemTitle}}</p>
       <div class="selectItemCon">
-        <p class="selectItemdDesc">{{item.selectItemdDesc}}</p>
+        <p class="selectItemdDesc">{{item.manufacturer?item.manufacturer:item.selectItemdDesc}}</p>
         <span class="rightArrow"><img src="../../assets/img/diagonseImg/hcp_into.png" alt=""></span>
       </div>
     </div>
@@ -15,10 +15,19 @@
     name: "selectItem",
     props: ["selectItem"],
     methods: {
-      clickDesk() {
-        this.$router.push({
-          path: "/callEmergency"
-        })
+      clickDesk(val,drugId) {
+				if(!val){
+					this.$router.push({
+					  path: "/callEmergency"
+					})
+				}else{
+					this.$router.push({
+						path: "/drugDetails",
+						query:{
+							id:drugId
+						}
+					})
+				}
       }
     }
   }

@@ -5,7 +5,7 @@
 			<DrugDetailsHeader  @isNoDrugDetails="isNoDrugDetails"/>
 			<div class="onLineBuyDrugListLi_box">
 				<!-- 药品图片、价格和数目的加减 -->
-				<OnLineBuyDrugListLi :drugList="drug" :isDrugBtu="isDrugBtu"/>
+				<OnLineBuyDrugListLi :drugList="drug" :isDrugBtu="isDrugBtu" :IsShowDrugBtu="IsShowDrugBtu"/>
 			</div>
 			<!-- 药品详情页的提示 -->
 			<DrugDetailsTips :drugDetailsTips="drugDetailsTips"/>
@@ -53,10 +53,9 @@
 			OnLineBuyFoot,
 			OnLineFootCratBtu
 		},
-		props:["drugIndex"],
 		created(){
 			this.$store.dispatch('GetInfo', true);
-			let url = 'http://121.199.63.71:9006/medc_illness/'+this.drugIndex+'/details/'
+			let url = 'http://121.199.63.71:9006/medc_illness/'+this.$route.query.id+'/details/'
 			this.$axios.get(url)
 			.then((response)=>{
 				if(response.data.code==200){
@@ -82,6 +81,42 @@
 			.catch((error)=>{
 				console.log(error)
 			})
+			
+		},
+		props:["drugIndex","IsShowDrugBtu"],
+		watch:{
+			drugIndex:{
+				immediate:true,
+				handler(val){
+					this.$store.dispatch('GetInfo', true);
+					let url = 'http://121.199.63.71:9006/medc_illness/'+val+'/details/'
+					this.$axios.get(url)
+					.then((response)=>{
+						if(response.data.code==200){
+							this.$store.dispatch('GetInfo', false);
+							this.drug = response.data.data[0];
+							this.drugInformation[0].text = response.data.data[0].med_name;
+							this.drugInformation[1].text = response.data.data[0].approval_number;
+							this.drugInformation[2].text = response.data.data[0].packing_size;
+							this.drugInformation[3].text = response.data.data[0].manufacturer;
+							this.drugInformation[4].text = response.data.data[0].shape;
+							this.drugInformation[5].text = response.data.data[0].attentions;
+							this.drugInformation[6].text = response.data.data[0].pdc_date;
+							this.drugInformation[7].text = response.data.data[0].taboo;
+							this.drugInformation[8].text = response.data.data[0].composition;
+							this.drugInformation[9].text = response.data.data[0].med_interact;
+							this.drugInformation[10].text = response.data.data[0].pharm_toxicity;
+							this.drugInformation[11].text = response.data.data[0].storage;
+							this.drugInformation[12].text = response.data.data[0].indications;
+							this.drugInformation[13].text = response.data.data[0].reaction;
+							this.drugInformation[14].text = response.data.data[0].med_formulation;
+						}
+					})
+					.catch((error)=>{
+						console.log(error)
+					})
+				}
+			},
 		},
 		data(){
 			return{
