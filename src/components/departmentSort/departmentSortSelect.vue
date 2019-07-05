@@ -15,8 +15,8 @@
     <div class="departmentSorItem">
       <ul>
         <li v-for="(item,index) in diagonseListDeparment"
-            @click="handleClickLi(index,item.id)"
-            :class="{deparmentListsLis:index===clickLi}"
+            @click="handleClickLi(item.id)"
+            :class="{deparmentListsLis:item.id==clickLi}"
         >{{item.name}}
         </li>
       </ul>
@@ -34,14 +34,21 @@
         clickLi: 0
       }
     },
+    created() {
+      if(this.$route.query.id){
+        this.clickLi = this.$route.query.id;
+      }else {
+        this.clickLi = 1;
+      }
+    },
     methods: {
       handleClickBack() {
         this.$router.push({
           path: "/Diagonse"
         })
       },
-      handleClickLi(index, id) {
-        this.clickLi = index;
+      handleClickLi(id) {
+        this.clickLi = id;
         this.$router.push(
           {
             path: "/Diagonse",
@@ -50,6 +57,7 @@
             }
           }
         );
+        // console.log(id);
       }
     }
   }

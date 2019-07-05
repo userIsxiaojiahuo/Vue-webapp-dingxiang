@@ -83,7 +83,10 @@
           })
         }
       });
-      let Url = "http://121.199.63.71:9006/ask_doctor/" + this.$route.query.id + "/";
+
+      //根据传过来的id ,渲染不同的医生列表
+      let ids = this.$route.query.id?this.$route.query.id:1 //当路由有参时，就用传过来的参数，无参时就用指定的参数
+      let Url = "http://121.199.63.71:9006/ask_doctor/" + ids + "/";
       this.$axios.get(Url).then((data) => {
         this.isShowDiv = true;
         this.index = this.$route.query.index;

@@ -4,9 +4,9 @@
     <div class="deparmentLists">
       <ul>
         <li v-for="(item,lis) in diagonseListDeparment"
-            @click="handleClickLi(lis,item.id)"
+            @click="handleClickLi(item.id)"
             :key="lis"
-            :class="{deparmentListsLi:lis===clickLi}"
+            :class="{deparmentListsLi:item.id==clickLi}"
         >
           {{item.name}}
         </li>
@@ -25,12 +25,16 @@
     props: ["diagonseListDeparment", "scrollTop","index"],
     data() {
       return {
-        clickLi: 0,
+        clickLi: 1,
         doctorListMessage: []
       }
     },
     created() {
-      // console.log(this.scrollTop)
+      if(this.$route.query.id){
+        this.clickLi = this.$route.query.id;
+      }else {
+        this.clickLi = 1;
+      }
     },
     methods: {
       handleClickDiv() {
@@ -38,8 +42,8 @@
           path: "/doctorDiagonse"
         })
       },
-      handleClickLi(index, id) {
-        this.clickLi = index;
+      handleClickLi(id) {
+        this.clickLi = id;
         // 点击对应的科室渲染不同的数据
         let url = "http://121.199.63.71:9006/ask_doctor/" + id + "/";
         this.$axios.get(url).then((data) => {
