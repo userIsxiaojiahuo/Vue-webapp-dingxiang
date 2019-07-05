@@ -45,7 +45,7 @@
         headerMessage: {
           title: "返回",
         },
-        diagnosePic: [require("../assets/img/diagonseImg/banner.png"), require("../assets/img/diagonseImg/banner.png")],
+        diagnosePic: [require("../assets/img/diagonseImg/banner01.png"), require("../assets/img/diagonseImg/banner02.png")],
         deparmentList: [],
         doctorInfo: [],
         isShowDiv: false,

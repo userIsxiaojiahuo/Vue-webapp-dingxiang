@@ -6,8 +6,9 @@
         <li v-for="(item,lis) in diagonseListDeparment"
             @click="handleClickLi(lis,item.id)"
             :key="lis"
-            :class="{deparmentListsLi:lis===clickLi}"
+            :class="{deparmentListsLi:(lis===clickLi)}"
         >
+<!--        :class="{deparmentListsLi:(((lis===clickLi)&&(index===lis))||((lis===clickLi)||(index===lis)))}-->
           {{item.name}}
         </li>
       </ul>
@@ -22,15 +23,19 @@
 
   export default {
     name: "diagonseListDeparment",
-    props: ["diagonseListDeparment", "scrollTop","index"],
+    props: ["diagonseListDeparment", "scrollTop", "index"],
     data() {
       return {
-        clickLi: 0,
+        clickLi: -1,
         doctorListMessage: []
       }
     },
     created() {
-      // console.log(this.scrollTop)
+      if (this.$route.query.id) {
+        this.clickLi = this.$route.query.id - 1;
+      } else {
+        this.clickLi = 0;
+      }
     },
     methods: {
       handleClickDiv() {

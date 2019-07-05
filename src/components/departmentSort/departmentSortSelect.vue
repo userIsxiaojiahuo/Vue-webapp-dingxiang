@@ -46,7 +46,8 @@
           {
             path: "/Diagonse",
             query: {
-              id: id
+              id: id,
+              index: index
             }
           }
         );
