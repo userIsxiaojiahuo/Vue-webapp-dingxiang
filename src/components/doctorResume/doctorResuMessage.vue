@@ -23,19 +23,10 @@
 </template>
 
 <script>
-    import Bug from "../../assets/js/newVue"
 
     export default {
         name: "doctorInfoMessage",
         props: ["doctorMessage"],
-        created() {
-            console.log(this.doctorMessage)
-        },
-        methods: {
-            toDoctorResume(id) {
-                Bug.$emit("doctorMess", id)
-            }
-        }
     }
 </script>
 

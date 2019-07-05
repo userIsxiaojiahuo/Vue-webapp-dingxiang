@@ -53,6 +53,7 @@ import setIdentity from "../page/setIdentity"
 import findPassword from "../components/login/findPassword"
 import phoneFind from "../components/login/phoneFind"
 import setPassWord from "../components/login/setPassWord"
+
 Vue.use(Router);
 
 const router = new Router({
@@ -260,7 +261,10 @@ const router = new Router({
             },
             {
                 path: "/addInformation",
-                component: addInformation
+                component: addInformation,
+                meta: {
+                    auth: true
+                }
             },
             {
                 path: "/setRecommend",
@@ -326,27 +330,27 @@ const router = new Router({
                 path: "**",
                 redirect: home
             },
-      {
-        path: "/findPassword",
-        name: "findPassword",
-        component: findPassword
-      },
-      {
-        path: "/setPassWord",
-        name: "setPassWord",
-        component: setPassWord
-      },
+            {
+                path: "/findPassword",
+                name: "findPassword",
+                component: findPassword
+            },
+            {
+                path: "/setPassWord",
+                name: "setPassWord",
+                component: setPassWord
+            },
 
-      {
-        path: "/phoneFind",
-        name: "phoneFind",
-        component: phoneFind
-      },
-      {
-        path: "**",
-        redirect: home
-      }
-    ]
+            {
+                path: "/phoneFind",
+                name: "phoneFind",
+                component: phoneFind
+            },
+            {
+                path: "**",
+                redirect: home
+            }
+        ]
 });
 
 
@@ -382,7 +386,7 @@ const router = new Router({
 //   }
 // })
 
-// //改变title值
+//改变title值
 // router.beforeEach((to, form, next) => {
 //   if (to.meta.title) {
 //     document.title = to.meta.title
