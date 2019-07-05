@@ -12,8 +12,8 @@
       <loginBtn v-slot:loginBtn @click.native="registerBtn">
         <span>注册</span>
       </loginBtn>
+      <dxProtocol/>
     </div>
-
   </div>
 </template>
 
@@ -22,12 +22,13 @@
   import loginBtn from '../components/public/loginBtn'
   import dxLoginOrRegister from '../components/public/dxLoginOrRegister'
   import registerHeader from '../components/login/registerHeader'
-  import newVue from '../assets/js/newVue.js'
+  import dxProtocol from '../components/login/dxProtocol'
+
 
   export default {
     name: "login",
     components: {
-      loginBtn, dxLoginOrRegister, registerHeader
+      loginBtn, dxLoginOrRegister, registerHeader, dxProtocol
     },
     data() {
       return {
@@ -42,6 +43,7 @@
         this.code = msgCode
       },
       registerBtn() {
+        console.log()
         login.loginOrRegister(this, {
           TEL: this.TEL,
           code: this.code

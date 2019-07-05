@@ -103,8 +103,13 @@
       }
     },
     created() {
+      // this.$store.dispatch("GetInfo", true);
       this.$axios.get("http://121.199.63.71:9006/medc_illness/").then((data)=>{
-        console.log(data)
+        // console.log(data)
+        if(data.data.code === 200){
+          // this.$store.dispatch("GetInfo", false);
+          // this.classifyMsg.classifyMsgTitle = data.data.data;
+        }
       })
     }
   }

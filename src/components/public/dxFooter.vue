@@ -101,6 +101,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 100px;
+    z-index: 999;
   }
 
   .dx_tab p {
@@ -129,6 +130,7 @@
     width: 116px;
     height: 116px;
     position: absolute;
+    z-index: 999;
     top: -56px;
     /*left: 317px;*/
   }

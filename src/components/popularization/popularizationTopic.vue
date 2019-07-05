@@ -1,15 +1,12 @@
 <template>
-        <p>{{topicMsg.tit}}</p>
+        <!--文章标题-->
+        <p>{{popuMessage.title}}</p>
 </template>
 
 <script>
     export default {
         name: "popularizationTopic",
-        props:{
-            topicMsg:{
-                type:Object
-            }
-        }
+        props:['popuMessage']
     }
 </script>
 
@@ -19,7 +16,6 @@ p{
     color: #333333;
     margin-left:30px;
     margin-top: 36px;
-    margin-bottom: 66px;
     display: block;
 }
 </style>

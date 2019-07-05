@@ -5,11 +5,7 @@
 <script>
     export default {
         name: "popularizationCouncil",
-        props:{
-            councilMsg:{
-                type:Object
-            }
-        }
+        props:["councilMsg"]
     }
 </script>
 

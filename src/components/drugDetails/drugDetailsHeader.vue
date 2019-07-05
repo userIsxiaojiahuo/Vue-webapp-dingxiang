@@ -1,19 +1,20 @@
 <template>
 	<div class="drugDetailsHeader">
-		<router-link 
-			class="drugDetailsHeader_pic"
-			to="/buyDrugList"
-			tag="div"
-		>
+		<div @click="isDrugDetails" class="drugDetailsHeader_pic">
 			<img src="../../assets/onLineImg/ic_close_details.png">
-		</router-link>
+		</div>
 	</div>
 </template>
 
 <script>
 	/* 药品详情页头部关闭 */
 	export default{
-		name:"drugDetailsHeader"
+		name:"drugDetailsHeader",
+		methods:{
+			isDrugDetails(){
+				this.$emit("isNoDrugDetails",false)
+			}
+		}
 	}
 </script>
 

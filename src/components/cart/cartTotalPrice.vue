@@ -1,13 +1,14 @@
 <template>
 	<div class="cartTotalPrice">
-		<p>合计:<span>￥25</span></p>
+		<p>合计:<span>￥{{cartPirce}}</span></p>
 	</div>
 </template>
 
 <script>
 	/* 购物车商品总计 */
 	export default{
-		name:"cartTotalPrice"
+		name:"cartTotalPrice",
+		props:["cartPirce"]
 	}
 </script>
 

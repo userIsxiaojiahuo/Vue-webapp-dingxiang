@@ -1,19 +1,22 @@
 <template>
     <div class="box">
-        <img :src="item" v-for="(item,index) in otherMsg.img" >
+        <img @click="handleClickImg(item.id)" :src="item.image" v-for="(item,index) in classiFicationMessageImg" :key="index" >
     </div>
 </template>
 
 <script>
     export default {
         name: "classificationOther",
-        props:{
-            otherMsg:{
-                type:Object
+        props:["classiFicationMessageImg"],
+        methods:{
+            handleClickImg(id){
+                this.$router.push({
+                    path:"/Popularization",
+                    query:{
+                        id:id
+                    }
+                })
             }
-        },
-        created() {
-            console.log(this.otherMsg)
         }
     }
 </script>

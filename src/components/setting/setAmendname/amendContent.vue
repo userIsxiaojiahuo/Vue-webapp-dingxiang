@@ -1,7 +1,7 @@
 <template>
     <div class="contentBox">
         <div class="contentLeft">
-            <input type="text" :placeholder="contentMsg.nickname">
+            <input type="text" :placeholder="contentMsg.nickname" v-model="nameMessage">
             <i :style="{
         'background':'url('+ contentMsg.icon+')'+'no-repeat',
         'backgroundSize':'cover'

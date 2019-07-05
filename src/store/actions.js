@@ -10,6 +10,10 @@ const actions = {
   // 登录弹出框
   isLoginPopup({commit}, data) {
     commit('LOGINPOPUP', data)
+  },
+  // 同意协议
+  dxProtocol({commit}, data) {
+    commit('PROTOCOL', data)
   }
 };
 export default actions

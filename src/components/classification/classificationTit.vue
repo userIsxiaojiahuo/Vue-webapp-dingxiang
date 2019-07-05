@@ -1,17 +1,13 @@
 <template>
     <p>
-        {{titMsg.tit}}
+        {{title}}
     </p>
 </template>
 
 <script>
     export default {
         name: "classificationTit",
-        props:{
-            titMsg:{
-                type:Object
-            }
-        }
+        props:["title"]
     }
 </script>
 

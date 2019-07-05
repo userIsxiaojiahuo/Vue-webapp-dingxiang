@@ -1,7 +1,7 @@
 <template>
     <div class="addInformation">
             <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
-                <dxNextBtn :headerReturnTitle="headerReturnTitle"></dxNextBtn>
+                <dxNextBtn :headerReturnTitle="headerReturnTitle" @click.native="addInfo"></dxNextBtn>
             </dxHeaderReturn>
         <homeSeparate></homeSeparate>
         <div class="NAI">
@@ -9,7 +9,7 @@
                 <span class="name">患者姓名</span>
             </slot>
             <slot name="Inp">
-                <input class="inp" ref="name" @blur="handleName" type="text" placeholder="请填写真实姓名"/>
+                <input v-model="p_name" class="inp" ref="name" @blur="handleName" type="text" placeholder="请填写真实姓名"/>
             </slot>
         </div>
         <div class="NAI">
@@ -159,7 +159,7 @@
                 date: "",
                 minDate: new Date(1900, 1, 1),
                 maxDate: new Date(),
-                pregency: ["无", "备孕中", "怀孕中", "哺乳中"],
+                pregency: ["无", "备孕中"],
                 kidney: ["正常", "异常"],
                 liver: ["正常", "异常"],
                 clickSpan: -1,
@@ -171,10 +171,25 @@
                     title: "添加患者",
                     txt:"完成",
                     path:"patientInformation"
-                }
+                },
+                p_name:""
             }
         },
         methods: {
+            addInfo(){
+                // 发送请求
+                info:{
+                    p_name:this.p_name;
+
+                };
+                this.$axios({
+                    methods: post,
+                    url:"http://121.199.63.71:9006/patient/",
+                    data:info
+                }).then((returned)=>{
+                    console.log(returned)
+                })
+            },
             cancel() {
                 this.isShow = false
             },
@@ -218,7 +233,7 @@
                 let regs = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
                 if (this.$refs.card.value.length === 0) {
                     // this.$refs.card.parentElement.style.borderBottom = '1px solid red';
-                    alert("身份证号码不能为空");
+                    // alert("身份证号码不能为空");
                 } else {
                     if ((reg.test(this.$refs.card.value) && this.$refs.card.value.length === 15) || (regs.test(this.$refs.card.value) && this.$refs.card.value.length === 18)) {
                         if (this.$refs.card.value.slice(16, 17) % 2 === 0) {

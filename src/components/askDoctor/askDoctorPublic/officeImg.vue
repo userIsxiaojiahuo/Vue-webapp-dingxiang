@@ -1,5 +1,5 @@
 <template>
-    <img :src="images" alt="">
+    <img :src="'http://121.199.63.71:9006'+images" alt="">
 </template>
 
 <script>

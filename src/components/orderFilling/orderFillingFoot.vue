@@ -6,9 +6,9 @@
 			</div>
 			<div class="orderFillingFoot_btu" @click="showPopup">立即支付</div>
 		</div>
-		<van-popup v-model="show" position="bottom" :style="{ height: '60%' }">
+		<van-popup v-model="show" position="bottom" :style="{ height: '60%' }" >
 			<!-- 支付界面 -->
-			<CartPayment/>
+			<CartPayment @isClickIndex="isClickIndex"/>
 		</van-popup>
 	</div>
 </template>
@@ -30,6 +30,11 @@
 		methods:{
 			showPopup() {
 			  this.show = true;
+			  this.$emit("clickIndex",true);
+			},
+			isClickIndex(val){
+				this.$emit("isClickIndex",val);
+				this.show = false;
 			}
 		}
 	}

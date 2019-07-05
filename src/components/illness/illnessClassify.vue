@@ -1,10 +1,20 @@
 <template>
     <div>
+        <!--右边的A-Z-->
             <van-index-bar
                     :index-list="classifyMsg.indexList"
             >
-              <van-index-anchor v-for="(item,index) in classifyMsg.classifyMsgTitle" :key="index">{{item.title}}
-                <van-cell v-for="(items,index) in item.text" :title="items" :key="index"  @click="intoillness"/>
+                <!--分开的A-Z-->
+              <van-index-anchor
+                      v-for="(item,index) in classifyMsg.classifyMsgTitle"
+                      :key="index">{{item.title}}
+                  <!--根据首字母不同的相应疾病-->
+                <van-cell
+                        v-for="(items,index) in item.text"
+                        :title="items"
+                        :key="index"
+                        @click="intoillness"
+                />
               </van-index-anchor>
             </van-index-bar>
     </div>

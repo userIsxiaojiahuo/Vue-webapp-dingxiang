@@ -2,7 +2,7 @@
   <div class="homeSwiper">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item,index) in indexSwiper.indexSwiperImgs">
+        <div class="swiper-slide" v-for="(item,index) in indexSwiper.banner" :key="index">
           <img class="imgAuto" :src="item" alt="">
         </div>
       </div>
@@ -20,11 +20,7 @@
    */
   export default {
     name: "homeSwiper",
-    props: {
-      indexSwiper: {
-        type: Object
-      }
-    },
+    props: ['indexSwiper'],
     data() {
       return {}
     },
