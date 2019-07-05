@@ -12,6 +12,7 @@
 </template>
 
 <script>
+	import common from "../assets/js/common.js"
   /* 支付界面头部 */
   import CartPaymentHeader from "../components/public/dxCartPaymentHeader"
   /* 支付金额 */
@@ -29,6 +30,10 @@
       CartPaymentSmallFunction,
       CartPaymentFoot
     },
+		created() {
+			let cartPirce = common.getCookie('cartPirce');
+			this.CartPaymentPirce = cartPirce;
+		},
     data() {
       return {
         CartPaymentPirce: "1.00",

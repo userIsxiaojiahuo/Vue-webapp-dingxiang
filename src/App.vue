@@ -13,7 +13,25 @@
 
   export default {
     name: 'App',
-    components: {dxFooter, dxLoading}
+		provide(){
+			return{
+				reload:this.reload
+			}
+		},
+    components: {dxFooter, dxLoading},
+		data() {
+			return {
+				isRouterAlive: true
+			}
+		},
+		methods: {
+			reload() {
+				this.isRouterAlive = false;
+				this.$nextTick(function(){
+					this.isRouterAlive = true;
+				})
+			}
+		},
   }
 </script>
 

@@ -5,7 +5,7 @@
         :key="index"
     >
       <!-- 药品列表的li -->
-      <OnLineBuyDrugListLi :drugList="item" :drugListInndex="index" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" @clickIsShowDrugBtu="clickIsShowDrugBtu"/>
+      <OnLineBuyDrugListLi :drugList="item" :drugListInndex="index" @cartZoPirce="cartZoPirce" @toalNume="toalNume"/>
     </li>
 	<van-popup v-model="show" position="bottom" :style="{ height: '90%' }">
 		<!-- 药品详情 -->
@@ -26,7 +26,7 @@
 	/* 药品列表 */
 	export default{
 		name:"onLineBuyDrugListUl",
-		props:["drugList","isDrugBtu"],
+		props:["drugList"],
 		components:{
 			OnLineBuyDrugListLi,
 			DrugDetails
@@ -50,9 +50,9 @@
 			cartZoPirce(val){
 				this.$emit("cartZoPirce",val)
 			},
-			clickIsShowDrugBtu(val){
-				this.IsShowDrugBtu = !val;
-			}	
+			toalNume(val){
+				this.$emit("toalNume",val)
+			}
 		}
 	}
 </script>

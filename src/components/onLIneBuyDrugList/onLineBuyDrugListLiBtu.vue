@@ -1,10 +1,10 @@
 <template>
 	<div class="onLIne_list_price">
 	  <span class="drug_price">￥{{drugLists}}</span>
-	  <span @click.stop="choiceDrug(drugListInndexs)" class="drug_btu" v-if="isDrugBtu?isChoiceDrugBtu!=drugListInndexs:isDrugBtu">选择该药</span>
-	  <div v-if="isDrugBtu?isDrugNumBtu==drugListInndexs:true" class="drug_num_btu">
+	  <span @click.stop="choiceDrug(drugListInndexs)" class="drug_btu" v-if="isChoiceDrugBtus?isChoiceDrugBtus:drugListInndexs!=isChoiceDrugBtu">选择该药</span>
+	  <div v-if="isDrugNumBtus?drugListInndexs==isDrugNumBtu:isDrugNumBtus" class="drug_num_btu">
 		<img @click.stop="btuReduce" class="drug_num_btu_reduce" src="../../assets/onLineImg/ic_cut_drug.png">
-	    <span ref="drugNum">1</span>
+	    <span ref="drugNum">{{DrugNum}}</span>
 	    <img @click.stop="btuAdd" class="drug_num_btu_add" src="../../assets/onLineImg/ic_add_drug.png">
 	  </div>
 	</div>
@@ -15,19 +15,14 @@
 	/* 药品列表的li 的价格组件 */
 	export default {
 		name:"onLineBuyDrugListLiBtu",
-		props:["drugLists","drugListInndexs","isDrugBtu","drugIndex","IsShowDrugBtu"],
+		props:["drugLists","drugListInndexs","drugIndex","IsShowDrugBtu"],
 		data(){
 			return{
 				isDrugNumBtu:-1,
-				isChoiceDrugBtu:-1
-			}
-		},
-		watch:{
-			IsShowDrugBtu:{
-				immediate:true,
-				handler(val){
-					
-				}
+				isChoiceDrugBtu:-1,
+				isChoiceDrugBtus:true,
+				isDrugNumBtus:false,
+				DrugNum:0
 			}
 		},
 		computed:{
@@ -39,9 +34,8 @@
 		},
 		methods:{
 			choiceDrug(index){
-				this.$emit("clickIsShowDrugBtu",true);
+				let tar = this;
 				let token = common.getCookie("token");
-				console.log(token);
 				this.isDrugNumBtu = index;
 				this.isChoiceDrugBtu = index;
 				let url = 'http://121.199.63.71:9006/add_cart/';
@@ -50,11 +44,12 @@
 					url: 'http://121.199.63.71:9006/add_cart/?token='+token+'&med_id='+this.drugIndex,
 				})
 				.then(function (response) {
-					// if(response.data.code==200){
-						// this.$emit("cartNumber",response.data.data[1].med_kind)
-					// }
-					// console.log(response.data.data[1].med_kind);
-					console.log(response);
+					if(response.data.code==200){
+						tar.isChoiceDrugBtus = false;
+						tar.isDrugNumBtus = true;
+						tar.DrugNum = response.data.data[0].c_med_num;
+						tar.$emit("toalNume",response.data.data[1].med_kind)
+					}
 				})
 				.catch(function (error) {
 					console.log(error);
@@ -63,33 +58,52 @@
 			btuAdd(){
 				let num = parseInt(this.$refs.drugNum.innerHTML);
 				num++;
-				this.$refs.drugNum.innerHTML = num;
+				if(num<=20){
+					console.log(num);
+					let tar = this;
+					let token = common.getCookie("token");
+					let url = 'http://121.199.63.71:9006/add_cart/';
+					this.$axios({
+						method: 'get',
+						url: 'http://121.199.63.71:9006/add_cart/?token='+token+'&med_id='+this.drugIndex,
+					})
+					.then(function (response) {
+						if(response.data.code==200){
+							tar.isChoiceDrugBtus = false;
+							tar.isDrugNumBtus = true;
+							tar.DrugNum = response.data.data[0].c_med_num;
+							tar.$emit("toalNume",response.data.data[1].med_kind)
+						}
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+				}
 				
-				// this.$emit("cartZoPirce",this.calculationPrice)
-				console.log(this.calculationPrice)
 			},
 			btuReduce(){
+				let tar = this;
 				let num = parseInt(this.$refs.drugNum.innerHTML);
-				if(num > 1){
-					num--;
-				}
 				let token = common.getCookie("token");
+				num--;
 				this.$axios({
 					method: 'get',
 					url: 'http://121.199.63.71:9006/sub_cart/?token='+token+'&med_id='+this.drugIndex,
 				})
 				.then(function (response) {
-					// if(response.data.code==200){
-						// this.$emit("cartNumber",response.data.data[1].med_kind)
-					// }
-					// console.log(response.data.data[1].med_kind);
-					console.log(response);
+					if(response.data.code==200){
+						tar.DrugNum = response.data.data[0].c_med_num;
+						tar.$emit("toalNume",response.data.data[1].med_kind)
+					}
 				})
 				.catch(function (error) {
 					console.log(error);
 				});
-				this.$refs.drugNum.innerHTML = num;
-				console.log(this.calculationPrice)
+				if(num<=0){
+					num = 0;
+					tar.isChoiceDrugBtus = true;
+					tar.isDrugNumBtus = false;
+				}
 			}
 		}
 	}
