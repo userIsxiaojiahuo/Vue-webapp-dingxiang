@@ -1,7 +1,7 @@
 <template>
     <div class="contentBox">
         <div class="contentLeft">
-            <input type="text" :placeholder="contentMsg.nickname">
+            <input type="text" v-model="inpVal" :placeholder="contentMsg.nickname">
             <i :style="{
         'background':'url('+ contentMsg.icon+')'+'no-repeat',
         'backgroundSize':'cover'
@@ -15,7 +15,17 @@
 <script>
     export default {
         name: "amendContent",
-        props:["contentMsg"]
+        props:["contentMsg"],
+        data(){
+            return{
+                inpVal:""
+            }
+        },
+        watch:{
+            inpVal(newVal){
+                this.$emit('setName',this.inpVal)
+            }
+        }
     }
 </script>
 
@@ -28,6 +38,7 @@
         margin-top: 20px;
     }
     .contentLeft>input{
+        width: 90%;
         font-size:30px;
         color: #333333;
         line-height: 96px;
