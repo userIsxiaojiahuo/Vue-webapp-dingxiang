@@ -5,6 +5,7 @@
         </div>
         <div>
             <van-popup
+                    @click-overlay="clickIsShowPupop"
                     v-model="show"
                     position="bottom"
                     :style="{ height: '63%' }"
@@ -63,9 +64,13 @@
                 ]
             }
         },
-        props: {
-            doctorMessage: {
-                type: Object
+        props: ["doctorMessage", "isShowPupo"],
+        watch: {
+            isShowPupo: {
+                immediate: true,
+                handler(info) {
+                    this.show = info
+                }
             }
         },
         methods: {
@@ -73,8 +78,16 @@
                 this.show = true
             },
             cancelBtn() {
-                this.show = false
+                this.show = false;
+                this.$emit("info", false)
+            },
+            clickIsShowPupop() {
+                this.$emit("op", false)
             }
-        }
+        },
+        // created() {
+        //     this.show = this.isShowPupo;
+        //     console.log(this.isShowPupo)
+        // }
     }
 </script>

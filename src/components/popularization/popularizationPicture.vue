@@ -18,6 +18,6 @@ img{
 
     width:100% !important;
     height:382px;
-    margin:0 auto ;
+    margin-left: 30px;
 }
 </style>

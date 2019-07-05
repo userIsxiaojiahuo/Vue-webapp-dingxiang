@@ -1,18 +1,18 @@
 <template>
     <div class="bigBox">
-        <img :src="popuMessage.auth_img"/>
+        <img :src="authorMsg.img"/>
         <div class="box">
-            <p class="name">{{popuMessage.auth}}</p>
-            <p class="platform">{{popuMessage.subjection}}</p>
+            <p class="name">{{authorMsg.auth}}</p>
+            <p class="platform">{{authorMsg.subjection}}</p>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "popularizationAuthor",
+        name: "classificationAuthor",
         props:{
-            popuMessage:{
+            authorMsg:{
                 type:Object
             }
         }
@@ -20,11 +20,11 @@
 </script>
 
 <style scoped>
-   .bigBox{
+    .bigBox{
         width: 100%;
         height: 132px;
         display: flex;
-       align-items: center;
+        align-items: center;
     }
     img{
         width:72px;

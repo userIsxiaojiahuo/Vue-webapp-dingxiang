@@ -7,11 +7,7 @@
 <script>
     export default {
         name: "classificationTit",
-        props:{
-            title:{
-                type:String
-            }
-        }
+        props:["title"]
     }
 </script>
 

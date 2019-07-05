@@ -60,7 +60,9 @@
     .illnessKindUls {
         overflow: hidden;
         -webkit-line-clamp: 2;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
     }
 
     .illnessKindUls > li {

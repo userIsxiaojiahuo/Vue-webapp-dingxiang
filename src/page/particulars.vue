@@ -8,7 +8,7 @@
     <ParticularsIntroduce :introMsg="introMsg"/>
     <ParticularsAetiological :particMsg="particMsg"/>
     <ParticularsBtn :btnMsg="btnMsg"/>
-    <ParticularsClassification/>
+    <homeItem :indexList="indexListNavv"/>
     <ParticularsRecommend/>
   </div>
 
@@ -24,7 +24,7 @@
   //按钮查看详情
   import ParticularsBtn from "../components/particulars/particularsBtn"
   //分类
-  import ParticularsClassification from "../components/particulars/particularsClassification"
+  import homeItem from "../components/index/homeItem"
   //推荐
   import ParticularsRecommend from "../components/particulars/particularsRecommend"
 
@@ -39,7 +39,7 @@
       ParticularsIntroduce,
       ParticularsAetiological,
       ParticularsBtn,
-      ParticularsClassification,
+      homeItem,
       ParticularsRecommend,
       dxHeaderIconWrap,
       dxShareBtn
@@ -87,6 +87,44 @@
         btnMsg: {
           txt: "查看详情"
         },
+        //分类
+        indexListNavv:[
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '症状',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '病因',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '诊断',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '治疗',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '生活',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '预防',
+            path: "callEmergency"
+          },
+          {
+            imgs: require('../assets/img/home/nav-1.png'),
+            title: '就诊',
+            path: "callEmergency"
+          },
+        ],
         headerReturnTitle: {}
       }
     }

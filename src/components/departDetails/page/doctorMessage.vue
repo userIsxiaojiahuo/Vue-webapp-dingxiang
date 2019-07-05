@@ -16,7 +16,7 @@
                 </div>
                 <p class="doctorMessPdom">
                     <span class="rank">{{item.doc_title}}</span>
-                    <span class="rank hospitalAddress">{{item.hop_name}}</span>
+                    <span class="rank hospitalAddress">{{item.hop_name}}{{item.hosp_name}}</span>
                 </p>
                 <p class="doctorMessPdom beGoodAt">
                     擅长:{{item.doc_goods}}
@@ -145,23 +145,23 @@
 
     .doctorMessPdom {
         line-height: 44px;
-        /*margin: 20px 0 20px 0;*/
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
         -webkit-line-clamp: 1;
     }
 
     .beGoodAt {
         display: -webkit-box;
-        /*overflow: hidden;*/
         text-overflow: ellipsis;
         -webkit-line-clamp: 1;
         /*! autoprefixer: off */
         -webkit-box-orient: vertical;
-        overflow: hidden;
         /* autoprefixer: on */
+        overflow: hidden;
         font-size: 22px;
         color: #999999;
         line-height: 54px;

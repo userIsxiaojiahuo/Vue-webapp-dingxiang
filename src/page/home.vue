@@ -127,6 +127,7 @@
             this.obj = data.data.data;
             console.log(data)
           }
+          this.obj = data.data.data;
         }
 
       })

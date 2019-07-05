@@ -1,17 +1,20 @@
 <template>
-  <div>
+  <div class="ification">
     <!--复用-->
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
       <dxHeaderIconWrap/>
     </dxHeaderReturn>
     <PopularizationCouncil :councilMsg="councilMsg"/>
-    <PopularizationTopic :popuMessage="classiFicationMessage"/>
-<!--    <PopularizationAuthor :authorMsg="authorMsg"/>-->
+    <PopularizationTopic :popuMessage="councilMsg"/>
+    <ClassificationAuthor :authorMsg="councilMsg"/>
     <!--新的-->
-    <ClassificationDirecting :direcMsg="direcMsg"/>
+    <ClassificationDirecting :direcMsg="councilMsg"/>
+    <!--请求回来的数据-->
     <div>
       <div v-for="(item,index) in classiFicationMessage.article" :key="index">
+        <!--图片标题-->
         <ClassificationTit :title="item.title"/>
+        <!--每组12张图片-->
         <ClassificationOther :classiFicationMessageImg="item.article_info"/>
       </div>
     </div>
@@ -19,8 +22,7 @@
     <!--复用-->
     <PopularizationCopyright :copyMsg="copyMsg"/>
     <PopularizationShare :shareMsg="shareMsg"/>
-    <PopularizationMore :moreMsg="moreMsg"/>
-    <PopularizationMore :moreMsg="moreMsgg"/>
+    <PopularizationMore :moreMsg="classiFicationMessage.recom_article"/>
   </div>
 </template>
 
@@ -34,7 +36,7 @@
   //文章标题
   import PopularizationTopic from "../components/popularization/popularizationTopic"
   //作者信息
-  import PopularizationAuthor from "../components/popularization/popularizationAuthor"
+  import ClassificationAuthor from "../components/classification/classificationAuthor"
   //新的
   //指路
   import ClassificationDirecting from "../components/classification/classificationDirecting"
@@ -61,7 +63,7 @@
       dxHeaderReturn,
       PopularizationCouncil,
       PopularizationTopic,
-      PopularizationAuthor,
+      ClassificationAuthor,
       // 新的
       ClassificationDirecting,
       ClassificationTit,
@@ -75,33 +77,17 @@
     },
     data() {
       return {
-        // 头部
-        headerMag: {
-          tit: "科普文章",
-          icon: require("../assets/img/illness/ic_titlebar_back.png"),
-          iconn: require("../assets/img/illness/abc_ic_star_black_36dp.png"),
-          iconnn: require("../assets/img/illness/ic_titlebar_share.png")
-        },
         //组委会
         councilMsg: {
-          tit: "丁香医生审稿专业委员会通过"
+          tit: "丁香医生审稿专业委员会通过",
+          title: "收好这 36 个应急锦囊，遇到小病不再慌，值得分享",
+          img:require("../assets/img/illness/timg.jpg"),
+          auth: "丁香医生",
+          subjection: "健康科普平台",
+          text: "点击下方任一图片，即可查看对应处理办法。",
+          oneRmb:require("../public/img/bg_app_bottom.png")
         },
         classiFicationMessage:{},
-        //文章标题
-        topicMsg: {
-          tit: "收好这 36 个应急锦囊，遇到小病不再慌，值得分享"
-        },
-        //作者信息
-        authorMsg: {
-          img: require("../assets/img/illness/timg.jpg"),
-          name: "丁香医生",
-          platform: "健康科普平台"
-        },
-        //新的
-        //指路
-        direcMsg: {
-          tit: "点击下方任一图片，即可查看对应处理办法。"
-        },
         //1元问医生
         questionMsg: {
           img: require("../assets/img/illness/im_strict_review_inquiry_action.png"),
@@ -150,9 +136,11 @@
     created() {
       this.$store.dispatch("GetInfo", true);
       this.$axios.get("http://121.199.63.71:9006/science_article/").then(data => {
+        console.log(data)
         if (data.data.code === 206) {
           this.$store.dispatch("GetInfo", false);
           this.classiFicationMessage = data.data.data;
+          console.log(this.classiFicationMessage)
         }
       })
     }
@@ -160,4 +148,7 @@
 </script>
 
 <style scoped>
+  .ification{
+    padding-bottom: 200px;
+  }
 </style>

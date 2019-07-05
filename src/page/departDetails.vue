@@ -29,6 +29,7 @@
   import IlinessClassifyModule from "../components/departDetails/departModule/illnessClassifyModule"
   import PullDownSelect from "../components/departDetails/departModule/pullDownSelect"
   import DoctorMessage from "../components/departDetails/page/doctorMessage"
+  import dxDefaultPage from "../components/public/dxDefaultPage"
 
   export default {
     name: "departDetails",
@@ -37,11 +38,15 @@
       Search,
       IlinessClassifyModule,
       PullDownSelect,
-      DoctorMessage, dxHeaderIconWrap
+      DoctorMessage,
+      dxHeaderIconWrap,
+      dxDefaultPage
     },
-
     data() {
       return {
+        DefaultPageTxt: {
+          txt: "暂无匹配医生"
+        },
         headerMessage: {
           title: "",
           show: false,
@@ -90,7 +95,6 @@
           this.isShowDiv = true;
           this.$store.dispatch("GetInfo", false);
           this.doctorMessages = data.data.doct_data;
-          console.log(this.doctorMessages)
         }
       })
     },
@@ -99,7 +103,8 @@
         this.$axios.get("http://121.199.63.71:9006/socket_doc/?value=" + val + "&depid=" + this.$route.query.id).then((data) => {
           this.doctorMessages = data.data.data
         })
-      },
+      }
+      ,
       citySelct(cityVal) {
         this.$axios.get("http://121.199.63.71:9006/area_find/?area=" + cityVal).then((data) => {
           this.doctorMessages = data.data.data[0].doctors;
@@ -116,3 +121,9 @@
   }
 </script>
 <style src="../assets/css/departDetails.css"></style>
+<style scoped>
+  .doctorList > .centerImg {
+    width: 100%;
+    height: 600px;
+  }
+</style>
