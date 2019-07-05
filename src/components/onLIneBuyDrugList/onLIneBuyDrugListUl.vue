@@ -5,12 +5,15 @@
         :key="index"
     >
       <!-- 药品列表的li -->
-      <OnLineBuyDrugListLi :drugList="item" :drugListInndex="index" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce"/>
+      <OnLineBuyDrugListLi :drugList="item" :drugListInndex="index" :isDrugBtu="isDrugBtu" @cartZoPirce="cartZoPirce" @clickIsShowDrugBtu="clickIsShowDrugBtu"/>
     </li>
 	<van-popup v-model="show" position="bottom" :style="{ height: '90%' }">
 		<!-- 药品详情 -->
-		<DrugDetails @isNoDrugDetails="isNoDrugDetails" :drugIndex="drugIndex"/>
+		<DrugDetails @isNoDrugDetails="isNoDrugDetails" :drugIndex="drugIndex" :IsShowDrugBtu="IsShowDrugBtu"/>
 	</van-popup>
+	<div class="onLineBuyDrugFootTips">
+		<span>已到底部</span>
+	</div>
   </ul>
 </template>
 
@@ -33,6 +36,7 @@
 				show: false,
 				drugDetails:{},
 				drugIndex:0,
+				IsShowDrugBtu:true
 			}
 		},
 		methods:{
@@ -45,7 +49,10 @@
 			},
 			cartZoPirce(val){
 				this.$emit("cartZoPirce",val)
-			}
+			},
+			clickIsShowDrugBtu(val){
+				this.IsShowDrugBtu = !val;
+			}	
 		}
 	}
 </script>

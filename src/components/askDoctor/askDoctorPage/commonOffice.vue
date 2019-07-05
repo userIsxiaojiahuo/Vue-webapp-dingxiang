@@ -1,11 +1,11 @@
 <template>
     <ul class="classifyUls">
         <div class="classifyUlsDiv">
-            <router-link to="/departDetails" tag="li" v-for="(itemB,lis) in officeMessage" :key="lis"
-                         @click.native="handleClick(itemB.id,itemB.name)">
+            <li v-for="(itemB,lis) in officeMessage" :key="lis"
+                @click="handleClick(itemB.id,itemB.name)">
                 <OfficImg :images="itemB.img" v-if="itemB.img"></OfficImg>
                 <OfficeText :title="itemB.name" :show="show"></OfficeText>
-            </router-link>
+            </li>
         </div>
     </ul>
 </template>
@@ -13,7 +13,6 @@
 <script>
     import OfficeText from "../askDoctorPublic/officeText"
     import OfficImg from "../askDoctorPublic/officeImg"
-    import Bug from "../../../assets/js/newVue.js"
 
     export default {
         name: "commonOffice",
@@ -33,7 +32,13 @@
         },
         methods: {
             handleClick(index, name) {
-                Bug.$emit("id", {index, name})
+                this.$router.push({
+                    path: "/departDetails",
+                    query: {
+                        id: index,
+                        name: name
+                    }
+                })
             }
         },
         created() {
