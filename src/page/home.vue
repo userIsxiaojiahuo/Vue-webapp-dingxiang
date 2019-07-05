@@ -121,11 +121,14 @@
     created() {
       this.$store.dispatch("GetInfo", true);
       this.$axios.get("http://121.199.63.71:9006/article/").then((data) => {
-        if (data.data.code === 206) {
+        if (data.status === 200) {
           this.$store.dispatch("GetInfo", false);
-          this.obj = data.data.data;
-          console.log(this.obj)
+          if (data.data.code === 206) {
+            this.obj = data.data.data;
+            console.log(data)
+          }
         }
+
       })
     },
   }

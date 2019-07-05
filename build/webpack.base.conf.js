@@ -88,7 +88,10 @@ module.exports = {
 
     'AMap': 'AMap',
 
+    'BMap': 'BMap',
+
     'AMapUI': 'AMapUI'
 
+    // 'AMap': 'window.AMap'
   }
 };

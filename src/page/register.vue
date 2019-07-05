@@ -10,7 +10,7 @@
       </dxLoginOrRegister>
       <!--协议-->
       <loginBtn v-slot:loginBtn @click.native="registerBtn">
-        <span>注册</span>
+        注册
       </loginBtn>
       <dxProtocol/>
     </div>
@@ -43,18 +43,36 @@
         this.code = msgCode
       },
       registerBtn() {
+        /*this.$axios({
+          method: "post",
+          url: 'http://121.199.63.71:9006/is_exist/',
+          data: {
+            phone: this.TEL
+          }
+        });*/
         this.$axios({
           method: 'post',
           url: 'http://121.199.63.71:9006/login_code/',
           data: {
-            TEL: this.TEL,
-            code: this.code
+            phone: this.TEL,
+            input_code: this.code
           }
         }).then((returned) => {
+          console.log(returned);
           if (returned.status === 200) {
             if (returned.data.code === 200) {
-              common.setCookie("token", returned.data.token, 1);
-              this.$router.replace('/login')
+              this.common.setCookie("token", returned.data.token, 1);
+              this.$router.replace({
+                name: 'setPassWord',
+                query: {
+                  telNum: this.TEL
+                }
+              })
+            } else if (returned.data.code === 400) {
+              this.$toast({
+                position: "bottom",
+                message: "验证码错误"
+              });
             }
           }
         })

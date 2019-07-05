@@ -19,7 +19,8 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
-  Toast
+  Toast,
+  Dialog
 } from 'vant';
 
 axios.defaults.withCredentials = true;
@@ -27,7 +28,7 @@ axios.defaults.withCredentials = true;
 Vue.prototype.$axios = axios;
 Vue.prototype.common = common;
 Vue.prototype.newVue = newVue;
-Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard).use(SwipeCell).use(Button).use(Checkbox).use(CheckboxGroup).use(Toast);
+Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard).use(SwipeCell).use(Button).use(Checkbox).use(CheckboxGroup).use(Toast).use(Dialog);
 Vue.config.productionTip = false;
 
 new Vue({

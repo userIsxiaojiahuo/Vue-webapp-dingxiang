@@ -47,6 +47,10 @@
       },
       stePassWorld() {
         // 修改密码
+        this.$axios({
+          method: "post",
+          url:"http://121."
+        });
         this.$router.replace('/login')
       }
     }

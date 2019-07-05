@@ -11,14 +11,14 @@ const goBack = (_this) => {
 const createMap = () => {
 
 };
-
+// 设置cookie
 const setCookie = (cname, cvalue, exdays) => {
   let d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";//path=/是根路径
 };
-
+//获取cookie
 const getCookie = (cname) => {
   let name = cname + "=";
   let ca = document.cookie.split(';');
@@ -29,4 +29,8 @@ const getCookie = (cname) => {
   }
   return "";
 };
-export default {goBack, createMap, setCookie, getCookie}
+
+const removeCookie = (cname) => {
+  setCookie(cname, ' ', -1);
+};
+export default {goBack, createMap, setCookie, getCookie, removeCookie}

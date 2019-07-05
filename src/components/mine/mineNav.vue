@@ -7,12 +7,12 @@
         </div>
       </div>
       <div class="itemTitle">
-        <h4>{{item.itemTitle}}</h4>
+        <p>{{item.itemTitle}}</p>
       </div>
       <div class="itemNumber" v-if="false">{{item.cont}}</div>
     </router-link>
   </div>
-</template>
+</template>p
 
 <script>
   /**

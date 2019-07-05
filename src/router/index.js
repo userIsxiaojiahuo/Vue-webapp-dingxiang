@@ -71,7 +71,8 @@ const router = new Router({
         name: "home",
         component: home,
         meta: {
-          footerIsShow: true
+          footerIsShow: true,
+          keepAlive: true
         }
       },
       {
@@ -79,7 +80,8 @@ const router = new Router({
         name: "mine",
         component: mine,
         meta: {
-          footerIsShow: true
+          footerIsShow: true,
+          keepAlive: true
         }
       },
       {
@@ -111,6 +113,9 @@ const router = new Router({
         path: "/classification",
         name: "classification",
         component: classification,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: "/departDetails",
@@ -131,6 +136,9 @@ const router = new Router({
         path: "/AskDoctor",
         name: "AskDoctor",
         component: AskDoctor,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: "/Diagonse",

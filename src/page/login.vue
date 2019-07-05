@@ -64,9 +64,8 @@
         this.isMask = true;
         if (this.loginMode) {
           // 手机号验证码登录
-
           this.$axios({
-            method: 'post',
+            method: "post",
             url: 'http://121.199.63.71:9006/login_code/',
             data: {
               phone: this.TEL,
@@ -75,9 +74,13 @@
           }).then((returned) => {
             if (returned.status === 200) {
               if (returned.data.code === 200) {
-
                 common.setCookie("token", returned.data.token, 1);
                 this.$router.replace('/mine')
+              } else if (returned.data.code === 400) {
+                this.$toast({
+                  position: "bottom",
+                  message: "验证码错误"
+                });
               }
             }
           })
@@ -97,9 +100,7 @@
               auth_str: this.code
             }
           }).then((returned) => {
-
             if (returned.status === 200) {
-
               if (returned.data.code === 200) {
                 common.setCookie("token", returned.data.token, 1);
                 this.$toast.loading({

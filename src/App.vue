@@ -1,6 +1,9 @@
 <template>
   <div class="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="this.$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!this.$route.meta.keepAlive"></router-view>
     <dxLoading class="loading" v-if="$store.state.isGetInfo"></dxLoading>
     <dxFooter v-if="this.$route.meta.footerIsShow"/>
   </div>
