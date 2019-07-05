@@ -31,19 +31,25 @@
                  @click="handleInfoCancel(doctorMessage.doctorMess.doc_id)">
                 取消
             </div>
+            <Toast v-if="isShowPopup"/>
         </div>
     </div>
 </template>
 
 <script>
     import common from "../../assets/js/common.js"
+    import {Toast} from 'vant';
 
     export default {
         name: "doctorInfoMessage",
+        components: {
+            Toast
+        },
         data() {
             return {
                 isShowAttention: true,
-                isShowInfoCancel: false
+                isShowInfoCancel: false,
+                isShowPopup: false
             }
         },
         props: {
@@ -66,10 +72,12 @@
             // 关注
             handleAttention(id) {
                 let token = common.getCookie("token");
+                // let token = "eb56823a442c4c92aa670d91cb9f3faf";
                 let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
                 this.$axios.get(url).then((data) => {
-                    console.log(data);
+                    console.log(data.data);
                     if (data.data.code === 200) {
+                        this.$toast('关注成功');
                         this.isShowInfoCancel = true;
                         this.isShowAttention = false
                     }
@@ -78,10 +86,12 @@
             // 取消
             handleInfoCancel(id) {
                 let token = common.getCookie("token");
+                // let token = "eb56823a442c4c92aa670d91cb9f3faf";
                 let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
                 this.$axios.get(url).then((data) => {
                     console.log(data);
                     if (data.data.code === 200) {
+                        this.$toast('取消关注');
                         this.isShowInfoCancel = false;
                         this.isShowAttention = true
                     }
@@ -141,8 +151,6 @@
         font-size: 24px;
         color: #28b7a3;
         position: relative;
-        /*padding-bottom: 40px;*/
-        /*border-bottom: 1px so lid red;*/
     }
 
     .CurriculumVitae > i {

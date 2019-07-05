@@ -18,16 +18,6 @@
             DoctorMessage,
             HospitalDoctorListFoot
         },
-        props: {
-            doctorMessages: {
-                type: Array
-            },
-            hospitalDoctors: {
-                type: Number
-            },
-            isShowHospital: {
-                type: Object
-            }
-        }
+        props: ["doctorMessages", "hospitalDoctors", "isShowHospital"]
     }
 </script>

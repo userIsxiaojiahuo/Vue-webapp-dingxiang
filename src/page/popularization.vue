@@ -116,7 +116,6 @@
                 if (data.data.code === 206) {
                     this.$store.dispatch("GetInfo", false);
                     this.popuMessage = data.data.data[0];
-                    console.log(this.popuMessage)
                 }
             })
         },

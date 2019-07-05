@@ -7,12 +7,12 @@
             <DoctorInfoMessage :isShowDiv="isShowDiv" :doctorMessage="doctorMessage"></DoctorInfoMessage>
             <ExperienceStati :doctorMessage="doctorMessage"></ExperienceStati>
             <MainBusiness :doctorMessage="doctorMessage"></MainBusiness>
-            <AskDoctorsWay :doctorMessage="doctorMessage"></AskDoctorsWay>
+            <AskDoctorsWay @info="send" :doctorMessage="doctorMessage"></AskDoctorsWay>
             <HotConsult :hotQuertions="hotQuertions"></HotConsult>
             <PatientEstimate :hotQuertions="patientEsit"></PatientEstimate>
             <SafetySings></SafetySings>
         </div>
-        <DoctorInfoFooter v-if="isShow" :doctorMessage="doctorMessage"></DoctorInfoFooter>
+        <DoctorInfoFooter @op="isShowPupopModule" @info="isInfo" :isShowPupo="isShowPupo" v-if="isShow" :doctorMessage="doctorMessage"></DoctorInfoFooter>
     </div>
 </template>
 
@@ -56,6 +56,7 @@
                     isStarLevel: false,
                 },
                 isShow: false,
+                isShowPupo: false,
                 hotQuertions: [
                     {
                         title: "热门咨询",
@@ -131,13 +132,12 @@
             this.$store.dispatch("GetInfo", true);
             let url = "http://121.199.63.71:9006/ask_doctor/" + this.$route.query.id + "/resume";
             this.$axios.get(url).then(data => {
-                console.log(data)
                 if (data.data.code === 200) {
                     this.$store.dispatch("GetInfo", false);
                     this.isShow = true;
                     data.data.data.map((info, index) => {
                         if (index === 0) {
-                            this.doctorMessage.doctorMess = info
+                            this.doctorMessage.doctorMess = info;
                         } else if (index === 1) {
                             this.doctorMessage.dep = info
                         } else if (index === 2) {
@@ -148,6 +148,17 @@
                     })
                 }
             })
+        },
+        methods: {
+            send(info) {
+                this.isShowPupo = info;
+            },
+            isInfo(info){
+                this.isShowPupo = info;
+            },
+            isShowPupopModule(info){
+                this.isShowPupo = info;
+            }
         }
     }
 </script>

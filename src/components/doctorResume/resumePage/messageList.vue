@@ -1,27 +1,43 @@
 <template>
     <div class="listDivCon">
         <div class="messageText" @click="toHospaital(hospitalMess.id)">
+            <i v-if="messageImg.isShowHeaderImg"
+               :style="{background:'url('+messageImg.nameImg+')',backgroundSize:'cover'}"></i>
             <h3>
-                <p class="meName">{{hospitalMess.hosp_name}}</p>
+                <p :class="messageImg.isShowHeaderImg?'meName':'meNameBolder'">{{hospitalMess.hosp_name}}</p>
             </h3>
             <ul>
-                <li class="listUls">
+                <li :class="messageImg.isShowHeaderImg?'listUls':'acive'">
                     {{hospitalMess.hosp_level}}
                 </li>
-                <li class="listUls">
+                <li :class="messageImg.isShowHeaderImg?'listUls':'acive'">
                     {{hospitalMess.medical_insurance}}
                 </li>
             </ul>
         </div>
         <div class="messageText">
-
-            <h3>
+            <i :style="{background:'url('+messageImg.phoneImg+')', backgroundSize:'cover'}"></i>
+            <h3 @click.stop="handleShowPopup">
                 <p class="meName">联系电话</p>
                 <p class="mePhone">{{hospitalMess.hosp_tel}}</p>
             </h3>
+            <van-popup
+                    type="primary"
+                    v-model="isShowPopup"
+                    position="bottom"
+                    :style="{ height: '25%' }"
+            >
+                <div class="messListFooter">
+                    <p>请点击号码，立即拨打电话</p>
+                    <p @click="handleShowPopupPDom(hospitalMess.hosp_tel)">{{hospitalMess.hosp_tel}}</p>
+                    <div class="messListFooterCancel" @click="handleShowPopupCancel">
+                        取消
+                    </div>
+                </div>
+            </van-popup>
         </div>
         <div class="messageText">
-
+            <i :style="{background:'url('+messageImg.addressImg+')', backgroundSize:'cover'}"></i>
             <h3>
                 <p class="meName nameNowrap">{{hospitalMess.hosp_addr}}</p>
             </h3>
@@ -30,9 +46,19 @@
 </template>
 
 <script>
+    import {Popup, Dialog} from 'vant';
+
     export default {
         name: "messageList",
-        props: ["isShowHospital", "hospitalMess"],
+        props: ["isShowHospital", "hospitalMess", "messageImg"],
+        data() {
+            return {
+                isShowPopup: false,
+            }
+        },
+        components: {
+            "van-popup": Popup
+        },
         methods: {
             toHospaital(id) {
                 this.$router.push({
@@ -41,8 +67,29 @@
                         id: id
                     }
                 });
+            },
+            handleShowPopup() {
+                this.isShowPopup = true
+            },
+            handleShowPopupCancel() {
+                this.isShowPopup = false
+            },
+            handleShowPopupPDom(tallId) {
+                this.isAlert = true;
+                // this.$dialog.alert({
+                //     message: '该设备没有电话模块'
+                // }).then(() => {
+                //     this.isShowPopup = false
+                // });
+                this.isShowPopup = false;
+                let str = tallId;
+                let phone = str.split(";");
+                for (let i = 0; i < phone.length; i++) {
+
+                }
+                window.location.href = 'tel://' + tallId;
             }
-        }
+        },
     }
 </script>
 
@@ -53,10 +100,6 @@
         line-height: 100px;
         padding-right: 30px;
         position: relative;
-        /*padding-bottom: 24px;*/
-        /*display: flex;*/
-        /*justify-content: center;*/
-        /*align-items: center;*/
         background: url("../../../assets/images/askdoctor/hospitalInfo/hcp_into.png") no-repeat 680px center;
         background-size: 16px 24px;
     }
@@ -89,7 +132,7 @@
         font-size: 20px;
         color: #3aa798;
         border-radius: 50px;
-        /*height: 100%;*/
+        min-height: 40px;
     }
 
     .acive {
@@ -102,6 +145,7 @@
         border-radius: 50px;
         background: url("../../../assets/images/askdoctor/doctorInfo/ic_tag.png") left center no-repeat;
         background-size: 26px 26px;
+        min-height: 40px;
     }
 
     .meName {
@@ -130,6 +174,45 @@
         -webkit-line-clamp: 1;
         text-overflow: ellipsis;
         display: -webkit-box;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+    }
+
+    /*弹出层内容*/
+    .messListFooter {
+        width: 100%;
+        height: 100%;
+        background: #ebebeb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 30px;
+    }
+
+    .messListFooter > p:first-child {
+        text-align: center;
+        flex: 1;
+        color: #333333;
+        background: white;
+        width: 100%;
+    }
+
+    .messListFooter > p:nth-child(2) {
+        text-align: center;
+        color: #219c8b;
+        background: white;
+        flex: 2;
+        width: 100%;
+    }
+
+    .messListFooterCancel {
+        text-align: center;
+        margin-top: 10px;
+        color: #333333;
+        background: white;
+        flex: 2;
+        width: 100%;
     }
 </style>

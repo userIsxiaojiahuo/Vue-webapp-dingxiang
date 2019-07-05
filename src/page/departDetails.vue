@@ -13,9 +13,10 @@
             <div class="doctorList">
                 <PullDownSelect @info="send" @city="citySelct"></PullDownSelect>
                 <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"></DoctorMessage>
-                <div class="sorryDiv" v-if="isShowSorryDiv">
-                    <h3>暂无医生数据</h3>
-                </div>
+                <dxDefaultPage v-if="isShowSorryDiv" class="centerImg" v-slot:DefaultPageLogo
+                               :DefaultPageTxt="DefaultPageTxt">
+                    <img class="imgAuto" src="../assets/img/defaultPage/ic_doctor_empty.png" alt="">
+                </dxDefaultPage>
             </div>
         </div>
     </div>
@@ -29,6 +30,7 @@
     import IlinessClassifyModule from "../components/departDetails/departModule/illnessClassifyModule"
     import PullDownSelect from "../components/departDetails/departModule/pullDownSelect"
     import DoctorMessage from "../components/departDetails/page/doctorMessage"
+    import dxDefaultPage from "../components/public/dxDefaultPage"
 
     export default {
         name: "departDetails",
@@ -37,10 +39,15 @@
             Search,
             IlinessClassifyModule,
             PullDownSelect,
-            DoctorMessage, dxHeaderIconWrap
+            DoctorMessage,
+            dxHeaderIconWrap,
+            dxDefaultPage
         },
         data() {
             return {
+                DefaultPageTxt: {
+                    txt: "暂无匹配医生"
+                },
                 headerMessage: {
                     title: "",
                     show: false,
@@ -104,10 +111,8 @@
                     this.doctorMessages = data.data.data[0].doctors;
                     if (data.data.data === "暂无数据") {
                         this.isShowSorryDiv = true;
-                        console.log(this.isShowSorryDiv)
                     } else {
                         this.isShowSorryDiv = false;
-                        console.log(this.isShowSorryDiv)
                     }
                 })
             }
@@ -115,3 +120,9 @@
     }
 </script>
 <style src="../assets/css/departDetails.css"></style>
+<style scoped>
+    .doctorList > .centerImg {
+        width: 100%;
+        height: 600px;
+    }
+</style>

@@ -3,7 +3,7 @@
         <div class="Header">
             <drugBack></drugBack>
             <div class="doctorSearch_searchHeader">
-                <input v-model="val" @focus="inputVal()" type="text" :placeholder="placeholderText"/>
+                <input ref="input" v-model="val" @focus="inputVal()" type="text" :placeholder="placeholderText"/>
             </div>
         </div>
         <div v-if="isShowHotSearch">
@@ -77,11 +77,15 @@
                                 console.log(data);
                                 this.isShowHotSearch = false;
                                 this.doctorMessage = data.data.datas
+                                console.log(this.doctorMessage)
                             }
                         })
                     }
                 }
             }
+        },
+        mounted() {
+            this.$refs.input.focus()
         }
     }
 </script>

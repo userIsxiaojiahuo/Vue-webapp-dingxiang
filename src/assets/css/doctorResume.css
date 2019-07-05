@@ -9,8 +9,11 @@
 
 .resumeContent {
     flex: 1;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
+}
+.safetySing{
+    width: 100%;
+    height: 253px;
 }
 
 /**
