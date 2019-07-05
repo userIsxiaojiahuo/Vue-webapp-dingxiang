@@ -1,7 +1,7 @@
 <template>
     <div>
         <dxHeaderReturn :headerReturnTitle="headerReturnTitle">
-            <AmendHeader/>
+            <dxNextBtn :headerReturnTitle="headerReturnTitle"/>
         </dxHeaderReturn>
         <IdentityContent :indentMsg="indentMsg"/>
     </div>
@@ -10,21 +10,22 @@
 <script>
     import dxHeaderReturn from '../components/public/dxHeaderReturn'
     import IdentityContent from "../components/setting/setIdentity/identityContent"
-    import AmendHeader from  "../components/setting/setAmendname/amendHeader"
-
+    import dxNextBtn from '../components/public/dxNextBtn'
 
     export default {
         name: "setIdentity",
         components:{
             dxHeaderReturn,
             IdentityContent,
-            AmendHeader
+            dxNextBtn
         },
         data(){
             return{
                 //头部·
                 headerReturnTitle: {
-                    title: "我的身份"
+                    title: "我的身份",
+                    txt:"完成",
+                    path:'/Setting'
                 },
                 //有无宝宝
                 indentMsg:[

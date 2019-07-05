@@ -1,7 +1,7 @@
 <template>
     <div class="hospitalMessageListCon">
         <HdTitle></HdTitle>
-        <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+        <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"></DoctorMessage>
         <HospitalDoctorListFoot :hospitalDoctors="hospitalDoctors"></HospitalDoctorListFoot>
     </div>
 </template>
@@ -24,6 +24,9 @@
             },
             hospitalDoctors: {
                 type: Number
+            },
+            isShowHospital: {
+                type: Object
             }
         }
     }

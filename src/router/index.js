@@ -311,7 +311,10 @@ const router = new Router({
       {
         path: "/myInquiry",
         name: "myInquiry",
-        component: myInquiry
+        component: myInquiry,
+        meta: {
+          auth: true
+        }
       },
       {
         path: "/myPrescription",
@@ -393,7 +396,7 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-// //改变title值
+//改变title值
 // router.beforeEach((to, form, next) => {
 //   if (to.meta.title) {
 //     document.title = to.meta.title

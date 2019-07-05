@@ -11,8 +11,11 @@
       <IlinessClassifyModule :classifyHtml="classifyHtml"></IlinessClassifyModule>
       <!-- 医生列表-->
       <div class="doctorList">
-        <PullDownSelect></PullDownSelect>
-        <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+        <PullDownSelect @info="send" @city="citySelct"></PullDownSelect>
+        <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"></DoctorMessage>
+        <div class="sorryDiv" v-if="isShowSorryDiv">
+          <h3>暂无医生数据</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -36,12 +39,17 @@
       PullDownSelect,
       DoctorMessage, dxHeaderIconWrap
     },
+
     data() {
       return {
         headerMessage: {
           title: "",
           show: false,
           isStartImg: false
+        },
+        isShowHospital: {
+          showHeader: false,
+          isShowAskDiv: true
         },
         isShowDiv: false,
         place: {
@@ -70,7 +78,8 @@
             headerImg: require("../assets/images/askdoctor/doctorHead_04.png")
           }
         ],
-        doctorMessages: []
+        doctorMessages: [],
+        isShowSorryDiv: false
       }
     },
     created() {
@@ -81,9 +90,29 @@
           this.isShowDiv = true;
           this.$store.dispatch("GetInfo", false);
           this.doctorMessages = data.data.doct_data;
+          console.log(this.doctorMessages)
         }
       })
     },
+    methods: {
+      send(val) {
+        this.$axios.get("http://121.199.63.71:9006/socket_doc/?value=" + val + "&depid=" + this.$route.query.id).then((data) => {
+          this.doctorMessages = data.data.data
+        })
+      },
+      citySelct(cityVal) {
+        this.$axios.get("http://121.199.63.71:9006/area_find/?area=" + cityVal).then((data) => {
+          this.doctorMessages = data.data.data[0].doctors;
+          if (data.data.data === "暂无数据") {
+            this.isShowSorryDiv = true;
+            console.log(this.isShowSorryDiv)
+          } else {
+            this.isShowSorryDiv = false;
+            console.log(this.isShowSorryDiv)
+          }
+        })
+      }
+    }
   }
 </script>
 <style src="../assets/css/departDetails.css"></style>

@@ -11,7 +11,6 @@
             <img class="imgAuto" :src="setInfo.photo">
           </div>
         </template>
-
       </SetContent>
       <van-popup v-model="showOne" :style="{height: '17%',width:'85%',borderRadius:'3px'}">
         <div class="names">拍照</div>

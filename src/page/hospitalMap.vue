@@ -44,7 +44,7 @@
         if (!geocoder) {
           geocoder = new AMap.Geocoder({});
         }
-        let address = "西安市立人科技";
+        let address = this.$route.query.hospitalSite;
         geocoder.getLocation(address, (status, result) => {
           if (status === 'complete' && result.geocodes.length) {
             if (!marker) {
