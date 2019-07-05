@@ -41,19 +41,28 @@
       }
     },
     methods: {
-      getMsgCode() {
-        if (this.passWordNum.length === 6) {
-          // 发送验证码
-        }
-      },
       VerifyPhone() {
-        // 验证验证码
-        this.$router.replace({
-          path: "setPassWord",
-          query: {
-            telNum: this.$route.query.telNum
+        this.$axios({
+          method: "post",
+          url: "http://121.199.63.71:9006/check_code/",
+          data: {
+            phone: this.$route.query.telNum,
+            input_code: this.passWordNum
           }
-        })
+        }).then((returned) => {
+          console.log(returned)
+          if (returned.data.code === 200) {
+            this.common.setCookie('token', returned.data.token)
+            this.$router.replace({
+              path: "setPassWord",
+              query: {
+                telNum: this.$route.query.telNum
+              }
+            })
+          }
+        });
+        // 验证验证码
+
       }
     },
     mounted() {

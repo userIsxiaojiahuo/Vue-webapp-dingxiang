@@ -81,7 +81,6 @@ const router = new Router({
         component: mine,
         meta: {
           footerIsShow: true,
-          keepAlive: true
         }
       },
       {

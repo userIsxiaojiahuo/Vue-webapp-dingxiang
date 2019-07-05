@@ -109,7 +109,7 @@
             path: "/classification"
           },
           {
-            imgs: require('../assets/img/home/nav-8.png'),
+            imgs: require('../assets/img/home/baby.png'),
             title: '孕期管家',
             path: ""
           }

@@ -1,15 +1,18 @@
 <template>
   <div class="myAttention">
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
-    <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt">
+    <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt" v-if="!isHaveDefault">
       <img class="imgAuto" src="../../assets/img/defaultPage/ic_doctor_empty.png" alt="">
     </dxDefaultPage>
+    <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"
+                   v-if="isHaveDefault"></DoctorMessage>
   </div>
 </template>
 
 <script>
   import dxHeaderReturn from '../../components/public/dxHeaderReturn'
   import dxDefaultPage from '../../components/public/dxDefaultPage'
+  import DoctorMessage from "../../components/departDetails/page/doctorMessage"
 
   /**
    * 我的关注
@@ -23,11 +26,34 @@
         },
         DefaultPageTxt: {
           txt: "暂无关注的医生"
-        }
+        },
+        isShowHospital: {
+          showHeader: false,
+          isShowAskDiv: true
+        },
+        doctorMessages: [],
+        isHaveDefault: true
       }
     },
     components: {
-      dxHeaderReturn, dxDefaultPage
+      dxHeaderReturn, dxDefaultPage, DoctorMessage
+    },
+    created() {
+      this.$store.dispatch("GetInfo", true);
+      this.$axios({
+        method: "get",
+        url: 'http://121.199.63.71:9006/my_focus/?token=' + this.common.getCookie('token')
+      }).then((returned) => {
+        if (returned.status === 200) {
+          this.$store.dispatch("GetInfo", false);
+          if (returned.data.code === 200) {
+            this.isHaveDefault = true;
+            this.doctorMessages = returned.data.data
+          } else {
+            this.isHaveDefault = false;
+          }
+        }
+      })
     }
   }
 </script>
@@ -40,3 +66,4 @@
     flex-direction: column;
   }
 </style>
+<style src="../../assets/css/departDetails.css"></style>

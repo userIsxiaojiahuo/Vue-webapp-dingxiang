@@ -43,13 +43,6 @@
         this.code = msgCode
       },
       registerBtn() {
-        /*this.$axios({
-          method: "post",
-          url: 'http://121.199.63.71:9006/is_exist/',
-          data: {
-            phone: this.TEL
-          }
-        });*/
         this.$axios({
           method: 'post',
           url: 'http://121.199.63.71:9006/login_code/',

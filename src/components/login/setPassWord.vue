@@ -47,11 +47,21 @@
       },
       stePassWorld() {
         // 修改密码
+        let token = this.common.getCookie('token');
         this.$axios({
           method: "post",
-          url:"http://121."
+          url: "http://121.199.63.71:9006/new_password/",
+          data: {
+            token: token,
+            auth_str: this.passWordNum
+          }
+        }).then((returned) => {
+          console.log(returned)
+          if (returned.data.code === 200) {
+            this.$toast.success('设置成功');
+            this.$router.push('/login')
+          }
         });
-        this.$router.replace('/login')
       }
     }
   }

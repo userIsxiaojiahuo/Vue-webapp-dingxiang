@@ -1,16 +1,19 @@
 // 回退
 const goBack = (_this) => {
-  // if (window.history.length <= 1) {
-  //   _this.$router.push({path: '/'});
-  //   return false
-  // } else {
-  //   _this.$router.go(-1)
-  // }
-  _this.$router.back()
+  if (window.history.length <= 1) {
+    _this.$router.push({path: '/'});
+    return false
+  } else {
+    _this.$router.back()
+  }
 };
 //地图
-const createMap = () => {
-
+const isLogin = function (_this, router) {
+  if (getCookie('token')) {
+    _this.$router.push(router)
+  } else {
+    _this.$store.dispatch("isLoginPopup", true);
+  }
 };
 // 设置cookie
 const setCookie = (cname, cvalue, exdays) => {
@@ -34,4 +37,4 @@ const getCookie = (cname) => {
 const removeCookie = (cname) => {
   setCookie(cname, ' ', -1);
 };
-export default {goBack, createMap, setCookie, getCookie, removeCookie}
+export default {goBack, isLogin, setCookie, getCookie, removeCookie}

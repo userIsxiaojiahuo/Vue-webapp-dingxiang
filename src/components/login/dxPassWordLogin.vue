@@ -20,7 +20,7 @@
           <img class="imgAuto" src="../../assets/img/loginOrRegister/sso_pw.png" alt="">
         </div>
         <div class="AreaInputWrapper">
-          <input class="AreaInput input" type="text" placeholder="请输入密码" v-model="passWordNum"
+          <input class="AreaInput input" type="password" placeholder="请输入密码" v-model="passWordNum"
                  @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '密码格式错误' && promptMSg===true}">
         </div>
       </div>

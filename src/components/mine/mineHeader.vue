@@ -2,28 +2,27 @@
   <div class="mineHeader">
     <!--用户登录注册-->
     <div class="loginOrRegister">
-      <div class="intoRegister" @click="isLogin()">
+      <div class="intoRegister" @click="loginEvent">
         <div class="userPortrait">
-          <img class="imgAuto" src="../../assets/img/mine/ic_male.png" alt="">
-          <img class="imgAuto" :src="mineInfo.photo" alt="">
+          <img class="imgAuto" src="../../assets/img/mine/ic_male.png" alt="" v-if="!show">
+          <img class="imgAuto" :src="userData" alt="" v-if="show">
         </div>
         <div class="loginWrapper">
-          <h1>登录/注册</h1>
-          <h1>{{mineInfo.nick_name}}</h1>
+          <h1 v-if="!show">登录/注册</h1>
+          <h1 v-if="show">{{username}}</h1>
         </div>
       </div>
     </div>
     <!--用户信息-->
     <div class="userInfo">
-      <router-link :to="item.path" tag="div" class="userInfoItem" v-for="(item,index) in userInfo" :key="index">
+      <div @click="item.checkEvent" class="userInfoItem" v-for="(item,index) in userInfo" :key="index">
         <div class="userItem infoNumber">{{item.cont}}</div>
         <div class="userItem infoTitle">{{item.title}}</div>
-      </router-link>
+      </div>
     </div>
     <!--通知组件-->
     <dxMessage class="mineDxMsg"/>
     <!--登录弹出层-->
-    <loginPopup :popupIsShow="$store.state.loginPopups" @changeShow="showState"/>
   </div>
 </template>
 
@@ -32,7 +31,6 @@
    * 我的页面-头部
    */
   import dxMessage from '../public/dxMessage'
-  import loginPopup from '../public/loginPopup'
 
   export default {
     name: "mineHeader",
@@ -42,39 +40,62 @@
           {
             cont: 0,
             title: "关注医生",
-            path: "/myAttention"
+            checkEvent: () => {
+              this.common.isLogin(this, "/myAttention")
+            }
           },
           {
             cont: 0,
             title: "医生卡",
-            path: "/myAttention"
+            path: "",
+            checkEvent: () => {
+              this.common.isLogin(this, "/myAttention")
+            }
           },
           {
             cont: 0,
-            title: "优惠券",
-            path: "/myAttention"
+            title: "钱包余额",
+            checkEvent: () => {
+              this.common.isLogin(this)
+            }
           },
           {
             cont: 0,
             title: "收藏内容",
-            path: "/myCollect"
+            checkEvent: () => {
+              this.common.isLogin(this, "/myCollect")
+            }
           }
         ],
-        show: false
+        show: false,
+        userData: '',
+        username: ''
       }
     },
     components: {
-      dxMessage, loginPopup
+      dxMessage
 
     },
-    props: ['mineInfo'],
     methods: {
-      isLogin() {
-        this.$store.dispatch("isLoginPopup", true);
-      },
       showState(val) {
         this.show = val
+      },
+      loginEvent() {
+        this.common.isLogin(this, '/setting')
       }
+    },
+    created() {
+      this.newVue.$on('mineInfo', (val) => {
+        val ? this.show = true : this.show = false;
+        this.userInfo[0].cont = val.focus_doctor;
+        this.userInfo[2].cont = val.balance;
+        this.userInfo[3].cont = val.collect_content;
+        this.username = val.nick_name;
+        this.common.setCookie('userMoney', val.balance)
+      });
+      this.newVue.$on('urlPhoto', (val) => {
+        this.userData = val.url;
+      })
     }
   }
 </script>

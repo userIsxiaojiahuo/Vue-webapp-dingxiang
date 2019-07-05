@@ -71,7 +71,6 @@
             user.resend(this.$refs.codeBtn);
             user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
           } else if (this.$route.path === '/register') {
-            console.log("register");
             this.$axios.post("http://121.199.63.71:9006/is_exist/", {
               phone: this.phoneNumber.replace(/\s/g, "")
             }).then((returned) => {
@@ -82,7 +81,7 @@
                     position: "bottom",
                     message: "该用户已存在"
                   });
-                } else if (returned.data.code === 400) {
+                } else if (returned.data.code === 200) {
                   user.resend(this.$refs.codeBtn);
                   user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
                 }
