@@ -100,7 +100,9 @@
               auth_str: this.code
             }
           }).then((returned) => {
+
             if (returned.status === 200) {
+
               if (returned.data.code === 200) {
                 common.setCookie("token", returned.data.token, 1);
                 this.$toast.loading({

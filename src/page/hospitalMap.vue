@@ -26,24 +26,25 @@
         map: null
       }
     },
-    mounted() {
-      this.init();
-      this.geoCode()
-    },
     methods: {
-      init() {
-        let map = new AMap.Map("container", {
-          resizeEnable: true
+      amapView() {
+        const map = new AMap.Map('container', {});
+        AMap.service("AMap.Geocoder", function () {
+          var geocoder = new AMap.Geocoder({
+            radius: 1000,
+            extensions: "all",
+          });
+          geocoder.getAddress([116.473083, 39.993762], function (status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+              console.log(result)
+            }
+          });
         });
-
-
-      },
-      geoCode() {
         let geocoder, marker;
         if (!geocoder) {
           geocoder = new AMap.Geocoder({});
         }
-        let address = "光山县金博大超市";
+        let address = "西安市立人科技";
         geocoder.getLocation(address, (status, result) => {
           if (status === 'complete' && result.geocodes.length) {
             if (!marker) {
@@ -57,6 +58,10 @@
           }
         });
       }
+
+    },
+    mounted() {
+      this.amapView()
     }
   }
 </script>
