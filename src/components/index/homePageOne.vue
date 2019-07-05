@@ -2,7 +2,7 @@
   <div class="homePageOne">
     <div class="indexPage">
       <span>{{obj.recommend_time}}</span>
-      <router-link :to="'/Popularization?id='+item.id" tag="div" class="homeArticleWrapper"
+      <router-link :to="'/Popularization?home_id='+item.id" tag="div" class="homeArticleWrapper"
                    v-for="(item,index) in obj.recommend_info" :key="index">
         <img class="imgAuto" :src="item.title_img" alt="">
         <h3>{{item.art_class}}</h3>
@@ -26,6 +26,13 @@
 
   .indexPage {
     margin: 0 auto;
+  }
+
+  .indexPage span {
+    display: inline-block;
+    font-size: 48px;
+    padding-top: 30px;
+    margin-bottom: -20px;
   }
 
   .homePageOne span:nth-child(0) {

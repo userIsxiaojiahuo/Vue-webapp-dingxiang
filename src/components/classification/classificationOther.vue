@@ -7,11 +7,7 @@
 <script>
     export default {
         name: "classificationOther",
-        props:{
-            classiFicationMessageImg:{
-                type:Array
-            }
-        },
+        props:["classiFicationMessageImg"],
         methods:{
             handleClickImg(id){
                 this.$router.push({

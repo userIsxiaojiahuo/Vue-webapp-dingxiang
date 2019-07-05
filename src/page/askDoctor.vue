@@ -13,7 +13,6 @@
             <AskDoctorAdinOffice
                     :officeMessage="askDoctorMessage.officeMessage"
             >
-
             </AskDoctorAdinOffice>
 
         </div>
@@ -77,7 +76,6 @@
         },
         created() {
             this.$store.dispatch("GetInfo", true);
-            console.log(1)
             this.$axios.get("http://121.199.63.71:9006/ask_doctor/").then(data => {
                 if (data.data.code === 201) {
                     this.isShowDiv = true;

@@ -23,18 +23,35 @@
             <div class="doctorPhoto">
                 <img :src="doctorMessage.doctorMess.doc_img" alt="">
             </div>
-            <div class="attention">
+            <div class="attention" @click="handleAttention(doctorMessage.doctorMess.doc_id)" v-if="isShowAttention">
                 关注
                 <i></i>
             </div>
+            <div v-if="isShowInfoCancel" class="attention infoCancel"
+                 @click="handleInfoCancel(doctorMessage.doctorMess.doc_id)">
+                取消
+            </div>
+            <Toast v-if="isShowPopup"/>
         </div>
     </div>
 </template>
 
 <script>
+    import common from "../../assets/js/common.js"
+    import {Toast} from 'vant';
 
     export default {
         name: "doctorInfoMessage",
+        components: {
+            Toast
+        },
+        data() {
+            return {
+                isShowAttention: true,
+                isShowInfoCancel: false,
+                isShowPopup: false
+            }
+        },
         props: {
             doctorMessage: {
                 type: Object
@@ -43,9 +60,6 @@
                 type: Object
             }
         },
-        // created() {
-        //     console.log(this.doctorMessage)
-        // },
         methods: {
             toDoctorResume(id) {
                 this.$router.push({
@@ -54,8 +68,36 @@
                         id: id
                     }
                 })
+            },
+            // 关注
+            handleAttention(id) {
+                let token = common.getCookie("token");
+                // let token = "eb56823a442c4c92aa670d91cb9f3faf";
+                let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
+                this.$axios.get(url).then((data) => {
+                    console.log(data.data);
+                    if (data.data.code === 200) {
+                        this.$toast('关注成功');
+                        this.isShowInfoCancel = true;
+                        this.isShowAttention = false
+                    }
+                })
+            },
+            // 取消
+            handleInfoCancel(id) {
+                let token = common.getCookie("token");
+                // let token = "eb56823a442c4c92aa670d91cb9f3faf";
+                let url = "http://121.199.63.71:9006/focus_doctor/?token=" + token + "&doctor_id=" + id;
+                this.$axios.get(url).then((data) => {
+                    console.log(data);
+                    if (data.data.code === 200) {
+                        this.$toast('取消关注');
+                        this.isShowInfoCancel = false;
+                        this.isShowAttention = true
+                    }
+                })
             }
-        }
+        },
     }
 </script>
 
@@ -109,8 +151,6 @@
         font-size: 24px;
         color: #28b7a3;
         position: relative;
-        /*padding-bottom: 40px;*/
-        /*border-bottom: 1px so lid red;*/
     }
 
     .CurriculumVitae > i {
@@ -153,4 +193,12 @@
         left: 25px;
         top: 9px;
     }
+
+    .infoCancel {
+        background: white;
+        border: 1px solid #bababa; /*no*/
+        color: #333333;
+        text-indent: 0;
+    }
+
 </style>

@@ -23,6 +23,7 @@
       <loginBtn v-slot:loginBtn @click.native="MsgLogin">登录</loginBtn>
       <dxProtocol/>
     </div>
+
   </div>
 </template>
 
@@ -44,8 +45,12 @@
       return {
         loginMode: true,
         TEL: "",
-        code: ""
+        code: "",
+        isMask: false
       }
+    },
+    mounted() {
+
     },
     methods: {
       goBack() {
@@ -53,14 +58,13 @@
       },
       checkLoginMode() {
         this.loginMode = !this.loginMode;
-        console.log(this.loginMode);
       },
       MsgLogin() {
+        this.isMask = true;
         if (this.loginMode) {
           // 手机号验证码登录
-          this.$store.dispatch('GetInfo', true);
           this.$axios({
-            method: 'post',
+            method: "post",
             url: 'http://121.199.63.71:9006/login_code/',
             data: {
               phone: this.TEL,
@@ -69,20 +73,17 @@
           }).then((returned) => {
             if (returned.status === 200) {
               if (returned.data.code === 200) {
-                this.$store.dispatch('GetInfo', false);
                 common.setCookie("token", returned.data.token, 1);
                 this.$router.replace('/mine')
+              } else if (returned.data.code === 400) {
+                this.$toast({
+                  position: "bottom",
+                  message: "验证码错误"
+                });
               }
             }
           })
         } else {
-          console.log(123456);
-          console.log({
-            phone: this.TEL,
-            auth_str: this.code
-          });
-          // 手机号密码登录
-          this.$store.dispatch('GetInfo', true);
           this.$axios({
             method: 'post',
             url: 'http://121.199.63.71:9006/login_str/',
@@ -93,14 +94,29 @@
           }).then((returned) => {
             if (returned.status === 200) {
               if (returned.data.code === 200) {
-                this.$store.dispatch('GetInfo', false);
                 common.setCookie("token", returned.data.token, 1);
-                this.$router.replace('/mine')
+                this.$toast.loading({
+                  mask: true,
+                  message: '登录中...',
+                  duration: 1000,
+                  onClose: () => {
+                    this.$router.replace('/mine')
+                  }
+                });
+              } else if (returned.data.code === 406) {
+                this.$toast({
+                  position: "bottom",
+                  message: '用户名或密码输入错误',
+                })
+              } else {
+                this.$toast({
+                  position: "bottom",
+                  message: '用户未注册',
+                })
               }
             }
           })
         }
-
       },
       // 手机验证码登录
       telCode(val) {

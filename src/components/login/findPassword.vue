@@ -39,8 +39,17 @@
     methods: {
       // 发送验证码
       VerifyPhone() {
+        this.$axios({
+          method: "post",
+          url: "http://121.199.63.71:9006/forget_pwd/",
+          data: {
+            phone: this.phoneNumber
+          }
+        }).then((returned) => {
+          console.log(returned)
+        });
         // this.$router.push('/phoneFind?phone=' + this.phoneNumber);
-        this.$router.replace  ({
+        this.$router.replace({
           path: 'phoneFind',
           query: {
             telNum: this.phoneNumber

@@ -1,6 +1,6 @@
 <template>
     <div class="selectBtn">
-        <h3>筛选</h3>
+        <p>筛选</p>
     </div>
 </template>
 
@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    .selectBtn {
+        font-size: 30px;
+    }
 </style>

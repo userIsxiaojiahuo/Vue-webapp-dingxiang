@@ -1,7 +1,7 @@
 <template>
     <div class="doctorSelect">
         <van-dropdown-menu class="zSelect" id="vanBg" active-color="#333">
-            <van-dropdown-item v-model="value1" z-index="3" :options="option1"/>
+            <van-dropdown-item @change="lis(value1)" v-model="value1" z-index="3" :options="option1"/>
         </van-dropdown-menu>
         <div class="zSelect cnCity">
             <p @click="handlePdom">{{city?city:"全国"}}</p>
@@ -39,11 +39,11 @@
                 value1: 0,
                 option1: [
                     {text: '综合排序', value: 0},
-                    {text: '回答次数', value: 1},
-                    {text: '星级评分', value: 2},
-                    {text: '响应时间', value: 3},
-                    {text: '价格从低到高', value: 4},
-                    {text: '价格从高到低', value: 5}
+                    {text: '回答次数', value: 5},
+                    {text: '星级评分', value: 1},
+                    {text: '响应时间', value: 2},
+                    {text: '价格从低到高', value: 3},
+                    {text: '价格从高到低', value: 4}
                 ],
                 areaList: area,
                 city: ""
@@ -61,7 +61,11 @@
             },
             one(val) {
                 this.city = val[1].name;
-                this.show = false
+                this.show = false;
+                this.$emit("city",this.city)
+            },
+            lis(val) {
+                this.$emit("info", val)
             }
         }
 
@@ -103,9 +107,9 @@
         background: none;
     }
 
-    .doctorSelect {
-        padding-left: 40px;
-        /*overflow: hidden;*/
-    }
+    /*.doctorSelect {*/
+    /*    padding-left: 40px;*/
+    /*    !*overflow: hidden;*!*/
+    /*}*/
 
 </style>

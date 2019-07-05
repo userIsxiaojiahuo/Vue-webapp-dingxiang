@@ -1,6 +1,6 @@
 <template>
     <div class="doctorsMessage">
-        <div class="doctorMess" @click="toDoctorMessage(item.id)"
+        <div class="doctorMess" @click="toDoctorMessage(item.id,item.d_name_id)"
              v-for="(item,index) in doctorMessages"
              :key="index">
             <div class="messageLeft">
@@ -16,7 +16,7 @@
                 </div>
                 <p class="doctorMessPdom">
                     <span class="rank">{{item.doc_title}}</span>
-                    <span class="rank hospitalAddress">{{item.hop_name}}</span>
+                    <span class="rank hospitalAddress">{{item.hop_name}}{{item.hosp_name}}</span>
                 </p>
                 <p class="doctorMessPdom beGoodAt">
                     擅长:{{item.doc_goods}}
@@ -36,7 +36,7 @@
                         <span class="spanText priceRule" v-if="item.tel_price">|</span>
                         <span class="spanText phonePrice" v-if="item.tel_price">电话￥56</span>
                     </div>
-                    <img @click.stop="handleToImgInquiry($event)" v-if="item.avg_response"
+                    <img @click.stop="handleToImgInquiry($event)" v-if="isShowHospital.isShowAskDiv"
                          src="../../../assets/images/askdoctor/doctors/ask_doctor.png" alt="">
                 </div>
             </div>
@@ -46,32 +46,44 @@
 
 <script>
     import dxHighlyRecomIcon from '../../../components/public/dxHighlyRecomIcon'
-    import Bug from "../../../assets/js/newVue"
 
     export default {
         name: "doctorMessage",
+        components: {
+            dxHighlyRecomIcon
+        },
         props: {
             doctorMessages: {
                 type: Array
-            }
+            },
+            isShowHospital: {
+                type: Object
+            },
         },
         methods: {
-            toDoctorMessage(id) {
-                this.$router.push({
-                    path: "/doctorInfo",
-                    query: {
-                        id: id
-                    }
-                })
+            toDoctorMessage(id, doc_id) {
+                if (id) {
+                    this.$router.push({
+                        path: "/doctorInfo",
+                        query: {
+                            id: id
+                        }
+                    })
+                } else if (doc_id) {
+                    this.$router.push({
+                        path: "/doctorInfo",
+                        query: {
+                            id: doc_id
+                        }
+                    })
+                }
+
             },
             handleToImgInquiry() {
                 this.$router.push({
                     path: "/conPic"
                 })
             }
-        },
-        components: {
-            dxHighlyRecomIcon
         }
     }
 
@@ -110,6 +122,7 @@
     .messageRight {
         float: right;
         padding-right: 30px;
+        width: 100%;
     }
 
     .doctorName {
@@ -117,10 +130,11 @@
         font-weight: 700;
         color: #333333;
         padding-right: 10px;
+        line-height: 44px;
     }
 
     .rank {
-        font-size: 20px;
+        font-size: 24px;
         color: #666666;
     }
 
@@ -130,40 +144,44 @@
     }
 
     .doctorMessPdom {
-        line-height: 46px;
-        /*margin: 20px 0 20px 0;*/
+        line-height: 44px;
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
         -webkit-line-clamp: 1;
     }
 
     .beGoodAt {
         display: -webkit-box;
-        /*overflow: hidden;*/
         text-overflow: ellipsis;
         -webkit-line-clamp: 1;
         /*! autoprefixer: off */
         -webkit-box-orient: vertical;
-        overflow: hidden;
         /* autoprefixer: on */
+        overflow: hidden;
         font-size: 22px;
         color: #999999;
+        line-height: 54px;
     }
 
     .achievement {
         display: flex;
+        line-height: 54px;
     }
 
     .starLevel {
         width: 65px;
         display: inline-block;
-        background: url("../../../assets/images/askdoctor/doctors/s_icon_rating_star_d.png") no-repeat left center;
-        background-size: 20px 20px;
+        background: url("../../../assets/images/askdoctor/doctors/s_icon_rating_star_d.png") no-repeat 0 10px;
+        background-size: 27px 27px;
         padding-left: 25px;
         color: #ffb60b;
-        font-size: 12px;
+        font-size: 20px;
+        line-height: 54px;
+        text-indent: 3px;
     }
 
     .doctorSpanDom {

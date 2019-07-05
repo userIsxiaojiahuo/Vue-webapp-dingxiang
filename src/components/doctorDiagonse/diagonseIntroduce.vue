@@ -56,9 +56,9 @@
         // components: {
         //   "lazy-component": Lazyload
         // }
-        created() {
-            console.log(this.diagonseIntroduce)
-        },
+        // created() {
+        //     console.log(this.diagonseIntroduce)
+        // },
         methods: {
             handleDivToDoctorInfo(id) {
                 this.$router.push(
@@ -125,7 +125,9 @@
         font-size: 24px;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
         -webkit-line-clamp: 1;
     }
 
@@ -148,7 +150,9 @@
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* !autoprefixer: off */
         -webkit-box-orient: vertical;
+        /* autoprefixer: on */
         -webkit-line-clamp: 1;
         min-width: 1px;
         padding-right: 30px;
@@ -162,9 +166,13 @@
         font-size: 24px;
         color: #999999;
         line-height: 54px;
-        white-space: nowrap;
+        display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* !autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        -webkit-line-clamp: 1;
         padding-right: 44px;
         letter-spacing: 1px; /*no*/
     }

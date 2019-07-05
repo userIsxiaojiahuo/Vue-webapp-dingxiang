@@ -28,7 +28,7 @@
           <input class="AreaInput input" type="text" maxlength="6" placeholder="6位验证码" v-model="passWordNum"
                  @blur="MsgCodePromptMsg" :class="{inputNumError:promptMSgInfo === '验证码错误' && promptMSg===true}"
                  @input="loginBntOK">
-          <dxMsgCode @click.native="getMsgCode" :IsMsgCode="getMsgNum"/>
+          <dxMsgCode ref="codeBtn" @click.native="getMsgCode" :IsMsgCode="getMsgNum"/>
         </div>
       </div>
       <!--验证码-->
@@ -54,7 +54,7 @@
         phoneNumber: '',
         passWordNum: '',
         promptMSgInfo: "",
-        getMsgNum: false,
+        getMsgNum: true,
         promptMSg: false,
       }
     },
@@ -64,16 +64,37 @@
     methods: {
       // 获取验证码
       getMsgCode() {
-        if (this.getMsgNum) {
-          console.log("发送请求" + this.$store.state.isGetInfo);
-          user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
+        console.log(this.phoneNumber.replace(/\s/g, ""));
+        if (!this.getMsgNum) {
+          if (this.$route.path === '/login') {
+            console.log("login");
+            user.resend(this.$refs.codeBtn);
+            user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
+          } else if (this.$route.path === '/register') {
+            this.$axios.post("http://121.199.63.71:9006/is_exist/", {
+              phone: this.phoneNumber.replace(/\s/g, "")
+            }).then((returned) => {
+              if (returned.status === 200) {
+                console.log(returned);
+                if (returned.data.code === 400) {
+                  this.$toast({
+                    position: "bottom",
+                    message: "该用户已存在"
+                  });
+                } else if (returned.data.code === 200) {
+                  user.resend(this.$refs.codeBtn);
+                  user.MsgCode(this, this.phoneNumber.replace(/\s/g, ""));
+                }
+              }
+            });
+
+          }
         }
       },
       // 手机正则验证提示
       phoneNumberPromptMsg() {
         this.promptMSg = !user.isMsgSuccess(this.phoneNumber.replace(/\s/g, ""));
         this.promptMSgInfo = "手机号输入格式不正确";
-        console.log("手机号输入格式不正确")
       },
       // 短信手机验证提示
       MsgCodePromptMsg() {
@@ -92,9 +113,9 @@
     watch: {
       phoneNumber(newValue, oldValue) {
         if (newValue.length >= 13 && user.isMsgSuccess(newValue.replace(/\s/g, ""))) {
-          this.getMsgNum = true;
-        } else {
           this.getMsgNum = false;
+        } else {
+          this.getMsgNum = true;
         }
         if (newValue.length > oldValue.length) {
           if (newValue.length === 3 || newValue.length === 8) {

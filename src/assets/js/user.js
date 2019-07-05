@@ -10,6 +10,10 @@ const MsgCode = (_this, codeInfo) => {
     }
   }).then((returned) => {
     if (returned.data.code === 200) {
+      _this.$toast({
+        position: "bottom",
+        message: "验证码发送成功"
+      });
       _this.$store.dispatch('GetInfo', false);
     }
   });
@@ -20,11 +24,22 @@ const isMsgSuccess = (phoneNumber) => {
   return TEL_REGEXP.test(phoneNumber)
 };
 
+// 手机号倒计时
+const resend = element => {
+  let num = 60;
+  let timer = setInterval(function () {
+    num--;
+    element.$el.innerHTML = num + '秒后重新获取';
+    element.$el.disabled = ' disabled';
+    if (num === 0) {
+      element.$el.disabled = '';
+      element.$el.innerHTML = '获取验证码';
+      clearInterval(timer)
+    }
+  }, 1000)
+};
 //手机号密码登录
 
-const phonePassLogin = (_this, codeInfo) => {
-  console.log(codeInfo)
-};
 
 // 手机号登录注册
 const loginOrRegister = (_this, codeInfo, cb) => {
@@ -36,4 +51,4 @@ const loginOrRegister = (_this, codeInfo, cb) => {
   console.log(info);
 
 };
-export default {MsgCode, isMsgSuccess, loginOrRegister, phonePassLogin}
+export default {MsgCode, isMsgSuccess, loginOrRegister, resend}

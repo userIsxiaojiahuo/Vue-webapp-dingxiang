@@ -1,29 +1,22 @@
 <template>
     <div>
-    <div>
-        <van-index-bar :index-list="classifyMsg.indexList"
-        >
-
-            <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
-
-                <van-cell v-for="(items,lis) in itme.text" :title="items" :key="lis"/>
-            </van-index-anchor>
-
-        </van-index-bar>
-    </div>
-  <div>
-    <router-link to="/particulars" :index-list="classifyMsg.indexList">
-      <van-index-anchor v-for="(item,index) in classifyMsg.classifyMsgTitle" :key="index">{{item.title}}
-        <van-cell v-for="(items,index) in item.text" :title="items" :key="index"/>
-      </van-index-anchor>
-    </router-link>
-    <van-index-bar :index-list="classifyMsg.indexList"
-    >
-      <van-index-anchor v-for="(itme,index) in classifyMsg.classifyMsgTitle" :key="index">{{itme.title}}
-        <van-cell v-for="(items,lis) in itme.text" :title="items" :key="lis"/>
-      </van-index-anchor>
-    </van-index-bar>
-  </div>
+        <!--右边的A-Z-->
+            <van-index-bar
+                    :index-list="classifyMsg.indexList"
+            >
+                <!--分开的A-Z-->
+              <van-index-anchor
+                      v-for="(item,index) in classifyMsg.classifyMsgTitle"
+                      :key="index">{{item.title}}
+                  <!--根据首字母不同的相应疾病-->
+                <van-cell
+                        v-for="(items,index) in item.text"
+                        :title="items"
+                        :key="index"
+                        @click="intoillness"
+                />
+              </van-index-anchor>
+            </van-index-bar>
     </div>
 </template>
 
@@ -40,10 +33,18 @@
       "van-cell": Cell,
     },
     props: ["classifyMsg"],
-    methods: {}
+      methods:{
+          intoillness(){
+             this.$router.push("/popularization")
+          }
+      }
   }
 </script>
 
-<style scoped>
-
+<style >
+.van-index-bar__sidebar{
+    z-index:999!important;
+    position: fixed;
+    top:60%;
+}
 </style>

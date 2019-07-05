@@ -1,7 +1,7 @@
 <template>
     <div class="hospitalMessageListCon">
         <HdTitle></HdTitle>
-        <DoctorMessage :doctorMessages="doctorMessages"></DoctorMessage>
+        <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"></DoctorMessage>
         <HospitalDoctorListFoot :hospitalDoctors="hospitalDoctors"></HospitalDoctorListFoot>
     </div>
 </template>
@@ -18,13 +18,6 @@
             DoctorMessage,
             HospitalDoctorListFoot
         },
-        props: {
-            doctorMessages: {
-                type: Array
-            },
-            hospitalDoctors: {
-                type: Number
-            }
-        }
+        props: ["doctorMessages", "hospitalDoctors", "isShowHospital"]
     }
 </script>

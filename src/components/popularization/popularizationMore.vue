@@ -1,16 +1,12 @@
 <template>
     <div>
-        <p class="tit">{{moreMsg.tit}}</p>
+        <p class="tit">推荐文章</p>
         <ul class="Ulist">
-            <li class="List" v-for="item in moreMsg.navs">{{item}}</li>
+            <router-link :to="'/Popularization?id='+item.id" class="List" @click="intoPage" v-for="(item,index) in moreMsg" :key="index" v-if="item.id">{{item.title}}</router-link>
         </ul>
         <div class="botto">
-            <p class="moree">{{moreMsg.moree}}</p>
-            <i class="right"
-               :style="{
-           'background':'url('+ moreMsg.iconnn+')'+'no-repeat',
-           'backgroundSize':'cover'
-        }"></i>
+            <p class="moree">更多相关文章</p>
+            <i class="right"></i>
         </div>
 
     </div>
@@ -19,9 +15,10 @@
 <script>
     export default {
         name: "popularizationMore",
-        props:{
-            moreMsg:{
-                type:Object
+        props:['moreMsg'],
+        methods:{
+            intoPage(){
+
             }
         }
     }
@@ -59,5 +56,7 @@
         width:24px;
         height:24px;
         margin-left:16px;
+        background: url("../../assets/images/askdoctor/doctorInfo/ic_inquisition_arrow.png") no-repeat;
+        background-size:cover;
     }
 </style>
