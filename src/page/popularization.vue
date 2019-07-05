@@ -14,8 +14,8 @@
         <PopularizationMore :moreMsg="moreMsgg"/>
     </div>
 
-</template>
 
+</template>
 <script>
     //头部
     import dxHeaderReturn from '../components/public/dxHeaderReturn'
@@ -27,6 +27,7 @@
     import PopularizationAuthor from "../components/popularization/popularizationAuthor"
     //疾病图片
     // import PopularizationPicture from "../components/popularization/popularizationPicture"
+
 
     //版权
     import PopularizationCopyright from "../components/popularization/popularizationCopyright"
@@ -107,6 +108,7 @@
                             "呼吸科"
                         ]
                 },
+                //文章
                 popuMessage: {}
             }
         },
@@ -118,58 +120,60 @@
                     this.popuMessage = data.data.data[0];
                 }
             })
+            if(this.$route.query.id){
+                this.$axios.get("http://121.199.63.71:9006/science_articles/" + this.$route.query.id + "/").then((data) => {
+                    if (data.data.code === 206) {
+                        this.$store.dispatch("GetInfo", false);
+                        this.popuMessage = data.data.data[0];
+                        console.log(this.popuMessage)
+                    }
+                })
+            }else if(this.$route.query.home_id){
+                this.$axios.get("http://121.199.63.71:9006/article/" + this.$route.query.home_id + "/").then((data) => {
+                    if (data.data.code === 206) {
+                        this.$store.dispatch("GetInfo", false);
+                        this.popuMessage = data.data.data[0];
+                        console.log(this.popuMessage)
+                    }
+                })
+            }
         },
     }
 </script>
 
 <style>
+    /*文章标题*/
     .editor-body p img{
         width: 100%;
     }
-    .editor-body p{
-        font-size: 34px;
-        margin:65px 30px 0;
-        color: #666666;
-        line-height: 60px;
-        font-weight: 500;
-    }
+    /*第一段文本*/
     .editor-body p,.editor-body ul{
         font-size: 34px;
-        margin:65px 30px 0;
+        margin:30px 30px 0;
         color: #666666;
-        line-height: 60px;
         font-weight: 500;
     }
-    .editor-body ul{
-        margin-left: 84px;
-    }
-    .editor-body ol li{
-        list-style: decimal!important;
-    }
-    .editor-body ul>li{
-        list-style: disc!important;
-        font-weight: bolder;
-    }
-    .editor-body ol>li{
-        font-weight: 500;
-    }
-    .editor-body.attention{
-        font-weight: bolder!important;
-    }
-
-
-
+    /*第二大段有序列表套无序列表*/
     .editor-body p,.editor-body ol{
         font-size: 34px;
         color: #666666;
         line-height: 60px;
         font-weight: 500;
     }
+    .editor-body ul>li{
+        margin-top: 30px;
+        line-height: 60px!important;
+        font-weight: 400!important;
+        margin-left: -30px!important;
+        margin-right: 30px!important;
+    }
     .editor-body p{
-        margin:65px 30px 0;
+        margin:30px 30px 0;
     }
     .editor-body h2{
         padding-left: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
     .editor-body ol{
         margin-left: 84px;
@@ -181,12 +185,14 @@
     .editor-body .Olist{
         line-height: 120px;
     }
-    .editor-body ul>li{
-        margin-top: 30px;
-        line-height: 60px!important;
-        font-weight: 400!important;
-        margin-left: -30px!important;
-        margin-right: 30px!important;
+   #popuContent img{
+       width: 700px;
+   }
+    #popuContent p{
+        font-size: 34px;
+        margin: 20px 30px;
     }
-
+    #popuContent p strong{
+        margin: 20px 0;
+    }
 </style>

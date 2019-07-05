@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="allillness" @click.stop="showPopup">
-            <h3>常见疾病</h3>
+            <p>常见疾病</p>
         </div>
         <!--        <van-popup v-model="isShow" :overlay="isshow"  position="top" :style="{ height: '100px' , position:'absolute',top:'50px'}">内容</van-popup>-->
     </div>
@@ -30,6 +30,7 @@
 </script>
 
 <style scoped>
-    .allillness {
+    .allillness > p {
+        font-size: 30px;
     }
 </style>

@@ -17,11 +17,7 @@
 <script>
     export default {
         name: "illnessSearch",
-        props: {
-            searchMsg: {
-                type: Object
-            }
-        }
+        props: ["searchMsg"]
     }
 </script>
 

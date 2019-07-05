@@ -96,7 +96,6 @@
                     this.isShowDiv = true;
                     this.$store.dispatch("GetInfo", false);
                     this.doctorMessages = data.data.doct_data;
-                    console.log(this.doctorMessages)
                 }
             })
         },

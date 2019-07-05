@@ -25,13 +25,16 @@
                     type="primary"
                     v-model="isShowPopup"
                     position="bottom"
-                    :style="{ height: '25%' }"
+                    :style="{ height: 'auto' }"
             >
                 <div class="messListFooter">
                     <p>请点击号码，立即拨打电话</p>
-                    <p @click="handleShowPopupPDom(hospitalMess.hosp_tel)">{{hospitalMess.hosp_tel}}</p>
+                    <p class="phonePDom" @click="handleShowPopupPDom(hospitalMess.hosp_tel)" v-for="item in phoneArr">
+                        {{item}}</p>
                     <div class="messListFooterCancel" @click="handleShowPopupCancel">
-                        取消
+                        <div class="messListFooterCancelText">
+                            取消
+                        </div>
                     </div>
                 </div>
             </van-popup>
@@ -54,6 +57,7 @@
         data() {
             return {
                 isShowPopup: false,
+                phoneArr: []
             }
         },
         components: {
@@ -84,12 +88,12 @@
                 this.isShowPopup = false;
                 let str = tallId;
                 let phone = str.split(";");
-                for (let i = 0; i < phone.length; i++) {
-
-                }
                 window.location.href = 'tel://' + tallId;
             }
         },
+        created() {
+            this.phoneArr = this.hospitalMess.hosp_tel.split(';');
+        }
     }
 </script>
 
@@ -183,36 +187,48 @@
     .messListFooter {
         width: 100%;
         height: 100%;
-        background: #ebebeb;
+        /*background: #ebebeb;*/
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         font-size: 30px;
+        overflow: hidden;
     }
 
     .messListFooter > p:first-child {
         text-align: center;
-        flex: 1;
         color: #333333;
-        background: white;
         width: 100%;
     }
 
-    .messListFooter > p:nth-child(2) {
+    .messListFooter > p {
+        border-bottom: 1px solid #ebebeb; /*no*/
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .phonePDom {
         text-align: center;
         color: #219c8b;
-        background: white;
-        flex: 2;
         width: 100%;
     }
 
     .messListFooterCancel {
         text-align: center;
-        margin-top: 10px;
+        padding-top: 10px;
         color: #333333;
-        background: white;
-        flex: 2;
+        background: #ebebeb;
+        flex: 1;
         width: 100%;
+    }
+
+    .messListFooterCancelText {
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

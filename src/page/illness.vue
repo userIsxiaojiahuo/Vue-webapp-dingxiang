@@ -56,7 +56,7 @@
         },
         //分类
         classifyMsg: {
-          indexList: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
+          indexList: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O","P","Q","R","S","T","U","V","W","X","Y","Z"],
 
           classifyMsgTitle: [
             {
@@ -101,6 +101,16 @@
           title: "查疾病"
         }
       }
+    },
+    created() {
+      // this.$store.dispatch("GetInfo", true);
+      this.$axios.get("http://121.199.63.71:9006/medc_illness/").then((data)=>{
+        // console.log(data)
+        if(data.data.code === 200){
+          // this.$store.dispatch("GetInfo", false);
+          // this.classifyMsg.classifyMsgTitle = data.data.data;
+        }
+      })
     }
   }
 </script>

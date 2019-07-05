@@ -71,7 +71,8 @@
       },
       currentInfo(index) {
         this.currentNumber = index;
-        this.isAll = false
+        this.isAll = false;
+        this.show = false;
       },
       currentClass(index) {
         if (!this.isAll) {
@@ -80,7 +81,8 @@
       },
       currentAll() {
         this.isActive = true;
-        this.isAll = true
+        this.isAll = true;
+        this.show = false;
       }
     }
   }
