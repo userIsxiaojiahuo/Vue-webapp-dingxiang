@@ -44,6 +44,7 @@
     justify-content: center;
     align-items: center;
     background: #f4f4f4;
+    margin-bottom:160px;
   }
 
   .UnderImgWrapper > img {
