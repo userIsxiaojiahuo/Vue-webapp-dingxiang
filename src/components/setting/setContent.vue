@@ -14,7 +14,8 @@
   export default {
     data() {
       return {
-        loginStyle: false
+        loginStyle: false,
+        userInfo: this.$route.query.userinfo
       }
     },
     name: "SetContent",

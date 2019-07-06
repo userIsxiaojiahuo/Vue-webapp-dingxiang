@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="repacePhoneNext.path" tag="div"
+  <router-link :to="{path:repacePhoneNext.path,query:{phone:phone}}" tag="div"
                class="changePhoneBtnWrap">
     <div :class="isOk?'changePhoneBtn':'changeBg'"
          class="changePhoneBtn">{{repacePhoneNext.title}}
@@ -10,7 +10,7 @@
 <script>
   export default {
     name: "changePhoneBtn",
-    props: ["repacePhoneNext", "isOk"],
+    props: ["repacePhoneNext", "isOk","phone"],
     methods: {
       handleClick() {
         this.$emit("changeBtnClick")

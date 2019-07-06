@@ -210,10 +210,12 @@
     overflow: hidden;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    /* !autoprefixer: off */
+    display: -webkit-box; /* !autoprefixer: off */
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /*autoprefixer: on */
   }
 
   .messListFooter p {

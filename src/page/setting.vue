@@ -56,23 +56,17 @@
           name: "立即登录",
           img: require("../assets/img/public/start_active.png"),
           path: "",
-          event: () => {
-
-          }
         },
         titMsg: [
           {
             name: "头像",
             img: require("../assets/img/public/start_active.png"),
             path: "",
-            event: this.showPopup
           },
           {
             name: "昵称",
             tit: "未设置",
-            path: "/setAmendname/?user_name=",
-            event: () => {
-            }
+            path: "/setAmendname/",
           },
           {
             name: "性别",
@@ -84,22 +78,16 @@
             name: "我的身份",
             tit: "未设置",
             path: "/setIdentity",
-            event: () => {
-            }
           },
           {
             name: "我的手机号",
             tit: "未绑定",
             path: "/phoneNumber",
-            event: () => {
-            }
           },
           {
             name: "微信",
             tit: "未绑定",
             path: "",
-            event: () => {
-            }
           }
         ],
         sex: ["男", "女"],
@@ -131,11 +119,17 @@
     methods: {
       //弹出框
       showPopup(index) {
-        if (index == 0) {
+        if (index === 0) {
           this.showOne = true
-        }
-        if (index == 2) {
+        } else if (index === 2) {
           this.showTwo = true
+        } else {
+          this.$router.push({
+            path: this.titMsg[index].path,
+            query: {
+              userinfo: this.titMsg[index].tit
+            }
+          })
         }
       },
       selectPhotoPic(event) {
