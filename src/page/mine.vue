@@ -17,8 +17,6 @@
   import mineNav from '../components/mine/mineNav'
   import mineListWrapper from '../components/mine/mineListWrapper'
   import dxUnderState from '../components/public/dxUnderState'
-
-
   export default {
     name: "mine",
     data() {
@@ -45,7 +43,7 @@
           {
             text: "用户反馈",
             checkEvent: () => {
-              
+
             }
           },
         ],
@@ -61,14 +59,6 @@
     },
     created() {
       let token = this.common.getCookie('token');
-<<<<<<< HEAD
-      this.$axios({
-        method: 'get',
-        url: "http://121.199.63.71:9006/own_page/?token=" + token,
-      }).then((returnInfo) => {
-        // console.log(returnInfo)
-      })
-=======
       this.$axios.all([this.$axios.get("http://121.199.63.71:9006/own_page/?token=" + token),
         this.$axios.get('http://121.199.63.71:9006/img_url/?token=' + token)
       ]).then(this.$axios.spread((userResp, reposResp) => {
@@ -77,9 +67,7 @@
           this.newVue.$emit('urlPhoto', reposResp.data);
         }
       }));
->>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
     }
-
   }
 </script>
 

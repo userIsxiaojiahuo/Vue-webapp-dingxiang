@@ -1,7 +1,7 @@
 <template>
   <div class="myAttention">
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
-    <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt" v-if="!isHaveDefault">
+    <dxDefaultPage v-slot="DefaultPageLogo" :DefaultPageTxt="DefaultPageTxt" v-if="!isHaveDefault">
       <img class="imgAuto" src="../../assets/img/defaultPage/ic_doctor_empty.png" alt="">
     </dxDefaultPage>
     <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"
