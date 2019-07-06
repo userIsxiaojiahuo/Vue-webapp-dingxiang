@@ -1,18 +1,7 @@
 <template>
 	<div class="editAddress">
 		<HeaderReturn :headerReturnTitle="headerReturn"/>
-<<<<<<< HEAD
-		<van-address-edit :area-list="areaList"
-                      show-search-result
-                      :search-result="searchResult"
-                      @save="onSave"
-                      @delete="onDelete"
-                      @change-detail="onChangeDetail"
-    >
-    </van-address-edit>
-=======
 		<van-address-edit :addressInfo="addressInfo" :area-list="areaList" show-search-result :search-result="searchResult" @save="onSave" @delete="onDelete" @change-detail="onChangeDetail"/>
->>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
 	</div>
 </template>
 <script>
