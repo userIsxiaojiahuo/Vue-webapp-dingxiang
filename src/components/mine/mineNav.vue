@@ -66,7 +66,6 @@
         } else {
           this.minInfo = false
         }
-        this.nav[0].cont = val.focus_doctor;
         this.nav[2].cont = val.my_inquiry;
       })
     }
