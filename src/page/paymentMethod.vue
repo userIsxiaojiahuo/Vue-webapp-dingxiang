@@ -8,6 +8,7 @@
 </template>
 
 <script>
+	import common from '../assets/js/common.js'
 	/* 支付界面头部 */
 	import CartPaymentHeader from "../components/public/dxCartPaymentHeader"
 	/* 支付方式列表 */
@@ -29,13 +30,13 @@
 					{
 						paymentMethodIco:require("../assets/onLineImg/ico-1.png"),
 						title:"账户余额",
-						balance:"200.00",
+						balance:common.getCookie("userMoney"),
 						SelectionPic:require("../assets/onLineImg/ico-3.png"),
 						isSelection:true
 					},
 					{
 						paymentMethodIco:require("../assets/onLineImg/ico-2.png"),
-						title:"余额包",
+						title:"余额宝",
 						balance:"200.00",
 						SelectionPic:require("../assets/onLineImg/ico-3.png"),
 						isSelection:false

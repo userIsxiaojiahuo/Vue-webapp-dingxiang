@@ -17,6 +17,7 @@
   import mineNav from '../components/mine/mineNav'
   import mineListWrapper from '../components/mine/mineListWrapper'
   import dxUnderState from '../components/public/dxUnderState'
+
   export default {
     name: "mine",
     data() {

@@ -33,6 +33,7 @@
   import homeSwiper from '../components/index/homeSwiper'
   import homePageOne from '../components/index/homePageOne'
   import BScroll from 'better-scroll'
+
   /**
    * 首页
    */
@@ -135,14 +136,17 @@
     height: 100%;
     overflow: hidden;
   }
+
   .homeContentWrapper {
     height: 100%;
     overflow-y: auto;
   }
+
   .homeRecommend {
     margin-bottom: 340px;
     padding: 20px 36px;
   }
+
   h1 {
     padding: 36px 0 0 36px;
   }

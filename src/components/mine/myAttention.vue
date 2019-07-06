@@ -1,7 +1,7 @@
 <template>
   <div class="myAttention">
     <dxHeaderReturn :headerReturnTitle="headerReturnTitle"></dxHeaderReturn>
-    <dxDefaultPage v-slot="DefaultPageLogo" :DefaultPageTxt="DefaultPageTxt" v-if="!isHaveDefault">
+    <dxDefaultPage v-slot:DefaultPageLogo :DefaultPageTxt="DefaultPageTxt" v-if="!isHaveDefault">
       <img class="imgAuto" src="../../assets/img/defaultPage/ic_doctor_empty.png" alt="">
     </dxDefaultPage>
     <DoctorMessage :isShowHospital="isShowHospital" :doctorMessages="doctorMessages"
@@ -46,8 +46,10 @@
       }).then((returned) => {
         if (returned.status === 200) {
           this.$store.dispatch("GetInfo", false);
-          if (returned.data.code === 200) {
+          if (returned.data.code === 200 && returned.data.data !== "暂无关注") {
             this.isHaveDefault = true;
+            console.log(returned.data.msg)
+            console.log(returned.data)
             this.doctorMessages = returned.data.data
           } else {
             this.isHaveDefault = false;

@@ -45,84 +45,103 @@
 			}
 		}
 	}
+  
 </script>
 
 <style scoped>
-	.myDrugOrdersLiBox{
-		width: 100%;
-		padding: 0 20px;
-	}
-	.myDrugOrdersLi{
-		width: 100%;
-		height: 100%;
-		padding: 0 20px;
-		background: #FFFFFF;
-		margin: 20px 0;
-		border-radius: 40px;
-	}
-	.myDrugOrdersLi_box{
-		width: 100%;
-		height: 100%;
-		padding: 20px 0;
-		margin-bottom: 10px;
-	}
-	.orderInformation{
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 1px solid #efeeee;/* no */
-		padding: 10px 0;
-	}
-	.orderInformation_title>span{
-		display: block;
-		color: #030303;
-		font-size: 30px;
-	}
-	.orderInformation_title>span:last-of-type{
-		color: #999999;
-	}
-	.orderDrug{
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		padding: 20px 0;
-		border-bottom: 1px solid #efeeee;/* no */
-	}
-	.orderDrug_pic{
-		flex: 20%;
-		max-width: 20%;
-	}
-	.orderDrug_pic>img{
-		width: 100%;
-		vertical-align: middle;
-	}
-	.orderDrug_info{
-		flex: 56%;
-		max-width: 56%;
-	}
-	.orderDrug_info>h2{
-		font-size: 20px;
-		color: #030303;
-		margin-top: 10px;
-	}
-	.orderDrug_info>span{
-		font-size: 20px;
-		color: #999999;
-	}
-	.orderDrug_picer{
-		flex: 20%;
-		max-width: 20%;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	.orderDrug_picer>span{
-		font-size: 16px;
-		color: #999999;
-	}
-	.orderDrug_picer>span:last-of-type{
-		color: crimson;
-	}
+  .myDrugOrdersLiBox {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .myDrugOrdersLi {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    background: #FFFFFF;
+    margin: 20px 0;
+    border-radius: 40px;
+  }
+
+  .myDrugOrdersLi_box {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    margin-bottom: 10px;
+  }
+
+  .orderInformation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #efeeee; /* no */
+    padding: 10px 0;
+  }
+
+  .orderInformation_title > span {
+    display: block;
+    color: #030303;
+    font-size: 30px;
+  }
+
+  .orderInformation_title > span:last-of-type {
+    color: #999999;
+  }
+
+  .orderDrug {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #efeeee; /* no */
+  }
+
+  .orderDrug_pic {
+    flex: 20%;
+    max-width: 20%;
+  }
+
+  .orderDrug_pic > img {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .orderDrug_info {
+    flex: 56%;
+    max-width: 56%;
+  }
+
+  .orderDrug_info > h2 {
+    font-size: 20px;
+    color: #030303;
+    margin-top: 10px;
+  }
+
+  .orderDrug_info > span {
+    font-size: 20px;
+    color: #999999;
+  }
+
+  .orderDrug_picer {
+    flex: 20%;
+    max-width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .orderDrug_picer > span {
+    font-size: 16px;
+    color: #999999;
+  }
+
+  .orderDrug_picer > span:last-of-type {
+    color: crimson;
+  }
+
+  .myDrugOrdersLi {
+    box-shadow:  3px 3px 20px #999999;
+  }
 </style>
