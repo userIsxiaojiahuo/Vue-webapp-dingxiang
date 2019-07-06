@@ -1,6 +1,6 @@
 <template>
   <div class="homeSwiper">
-    <div class="swiper-container" ref="homeBanner">
+    <div class="swiper-container" ref="homeBanner" id="indexSwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item,index) in indexSwiper.banner" :key="index">
           <img class="imgAuto" :src="item" alt="">
@@ -25,13 +25,13 @@
       return {}
     },
     mounted() {
-      new Swiper(this.$refs.homeBanner, {
+      new Swiper('#indexSwiper', {
         loop: true, // 循环模式选项
         autoplay: true,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets'
-        },
+//         pagination: {
+//           el: '.swiper-pagination',
+//           type: 'bullets'
+//         },
       })
     }
   }

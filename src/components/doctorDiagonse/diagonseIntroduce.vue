@@ -180,7 +180,7 @@
     font-size: 24px;
     color: #999999;
     line-height: 54px;
-    white-space: nowrap;
+   /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
     padding-right: 44px;
