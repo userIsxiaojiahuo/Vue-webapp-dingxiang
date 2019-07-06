@@ -3,7 +3,7 @@
     <!-- 公共的头部 -->
     <HeaderReturn :headerReturnTitle="headerReturn">
       <!-- 头部里面的搜索框 -->
-      <OnLineBuyListHeaber :onLineSearch="search" />
+      <OnLineBuyListHeaber :onLineSearch="search"/>
     </HeaderReturn>
     <!-- 药品列表 -->
     <OnLineBuyDrugListUl :drugList="drug" @toalNume="toalNume"/>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-	import newVue from "../assets/js/newVue.js"
+  import newVue from "../assets/js/newVue.js"
   /* 头部返回 */
   import HeaderReturn from '../components/public/dxHeaderReturn.vue'
   /* 搜索 */
@@ -37,35 +37,35 @@
       OnLineBuyFoot,
       OnLineFootCratBtu,
     },
-		created(){
-			this.$store.dispatch('GetInfo', true);
-			let url = "";
-			if(url==""){
-				this.$axios.get('http://121.199.63.71:9006/medc_illness/1-1/')
-				.then((response)=>{
-					if(response.data.code==200){
-						this.$store.dispatch('GetInfo', false);
-						this.drug = response.data.data;
-					}
-				})
-				.catch((error)=>{
-					console.log(error)
-				})
-			}
-			newVue.$on("drugIndex",(val)=>{
-				url = 'http://121.199.63.71:9006/medc_illness/'+val+'/';
-				this.$axios.get(url)
-				.then((response)=>{
-					if(response.data.code==200){
-						this.$store.dispatch('GetInfo', false);
-						this.drug = response.data.data;
-					}
-				})
-				.catch((error)=>{
-					console.log(error)
-				})
-			})
-		},
+    created() {
+      this.$store.dispatch('GetInfo', true);
+      let url = "";
+      if (url == "") {
+        this.$axios.get('http://121.199.63.71:9006/medc_illness/1-1/')
+          .then((response) => {
+            if (response.data.code == 200) {
+              this.$store.dispatch('GetInfo', false);
+              this.drug = response.data.data;
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+      newVue.$on("drugIndex", (val) => {
+        url = 'http://121.199.63.71:9006/medc_illness/' + val + '/';
+        this.$axios.get(url)
+          .then((response) => {
+            if (response.data.code == 200) {
+              this.$store.dispatch('GetInfo', false);
+              this.drug = response.data.data;
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      })
+    },
     data() {
       return {
         headerReturn: {
@@ -74,7 +74,7 @@
         },
         search: {
           pic: require("../assets/onLineImg/ic_search_after.png"),
-          title: "痘痘"
+          title: this.$route.query.itemName
         },
         drug: [],
         onLineBuyFoot: {
@@ -82,14 +82,14 @@
           path: "/orderFilling"
         },
         show: false,
-				drugToalNume:0
+        drugToalNume: 0
       }
     },
     methods: {
-			toalNume(val){
-				this.drugToalNume = val;
-			}
-		}
+      toalNume(val) {
+        this.drugToalNume = val;
+      }
+    }
   }
 </script>
 <style src="../assets/css/onLIneBuyDrugList.css"></style>
