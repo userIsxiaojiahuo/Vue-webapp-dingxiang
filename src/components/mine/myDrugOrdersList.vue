@@ -37,12 +37,6 @@
 			dxRightArrows
 		},
 		props:["DrugOrders"],
-		created() {
-			if(this.DrugOrders.length != 0){
-				common.setCookie("ordersId",this.DrugOrders[this.DrugOrders.length-1].o_id,1);
-			}
-			// console.log(this.DrugOrders[0].o_time);
-		},
 		methods: {
 			
 		},

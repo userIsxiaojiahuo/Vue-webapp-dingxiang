@@ -56,7 +56,6 @@
 								})
 								tar.$router.push("/myDrugOrders");
 							}
-							console.log(response);
 						}
 						console.log(response);
 					})

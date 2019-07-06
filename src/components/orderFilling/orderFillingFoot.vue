@@ -48,15 +48,30 @@
 					let tar = this;
 					let token = common.getCookie("token");
 					this.$store.dispatch('GetInfo', true);
+					/* 获取订单号 */
 					this.$axios({
 						method: 'get',
 						url: 'http://121.199.63.71:9006/create_order/?token='+token,
 					})
 					.then(function (response) {
 						if(response.data.code==200){
-							tar.$store.dispatch('GetInfo', false);
 							tar.show = true;
 							tar.$emit("clickIndex",true);
+							// tar.$store.dispatch('GetInfo', false);
+							tar.$axios({
+								method: 'get',
+								url: 'http://121.199.63.71:9006/order_list/?token='+token,
+							})
+							.then(function (response) {
+								if(response.data.code==200){
+									tar.$store.dispatch('GetInfo', false)
+									common.setCookie("ordersId",response.data.data[response.data.data.length-1].o_id,1);
+									console.log(response);
+								}
+							})
+							.catch(function (error) {
+								console.log(error);
+							});
 						}
 					})
 					.catch(function (error) {

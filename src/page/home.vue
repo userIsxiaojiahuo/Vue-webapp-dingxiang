@@ -122,7 +122,6 @@
           this.$store.dispatch("GetInfo", false);
           if (data.data.code === 206) {
             this.obj = data.data.data;
-            console.log(data)
           }
           this.obj = data.data.data;
         }
