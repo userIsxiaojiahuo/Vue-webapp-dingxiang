@@ -5,6 +5,7 @@
     </label>
     <label for="">
       <input type="number" @input="enter"
+             @blur="enters"
              v-model="phoneInput"
              placeholder="请输入手机号"
              class="phoneInput"
@@ -33,6 +34,9 @@
         } else {
           this.isShow = false
         }
+      },
+      enters(){
+        this.$emit("clickBtnNext",this.phoneInput)
       },
       handleClickSpan() {
         this.phoneInput = "";

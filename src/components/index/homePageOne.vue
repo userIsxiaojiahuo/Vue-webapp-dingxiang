@@ -23,28 +23,23 @@
   .homePageOne {
     width: 100%;
   }
-
   .indexPage {
     margin: 0 auto;
   }
-
   .indexPage span {
     display: inline-block;
     font-size: 48px;
     padding-top: 30px;
     margin-bottom: -20px;
   }
-
   .homePageOne span:nth-child(0) {
     color: #9d9d9d;
     font-size: 22px;
   }
-
   .homePageOne p {
     font-size: 48px;
     color: #333333;
   }
-
   .homePageOne .homeArticleWrapper {
     width: 100%;
     height: 520px;
@@ -54,8 +49,6 @@
     position: relative;
     box-shadow: 5px 5px 20px #999999;
   }
-
-
   h3 {
     position: absolute;
     top: 20px;
@@ -64,7 +57,6 @@
     font-size: 24px;
     padding: 0 20px;
   }
-
   .InfoTitle {
     position: absolute;
     top: 80px;

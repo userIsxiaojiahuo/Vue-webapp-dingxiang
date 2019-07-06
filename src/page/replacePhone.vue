@@ -5,11 +5,13 @@
     <!--  请输入新的手机号标题-->
     <changePhoneCon :changePhoneCon="newsPhone"></changePhoneCon>
     <!-- 文本框内容-->
-    <replacePhoneNum @inputNumber="getInputVal"></replacePhoneNum>
+    <replacePhoneNum @inputNumber="getInputVal" @clickBtnNext="clickBtnNexts"></replacePhoneNum>
     <!-- 下一步-->
     <changePhoneBtn :repacePhoneNext="repacePhone"
                     :isOk="isOk"
                     class="gain"
+                    @click.native="clickBtnNext"
+                    :phone="phone"
     ></changePhoneBtn>
   </div>
 </template>
@@ -44,7 +46,8 @@
         inputValue: "",
         headerReturnTitle: {
           title: "更换手机号"
-        }
+        },
+        phone:0
       }
     },
     methods: {
@@ -62,7 +65,26 @@
           this.repacePhone.path = "";
           this.isOk = false;
         }
+      },
+      clickBtnNexts(val){
+          this.phone = val;
+          console.log(val)
+      },
+      clickBtnNext(){
+        this.$axios({
+          method: 'post',
+          url: "http://121.199.63.71:9006/update_phone/",
+          data:{
+            phone:this.phone
+          }
+        }).then((Info) => {
+          console.log(Info)
+
+        })
       }
+    },
+    created() {
+
     }
   }
 </script>
