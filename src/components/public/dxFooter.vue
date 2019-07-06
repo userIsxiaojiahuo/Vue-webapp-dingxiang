@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="dx_tab">
-      <router-link :to="item.path" tag="p" v-for="(item,index) in footerText" :key="index">
-        <img :src="item.img" alt="" @click="item.click">
-        <span>{{item.title}}</span>
-      </router-link>
+      <p @click="checkPage(index)" v-for="(item,index) in footerText" :key="index">
+        <img :src="index===pageIndex?item.img:item.img_active" alt="">
+        <span :class="{active_color:index===pageIndex}">{{item.title}}</span>
+      </p>
     </div>
     <div class="popups">
       <van-popup v-model="show" position="bottom"
@@ -35,22 +35,18 @@
             img: require('../../assets/img/home/ic_home_s.png'),
             img_active: require('../../assets/img/home/ic_home_n.png'),
             path: '/home',
-            click: () => {
-            }
           },
           {
             title: '问诊',
             img: require('../../assets/img/home/ic_inquiry_homepage.png'),
+            img_active: require('../../assets/img/home/ic_inquiry_homepage.png'),
             path: '',
-            click: this.showPopup
           },
           {
             title: '我的',
-            img: require('../../assets/img/home/ic_mine_n.png'),
-            img_active: require('../../assets/img/home/ic_home_s.png'),
+            img_active: require('../../assets/img/home/ic_mine_n.png'),
+            img: require('../../assets/img/home/ic_mine_s.png'),
             path: '/mine',
-            click: () => {
-            }
           }
         ],
         popupsInfo: [
@@ -72,7 +68,8 @@
             popupsText: "按科室挑选合适的医生",
             path: '/askDoctor'
           },
-        ]
+        ],
+        pageIndex: 0
       }
     },
     components: {
@@ -86,6 +83,21 @@
       },
       handle() {
         this.show = false;
+      },
+      checkPage(index) {
+        if (index === 1) {
+          this.showPopup()
+        } else {
+          this.pageIndex = index;
+          this.$router.push(this.footerText[index].path)
+        }
+      }
+    },
+    created() {
+      if (this.$route.path === '/home') {
+        this.pageIndex = 0
+      } else if (this.$route.path === '/mine') {
+        this.pageIndex = 2
       }
     }
   }
@@ -151,5 +163,9 @@
     width: 64px;
     height: 64px;
     margin: 60px auto 0;
+  }
+
+  .active_color {
+    color: #28b7a3 !important;
   }
 </style>

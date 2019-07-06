@@ -72,6 +72,7 @@ const router = new Router({
         component: home,
         meta: {
           footerIsShow: true,
+          index: 2,
           keepAlive: true
         }
       },
@@ -81,6 +82,7 @@ const router = new Router({
         component: mine,
         meta: {
           footerIsShow: true,
+          index: 2
         }
       },
       {
