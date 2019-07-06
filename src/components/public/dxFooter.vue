@@ -2,7 +2,7 @@
   <div>
     <div class="dx_tab">
       <router-link :to="item.path" tag="p" v-for="(item,index) in footerText" :key="index">
-        <img :src="item.img" alt="" @click="item.click">
+        <img :src="item.img" alt="" @click="item.click" ref="footPic">
         <span>{{item.title}}</span>
       </router-link>
     </div>
@@ -47,7 +47,7 @@
           {
             title: '我的',
             img: require('../../assets/img/home/ic_mine_n.png'),
-            img_active: require('../../assets/img/home/ic_home_s.png'),
+            img_active: require('../../assets/img/home/ic_mine_s.png'),
             path: '/mine',
             click: () => {
             }
@@ -86,7 +86,7 @@
       },
       handle() {
         this.show = false;
-      }
+      },
     }
   }
 </script>

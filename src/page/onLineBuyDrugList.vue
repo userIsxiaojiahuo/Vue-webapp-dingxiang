@@ -3,7 +3,7 @@
     <!-- 公共的头部 -->
     <HeaderReturn :headerReturnTitle="headerReturn">
       <!-- 头部里面的搜索框 -->
-      <OnLineBuyListHeaber :onLineSearch="search"/>
+      <OnLineBuyListHeaber :onLineSearch="search" />
     </HeaderReturn>
     <!-- 药品列表 -->
     <OnLineBuyDrugListUl :drugList="drug" @toalNume="toalNume"/>

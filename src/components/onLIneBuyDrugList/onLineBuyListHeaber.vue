@@ -1,8 +1,8 @@
 <template>
-  <div class="onLineBuyListHeaber-input">
+  <router-link to="/drugSearch" tag="div" class="onLineBuyListHeaber-input">
     <img :src="onLineSearch.pic">
     <span>{{onLineSearch.title}}</span>
-  </div>
+  </router-link>
 </template>
 
 <script>
