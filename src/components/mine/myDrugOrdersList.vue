@@ -60,7 +60,8 @@
     padding: 0 20px;
     background: #FFFFFF;
     margin: 20px 0;
-    border-radius: 40px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 20px #999999;
   }
 
   .myDrugOrdersLi_box {
@@ -141,7 +142,4 @@
     color: crimson;
   }
 
-  .myDrugOrdersLi {
-    box-shadow:  3px 3px 20px #999999;
-  }
 </style>

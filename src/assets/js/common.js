@@ -4,7 +4,7 @@ const goBack = (_this) => {
     _this.$router.push({path: '/'});
     return false
   } else {
-    _this.$router.back()
+    _this.$router.history.go(-1)
   }
 };
 //地图
