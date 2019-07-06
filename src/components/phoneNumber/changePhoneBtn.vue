@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{path:repacePhoneNext.path,query:{phone:phone}}" tag="div"
+  <router-link :to="{path:repacePhoneNext.path,query:{phone:this.$route.query.userinfo?$route.query.userinfo:phone}}" tag="div"
                class="changePhoneBtnWrap">
     <div :class="isOk?'changePhoneBtn':'changeBg'"
          class="changePhoneBtn">{{repacePhoneNext.title}}

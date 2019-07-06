@@ -3,7 +3,7 @@
     <!--    顶部修改手机号-->
     <dxHeaderReturn :headerReturnTitle="repacePhoneNext"></dxHeaderReturn>
     <!--    content-->
-    <changePhoneNum></changePhoneNum>
+    <changePhoneNum :phone="phone"></changePhoneNum>
     <!--    btn-->
     <changePhoneBtn :repacePhoneNext="repacePhoneNext" :isOk="isOk"></changePhoneBtn>
   </div>
@@ -21,13 +21,17 @@
       changePhoneBtn,
       dxHeaderReturn
     },
+		created(){
+			this.phone = this.$route.query.userinfo
+		},
     data() {
       return {
         repacePhoneNext: {
           title: "修改手机号",
-          path: "/replacePhone"
+          path: "/replacePhone",
         },
-        isOk:true
+        isOk:true,
+				phone:0
       }
     }
   }

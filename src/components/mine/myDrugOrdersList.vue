@@ -4,7 +4,7 @@
 			<div class="myDrugOrdersLi_box">
 				<div class="orderInformation">
 					<div class="orderInformation_title">
-						<span>{{itme.o_time}}</span>
+						<span>{{translitionSate(itme.o_time)}}</span>
 						<span>订单号：{{itme.o_id}}</span>
 					</div>
 					<dxRightArrows/>
@@ -38,8 +38,12 @@
 		},
 		props:["DrugOrders"],
 		methods: {
-			
-		},
+			translitionSate(str){
+				let d = new Date(str);  
+				let  resDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(); 
+				return resDate;
+			}
+		}
 	}
 </script>
 

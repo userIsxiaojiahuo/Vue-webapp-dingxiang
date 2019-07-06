@@ -47,7 +47,7 @@
           newsPhoneTit: '输入验证码',
           newsPhoneDesc: '',
           newPhoneCurrent: '验证码已发送至:',
-          newPhone: 18703766795
+          newPhone: this.$route.query.phone
         },
         isOk: false,
         inputCode: 0
@@ -70,11 +70,13 @@
       //输入手机号点击按钮，发送请求
       clickCodeBtn() {
         let token = common.getCookie("token");
-        this.$axios.post("http://121.199.63.71:9006/change_phone/", {
+				console.log(this.inputCode,this.$route.query.phone,token);
+				let url = "http://121.199.63.71:9006/change_phone/?token="+token
+        this.$axios.post(url, {
           phone: this.$route.query.phone,
           input_code: this.inputCode
         }).then((Info) => {
-          // console.log(Info)
+          console.log(Info)
         })
       }
     },
