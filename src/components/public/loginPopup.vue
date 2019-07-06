@@ -42,7 +42,7 @@
         this.$store.dispatch("isLoginPopup", false);
       },
       goLogin() {
-        this.callOfLogin()
+        this.callOfLogin();
         this.$router.push('login')
       }
     }

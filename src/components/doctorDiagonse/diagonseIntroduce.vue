@@ -115,6 +115,7 @@
     margin-left: 14px;
   }
 
+<<<<<<< HEAD
   /*医院等级*/
   .hospitalLevel {
     width: 100%;
@@ -128,6 +129,23 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
+=======
+    /*医院等级*/
+    .hospitalLevel {
+        width: 100%;
+        height: 44px;
+        display: -webkit-flex;
+        align-items: center;
+        color: #6f7580;
+        font-size: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* !autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        -webkit-line-clamp: 1;
+    }
+>>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
 
   .hospitalLevel .Grade {
     width: 64px;
@@ -144,6 +162,7 @@
     margin-left: 14px;
   }
 
+<<<<<<< HEAD
   .hospitalName {
     display: -webkit-box;
     overflow: hidden;
@@ -170,6 +189,38 @@
     padding-right: 44px;
     letter-spacing: 1px; /*no*/
   }
+=======
+    .hospitalName {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* !autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        -webkit-line-clamp: 1;
+        min-width: 1px;
+        padding-right: 30px;
+        flex: 1;
+    }
+
+    /*擅长*/
+    .adept {
+        width: 100%;
+        height: 54px;
+        font-size: 24px;
+        color: #999999;
+        line-height: 54px;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* !autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        -webkit-line-clamp: 1;
+        padding-right: 44px;
+        letter-spacing: 1px; /*no*/
+    }
+>>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
 
   /*星级*/
   .startLevel {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mineListWrapper" @click="handleToUserMessage(path)">
+    <div class="mineListWrapper">
       <span class="listInfo">{{titleText}}</span>
       <dxRightArrows/>
     </div>
@@ -15,16 +15,9 @@
 
   export default {
     name: "mineListWrapper",
-    props: ["titleText", "path"],
+    props: ["titleText"],
     components: {
       dxRightArrows
     },
-    methods: {
-      handleToUserMessage(link) {
-        this.$router.push({
-          path: link
-        })
-      }
-    }
   }
 </script>

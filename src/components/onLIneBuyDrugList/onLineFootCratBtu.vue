@@ -4,12 +4,12 @@
 			to="cart"
 			tag="div"
 		>
-			<img src="../../assets/onLineImg/onLineBuyCrat.png">
-			<span v-if="false">0</span>
+			<img :src="pic">
+			<span v-if="isShow">{{drugToalNume}}</span>
 		</router-link>
 		<div class="onLineBuyFootNum">
-			<span class="onLineBuyFootNum-noe">已选0中药品</span>
-			<span class="onLineBuyFootNum-two" v-if="false">共0件</span>
+			<span class="onLineBuyFootNum-noe">已选{{drugToalNume}}中药品</span>
+			<span class="onLineBuyFootNum-two" v-if="isShow">共{{drugToalNume}}件</span>
 		</div>
 	</div>
 </template>
@@ -17,7 +17,28 @@
 <script>
 	/* 在线购药底部购物车按钮的图片和内容 */
 	export default{
-		name:"onLineFootCratBtu"
+		name:"onLineFootCratBtu",
+		props: ["drugToalNume"],
+		watch:{
+			drugToalNume:{
+				immediate:true,
+				handler(val){
+					if(this.drugToalNume){
+						this.isShow = true;
+						this.pic = require('../../assets/onLineImg/onLineBuyCrat-2.png')
+					}else{
+						this.isShow = false;
+						this.pic = require('../../assets/onLineImg/onLineBuyCrat.png')
+					}
+				}
+			}
+		},
+		data() {
+			return {
+				isShow: false,
+				pic:require('../../assets/onLineImg/onLineBuyCrat.png')
+			}
+		},
 	}
 </script>
 

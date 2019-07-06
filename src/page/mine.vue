@@ -5,7 +5,7 @@
     <!--我的问诊、处方、药品订单、讲师、测评-->
     <mineNav/>
     <!--下面列表-->
-    <mineListWrapper v-for="(item,index) in title" :path="item.path" :titleText="item.text"
+    <mineListWrapper v-for="(item,index) in title" @click.native="item.checkEvent" :titleText="item.text"
                      :key="index"/>
     <!--页面底部说明-->
     <dxUnderState/>
@@ -26,21 +26,31 @@
         title: [
           {
             text: "购物车",
-            path: '/cart'
+            checkEvent: () => {
+              this.common.isLogin(this, '/cart')
+            }
           },
           {
             text: "患者信息",
-            path: '/patientInformation'
+            checkEvent: () => {
+              this.common.isLogin(this, '/patientInformation')
+            }
           },
           {
             text: "设置",
-            path: '/setting'
+            checkEvent: () => {
+              this.$router.push('/setting')
+            }
           },
           {
             text: "用户反馈",
-            path: ''
-          }
-        ]
+            checkEvent: () => {
+              
+            }
+          },
+        ],
+        mineInfo: "",
+        isLogin: false,
       }
     },
     components: {
@@ -51,12 +61,23 @@
     },
     created() {
       let token = this.common.getCookie('token');
+<<<<<<< HEAD
       this.$axios({
         method: 'get',
         url: "http://121.199.63.71:9006/own_page/?token=" + token,
       }).then((returnInfo) => {
         // console.log(returnInfo)
       })
+=======
+      this.$axios.all([this.$axios.get("http://121.199.63.71:9006/own_page/?token=" + token),
+        this.$axios.get('http://121.199.63.71:9006/img_url/?token=' + token)
+      ]).then(this.$axios.spread((userResp, reposResp) => {
+        if (userResp.data.code === 200) {
+          this.newVue.$emit('mineInfo', userResp.data.data);
+          this.newVue.$emit('urlPhoto', reposResp.data);
+        }
+      }));
+>>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
     }
 
   }

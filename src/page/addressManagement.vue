@@ -10,6 +10,7 @@
 </template>
 
 <script>
+	import common from "../assets/js/common.js"
 	/* 顶部返回 */
 	import HeaderReturn from "../components/public/dxHeaderReturn.vue"
 	/* 地址列表 */
@@ -31,6 +32,22 @@
 					ico:require("../assets/onlineImg/ic_titlebar_back.png")
 				},
 			}
+		},
+		created(){
+			let tar = this;
+			let token = common.getCookie("token");
+			this.$axios({
+				method: 'get',
+				url: 'http://121.199.63.71:9006/receive_list/?token='+token,
+			})
+			.then(function (response) {
+				if(response.data.code==200){
+					tar.managementList = response.data.data;
+				}
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 		}
 	}
 </script>

@@ -2,15 +2,18 @@
     position start
 */
 .resume {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .resumeContent {
-    flex: 1;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  flex: 1;
+  overflow: hidden;
+}
+
+.safetySing {
+  width: 100%;
 }
 
 /**
@@ -22,26 +25,26 @@
 */
 
 .resumeCon {
-    background: #f4f4f4;
-    padding: 20px 0 20px 0;
+  background: #f4f4f4;
+  padding: 20px 0 20px 0;
 }
 
 .resumecontent {
-    background: white;
-    padding-left: 30px;
+  background: white;
+  padding-left: 30px;
 }
 
 .resumeTitle {
-    padding-right: 30px;
-    border-bottom: 1px solid #ebebeb; /*no*/
-    padding-bottom: 26px;
-    padding-top: 18px;
+  padding-right: 30px;
+  border-bottom: 1px solid #ebebeb; /*no*/
+  padding-bottom: 26px;
+  padding-top: 18px;
 }
 
 .resumeTitle > h3 {
-    font-size: 32px;
-    color: #333333;
-    line-height: 64px;
+  font-size: 32px;
+  color: #333333;
+  line-height: 64px;
 }
 
 /*
@@ -54,18 +57,18 @@
 */
 
 .messagecon > h3 {
-    font-size: 32px;
-    color: #333333;
-    line-height: 64px;
+  font-size: 32px;
+  color: #333333;
+  line-height: 64px;
 }
 
 .hospitalMessageTitle {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .messagecon {
-    padding-top: 18px;
-    /*border-bottom: 1px solid #ebebeb; !*no*!*/
+  padding-top: 18px;
+  /*border-bottom: 1px solid #ebebeb; !*no*!*/
 }
 
 /*
@@ -78,12 +81,16 @@
 */
 
 .resumeFoot {
-    width: 100%;
-    height: 178px;
-    background: #f4f4f4;
-    padding: 30px 0 0 30px;
-    font-size: 20px;
-    color: #999999;
+  width: 100%;
+  height: 178px;
+  background: #f4f4f4;
+  padding: 30px 0 0 30px;
+  font-size: 20px;
+  color: #999999;
+}
+
+.safetySing {
+  position: absolute;
 }
 
 /*

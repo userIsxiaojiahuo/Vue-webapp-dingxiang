@@ -2,7 +2,7 @@
     <div class="hospitalMessageTitle">
         <div class="messagecon">
             <h3>医院信息</h3>
-            <MessageList :hospitalMess="doctorMessage"></MessageList>
+            <MessageList :messageImg="messageImg" :hospitalMess="doctorMessage"></MessageList>
         </div>
     </div>
 </template>
@@ -15,9 +15,6 @@
         components: {
             MessageList
         },
-        props: ["doctorMessage"],
-        created() {
-            console.log(this.doctorMessage)
-        }
+        props: ["doctorMessage", "messageImg"]
     }
 </script>

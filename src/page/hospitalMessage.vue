@@ -3,9 +3,11 @@
         <dxHeaderReturn :headerReturnTitle="headerMessage">
             <dxHeaderIconWrap/>
         </dxHeaderReturn>
-        <div class="hospitalContent">
+        <div class="hospitalContent" v-if="isShowLoading">
             <div class="hospitalMessageTitle">
-                <MessageList :isShowHospital="isShowHospital" :hospitalMess="hospitalMess"></MessageList>
+                <MessageList :messageImg="messageImg"
+                             :isShowHospital="isShowHospital"
+                             :hospitalMess="hospitalMess"></MessageList>
             </div>
             <div class="hospitalMessList">
                 <HospitalDoctorList
@@ -41,6 +43,7 @@
         data() {
             return {
                 hospitalDoctors: 0,
+                isShowLoading: false,
                 headerMessage: {
                     title: "医院详情",
                     icon: require("../assets/images/askdoctor/ic_titlebar_back.png"),
@@ -49,7 +52,13 @@
                 },
                 isShowHospital: {
                     showHeader: false,
-                    isShowAskDiv: false
+                    isShowAskDiv: false,
+                },
+                messageImg: {
+                    nameImg: require("../assets/images/askdoctor/hospitalInfo/ic_hospital_name.png"),
+                    addressImg: require("../assets/images/askdoctor/hospitalInfo/ic_position.png"),
+                    phoneImg: require("../assets/images/askdoctor/hospitalInfo/ic_tel.png"),
+                    isShowHeaderImg: false
                 },
                 hospitalMess: {},
                 doctorMessages: [],
@@ -73,6 +82,7 @@
             this.$axios.get(url).then((data) => {
                 if (data.data.code === 200) {
                     this.$store.dispatch("GetInfo", false);
+                    this.isShowLoading = true;
                     console.log(data);
                     this.hospitalMess = data.data.hosp.hosp;
                     this.doctorMessages = data.data.hosp.doctors;

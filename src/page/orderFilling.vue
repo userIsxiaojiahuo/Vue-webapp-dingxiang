@@ -78,12 +78,6 @@
 						isCalss: false
 					},
 					{
-						title: "支付方式",
-						phone: "",
-						text: "在线支付",
-						isCalss: false
-					},
-					{
 						title: "开具发票",
 						phone: "拨打4000156199详询",
 						text: "暂不支持",

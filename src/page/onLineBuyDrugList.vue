@@ -6,11 +6,11 @@
       <OnLineBuyListHeaber :onLineSearch="search"/>
     </HeaderReturn>
     <!-- 药品列表 -->
-    <OnLineBuyDrugListUl :drugList="drug" :isDrugBtu="isDrugBtu"/>
+    <OnLineBuyDrugListUl :drugList="drug" @toalNume="toalNume"/>
     <!-- 药品列表底部购物车和购买按钮 -->
     <OnLineBuyFoot :onLineBuyFoot="onLineBuyFoot">
       <!-- 在线购药底部购物车按钮的图片和内容 -->
-      <OnLineFootCratBtu/>
+      <OnLineFootCratBtu :drugToalNume="drugToalNume"/>
     </OnLineBuyFoot>
   </div>
 </template>
@@ -76,16 +76,20 @@
           pic: require("../assets/onLineImg/ic_search_after.png"),
           title: "痘痘"
         },
-				isDrugBtu:true,
         drug: [],
         onLineBuyFoot: {
           title: "去支付",
           path: "/orderFilling"
         },
-        show: false
+        show: false,
+				drugToalNume:0
       }
     },
-    methods: {}
+    methods: {
+			toalNume(val){
+				this.drugToalNume = val;
+			}
+		}
   }
 </script>
 <style src="../assets/css/onLIneBuyDrugList.css"></style>

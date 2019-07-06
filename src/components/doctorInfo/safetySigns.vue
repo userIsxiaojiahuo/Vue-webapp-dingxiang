@@ -9,3 +9,9 @@
         name: "safetySigns"
     }
 </script>
+<style scoped>
+    .safety > img {
+        width: 100%;
+        height: 275px;
+    }
+</style>

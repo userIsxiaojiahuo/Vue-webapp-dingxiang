@@ -109,7 +109,7 @@
             path: "/classification"
           },
           {
-            imgs: require('../assets/img/home/nav-8.png'),
+            imgs: require('../assets/img/home/baby.png'),
             title: '孕期管家',
             path: ""
           }
@@ -121,11 +121,19 @@
     created() {
       this.$store.dispatch("GetInfo", true);
       this.$axios.get("http://121.199.63.71:9006/article/").then((data) => {
-        if (data.data.code === 206) {
+        if (data.status === 200) {
           this.$store.dispatch("GetInfo", false);
+          if (data.data.code === 206) {
+            this.obj = data.data.data;
+            console.log(data)
+          }
           this.obj = data.data.data;
+<<<<<<< HEAD
           // console.log(this.obj)
+=======
+>>>>>>> f9cf7918a0f59d1ee4b67a4aae97becf9dbde424
         }
+
       })
     },
   }

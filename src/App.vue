@@ -1,6 +1,10 @@
 <template>
   <div class="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="this.$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!this.$route.meta.keepAlive"></router-view>
+    <loginPopup :popupIsShow="$store.state.loginPopups"/>
     <dxLoading class="loading" v-if="$store.state.isGetInfo"></dxLoading>
     <dxFooter v-if="this.$route.meta.footerIsShow"/>
   </div>
@@ -9,11 +13,17 @@
 <script>
   import dxFooter from './components/public/dxFooter'
   import dxLoading from './components/public/dxLoading'
+  import loginPopup from './components/public/loginPopup'
 
 
   export default {
     name: 'App',
-    components: {dxFooter, dxLoading}
+		provide(){
+			return{
+				reload:this.reload
+			}
+		},
+    components: {dxFooter, dxLoading, loginPopup}
   }
 </script>
 

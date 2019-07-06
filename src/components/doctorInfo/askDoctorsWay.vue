@@ -1,6 +1,6 @@
 <template>
     <div class="askWay">
-        <div class="askWayContent">
+        <div class="askWayContent" @click="handleToInfo">
             <h3>问诊方式</h3>
             <div class="askWayPrice">
                 <span>图文
@@ -20,6 +20,11 @@
         props: {
             doctorMessage: {
                 type: Object
+            }
+        },
+        methods: {
+            handleToInfo() {
+                this.$emit("info", true)
             }
         }
     }

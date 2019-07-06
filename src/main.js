@@ -10,14 +10,16 @@ import qs from "qs"
 import common from './assets/js/common.js'
 import newVue from './assets/js/newVue.js'
 import "./assets/css/reset.css"
-import {AddressEdit, Popup, PasswordInput, NumberKeyboard, SwipeCell, Button, Checkbox, Toast,CheckboxGroup} from 'vant';
+import {AddressEdit, Popup, PasswordInput, NumberKeyboard, SwipeCell, Button, Checkbox, CheckboxGroup,Notify,Toast,Dialog} from 'vant';
 
 axios.defaults.withCredentials = true;
 
 Vue.prototype.$axios = axios;
 Vue.prototype.common = common;
 Vue.prototype.newVue = newVue;
-Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard).use(SwipeCell).use(Button).use(Toast).use(Checkbox).use(CheckboxGroup);
+
+Vue.use(AddressEdit).use(Popup).use(PasswordInput).use(NumberKeyboard).use(SwipeCell).use(Button).use(Checkbox).use(CheckboxGroup).use(Toast).use(Dialog).use(Notify);
+
 Vue.config.productionTip = false;
 
 new Vue({

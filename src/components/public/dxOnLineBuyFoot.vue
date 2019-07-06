@@ -3,15 +3,43 @@
 		<div class="onLineBuyFoot-left">
 			<slot></slot>
 		</div>
-			<router-link :to="onLineBuyFoot.path" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
+			<router-link @click.native="placeOrder(onLineBuyFoot.title)" :to="{path:onLineBuyFoot.path,query:{drugId:isDrugIds,cartPirce:toalBcartPirce}}" tag="div" class="onLineBuyFoot-btu">{{onLineBuyFoot.title}}</router-link>
 	</div>
 </template>
 
 <script>
+	import common from "../../assets/js/common.js"
   /* 药品列表底部购物车和购买按钮 */
   export default {
     name: "onLineBuyFoot",
-    props: ["onLineBuyFoot"]
+    props: ["onLineBuyFoot","isDrugIds","toalBcartPirce"],
+	methods: {
+		placeOrder(val){
+			if(val=="立即支付"){
+				let token = common.getCookie("token");
+				this.$axios({
+					method: 'get',
+					url: 'http://121.199.63.71:9006/create_order/?token='+token,
+				})
+				.then(function (response) {
+					if(response.data.code==200){
+					}
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			}
+		}
+	},
+// 	watch:{
+// 		isDrugIds:{
+// 			immediate: true,
+// 			handler(info) {
+// 				this.show = info
+// 			}
+// 		}
+// 	}	
   }
 </script>
 

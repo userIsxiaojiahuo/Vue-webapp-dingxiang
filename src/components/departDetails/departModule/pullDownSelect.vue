@@ -107,9 +107,9 @@
         background: none;
     }
 
-    .doctorSelect {
-        padding-left: 40px;
-        /*overflow: hidden;*/
-    }
+    /*.doctorSelect {*/
+    /*    padding-left: 40px;*/
+    /*    !*overflow: hidden;*!*/
+    /*}*/
 
 </style>

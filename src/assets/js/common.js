@@ -4,21 +4,25 @@ const goBack = (_this) => {
     _this.$router.push({path: '/'});
     return false
   } else {
-    _this.$router.go(-1)
+    _this.$router.back()
   }
 };
 //地图
-const createMap = () => {
-
+const isLogin = function (_this, router) {
+  if (getCookie('token')) {
+    _this.$router.push(router)
+  } else {
+    _this.$store.dispatch("isLoginPopup", true);
+  }
 };
-
+// 设置cookie
 const setCookie = (cname, cvalue, exdays) => {
   let d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";//path=/是根路径
 };
-
+//获取cookie
 const getCookie = (cname) => {
   let name = cname + "=";
   let ca = document.cookie.split(';');
@@ -29,4 +33,8 @@ const getCookie = (cname) => {
   }
   return "";
 };
-export default {goBack, createMap, setCookie, getCookie}
+
+const removeCookie = (cname) => {
+  setCookie(cname, ' ', -1);
+};
+export default {goBack, isLogin, setCookie, getCookie, removeCookie}

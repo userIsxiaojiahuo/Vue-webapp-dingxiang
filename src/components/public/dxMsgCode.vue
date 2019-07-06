@@ -1,16 +1,14 @@
 <template>
-  <div class="codeBtn" :class="{codeBtnOk:IsMsgCode}">
-    <span>获取验证码</span>
-  </div>
+  <button class="codeBtn" :disabled="IsMsgCode">
+    获取验证码
+  </button>
 </template>
 
 <script>
   export default {
     name: "dxMsgCode",
     props: ['IsMsgCode'],
-    methods: {
-
-    }
+    methods: {}
   }
 </script>
 
@@ -18,7 +16,6 @@
   .codeBtn {
     width: 198px;
     height: 56px;
-    background: #ededed;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -26,13 +23,19 @@
     margin-right: 18px;
     position: absolute;
     right: 0;
-    color: #cccccc;
     font-size: 24px;
+    border: none;
+    background: #ededed;
+    color: #484848;
+  }
+
+  button[disabled] {
+    color: #cccccc;
+    background: #ededed;
   }
 
   .codeBtnOk {
-    background: #ededed;
-    color: #484848;
+
   }
 
 </style>
