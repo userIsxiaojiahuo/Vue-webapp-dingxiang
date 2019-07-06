@@ -40,7 +40,7 @@
           newsPhoneTit: '请输入新的手机号',
           newsPhoneDesc: '更换手机号后，下次登录可使用新的手机号登录。',
           newPhoneCurrent: '当前手机号：',
-          newPhone: 18703766795
+          newPhone: this.$route.query.phone
         },
         isOk: false,
         inputValue: "",
@@ -52,7 +52,6 @@
     },
     methods: {
       getInputVal(data, reg) {
-        // console.log(data);
         this.inputValue = data;
         if (this.inputValue !== "") {
           this.isOk = true;
@@ -68,7 +67,6 @@
       },
       clickBtnNexts(val){
           this.phone = val;
-          console.log(val)
       },
       clickBtnNext(){
         this.$axios({

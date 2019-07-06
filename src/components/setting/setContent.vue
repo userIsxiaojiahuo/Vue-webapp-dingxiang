@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="titMsg.path" tag="div" class="photoBox">
+  <router-link :to="{path:titMsg.path,query:{itme:titMsg.tit}}" tag="div" class="photoBox">
     <span>{{titMsg.name}}</span>
     <div class="right">
       <slot name="photoPic"></slot>

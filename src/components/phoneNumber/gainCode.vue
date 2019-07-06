@@ -5,6 +5,7 @@
              oninput="if(value.length>6) value=value.slice(0,6)"
              class="phoneInput"
              @input="enter"
+						 @blur="enters"
              v-model="phoneInput"/>
     </label>
     <div class="againAcquire">
@@ -24,7 +25,10 @@
     methods: {
       enter() {
         this.$emit("inputNumber", this.phoneInput)
-      }
+      },
+			enters(){
+				this.$emit("inputNumbers", this.phoneInput)
+			}
     }
   }
 </script>

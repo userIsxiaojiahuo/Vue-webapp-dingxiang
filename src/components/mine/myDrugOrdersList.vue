@@ -1,44 +1,51 @@
 <template>
-  <div class="myDrugOrdersLiBox">
-    <div class="myDrugOrdersLi" v-for="itme in DrugOrders">
-      <div class="myDrugOrdersLi_box">
-        <div class="orderInformation">
-          <div class="orderInformation_title">
-            <span>{{itme.o_time}}</span>
-            <span>订单号：{{itme.o_id}}</span>
-          </div>
-          <dxRightArrows/>
-        </div>
-        <div class="orderDrug">
-          <div class="orderDrug_pic">
-            <img :src="itme.med_detail.med_img">
-          </div>
-          <div class="orderDrug_info">
-            <h2>药名：{{itme.med_detail.med_name}}</h2>
-            <span>规格：{{itme.med_detail.packing_size}}</span>
-          </div>
-          <div class="orderDrug_picer">
-            <span>共计{{itme.med_detail.o_med_num}}件</span>
-            <span>￥{{itme.med_detail.o_med_price}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="myDrugOrdersLiBox">
+		<div class="myDrugOrdersLi" v-for="itme in DrugOrders">
+			<div class="myDrugOrdersLi_box">
+				<div class="orderInformation">
+					<div class="orderInformation_title">
+						<span>{{translitionSate(itme.o_time)}}</span>
+						<span>订单号：{{itme.o_id}}</span>
+					</div>
+					<dxRightArrows/>
+				</div>
+				<div class="orderDrug">
+					<div class="orderDrug_pic">
+						<img :src="itme.med_detail.med_img">
+					</div>
+					<div class="orderDrug_info">
+						<h2>药名：{{itme.med_detail.med_name}}</h2>
+						<span>规格：{{itme.med_detail.packing_size}}</span>
+					</div>
+					<div class="orderDrug_picer">
+						<span>共计{{itme.med_detail.o_med_num}}件</span>
+						<span>￥{{itme.med_detail.o_med_price}}</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
 </template>
 
 <script>
-  import common from "../../assets/js/common.js"
-  import dxRightArrows from '../public/dxRightArrows.vue'
-  /* 订单列表 li */
-  export default {
-    name: "myDrugOrdersLi",
-    components: {
-      dxRightArrows
-    },
-    props: ["DrugOrders"],
-    methods: {},
-  }
+	import common from "../../assets/js/common.js"
+	import dxRightArrows from '../public/dxRightArrows.vue'
+	/* 订单列表 li */
+	export default{
+		name:"myDrugOrdersLi",
+		components:{
+			dxRightArrows
+		},
+		props:["DrugOrders"],
+		methods: {
+			translitionSate(str){
+				let d = new Date(str);  
+				let  resDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(); 
+				return resDate;
+			}
+		}
+	}
+  
 </script>
 
 <style scoped>
